@@ -1,33 +1,38 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class CharacterMoveController : MonoBehaviour
 {
-    [SerializeField, Range(0f, 100f)] 
-    float maxSpeed = 10f;
-    [SerializeField, Range(0f, 100f)] 
-    float maxAccelerate = 10f;
-
-    private Vector2 _playerInput;
+    [SerializeField, Range(0f, 100f)] float maxSpeed = 10f;
+    [SerializeField, Range(0f, 100f)] float maxAccelerate = 10f;
+    [SerializeField, Range(0f, 100f)] float maxAirAccelerate = 1f; // hard to control when inair
+    [SerializeField, Range(0f, 10f)] float jumpHeight = 2f;
+    [SerializeField, Range(0, 5)] int maxAirJumps = 2;
 
     private Rigidbody _body;
 
+    private Vector2 _playerInput;
     private Vector3 _desiredVelocity;
+    private bool _desiredJump;
+
+    private float _currentAccelerate;
     private Vector3 _velocity;
-    private Vector3 _displacement;
     private float _maxSpeedChange;
+    private int _currentAirJump;
+    private float _jumpSpeed;
 
-
+    public bool OnGround => _onGround;
+    private bool _onGround;
 
     private void Awake()
     {
         _body = GetComponent<Rigidbody>();
-
-        _desiredVelocity = Vector3.zero;
-        _velocity = Vector3.zero;
-        _maxSpeedChange = 0f;
     }
+
+    private void OnCollisionEnter(Collision collision) => EvaluateCollision(collision);
+    private void OnCollisionStay(Collision collision) => EvaluateCollision(collision);
 
     private void Update()
     {
@@ -36,13 +41,61 @@ public class CharacterMoveController : MonoBehaviour
         _playerInput = Vector2.ClampMagnitude(_playerInput, 1f);
 
         _desiredVelocity.x = _playerInput.x;
+        _desiredVelocity.y = 0f;
         _desiredVelocity.z = _playerInput.y;
         _desiredVelocity *= maxSpeed;
 
-        _body.velocity = _velocity;
-        _maxSpeedChange = maxAccelerate * Time.deltaTime;
+        // true until explicity set it false
+        _desiredJump |= Input.GetButtonDown("Jump");
+    }
+
+    private void FixedUpdate()
+    {
+        UpdateState();
+
+        _currentAccelerate = _onGround ? maxAccelerate : maxAirAccelerate;
+        _maxSpeedChange = _currentAccelerate * Time.deltaTime;
         _velocity.x = Mathf.MoveTowards(_velocity.x, _desiredVelocity.x, _maxSpeedChange);
         _velocity.z = Mathf.MoveTowards(_velocity.z, _desiredVelocity.z, _maxSpeedChange);
+
+        if (_desiredJump)
+        {
+            _desiredJump = false;
+            Jump();
+        }
+
         _body.velocity = _velocity;
+
+        _onGround = false;
+    }
+
+    private void UpdateState()
+    {
+        _velocity = _body.velocity;
+        if (_onGround) _currentAirJump = 0;
+    }
+
+    private void Jump()
+    {
+        if (_onGround || _currentAirJump < maxAirJumps)
+        {
+            _currentAirJump++;
+            _jumpSpeed = Mathf.Sqrt(-2f * Physics.gravity.y * jumpHeight);
+
+            // limit upward velocity
+            if (_velocity.y > 0f)
+                _jumpSpeed = Mathf.Max(_jumpSpeed - _velocity.y, 0f);
+
+            _velocity.y += _jumpSpeed;
+        }
+    }
+
+    private void EvaluateCollision(Collision collision)
+    {
+        for (int i = 0; i < collision.contactCount; i++)
+        {
+            Vector3 normal = collision.GetContact(i).normal;
+            _onGround |= normal.y >= 0.9f;
+        }
     }
 }
