@@ -27,7 +27,7 @@ public class CharacterMoveController : MonoBehaviour
     private float _maxSpeedChange;
     private int _currentAirJump;
     private float _jumpSpeed;
-    // While in air/double jump, not have contact normal => use Vector3.up
+    // While in air/double jump we not have contact normal => use Vector3.up
     private Vector3 _currentContactNormal;
 
     public bool OnGround => _onGround;
