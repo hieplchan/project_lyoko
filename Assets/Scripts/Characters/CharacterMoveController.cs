@@ -65,11 +65,7 @@ public class CharacterMoveController : MonoBehaviour
     private void FixedUpdate()
     {
         UpdateState();
-
-        _currentAccelerate = _onGround ? maxAccelerate : maxAirAccelerate;
-        _maxSpeedChange = _currentAccelerate * Time.deltaTime;
-        _velocity.x = Mathf.MoveTowards(_velocity.x, _desiredVelocity.x, _maxSpeedChange);
-        _velocity.z = Mathf.MoveTowards(_velocity.z, _desiredVelocity.z, _maxSpeedChange);
+        AdjustVelocity();
 
         if (_desiredJump)
         {
@@ -79,7 +75,7 @@ public class CharacterMoveController : MonoBehaviour
 
         _body.velocity = _velocity;
 
-        _onGround = false;
+        ClearState();
     }
 
     private void UpdateState()
@@ -88,12 +84,17 @@ public class CharacterMoveController : MonoBehaviour
         if (_onGround)
         {
             _currentAirJump = 0;
+            _currentContactNormal.Normalize();
         }
         else
-        {
-            
+        {            
             _currentContactNormal = Vector3.up;
         }
+    }
+    private void ClearState()
+    {
+        _onGround = false;
+        _currentContactNormal = Vector3.zero;
     }
 
     // https://catlikecoding.com/unity/tutorials/movement/physics/#2.2
@@ -115,6 +116,24 @@ public class CharacterMoveController : MonoBehaviour
         }
     }
 
+    // https://catlikecoding.com/unity/tutorials/movement/physics/#3.5
+    private void AdjustVelocity()
+    {
+        // Project XZ plant to current contact plane
+        Vector3 xAxis = ProjectOnContactPlane(Vector3.right).normalized;
+        Vector3 zAxis = ProjectOnContactPlane(Vector3.forward).normalized;
+
+        // Project velocity to new current plane
+        float currentX = Vector3.Dot(_velocity, xAxis);
+        float currentZ = Vector3.Dot(_velocity, zAxis);
+
+        _currentAccelerate = _onGround ? maxAccelerate : maxAirAccelerate;
+        _maxSpeedChange = _currentAccelerate * Time.deltaTime;
+        float newX = Mathf.MoveTowards(currentX, _desiredVelocity.x, _maxSpeedChange);
+        float newZ = Mathf.MoveTowards(currentZ, _desiredVelocity.z, _maxSpeedChange);
+        _velocity += xAxis * (newX - currentX) + zAxis * (newZ - currentZ);
+    }
+
     // https://catlikecoding.com/unity/tutorials/movement/physics/#3.3
     private void EvaluateCollision(Collision collision)
     {
@@ -124,8 +143,15 @@ public class CharacterMoveController : MonoBehaviour
             if (normal.y >= _minGroundDotProduct)
             {
                 _onGround = true;
-                _currentContactNormal = normal;
+                _currentContactNormal += normal;
             }
         }
+    }
+
+    // vector = x + normal.dot(normal, vector)
+    // => x = vector - normal.dot(normal, vector)
+    Vector3 ProjectOnContactPlane(Vector3 vector)
+    {
+        return vector - _currentContactNormal * Vector3.Dot(_currentContactNormal, vector);
     }
 }
