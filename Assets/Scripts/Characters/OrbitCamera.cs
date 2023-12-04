@@ -6,20 +6,33 @@ using UnityEngine;
 [RequireComponent(typeof(Camera))]
 public class OrbitCamera : MonoBehaviour
 {
-    [SerializeField]                    Transform focus = default;
-    [SerializeField, Range(1f, 20f)]    float distance = 5f;
-    [SerializeField, Min(0f)]           float focusRadius = 1f;
-    [SerializeField, Min(0f)]           float reponsiveness = 0.5f; // focusCentering 0.5f = mean halve distance/sec
-    [SerializeField, Min(0f)]           float minCenteringDistance = 0.01f; // ignore if centering distance < this
-    [SerializeField, Range(1f, 360f)]   float rotationSpeed = 90f; // 90 = 90 degree/sec
+    private const float MIN_CENTERING_DISTANCE = 0.01f; // ignore centering if distance < this
+    private const float INPUT_NOISE = 0.001f;
 
+    [Header("Camera Focus")]
+    [SerializeField]                    Transform focusTarget = default;
+    [SerializeField, Range(1f, 20f)]    float focusDistance = 5f;
+    [SerializeField, Min(0f)]           float focusRadius = 1f;
+    [SerializeField, Range(0f, 1f)]     float focusReponsiveness = 0.5f; // 0.5f = mean halve distance/sec
+
+    [Header("Camera Orbit")]
+    [SerializeField, Range(1f, 360f)]   float rotationSpeed = 90f; // 90 = 90 degree/sec
+    [SerializeField, Range(-89f, 89f)]  float minVerticalAngle = -30f;
+    [SerializeField, Range(-89f, 89f)]  float maxVerticalAngle = 60f;
 
     private Vector3 _focusPoint = new Vector3();
     private Vector2 _orbitAngles = new Vector2(45f, 0f);
 
     private void Awake()
     {
-        _focusPoint = focus.position;
+        _focusPoint = focusTarget.position;
+        transform.localRotation = Quaternion.Euler(_orbitAngles);
+    }
+
+    private void OnValidate()
+    {
+        if (maxVerticalAngle < minVerticalAngle)
+            maxVerticalAngle = minVerticalAngle;
     }
 
     private void LateUpdate()
@@ -27,9 +40,19 @@ public class OrbitCamera : MonoBehaviour
         UpdateFocusPoint();
         ManualRotation();
 
-        Quaternion lookRotation = Quaternion.Euler(_orbitAngles);
-        Vector3 lookDirection = lookRotation * transform.forward;
-        Vector3 lookPosition = _focusPoint - lookDirection * distance;
+        Quaternion lookRotation;
+        if (ManualRotation())
+        {
+            ConstrainAngles();
+            lookRotation = Quaternion.Euler(_orbitAngles);
+        }
+        else
+        {
+            lookRotation = transform.localRotation;
+        }
+
+        Vector3 lookDirection = lookRotation * Vector3.forward;
+        Vector3 lookPosition = _focusPoint - lookDirection * focusDistance;
 
         transform.SetPositionAndRotation(lookPosition, lookRotation);
     }
@@ -37,26 +60,42 @@ public class OrbitCamera : MonoBehaviour
     // https://catlikecoding.com/unity/tutorials/movement/orbit-camera/#1.4
     private void UpdateFocusPoint()
     {
-        Vector3 targetPoint = focus.position;
+        Vector3 targetPoint = focusTarget.position;
         float distance = Vector3.Distance(targetPoint, _focusPoint);
 
         float t = 1f;
-        if (distance > minCenteringDistance)
-            t = Mathf.Pow(1 - reponsiveness, Time.unscaledDeltaTime);
+        if (distance > MIN_CENTERING_DISTANCE)
+            t = Mathf.Pow(1 - focusReponsiveness, Time.unscaledDeltaTime);
         if (distance > focusRadius)
             t = Mathf.Min(t, focusRadius / distance);
 
         _focusPoint = Vector3.Lerp(targetPoint, _focusPoint, t);
     }
 
-    private void ManualRotation()
+    private bool ManualRotation()
     {
         Vector2 input = new Vector2(
-            Input.GetAxis("Vertical Camera"),
-            Input.GetAxis("Horizontal Camera"));
+            Input.GetAxis("Camera Vertical"),
+            Input.GetAxis("Camera Horizontal"));
 
-        const float e = 0.001f; // input noise
-        if (Mathf.Abs(input.x) > e || Mathf.Abs(input.y) > e)
+        if (Mathf.Abs(input.x) > INPUT_NOISE || Mathf.Abs(input.y) > INPUT_NOISE)
+        {
             _orbitAngles += rotationSpeed * Time.unscaledDeltaTime * input;
+            return true;
+        }
+        else
+        {
+            return false;
+        }            
+    }
+
+    private void ConstrainAngles()
+    {
+        _orbitAngles.x = Mathf.Clamp(_orbitAngles.x, minVerticalAngle, maxVerticalAngle);
+
+        if (_orbitAngles.y < 0)
+            _orbitAngles.y += 360f;
+        else if (_orbitAngles.y > 360)
+            _orbitAngles.y -= 360f;
     }
 }

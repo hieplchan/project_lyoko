@@ -1608,6 +1608,12 @@ Mesh:
     offset: 0
     size: 0
     path: 
+--- !u!4 &257944234 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8453045613011257762, guid: 27ab6436b39022048ae6baf5ee6b1eb9,
+    type: 3}
+  m_PrefabInstance: {fileID: 316943451}
+  m_PrefabAsset: {fileID: 0}
 --- !u!43 &275887493
 Mesh:
   m_ObjectHideFlags: 0
@@ -2177,12 +2183,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 27ab6436b39022048ae6baf5ee6b1eb9, type: 3}
---- !u!4 &316943452 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 7624395085120963045, guid: 27ab6436b39022048ae6baf5ee6b1eb9,
-    type: 3}
-  m_PrefabInstance: {fileID: 316943451}
-  m_PrefabAsset: {fileID: 0}
 --- !u!43 &329040658
 Mesh:
   m_ObjectHideFlags: 0
@@ -10615,9 +10615,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: efe2c55f74d9c8240928350b8ccc74e9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  focus: {fileID: 316943452}
+  focusTarget: {fileID: 257944234}
+  focusDistance: 5
   focusRadius: 1
-  distance: 5
+  focusReponsiveness: 0.5
+  rotationSpeed: 90
 --- !u!43 &2145918718
 Mesh:
   m_ObjectHideFlags: 0
