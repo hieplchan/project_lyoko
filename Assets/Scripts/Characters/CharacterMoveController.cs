@@ -5,15 +5,15 @@ using UnityEngine;
 
 public class CharacterMoveController : MonoBehaviour
 {
-    [SerializeField, Range(0f, 100f)] float maxSpeed = 10f;
-    [SerializeField, Range(0f, 100f)] float maxAccelerate = 10f;
-    [Tooltip("Hard to control when in air")]
-    [SerializeField, Range(0f, 100f)] float maxAirAccelerate = 1f;
-    [Tooltip("Dowble jump, tripble jump...")]
-    [SerializeField, Range(0, 5)] int maxAirJumps = 2;
-    [Tooltip("How high character can do in single jump")]
-    [SerializeField, Range(0f, 10f)] float jumpHeight = 2f;
-    [SerializeField, Range(0f, 90f)] float maxGroundAngle = 25f;
+    [SerializeField, Range(0f, 100f)]               float maxSpeed = 10f;
+    [SerializeField, Range(0f, 100f)]               float maxAccelerate = 10f;
+    // Hard to control when in air
+    [SerializeField, Range(0f, 100f)]               float maxAirAccelerate = 1f;
+    // Dowble jump, tripble jump...
+    [SerializeField, Range(0, 5)]                   int maxAirJumps = 2;
+    // How high character can do in single jump
+    [SerializeField, Range(0f, 10f)]                float jumpHeight = 2f;
+    [SerializeField, Range(0f, 90f)]                float maxGroundAngle = 25f;
 
     private Rigidbody _body;
 
