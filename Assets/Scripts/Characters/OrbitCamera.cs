@@ -21,6 +21,7 @@ public class OrbitCamera : MonoBehaviour
     [SerializeField, Range(-89f, 89f)]  float minVerticalAngle = -30f;
     [SerializeField, Range(-89f, 89f)]  float maxVerticalAngle = 60f;
     [SerializeField, Min(0f)]           float horizontalAlignDelay = 5f; // honizontal = behind character
+    [SerializeField, Range(0f, 90f)]    float alignSmoothRange = 45f; // above this, rotate at full speed
 
     private Vector3 _focusPoint, _prevFocusPoint;
     private Vector2 _orbitAngles = new Vector2(45f, 0f);
@@ -77,6 +78,7 @@ public class OrbitCamera : MonoBehaviour
         _focusPoint = Vector3.Lerp(targetPoint, _focusPoint, t);
     }
 
+    // return true if manual rotate change camera orbit angle
     private bool ManualRotation()
     {
         Vector2 input = new Vector2(
@@ -95,12 +97,14 @@ public class OrbitCamera : MonoBehaviour
         }            
     }
 
+    // return true if auto rotate change camera orbit angle
     private bool AutomaticRotation()
     {
         if (Time.unscaledTime - _lastManualRotationTime < horizontalAlignDelay) 
             return false;
 
-        // Top down XZ plane
+        // Top down XZ plane movement
+        // Idea is to use this movement vector as an heading angle of camera
         Vector2 movement = new Vector2(
             _focusPoint.x - _prevFocusPoint.x,
             _focusPoint.z - _prevFocusPoint.z);
@@ -109,7 +113,15 @@ public class OrbitCamera : MonoBehaviour
         if (movementDeltaSqr < MIN_MOVEMENT_SQR_MAGNITUDE) return false;
 
         float headingAngle = GetAngle(movement / Mathf.Sqrt(movementDeltaSqr));
-        _orbitAngles.y = headingAngle;
+
+        // smooth out the rotation change
+        float deltaAbs = Mathf.Abs(Mathf.DeltaAngle(_orbitAngles.y, headingAngle));
+        float rotationChange = rotationSpeed * Mathf.Min(Time.unscaledDeltaTime, movementDeltaSqr);
+        if (deltaAbs < alignSmoothRange)
+            rotationChange *= deltaAbs / alignSmoothRange;
+        else if (180 - deltaAbs < alignSmoothRange) // focus move toward camera
+            rotationChange *= (180 - deltaAbs) / alignSmoothRange;
+        _orbitAngles.y = Mathf.MoveTowardsAngle(_orbitAngles.y, headingAngle, rotationChange);
 
         return true;
     }
