@@ -5,15 +5,18 @@ using UnityEngine;
 
 public class CharacterMoveController : MonoBehaviour
 {
+    [Header("Camera Relative Control")]
+    [SerializeField] Transform playerInputSpace = default;
+
+    [Header("Control Setting")]
     [SerializeField, Range(0f, 100f)]               float maxSpeed = 10f;
     [SerializeField, Range(0f, 100f)]               float maxAccelerate = 10f;
-    // Hard to control when in air
-    [SerializeField, Range(0f, 100f)]               float maxAirAccelerate = 1f;
-    // Dowble jump, tripble jump...
-    [SerializeField, Range(0, 5)]                   int maxAirJumps = 2;
-    // How high character can do in single jump
-    [SerializeField, Range(0f, 10f)]                float jumpHeight = 2f;
     [SerializeField, Range(0f, 90f)]                float maxGroundAngle = 25f;
+
+    [Header("Jump Setting")]
+    [SerializeField, Range(0f, 100f)] float maxAirAccelerate = 1f; // Harder control when in air
+    [SerializeField, Range(0, 5)] int maxAirJumps = 2; // Dowble jump, tripble jump...    
+    [SerializeField, Range(0f, 10f)] float jumpHeight = 2f; // // Max high character of single jump
 
     private Rigidbody _body;
 
@@ -47,16 +50,29 @@ public class CharacterMoveController : MonoBehaviour
     private void OnCollisionEnter(Collision collision) => EvaluateCollision(collision);
     private void OnCollisionStay(Collision collision) => EvaluateCollision(collision);
 
+    // https://catlikecoding.com/unity/tutorials/movement/orbit-camera/#3.2
     private void Update()
     {
         _playerInput.x = Input.GetAxis("Horizontal");
         _playerInput.y = Input.GetAxis("Vertical");
         _playerInput = Vector2.ClampMagnitude(_playerInput, 1f);
 
-        _desiredVelocity.x = _playerInput.x;
-        _desiredVelocity.y = 0f;
-        _desiredVelocity.z = _playerInput.y;
-        _desiredVelocity *= maxSpeed;
+        if (playerInputSpace)
+        {
+            Vector3 forward = playerInputSpace.forward;
+            forward.y = 0f;
+            forward.Normalize();
+
+            Vector3 right = playerInputSpace.right;
+            right.y = 0;
+            right.Normalize();
+
+            _desiredVelocity = (forward * _playerInput.y + right * _playerInput.x) * maxSpeed;
+        }
+        else
+        {
+            _desiredVelocity = new Vector3(_playerInput.x, 0f, _playerInput.y) * maxSpeed;
+        }
 
         // true until explicity set it false
         _desiredJump |= Input.GetButtonDown("Jump");

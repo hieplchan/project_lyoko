@@ -44,7 +44,7 @@ GameObject:
   - component: {fileID: 8727050119662978817}
   - component: {fileID: 8059154497087882195}
   m_Layer: 0
-  m_Name: CharacterPrefab_OrbitCamera
+  m_Name: CharacterPrefab
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
