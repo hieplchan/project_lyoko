@@ -1,3 +1,4 @@
+using StartledSeal;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -9,14 +10,15 @@ public class CharacterMoveController : MonoBehaviour
     [SerializeField] Transform playerInputSpace = default;
 
     [Header("Control Setting")]
-    [SerializeField, Range(0f, 100f)]               float maxSpeed = 10f;
-    [SerializeField, Range(0f, 100f)]               float maxAccelerate = 10f;
-    [SerializeField, Range(0f, 90f)]                float maxGroundAngle = 25f;
+    [SerializeField, Range(0f, 100f)]   float maxSpeed = 10f;
+    [SerializeField, Range(0f, 100f)]   float maxAccelerate = 10f;
+    [SerializeField, Range(0f, 90f)]    float maxGroundAngle = 25f;
+    [SerializeField, Range(0f, 1f)]     float rotationRate = 0.5f;
 
     [Header("Jump Setting")]
-    [SerializeField, Range(0f, 100f)] float maxAirAccelerate = 1f; // Harder control when in air
-    [SerializeField, Range(0, 5)] int maxAirJumps = 2; // Dowble jump, tripble jump...    
-    [SerializeField, Range(0f, 10f)] float jumpHeight = 2f; // // Max high character of single jump
+    [SerializeField, Range(0f, 100f)]   float maxAirAccelerate = 1f; // Harder control when in air
+    [SerializeField, Range(0, 5)]       int maxAirJumps = 2; // Dowble jump, tripble jump...    
+    [SerializeField, Range(0f, 10f)]    float jumpHeight = 2f; // // Max high character of single jump
 
     private Rigidbody _body;
 
@@ -67,7 +69,15 @@ public class CharacterMoveController : MonoBehaviour
             right.y = 0;
             right.Normalize();
 
-            _desiredVelocity = (forward * _playerInput.y + right * _playerInput.x) * maxSpeed;
+            var moveDir = forward * _playerInput.y + right * _playerInput.x;
+            _desiredVelocity = moveDir * maxSpeed;
+
+            // Character rotation
+            if (_playerInput.sqrMagnitude > 0.01)
+            {
+                var lookDir = Quaternion.LookRotation(moveDir.normalized);
+                transform.rotation = Quaternion.Slerp(transform.rotation, lookDir, rotationRate);
+            }
         }
         else
         {
