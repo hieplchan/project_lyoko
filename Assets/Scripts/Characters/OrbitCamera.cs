@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(Camera))]
-public class OrbitCamera : MonoBehaviour
+public sealed class OrbitCamera : MonoBehaviour
 {
     private const float MIN_CENTERING_DISTANCE = 0.01f; // ignore centering if distance < this
     private const float INPUT_NOISE = 0.001f;
@@ -24,7 +24,7 @@ public class OrbitCamera : MonoBehaviour
     [SerializeField, Range(0f, 90f)]    float alignSmoothRange = 45f; // above this, rotate at full speed
 
     private Vector3 _focusPoint, _prevFocusPoint;
-    private Vector2 _orbitAngles = new Vector2(45f, 0f);
+    private Vector2 _orbitAngles = new Vector2(0f, 0f);
     private float _lastManualRotationTime;
 
     private void Awake()

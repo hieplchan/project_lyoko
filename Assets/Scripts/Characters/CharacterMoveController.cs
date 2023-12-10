@@ -4,7 +4,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CharacterMoveController : MonoBehaviour
+public sealed class CharacterMoveController : MonoBehaviour
 {
     [Header("Camera Relative Control")]
     [SerializeField] Transform playerInputSpace = default;

@@ -1,5 +1,9 @@
 // Animancer // https://kybernetik.com.au/animancer // Copyright 2018-2023 Kybernetik //
 
+#if ! UNITY_EDITOR
+#pragma warning disable CS0618 // Type or member is obsolete (for ControllerState in Animancer Lite).
+#endif
+
 using System;
 using System.Collections.Generic;
 using System.Runtime.CompilerServices;
@@ -18,6 +22,9 @@ namespace Animancer
     /// </remarks>
     /// https://kybernetik.com.au/animancer/api/Animancer/HybridAnimancerComponent
     /// 
+#if !UNITY_EDITOR
+    [System.Obsolete(Validate.ProOnlyMessage)]
+#endif
     [AddComponentMenu(Strings.MenuPrefix + "Hybrid Animancer Component")]
     [HelpURL(Strings.DocsURLs.APIDocumentation + "/" + nameof(HybridAnimancerComponent))]
     public class HybridAnimancerComponent : NamedAnimancerComponent
@@ -670,8 +677,8 @@ namespace Animancer
         /// <summary><see cref="Animator.keepAnimatorControllerStateOnDisable"/></summary>
         public bool keepAnimatorControllerStateOnDisable
         {
-            get => Animator.keepAnimatorStateOnDisable;
-            set => Animator.keepAnimatorStateOnDisable = value;
+            get => Animator.keepAnimatorControllerStateOnDisable;
+            set => Animator.keepAnimatorControllerStateOnDisable = value;
         }
 #endif
 

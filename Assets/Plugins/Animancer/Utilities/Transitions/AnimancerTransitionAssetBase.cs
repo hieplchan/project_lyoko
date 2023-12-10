@@ -1,6 +1,5 @@
 // Animancer // https://kybernetik.com.au/animancer // Copyright 2018-2023 Kybernetik //
 
-using System;
 using UnityEngine;
 using System.Collections.Generic;
 
@@ -23,13 +22,9 @@ namespace Animancer
     /// https://kybernetik.com.au/animancer/api/Animancer/AnimancerTransitionAssetBase
     /// 
     [HelpURL(Strings.DocsURLs.APIDocumentation + "/" + nameof(AnimancerTransitionAssetBase))]
-    public abstract partial class AnimancerTransitionAssetBase : ScriptableObject, ITransition, IWrapper,
-        IAnimationClipSource
+    public abstract partial class AnimancerTransitionAssetBase : ScriptableObject, ITransition, IWrapper, IAnimationClipSource
     {
         /************************************************************************************************************************/
-        private string _fName;
-
-        private void OnEnable()=>_fName = name;
 
         /// <summary>Returns the <see cref="ITransition"/> wrapped by this <see cref="ScriptableObject"/>.</summary>
         public abstract ITransition GetTransition();
@@ -58,9 +53,7 @@ namespace Animancer
         public virtual void Apply(AnimancerState state)
         {
             GetTransition().Apply(state);
-#if UNITY_EDITOR
-            state.SetDebugName(_fName);
-#endif
+            state.SetDebugName(name);
         }
 
         /************************************************************************************************************************/
@@ -82,8 +75,6 @@ namespace Animancer.Editor
 {
     /// <summary>A custom editor for <see cref="AnimancerTransitionAssetBase"/>.</summary>
     [CustomEditor(typeof(AnimancerTransitionAssetBase), true), CanEditMultipleObjects]
-    internal class AnimancerTransitionAssetBaseEditor : ScriptableObjectEditor
-    {
-    }
+    internal class AnimancerTransitionAssetBaseEditor : ScriptableObjectEditor { }
 }
 #endif
