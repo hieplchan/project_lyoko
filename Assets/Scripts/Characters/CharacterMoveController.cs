@@ -6,21 +6,32 @@ using UnityEngine;
 
 public sealed class CharacterMoveController : MonoBehaviour
 {
+    #region Serialized Field
+    [SerializeField] Character _character;
+
     [Header("Camera Relative Control")]
     [SerializeField] Transform playerInputSpace = default;
 
     [Header("Control Setting")]
-    [SerializeField, Range(0f, 100f)]   float maxSpeed = 10f;
-    [SerializeField, Range(0f, 100f)]   float maxAccelerate = 10f;
-    [SerializeField, Range(0f, 90f)]    float maxGroundAngle = 25f;
-    [SerializeField, Range(0f, 1f)]     float rotationRate = 0.5f;
+    [SerializeField, Range(0f, 100f)]   private float maxSpeed = 10f;
+    [SerializeField, Range(0f, 100f)]   private float maxAccelerate = 10f;
+    [SerializeField, Range(0f, 90f)]    private float maxGroundAngle = 25f;
+    [SerializeField, Range(0f, 1f)]     private float rotationRate = 0.5f;
 
     [Header("Jump Setting")]
-    [SerializeField, Range(0f, 100f)]   float maxAirAccelerate = 1f; // Harder control when in air
-    [SerializeField, Range(0, 5)]       int maxAirJumps = 2; // Dowble jump, tripble jump...    
-    [SerializeField, Range(0f, 10f)]    float jumpHeight = 2f; // // Max high character of single jump
+    [SerializeField, Range(0f, 100f)]   private float maxAirAccelerate = 1f; // Harder control when in air
+    [SerializeField, Range(0, 5)]       private int maxAirJumps = 2; // Dowble jump, tripble jump...    
+    [SerializeField, Range(0f, 10f)]    private float jumpHeight = 2f; // // Max high character of single jump
 
-    private Rigidbody _body;
+    [Space(12)]
+    [Header("Animation")]
+    [SerializeField] private CharacterState _moveState;
+    [SerializeField] private CharacterState _actionState;
+    #endregion
+
+    #region Public
+    public bool OnGround => _onGround;
+    #endregion
 
     private Vector2 _playerInput;
     private Vector3 _desiredVelocity;
@@ -35,7 +46,6 @@ public sealed class CharacterMoveController : MonoBehaviour
     // While in air/double jump, not have contact normal => use Vector3.up
     private Vector3 _currentContactNormal;
 
-    public bool OnGround => _onGround;
     private bool _onGround;
 
     private void OnValidate()
@@ -45,7 +55,6 @@ public sealed class CharacterMoveController : MonoBehaviour
 
     private void Awake()
     {
-        _body = GetComponent<Rigidbody>();
         OnValidate();
     }
 
@@ -77,6 +86,12 @@ public sealed class CharacterMoveController : MonoBehaviour
             {
                 var lookDir = Quaternion.LookRotation(moveDir.normalized);
                 transform.rotation = Quaternion.Slerp(transform.rotation, lookDir, rotationRate);
+
+                _character.StateMachine.TrySetState(_moveState);
+            }
+            else
+            {
+                _character.StateMachine.TrySetDefaultState();
             }
         }
         else
@@ -99,14 +114,14 @@ public sealed class CharacterMoveController : MonoBehaviour
             Jump();
         }
 
-        _body.velocity = _velocity;
+        _character.RigidBody.velocity = _velocity;
 
         ClearState();
     }
 
     private void UpdateState()
     {
-        _velocity = _body.velocity;
+        _velocity = _character.RigidBody.velocity;
         if (_onGround)
         {
             _currentAirJump = 0;
@@ -139,6 +154,8 @@ public sealed class CharacterMoveController : MonoBehaviour
                 _jumpSpeed = Mathf.Max(_jumpSpeed - alignSpeed, 0f);
 
             _velocity += _currentContactNormal * _jumpSpeed;
+
+            _character.StateMachine.TryResetState(_actionState);
         }
     }
 

@@ -33,7 +33,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 45, y: 0, z: 0}
 --- !u!20 &3048494157997092332
 Camera:
@@ -151,8 +151,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   focusTarget: {fileID: 0}
-  focusDistance: 5
-  focusRadius: 1
+  focusDistance: 5.4
+  focusRadius: 0.13
   focusReponsiveness: 0.5
   rotationSpeed: 90
   minVerticalAngle: -30

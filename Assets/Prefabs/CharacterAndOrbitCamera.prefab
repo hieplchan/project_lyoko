@@ -31,7 +31,7 @@ Transform:
   - {fileID: 4013792893473565686}
   - {fileID: 1591081945989357879}
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &8889795664436479505
 PrefabInstance:
@@ -184,11 +184,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8059154497087882195, guid: 27ab6436b39022048ae6baf5ee6b1eb9,
-        type: 3}
-      propertyPath: rotationRate
-      value: 0.1
       objectReference: {fileID: 0}
     - target: {fileID: 8059154497087882195, guid: 27ab6436b39022048ae6baf5ee6b1eb9,
         type: 3}
