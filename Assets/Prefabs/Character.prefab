@@ -156,7 +156,7 @@ MonoBehaviour:
   playerInputSpace: {fileID: 0}
   maxSpeed: 10
   maxAccelerate: 20
-  maxGroundAngle: 25
+  maxGroundAngle: 45
   rotationRate: 0.1
   maxAirAccelerate: 20
   maxAirJumps: 0
