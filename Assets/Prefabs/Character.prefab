@@ -31,6 +31,154 @@ Transform:
   m_Father: {fileID: 7624395085120963045}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &870307482327819640
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5619013849773984269}
+  - component: {fileID: 5284176817847942590}
+  - component: {fileID: 5013545308674948168}
+  - component: {fileID: 7783614916306240810}
+  m_Layer: 0
+  m_Name: AnimContainer
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5619013849773984269
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 870307482327819640}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 3456368093966013434}
+  m_RootOrder: -1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &5284176817847942590
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 870307482327819640}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 563b97353cc789f43b0df271fbd04e9c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _character: {fileID: 5368414851121158072}
+  _animation:
+    _FadeDuration: 0.25
+    _Events:
+      _NormalizedTimes: []
+      _Callbacks: []
+      _Names: []
+    _Clip: {fileID: 7400000, guid: 53df54ad168727740aa9b355591e94ea, type: 2}
+    _Speed: 1
+    _NormalizedStartTime: NaN
+--- !u!114 &5013545308674948168
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 870307482327819640}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 563b97353cc789f43b0df271fbd04e9c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _character: {fileID: 5368414851121158072}
+  _animation:
+    _FadeDuration: 0.25
+    _Events:
+      _NormalizedTimes:
+      - 0.27
+      - 0.88
+      - NaN
+      _Callbacks:
+      - m_PersistentCalls:
+          m_Calls:
+          - m_Target: {fileID: 8328116296046897722}
+            m_TargetAssemblyTypeName: CharacterFootStepEvents, Assembly-CSharp
+            m_MethodName: PlaySound
+            m_Mode: 1
+            m_Arguments:
+              m_ObjectArgument: {fileID: 0}
+              m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+              m_IntArgument: 0
+              m_FloatArgument: 0
+              m_StringArgument: 
+              m_BoolArgument: 0
+            m_CallState: 2
+      - m_PersistentCalls:
+          m_Calls:
+          - m_Target: {fileID: 8328116296046897722}
+            m_TargetAssemblyTypeName: CharacterFootStepEvents, Assembly-CSharp
+            m_MethodName: PlaySound
+            m_Mode: 1
+            m_Arguments:
+              m_ObjectArgument: {fileID: 0}
+              m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+              m_IntArgument: 0
+              m_FloatArgument: 0
+              m_StringArgument: 
+              m_BoolArgument: 0
+            m_CallState: 2
+      _Names: []
+    _Clip: {fileID: 7400000, guid: 1423f6c322480534888bbd9c9aef61dd, type: 2}
+    _Speed: 1
+    _NormalizedStartTime: NaN
+--- !u!114 &7783614916306240810
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 870307482327819640}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 50a669d3181edfd41b021ae74d11652e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _character: {fileID: 5368414851121158072}
+  _animation:
+    _FadeDuration: 0
+    _Events:
+      _NormalizedTimes:
+      - 0
+      - NaN
+      _Callbacks:
+      - m_PersistentCalls:
+          m_Calls:
+          - m_Target: {fileID: 967764706848808284}
+            m_TargetAssemblyTypeName: CharacterSoundController, Assembly-CSharp
+            m_MethodName: PlaySound
+            m_Mode: 2
+            m_Arguments:
+              m_ObjectArgument: {fileID: 8300000, guid: c44031b145a170e49a479fd200e42041,
+                type: 3}
+              m_ObjectArgumentAssemblyTypeName: UnityEngine.AudioClip, UnityEngine
+              m_IntArgument: 0
+              m_FloatArgument: 0
+              m_StringArgument: 
+              m_BoolArgument: 0
+            m_CallState: 2
+      _Names: []
+    _Clip: {fileID: 7400000, guid: d836ce0af41712b469471cf7066b075f, type: 2}
+    _Speed: 0.7
+    _NormalizedStartTime: NaN
 --- !u!1 &7318101926994366238
 GameObject:
   m_ObjectHideFlags: 0
@@ -135,8 +283,8 @@ MonoBehaviour:
   _rigidBody: {fileID: 8505328822839583337}
   _animancer: {fileID: 0}
   _stateMachine:
-    _CurrentState: {fileID: 2405639390447466797}
-    _DefaultState: {fileID: 2405639390447466797}
+    _CurrentState: {fileID: 5284176817847942590}
+    _DefaultState: {fileID: 5284176817847942590}
   _characterMoveController: {fileID: 8059154497087882195}
   _characterSoundController: {fileID: 967764706848808284}
 --- !u!114 &8059154497087882195
@@ -160,8 +308,8 @@ MonoBehaviour:
   maxAirAccelerate: 20
   maxAirJumps: 0
   jumpHeight: 1
-  _moveState: {fileID: 633298452729274466}
-  _actionState: {fileID: 353596631379908686}
+  _moveState: {fileID: 5013545308674948168}
+  _actionState: {fileID: 7783614916306240810}
 --- !u!1 &7603700039454971892
 GameObject:
   m_ObjectHideFlags: 0
@@ -171,9 +319,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3456368093966013434}
-  - component: {fileID: 2405639390447466797}
-  - component: {fileID: 633298452729274466}
-  - component: {fileID: 353596631379908686}
   m_Layer: 0
   m_Name: Graphic
   m_TagString: Untagged
@@ -192,124 +337,11 @@ Transform:
   m_LocalPosition: {x: 0, y: 0.5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 5619013849773984269}
   m_Father: {fileID: 7624395085120963045}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2405639390447466797
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7603700039454971892}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 563b97353cc789f43b0df271fbd04e9c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _character: {fileID: 5368414851121158072}
-  _animation:
-    _FadeDuration: 0.25
-    _Events:
-      _NormalizedTimes: []
-      _Callbacks: []
-      _Names: []
-    _Clip: {fileID: 7400000, guid: 53df54ad168727740aa9b355591e94ea, type: 2}
-    _Speed: 1
-    _NormalizedStartTime: NaN
---- !u!114 &633298452729274466
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7603700039454971892}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 563b97353cc789f43b0df271fbd04e9c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _character: {fileID: 5368414851121158072}
-  _animation:
-    _FadeDuration: 0.25
-    _Events:
-      _NormalizedTimes:
-      - 0.27
-      - 0.88
-      - NaN
-      _Callbacks:
-      - m_PersistentCalls:
-          m_Calls:
-          - m_Target: {fileID: 8328116296046897722}
-            m_TargetAssemblyTypeName: CharacterFootStepEvents, Assembly-CSharp
-            m_MethodName: PlaySound
-            m_Mode: 1
-            m_Arguments:
-              m_ObjectArgument: {fileID: 0}
-              m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-              m_IntArgument: 0
-              m_FloatArgument: 0
-              m_StringArgument: 
-              m_BoolArgument: 0
-            m_CallState: 2
-      - m_PersistentCalls:
-          m_Calls:
-          - m_Target: {fileID: 8328116296046897722}
-            m_TargetAssemblyTypeName: CharacterFootStepEvents, Assembly-CSharp
-            m_MethodName: PlaySound
-            m_Mode: 1
-            m_Arguments:
-              m_ObjectArgument: {fileID: 0}
-              m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-              m_IntArgument: 0
-              m_FloatArgument: 0
-              m_StringArgument: 
-              m_BoolArgument: 0
-            m_CallState: 2
-      _Names: []
-    _Clip: {fileID: 7400000, guid: 1423f6c322480534888bbd9c9aef61dd, type: 2}
-    _Speed: 1
-    _NormalizedStartTime: NaN
---- !u!114 &353596631379908686
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7603700039454971892}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 50a669d3181edfd41b021ae74d11652e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _character: {fileID: 5368414851121158072}
-  _animation:
-    _FadeDuration: 0
-    _Events:
-      _NormalizedTimes:
-      - 0.85
-      - NaN
-      _Callbacks:
-      - m_PersistentCalls:
-          m_Calls:
-          - m_Target: {fileID: 967764706848808284}
-            m_TargetAssemblyTypeName: CharacterSoundController, Assembly-CSharp
-            m_MethodName: PlaySound
-            m_Mode: 2
-            m_Arguments:
-              m_ObjectArgument: {fileID: 8300000, guid: c44031b145a170e49a479fd200e42041,
-                type: 3}
-              m_ObjectArgumentAssemblyTypeName: UnityEngine.AudioClip, UnityEngine
-              m_IntArgument: 0
-              m_FloatArgument: 0
-              m_StringArgument: 
-              m_BoolArgument: 0
-            m_CallState: 2
-      _Names: []
-    _Clip: {fileID: 7400000, guid: d836ce0af41712b469471cf7066b075f, type: 2}
-    _Speed: 0.7
-    _NormalizedStartTime: NaN
 --- !u!1 &7787847106532781710
 GameObject:
   m_ObjectHideFlags: 0
@@ -467,4 +499,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _character: {fileID: 5368414851121158072}
   _sounds:
-  - {fileID: 8300000, guid: 3b0091203d643d54db513518cd795b5b, type: 3}
+  - {fileID: 8300000, guid: 4688a4d2f841732419cf0077792dfa5d, type: 3}
