@@ -23,10 +23,6 @@ public sealed class CharacterMoveController : MonoBehaviour
     [SerializeField, Range(0, 5)]       private int maxAirJumps = 2; // Dowble jump, tripble jump...    
     [SerializeField, Range(0f, 10f)]    private float jumpHeight = 2f; // // Max high character of single jump
 
-    [Space(12)]
-    [Header("Animation")]
-    [SerializeField] private CharacterState _moveState;
-    [SerializeField] private CharacterState _actionState;
     #endregion
 
     #region Public
@@ -87,11 +83,11 @@ public sealed class CharacterMoveController : MonoBehaviour
                 var lookDir = Quaternion.LookRotation(moveDir.normalized);
                 transform.rotation = Quaternion.Slerp(transform.rotation, lookDir, rotationRate);
 
-                _character.StateMachine.TrySetState(_moveState);
+                _character.AnimController.SetAnim(CharacterAnimKey.Run);
             }
             else
             {
-                _character.StateMachine.TrySetDefaultState();
+                _character.AnimController.SetDefaultAnim();
             }
         }
         else
@@ -155,7 +151,7 @@ public sealed class CharacterMoveController : MonoBehaviour
 
             _velocity += _currentContactNormal * _jumpSpeed;
 
-            _character.StateMachine.TryResetState(_actionState);
+            _character.AnimController.SetAnim(CharacterAnimKey.Jump);
         }
     }
 

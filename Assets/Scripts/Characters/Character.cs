@@ -11,6 +11,7 @@ public sealed class Character : MonoBehaviour
     [SerializeField] private CharacterState.StateMachine _stateMachine;
     [SerializeField] private CharacterMoveController _characterMoveController;
     [SerializeField] private CharacterSoundController _characterSoundController;
+    [SerializeField] private CharacterAnimController _characterAnimController;
 
     public Transform CameraPoint => _cameraPoint;
     public Rigidbody RigidBody => _rigidBody;
@@ -18,6 +19,7 @@ public sealed class Character : MonoBehaviour
     public CharacterState.StateMachine StateMachine => _stateMachine;
     public CharacterMoveController MoveController => _characterMoveController;
     public CharacterSoundController SoundController => _characterSoundController;
+    public CharacterAnimController AnimController => _characterAnimController;
 
     private void Awake()
     {

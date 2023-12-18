@@ -72,6 +72,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5619013849773984269}
+  - component: {fileID: 3911768167281875619}
   - component: {fileID: 5284176817847942590}
   - component: {fileID: 5013545308674948168}
   - component: {fileID: 7783614916306240810}
@@ -97,6 +98,93 @@ Transform:
   m_Father: {fileID: 3456368093966013434}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &3911768167281875619
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 870307482327819640}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d3e7d9b2f2d97be4b8e4424a9dac4fd2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects:
+    - {fileID: 5284176817847942590}
+    - {fileID: 5013545308674948168}
+    - {fileID: 7783614916306240810}
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes:
+    - Name: _characterAnimKeyPairs
+      Entry: 7
+      Data: 0|System.Collections.Generic.Dictionary`2[[CharacterAnimKey, Assembly-CSharp],[CharacterState,
+        Assembly-CSharp]], mscorlib
+    - Name: comparer
+      Entry: 7
+      Data: 1|System.Collections.Generic.EnumEqualityComparer`1[[CharacterAnimKey,
+        Assembly-CSharp]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 0
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 12
+      Data: 3
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 3
+      Data: 0
+    - Name: $v
+      Entry: 10
+      Data: 0
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 3
+      Data: 1
+    - Name: $v
+      Entry: 10
+      Data: 1
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 3
+      Data: 2
+    - Name: $v
+      Entry: 10
+      Data: 2
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+  _character: {fileID: 5368414851121158072}
 --- !u!114 &5284176817847942590
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -331,6 +419,7 @@ MonoBehaviour:
     _DefaultState: {fileID: 5284176817847942590}
   _characterMoveController: {fileID: 8059154497087882195}
   _characterSoundController: {fileID: 967764706848808284}
+  _characterAnimController: {fileID: 3911768167281875619}
 --- !u!114 &8059154497087882195
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -352,8 +441,6 @@ MonoBehaviour:
   maxAirAccelerate: 20
   maxAirJumps: 0
   jumpHeight: 1
-  _moveState: {fileID: 5013545308674948168}
-  _actionState: {fileID: 7783614916306240810}
 --- !u!1 &7603700039454971892
 GameObject:
   m_ObjectHideFlags: 0
