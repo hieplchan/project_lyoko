@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class AccelerationZone : MonoBehaviour
+public class JumpPad : MonoBehaviour
 {
     [SerializeField, Min(0f)] private float _speed = 10f;
 
@@ -15,12 +15,12 @@ public class AccelerationZone : MonoBehaviour
 
     private void Accelerate(Rigidbody body)
     {
-        Vector3 velocity = body.velocity;
+        Vector3 velocity = transform.InverseTransformDirection(body.velocity);
         if (velocity.y >= _speed) return;
 
         velocity.y = _speed;
-        body.velocity = velocity;
 
+        body.velocity = transform.TransformDirection(velocity);
         if (body.TryGetComponent<Character>(out var character))
         {
             character.AnimController.SetAnim(CharacterAnimKey.Jump);

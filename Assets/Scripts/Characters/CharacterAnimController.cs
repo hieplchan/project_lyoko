@@ -23,7 +23,7 @@ public class CharacterAnimController : SerializedMonoBehaviour
     public void SetAnim(CharacterAnimKey key)
     {
         if (_characterAnimKeyPairs.TryGetValue(key, out var value))
-            _character.StateMachine.TrySetState(value);
+            _character.StateMachine.TryResetState(value);
     }
 
     public void SetDefaultAnim()
