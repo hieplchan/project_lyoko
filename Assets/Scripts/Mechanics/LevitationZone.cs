@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 
-public class LevitationZone : MonoBehaviour
+public sealed class LevitationZone : MonoBehaviour
 {
     [SerializeField, Min(0f)] 
     private float _acceleration = 10f, _speed = 10f;

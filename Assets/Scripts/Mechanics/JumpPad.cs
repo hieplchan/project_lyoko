@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class JumpPad : MonoBehaviour
+public sealed class JumpPad : MonoBehaviour
 {
     [SerializeField, Min(0f)] private float _speed = 10f;
 

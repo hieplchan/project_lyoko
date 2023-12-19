@@ -15,10 +15,16 @@ public enum CharacterAnimKey
     Jump = 2
 }
 
-public class CharacterAnimController : SerializedMonoBehaviour
+[Serializable]
+public class CharacterAnimKeyState : SerializedDictionary<CharacterAnimKey, CharacterState>
+{
+}
+
+
+public sealed class CharacterAnimController : SerializedMonoBehaviour
 {
     [SerializeField] Character _character;
-    [OdinSerialize] Dictionary<CharacterAnimKey, CharacterState> _characterAnimKeyPairs;
+    [SerializeField] CharacterAnimKeyState _characterAnimKeyPairs;
 
     public void SetAnim(CharacterAnimKey key)
     {
