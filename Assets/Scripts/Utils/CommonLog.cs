@@ -2,10 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public static class CommonLog
+namespace StartledSeal
 {
-    public static void LogDebug(string message)
+    public static class CommonLog
     {
-        Debug.Log(message);
+        public static void LogDebug(string message)
+        {
+            Debug.Log(message);
+        }
     }
 }

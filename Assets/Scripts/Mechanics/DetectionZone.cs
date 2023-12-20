@@ -6,7 +6,7 @@ using UnityEngine.Events;
 public sealed class DetectionZone : MonoBehaviour
 {
     [SerializeField]
-    UnityEvent _onFirstEnter = default, _onLastExit = default;
+    UnityEvent _firstObjectEntered = default, _lastObjectExited = default;
 
     private List<Collider> _colliders = new List<Collider>();
 
@@ -26,7 +26,7 @@ public sealed class DetectionZone : MonoBehaviour
         if (_colliders.Count > 0)
         {
             _colliders.Clear();
-            _onLastExit.Invoke();
+            _lastObjectExited.Invoke();
         }
     }
 
@@ -34,7 +34,7 @@ public sealed class DetectionZone : MonoBehaviour
     {
         if (_colliders.Count == 0)
         {
-            _onFirstEnter.Invoke();
+            _firstObjectEntered.Invoke();
             enabled = true;
         }
 
@@ -45,7 +45,7 @@ public sealed class DetectionZone : MonoBehaviour
     {
         if (_colliders.Remove(other) && _colliders.Count == 0)
         {
-            _onLastExit.Invoke();
+            _lastObjectExited.Invoke();
             enabled = false;
         }
     }
@@ -61,7 +61,7 @@ public sealed class DetectionZone : MonoBehaviour
                 _colliders.RemoveAt(i--);
                 if (_colliders.Count == 0)
                 {
-                    _onLastExit.Invoke();
+                    _lastObjectExited.Invoke();
                     enabled = false;
                 }
             }
