@@ -218,6 +218,13 @@
       },
       "url": "https://packages.unity.com"
     },
+    "com.vovgou.loxodon-framework": {
+      "version": "https://github.com/vovgou/loxodon-framework.git?path=Loxodon.Framework/Assets/LoxodonFramework",
+      "depth": 0,
+      "source": "git",
+      "dependencies": {},
+      "hash": "2fab55f00cfd8b95e575c9403fc09c7bf2ae1134"
+    },
     "jp.hadashikick.vcontainer": {
       "version": "https://github.com/hadashiA/VContainer.git?path=VContainer/Assets/VContainer",
       "depth": 0,
