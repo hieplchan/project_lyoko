@@ -9,7 +9,7 @@ using UnityEngine.Serialization;
 
 namespace StartledSeal
 {
-    [CreateAssetMenu(fileName = "InputReader", menuName = "StartledSeal/InputReader")]
+    [CreateAssetMenu(fileName = "InputReader", menuName = "StartledSeal/Player/InputReader")]
     public class InputReader : ScriptableObject, PlayerInputActions.IPlayerActions
     {
         public event UnityAction<Vector2> Move = delegate { };
