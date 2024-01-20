@@ -9,7 +9,7 @@ namespace StartledSeal
         [MenuItem("Tools/Setup/Create Default Folders")]
         public static void CreateDefaultFolders()
         {
-            Folders.CreateDefault("Project", "Animations", "Art", "Materials", "Prefabs", "ScriptableObjects", "Scripts", "Settings");  
+            Folders.CreateDefault("Project", "Animations", "Art", "Materials", "Prefabs", "ScriptableObjects", "Scripts", "Settings", "Scenes");  
             UnityEditor.AssetDatabase.Refresh();
         }
         
