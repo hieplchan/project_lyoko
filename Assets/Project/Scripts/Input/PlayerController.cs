@@ -2,7 +2,6 @@ using System;
 using Cinemachine;
 using KBCore.Refs;
 using UnityEngine;
-using UnityEngine.Serialization;
 using static StartledSeal.FloatExtensions;
 
 namespace StartledSeal
@@ -32,6 +31,8 @@ namespace StartledSeal
             // Invoke when observed transform is teleported, adjust _freeLookCam position accordingly
             _freeLookCam.OnTargetObjectWarped(transform, transform.position - _mainCamTransform.position - Vector3.forward);
         }
+
+        private void Start() => _input.EnableplayerActions();
 
         private void Update()
         {
