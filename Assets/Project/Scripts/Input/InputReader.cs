@@ -20,17 +20,17 @@ namespace StartledSeal
         public event UnityAction<bool> Dash = delegate { };
         public event UnityAction Attack = delegate { };
 
-        [FormerlySerializedAs("playerInputActions")] public PlayerInputActions inputActions;
-        public Vector3 Direction => inputActions.Player.Move.ReadValue<Vector2>();
+        public Vector3 Direction => _inputActions.Player.Move.ReadValue<Vector2>();
+        private PlayerInputActions _inputActions;
 
         private void OnEnable()
         {
-            if (inputActions == null)
+            if (_inputActions == null)
             {
-                inputActions = new PlayerInputActions();
-                inputActions.Player.SetCallbacks(this);
+                _inputActions = new PlayerInputActions();
+                _inputActions.Player.SetCallbacks(this);
             }
-            inputActions.Enable();
+            _inputActions.Enable();
         }
         
         public void OnMove(InputAction.CallbackContext context)

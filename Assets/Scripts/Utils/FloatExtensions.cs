@@ -6,6 +6,8 @@ namespace StartledSeal
 {
     public static class FloatExtensions
     {
+        public const float ZeroF = 0f;
+
         public static Vector3 XOY(this Vector2 vector2) => new Vector3(vector2.x, 0, vector2.y);
 
         // https://catlikecoding.com/unity/tutorials/movement/reactive-environment/#3.4
