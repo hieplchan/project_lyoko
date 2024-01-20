@@ -23,6 +23,9 @@ namespace StartledSeal
         private float _currentSpeed;
         private float _velocity;
 
+        // Animator params
+        private static readonly int Speed = Animator.StringToHash("Speed");
+        
         private void Awake()
         {
             _mainCamTransform = Camera.main.transform;
@@ -37,7 +40,12 @@ namespace StartledSeal
         private void Update()
         {
             HandleMovement();
-            // UpdateAnimator();
+            UpdateAnimator();
+        }
+
+        private void UpdateAnimator()
+        {
+            _animator.SetFloat(Speed, _currentSpeed);
         }
 
         private void HandleMovement()
@@ -57,14 +65,12 @@ namespace StartledSeal
                 SmoothSpeed(ZeroF);
             }
         }
-
         private void HandleCharacterController(Vector3 adjustedDirection)
         {
             // Move the player
             var adjustedMovement = adjustedDirection * (_moveSpeed * Time.deltaTime);
             _controller.Move(adjustedMovement);
         }
-
         private void HandleRotation(Vector3 adjustedDirection)
         {
             // Adjust rotation to match movement direction
@@ -73,7 +79,6 @@ namespace StartledSeal
                 Quaternion.RotateTowards(transform.rotation, targetRotation, _rotationSpeed * Time.deltaTime);
             transform.LookAt(transform.position + adjustedDirection);
         }
-
         private void SmoothSpeed(float value)
         {
             _currentSpeed = Mathf.SmoothDamp(_currentSpeed, value, ref _velocity, _smoothTime);
