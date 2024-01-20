@@ -65,20 +65,24 @@ namespace StartledSeal
                 SmoothSpeed(ZeroF);
             }
         }
+
+        private void HandleRotation(Vector3 adjustedDirection)
+        {
+            // Adjust rotation to match movement direction
+            var targetRotation = Quaternion.LookRotation(adjustedDirection);
+            
+            // TODO: get rid one of 2 way
+            transform.rotation = Quaternion.RotateTowards(transform.rotation, targetRotation, _rotationSpeed * Time.deltaTime);
+            transform.LookAt(transform.position + adjustedDirection);
+        }
+        
         private void HandleCharacterController(Vector3 adjustedDirection)
         {
             // Move the player
             var adjustedMovement = adjustedDirection * (_moveSpeed * Time.deltaTime);
             _controller.Move(adjustedMovement);
         }
-        private void HandleRotation(Vector3 adjustedDirection)
-        {
-            // Adjust rotation to match movement direction
-            var targetRotation = Quaternion.LookRotation(adjustedDirection);
-            transform.rotation =
-                Quaternion.RotateTowards(transform.rotation, targetRotation, _rotationSpeed * Time.deltaTime);
-            transform.LookAt(transform.position + adjustedDirection);
-        }
+        
         private void SmoothSpeed(float value)
         {
             _currentSpeed = Mathf.SmoothDamp(_currentSpeed, value, ref _velocity, _smoothTime);
