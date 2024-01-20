@@ -30,10 +30,6 @@ namespace StartledSeal
                 inputActions = new PlayerInputActions();
                 inputActions.Player.SetCallbacks(this);
             }
-        }
-
-        public void EnablePlayerAction()
-        {
             inputActions.Enable();
         }
         
