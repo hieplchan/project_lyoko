@@ -1596,6 +1596,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 5028394316308808757, guid: cfca008627f303240919309257bef21f,
         type: 3}
+      propertyPath: _moveSpeed
+      value: 300
+      objectReference: {fileID: 0}
+    - target: {fileID: 5028394316308808757, guid: cfca008627f303240919309257bef21f,
+        type: 3}
       propertyPath: _freeLookCam
       value: 
       objectReference: {fileID: 1862209514}
@@ -1659,7 +1664,8 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 2194840623932667900, guid: cfca008627f303240919309257bef21f, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []

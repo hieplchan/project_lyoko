@@ -9,7 +9,7 @@ namespace StartledSeal
     public class PlayerController : ValidatedMonoBehaviour
     {
         [Header("References")] 
-        [SerializeField, Self] private CharacterController _controller; 
+        [SerializeField, Self] private Rigidbody _rb;
         [SerializeField, Self] private Animator _animator;
         [SerializeField, Anywhere] private CinemachineFreeLook _freeLookCam;
         [SerializeField, Anywhere] private InputReader _input;
@@ -22,6 +22,7 @@ namespace StartledSeal
         private Transform _mainCamTransform;
         private float _currentSpeed;
         private float _velocity;
+        private Vector3 _movement;
 
         // Animator params
         private static readonly int Speed = Animator.StringToHash("Speed");
@@ -33,14 +34,22 @@ namespace StartledSeal
             _freeLookCam.LookAt = transform;
             // Invoke when observed transform is teleported, adjust _freeLookCam position accordingly
             _freeLookCam.OnTargetObjectWarped(transform, transform.position - _mainCamTransform.position - Vector3.forward);
+
+            _rb.freezeRotation = true;
         }
 
         private void Start() => _input.EnableplayerActions();
 
         private void Update()
         {
-            HandleMovement();
+            _movement = new Vector3(_input.Direction.x, 0f, _input.Direction.y);
             UpdateAnimator();
+        }
+
+        private void FixedUpdate()
+        {
+            // HandleJump();
+            HandleMovement();
         }
 
         private void UpdateAnimator()
@@ -50,19 +59,21 @@ namespace StartledSeal
 
         private void HandleMovement()
         {
-            var movementDirection = new Vector3(_input.Direction.x, 0f, _input.Direction.y).normalized;
             // Rotate movement direction to match camera rotation
-            var adjustedDirection = Quaternion.AngleAxis(_mainCamTransform.eulerAngles.y, Vector3.up) * movementDirection;
+            var adjustedDirection = Quaternion.AngleAxis(_mainCamTransform.eulerAngles.y, Vector3.up) * _movement;
 
             if (adjustedDirection.magnitude > ZeroF)
             {
                 HandleRotation(adjustedDirection);
-                HandleCharacterController(adjustedDirection);
+                HandleHorizontalMovement(adjustedDirection);
                 SmoothSpeed(adjustedDirection.magnitude);
             }
             else
             {
                 SmoothSpeed(ZeroF);
+
+                // Reset horizontal velocity for snappy stop
+                _rb.velocity = new Vector3(ZeroF, _rb.velocity.y, ZeroF);
             }
         }
 
@@ -76,11 +87,11 @@ namespace StartledSeal
             transform.LookAt(transform.position + adjustedDirection);
         }
         
-        private void HandleCharacterController(Vector3 adjustedDirection)
+        private void HandleHorizontalMovement(Vector3 adjustedDirection)
         {
             // Move the player
-            var adjustedMovement = adjustedDirection * (_moveSpeed * Time.deltaTime);
-            _controller.Move(adjustedMovement);
+            Vector3 velocity = adjustedDirection * (_moveSpeed * Time.fixedDeltaTime);
+            _rb.velocity = new Vector3(velocity.x, _rb.velocity.y, velocity.z);
         }
         
         private void SmoothSpeed(float value)
