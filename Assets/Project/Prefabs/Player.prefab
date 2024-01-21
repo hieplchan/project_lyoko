@@ -1562,7 +1562,7 @@ GameObject:
   - component: {fileID: 7890417901300810694}
   - component: {fileID: 369224299887858733}
   - component: {fileID: 5028394316308808757}
-  - component: {fileID: 2194840623932667900}
+  - component: {fileID: 2266504987464839236}
   - component: {fileID: 2303813768115102029}
   - component: {fileID: 9198099009183795329}
   m_Layer: 0
@@ -1590,7 +1590,7 @@ Transform:
   - {fileID: 4514788414878814464}
   - {fileID: 1737430117786743098}
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!95 &369224299887858733
 Animator:
@@ -1625,39 +1625,29 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: da92e108537b42b3b5826c58e4917e6d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _controller: {fileID: 2194840623932667900}
+  _rb: {fileID: 9198099009183795329}
   _animator: {fileID: 369224299887858733}
   _freeLookCam: {fileID: 0}
   _input: {fileID: 11400000, guid: 3ad9c55985255ad42b508b4163f62a85, type: 2}
-  _moveSpeed: 6
+  _moveSpeed: 300
   _rotationSpeed: 15
   _smoothTime: 0.2
---- !u!143 &2194840623932667900
-CharacterController:
+--- !u!114 &2266504987464839236
+MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5083225568817189773}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 3
-  m_Height: 1.5
-  m_Radius: 0.5
-  m_SlopeLimit: 45
-  m_StepOffset: 0.3
-  m_SkinWidth: 0.08
-  m_MinMoveDistance: 0.001
-  m_Center: {x: 0, y: 0.75, z: 0}
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8a49048547224badac89b844dfef9383, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _capsuleCollider: {fileID: 2303813768115102029}
+  _groundLayers:
+    serializedVersion: 2
+    m_Bits: 64
 --- !u!136 &2303813768115102029
 CapsuleCollider:
   m_ObjectHideFlags: 0
