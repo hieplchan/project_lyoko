@@ -9,7 +9,7 @@ namespace StartledSeal
     {
         private const float HeightOffset = 0.1f;
 
-        [SerializeField] private CapsuleCollider _capsuleCollider;
+        [SerializeField, Self] private CapsuleCollider _capsuleCollider;
         [SerializeField] private LayerMask _groundLayers;
 
         public bool IsGrounded { get; private set; }
