@@ -1565,6 +1565,7 @@ GameObject:
   - component: {fileID: 2266504987464839236}
   - component: {fileID: 2303813768115102029}
   - component: {fileID: 9198099009183795329}
+  - component: {fileID: 2510555990822134318}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -1626,12 +1627,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _rb: {fileID: 9198099009183795329}
+  _groundChecker: {fileID: 2266504987464839236}
   _animator: {fileID: 369224299887858733}
   _freeLookCam: {fileID: 0}
   _input: {fileID: 11400000, guid: 3ad9c55985255ad42b508b4163f62a85, type: 2}
   _moveSpeed: 300
   _rotationSpeed: 15
   _smoothTime: 0.2
+  _jumpForce: 10
+  _jumpDuration: 0.5
+  _jumpCoolDown: 0
+  _jumpMaxHeight: 2
+  _jumpGravityMultiplier: 3
+  _jumpLaunchPoint: 0.9
 --- !u!114 &2266504987464839236
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1698,6 +1706,18 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &2510555990822134318
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5083225568817189773}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 233c79e78a324e5595b0907dc89a7232, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &5159472622030091954
 GameObject:
   m_ObjectHideFlags: 0
