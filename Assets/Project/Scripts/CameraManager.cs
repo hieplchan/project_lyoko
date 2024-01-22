@@ -22,19 +22,19 @@ namespace StartledSeal
 
         private void OnEnable()
         {
-            _input.Look += HandleOnLook;
-            _input.EnableMouseControlCamera += HandleOnEnableMouseControlCamera;
-            _input.DisableMouseControlCamera += HandleOnDisableMouseControlCamera;
+            _input.Look += OnLook;
+            _input.EnableMouseControlCamera += OnEnableMouseControlCamera;
+            _input.DisableMouseControlCamera += OnDisableMouseControlCamera;
         }
 
         private void OnDisable()
         {
-            _input.Look -= HandleOnLook;
-            _input.EnableMouseControlCamera -= HandleOnEnableMouseControlCamera;
-            _input.DisableMouseControlCamera -= HandleOnDisableMouseControlCamera;
+            _input.Look -= OnLook;
+            _input.EnableMouseControlCamera -= OnEnableMouseControlCamera;
+            _input.DisableMouseControlCamera -= OnDisableMouseControlCamera;
         }
         
-        private void HandleOnLook(Vector2 cameraMovement, bool isDeviceMouse)
+        private void OnLook(Vector2 cameraMovement, bool isDeviceMouse)
         {
             if (_cameraMovementLock) return;
             if (isDeviceMouse && !_isRightMouseBtnPress) return;
@@ -47,7 +47,7 @@ namespace StartledSeal
             _freeLookCam.m_YAxis.m_InputAxisValue = cameraMovement.y * deviceMultiplier * _speedMultiplier;
         }
         
-        private async void HandleOnEnableMouseControlCamera()
+        private async void OnEnableMouseControlCamera()
         {   
             _isRightMouseBtnPress = true;
             
@@ -61,7 +61,7 @@ namespace StartledSeal
             _cameraMovementLock = false;
         }
         
-        private void HandleOnDisableMouseControlCamera()
+        private void OnDisableMouseControlCamera()
         {
             _isRightMouseBtnPress = false;
          

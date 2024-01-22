@@ -14,7 +14,7 @@ namespace StartledSeal
         public event UnityAction<bool> Jump = delegate { };
         public event UnityAction<bool> Dash = delegate { };
         public event UnityAction Attack = delegate { };
-
+        
         public Vector3 Direction => _inputActions.Player.Move.ReadValue<Vector2>();
         private PlayerInputActions _inputActions;
 

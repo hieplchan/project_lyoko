@@ -1,6 +1,8 @@
 using System;
+using System.Collections.Generic;
 using Cinemachine;
 using KBCore.Refs;
+using StartledSeal.Utils;
 using UnityEngine;
 using static StartledSeal.FloatExtensions;
 
@@ -15,19 +17,34 @@ namespace StartledSeal
         [SerializeField, Anywhere] private CinemachineFreeLook _freeLookCam;
         [SerializeField, Anywhere] private InputReader _input;
 
-        [Header("Settings")] 
+        [Header("Movement Settings")] 
         [SerializeField] private float _moveSpeed = 6f;
         [SerializeField] private float _rotationSpeed = 15f;
         [SerializeField] private float _smoothTime = 0.2f;
 
+        [Header("Jump Settings")] 
+        [SerializeField] private float _jumpForce = 10f;
+        [SerializeField] private float _jumpDuration = 0.5f;
+        [SerializeField] private float _jumpCoolDown = 0f;
+        [SerializeField] private float _jumpMaxHeight = 2f;
+        [SerializeField] private float _jumpGravityMultiplier = 3f; // falling faster
+        [SerializeField] private float _jumpLaunchPoint = 0.9f; // max jump force at begining
+
         private Transform _mainCamTransform;
+        
         private float _currentSpeed;
         private float _velocity;
+        private float _jumpVelocity;
+
         private Vector3 _movement;
+
+        private List<Timer> _timers;
+        private CooldownTimer _jumpTimer; // how long user hold jump btn
+        private CooldownTimer _jumpCooldownTimer; // wait to next jump
 
         // Animator params
         private static readonly int Speed = Animator.StringToHash("Speed");
-        
+
         private void Awake()
         {
             _mainCamTransform = Camera.main.transform;
@@ -37,25 +54,96 @@ namespace StartledSeal
             _freeLookCam.OnTargetObjectWarped(transform, transform.position - _mainCamTransform.position - Vector3.forward);
 
             _rb.freezeRotation = true;
+
+            SetupTimers();
+        }
+
+        private void SetupTimers()
+        {
+            _jumpTimer = new CooldownTimer(_jumpDuration);
+            _jumpCooldownTimer = new CooldownTimer(_jumpCoolDown);
+            _timers = new List<Timer>(2) { _jumpTimer, _jumpCooldownTimer };
+
+            _jumpTimer.OnTimerStop += () => _jumpCooldownTimer.Start();
         }
 
         private void Start() => _input.EnableplayerActions();
 
+        private void OnEnable()
+        {
+            _input.Jump += OnJump;
+        }
+
+        private void OnDisable()
+        {
+            _input.Jump -= OnJump;
+        }
+        
         private void Update()
         {
             _movement = new Vector3(_input.Direction.x, 0f, _input.Direction.y);
+
+            HandleTimers();
             UpdateAnimator();
+        }
+
+        private void HandleTimers()
+        {
+            foreach (var timer in _timers)
+                timer.Tick(Time.deltaTime);
         }
 
         private void FixedUpdate()
         {
-            // HandleJump();
+            HandleJump();
             HandleMovement();
         }
-
-        private void UpdateAnimator()
+        
+        private void OnJump(bool performed)
         {
-            _animator.SetFloat(Speed, _currentSpeed);
+            if (performed && !_jumpCooldownTimer.IsRunning &&
+                !_jumpTimer.IsRunning && // not jump when jumping
+                _groundChecker.IsGrounded) // only jump when on ground
+            {
+                _jumpTimer.Start();
+            }
+            else if (!performed && _jumpTimer.IsRunning)
+            {
+                _jumpTimer.Stop();
+            }
+        }
+
+        private void HandleJump()
+        {
+            // If not jumping and grounded, keep jump velocity at 0
+            if (!_jumpTimer.IsRunning && _groundChecker.IsGrounded)
+            {
+                _jumpVelocity = ZeroF;
+                _jumpTimer.Stop();
+                return;
+            }
+            
+            // If jump/falling calculate velocity
+            if (_jumpTimer.IsRunning) // jumping
+            {
+                if (_jumpTimer.Progress > _jumpLaunchPoint)
+                {
+                    // burst speed at begining - v = sqrt(2gh)
+                    _jumpVelocity = Mathf.Sqrt(2 * _jumpMaxHeight * Mathf.Abs(Physics.gravity.y));
+                }
+                else
+                {
+                    // Gradually apply lass velocity as jump progress
+                    _jumpDuration = (1 - _jumpTimer.Progress) * _jumpForce * Time.fixedTime;
+                }
+            }
+            else // falling
+            {
+                _jumpVelocity += Physics.gravity.y * _jumpGravityMultiplier * Time.fixedDeltaTime;
+            }
+
+            // Apply velocity
+            _rb.velocity = new Vector3(_rb.velocity.x, _jumpVelocity, _rb.velocity.z);
         }
 
         private void HandleMovement()
@@ -99,5 +187,11 @@ namespace StartledSeal
         {
             _currentSpeed = Mathf.SmoothDamp(_currentSpeed, value, ref _velocity, _smoothTime);
         }
+        
+        private void UpdateAnimator()
+        {
+            _animator.SetFloat(Speed, _currentSpeed);
+        }
+
     }
 }
