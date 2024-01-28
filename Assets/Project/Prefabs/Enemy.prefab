@@ -11,6 +11,8 @@ GameObject:
   - component: {fileID: 170015536909608077}
   - component: {fileID: 5849123056616747646}
   - component: {fileID: 9038147501161637373}
+  - component: {fileID: 7131268455018578402}
+  - component: {fileID: 5392876710544102562}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Untagged
@@ -32,7 +34,7 @@ Transform:
   m_Children:
   - {fileID: 6798527008475674091}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!195 &5849123056616747646
 NavMeshAgent:
@@ -44,7 +46,7 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 0.8
-  m_Speed: 0.7
+  m_Speed: 4
   m_Acceleration: 8
   avoidancePriority: 50
   m_AngularSpeed: 120
@@ -79,6 +81,38 @@ CapsuleCollider:
   m_Height: 3.1504314
   m_Direction: 1
   m_Center: {x: 0, y: 1.2408174, z: 0.024292946}
+--- !u!114 &7131268455018578402
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5878131846164507832}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f8f2d5cb02a433b9d512363cbb0f1a0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _agent: {fileID: 5849123056616747646}
+  _animator: {fileID: 628556299573571473}
+  _playerDetector: {fileID: 5392876710544102562}
+  _wanderRadius: 10
+--- !u!114 &5392876710544102562
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5878131846164507832}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 91d1e7ba98414123964ce449978b6f41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _detectionAngle: 60
+  _detectionRadius: 7
+  _innerDetectionRadius: 3
+  _detectionCoolDown: 1
 --- !u!1001 &6428337293428268272
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -167,6 +201,12 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 35f16650380449c78eeac51057eaff2a, type: 3}
+--- !u!95 &628556299573571473 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 5876949206263575393, guid: 35f16650380449c78eeac51057eaff2a,
+    type: 3}
+  m_PrefabInstance: {fileID: 6428337293428268272}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &6798527008475674091 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 535702951195797787, guid: 35f16650380449c78eeac51057eaff2a,

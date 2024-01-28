@@ -6,10 +6,12 @@ using UnityEngine.AI;
 namespace StartledSeal
 {
     [RequireComponent(typeof(NavMeshAgent))]
+    [RequireComponent(typeof(PlayerDetector))]
     public class Enemy : Entity
     {
         [SerializeField, Self] private NavMeshAgent _agent;
         [SerializeField, Child] private Animator _animator;
+        [SerializeField, Self] private PlayerDetector _playerDetector;
 
         [SerializeField] private float _wanderRadius = 10f;
 
@@ -22,8 +24,10 @@ namespace StartledSeal
             _stateMachine = new StateMachine();
 
             var wanderState = new EnemyWanderState(this, _animator, _agent, _wanderRadius);
+            var chaseState = new EnemyChaseState(this, _animator, _agent, _playerDetector.Player);
             
-            Any(wanderState, new FuncPredicate(() => true));
+            At(wanderState, chaseState, new FuncPredicate(() => _playerDetector.CanDetectPlayer()));
+            At(chaseState, wanderState, new FuncPredicate(() => !_playerDetector.CanDetectPlayer()));
             
             _stateMachine.SetState(wanderState);
         }

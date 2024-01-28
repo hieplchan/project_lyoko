@@ -1,3 +1,4 @@
+using StartledSeal.Common;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -18,6 +19,7 @@ namespace StartledSeal
 
         public override void OnEnter()
         {
+            MLog.Debug("EnemyWanderState", "OnEnter");
             _animator.CrossFade(WalkHash, CrossDuration);
         }
 
