@@ -1634,11 +1634,14 @@ MonoBehaviour:
   _moveSpeed: 300
   _rotationSpeed: 15
   _smoothTime: 0.2
-  _jumpForce: 5
+  _jumpForce: 4
   _jumpDuration: 0.5
   _jumpCoolDown: 0
   _jumpGravityMultiplier: 3
   _jumpLaunchPoint: 0.9
+  _dashForce: 2
+  _dashDuration: 0.5
+  _dashCoolDown: 1
 --- !u!114 &2266504987464839236
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -29,18 +29,28 @@ namespace StartledSeal
         [SerializeField] private float _jumpGravityMultiplier = 3f; // falling faster
         [SerializeField] private float _jumpLaunchPoint = 0.9f; // max jump force at begining
 
+        [Header("Dash Setting")] 
+        [SerializeField] private float _dashForce = 10f;
+        [SerializeField] private float _dashDuration = 1f;
+        [SerializeField] private float _dashCoolDown = 2f;
+
         private Transform _mainCamTransform;
         
         private float _currentSpeed;
         private float _velocity;
         private float _jumpVelocity;
+        private float _dashVelocity = 1f;
 
         private Vector3 _movement;
 
         // Timers
         private List<Timer> _timers;
+        
         private CooldownTimer _jumpTimer; // how long user hold jump btn
         private CooldownTimer _jumpCooldownTimer; // wait to next jump
+
+        private CooldownTimer _dashTimer;
+        private CooldownTimer _dashCooldownTimer;
 
         // State Machine
         private StateMachine _stateMachine;
@@ -66,37 +76,66 @@ namespace StartledSeal
         {
             _jumpTimer = new CooldownTimer(_jumpDuration);
             _jumpCooldownTimer = new CooldownTimer(_jumpCoolDown);
-            _timers = new List<Timer>(2) { _jumpTimer, _jumpCooldownTimer };
+
+            _dashTimer = new CooldownTimer(_dashDuration);
+            _dashCooldownTimer = new CooldownTimer(_dashCoolDown);
+            
+            _timers = new List<Timer>(4) { _jumpTimer, _jumpCooldownTimer, _dashTimer, _dashCooldownTimer };
 
             _jumpTimer.OnTimerStart += () => _jumpVelocity = _jumpForce;
             _jumpTimer.OnTimerStop += () => _jumpCooldownTimer.Start();
+
+            _dashTimer.OnTimerStart += () => _dashVelocity = _dashForce;
+            _dashTimer.OnTimerStop += () =>
+            {
+                _dashCooldownTimer.Start();
+                _dashVelocity = 1f;
+            };
         }
 
+        #region State Machine
         private void SetupStateMachine()
         {
             _stateMachine = new StateMachine();
+            
+            // declare state
             var locomotionState = new LocomotionState(this, _animator);
             var jumpState = new JumpState(this, _animator);
-
+            var dashState = new DashState(this, _animator);
+            
+            // define transition
             At(locomotionState, jumpState, new FuncPredicate(() => _jumpTimer.IsRunning));
-            At(jumpState, locomotionState, new FuncPredicate(() => _groundChecker.IsGrounded && !_jumpTimer.IsRunning));
+            At(locomotionState, dashState, new FuncPredicate(() => _dashTimer.IsRunning));
+            Any(locomotionState, new FuncPredicate(ReturnToLocomotionState));
 
+            // set init state
             _stateMachine.SetState(locomotionState);
         }
-
         void At(IState from, IState to, IPredicate condition) => _stateMachine.AddTransition(from, to, condition);
         void Any(IState to, IPredicate condition) => _stateMachine.AddAnyTransition(to, condition);
+
+        private bool ReturnToLocomotionState()
+        {
+            return _groundChecker.IsGrounded &&
+                   !_jumpTimer.IsRunning &&
+                   !_dashTimer.IsRunning;
+        }
+
+
+        #endregion
 
         private void Start() => _input.EnableplayerActions();
 
         private void OnEnable()
         {
             _input.Jump += OnJump;
+            _input.Dash += OnDash;
         }
 
         private void OnDisable()
         {
             _input.Jump -= OnJump;
+            _input.Dash -= OnDash;
         }
         
         private void Update()
@@ -130,6 +169,20 @@ namespace StartledSeal
             else if (!performed && _jumpTimer.IsRunning)
             {
                 _jumpTimer.Stop();
+            }
+        }
+        
+        private void OnDash(bool performed)
+        {
+            if (performed && !_dashCooldownTimer.IsRunning &&
+                !_dashTimer.IsRunning &&
+                _groundChecker.IsGrounded)
+            {
+                _dashTimer.Start();
+            }
+            else if (!performed && !_dashTimer.IsRunning)
+            {
+                _dashTimer.Stop();
             }
         }
 
@@ -186,7 +239,7 @@ namespace StartledSeal
         private void HandleHorizontalMovement(Vector3 adjustedDirection)
         {
             // Move the player
-            Vector3 velocity = adjustedDirection * (_moveSpeed * Time.fixedDeltaTime);
+            Vector3 velocity = adjustedDirection * (_moveSpeed * _dashVelocity * Time.fixedDeltaTime);
             _rb.velocity = new Vector3(velocity.x, _rb.velocity.y, velocity.z);
         }
         

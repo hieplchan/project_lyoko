@@ -316,6 +316,17 @@
                 },
                 {
                     "name": "",
+                    "id": "4aa3824b-4d9c-40a9-ad49-b62960ccb979",
+                    "path": "<Gamepad>/rightShoulder",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Run",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
                     "id": "2612734a-2810-4e15-b3b8-3322cdeb4cb6",
                     "path": "<Gamepad>/buttonSouth",
                     "interactions": "",
