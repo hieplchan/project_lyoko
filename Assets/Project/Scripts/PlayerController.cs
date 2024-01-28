@@ -27,7 +27,6 @@ namespace StartledSeal
         [SerializeField] private float _jumpDuration = 0.5f;
         [SerializeField] private float _jumpCoolDown = 0f;
         [SerializeField] private float _jumpGravityMultiplier = 3f; // falling faster
-        [SerializeField] private float _jumpLaunchPoint = 0.9f; // max jump force at begining
 
         [Header("Dash Setting")] 
         [SerializeField] private float _dashForce = 10f;
