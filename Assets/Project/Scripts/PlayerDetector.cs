@@ -10,7 +10,8 @@ namespace StartledSeal
         [SerializeField] private float _detectionRadius = 10f; // Large circle around enemy
         [SerializeField] private float _innerDetectionRadius = 3f; // Small circle around enemy
         [SerializeField] private float _detectionCoolDown = 1f; // Time bettween detection
-
+        [SerializeField] float _attackRange = 2f; // Distance from enemy to player to attack
+        
         public Transform Player { get; private set; }
         
         private CooldownTimer _detectionTimer;
@@ -32,6 +33,12 @@ namespace StartledSeal
 
         public bool CanDetectPlayer() => _detectionTimer.IsRunning || _detectionStrategy.Execute(Player, transform, _detectionTimer);
 
+        public bool CanAttackPlayer()
+        {
+            var directionToPlayer = Player.position - transform.position;
+            return directionToPlayer.magnitude <= _attackRange;        
+        }
+        
         void OnDrawGizmos() {
             Gizmos.color = Color.red;
 
@@ -46,6 +53,9 @@ namespace StartledSeal
             // Draw lines to represent the cone
             Gizmos.DrawLine(transform.position, transform.position + forwardConeDirection);
             Gizmos.DrawLine(transform.position, transform.position + backwardConeDirection);
+            
+            Gizmos.color = Color.yellow;
+            Gizmos.DrawWireSphere(transform.position, _attackRange);
         }
     }
 }
