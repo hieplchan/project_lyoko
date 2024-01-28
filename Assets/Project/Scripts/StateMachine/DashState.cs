@@ -10,12 +10,12 @@ namespace StartledSeal
 
         public override void OnEnter()
         {
-            animator.CrossFade(DashHash, CrossFadeDuration);
+            _animator.CrossFade(DashHash, CrossFadeDuration);
         }
 
-        public override void OnFixedUpdate()
+        public override void FixedUpdate()
         {
-            player.HandleMovement();
+            _player.HandleMovement();
         }
     }
 }

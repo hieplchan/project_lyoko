@@ -16,12 +16,12 @@ namespace StartledSeal
             if (transition != null)
                 ChangeState(transition.To);
             
-            _current.State?.OnUpdate();
+            _current.State?.Update();
         }
 
         public void FixedUpdate()
         {
-            _current.State?.OnFixedUpdate();
+            _current.State?.FixedUpdate();
         }
 
         public void SetState(IState state)
@@ -50,7 +50,7 @@ namespace StartledSeal
 
         public void AddAnyTransition(IState to, IPredicate condition)
         {
-            _anyTransitions.Add(new Transition(to, condition));
+            _anyTransitions.Add(new Transition(GetOrAddNode(to).State, condition));
         }
 
         private StateNode GetOrAddNode(IState state)

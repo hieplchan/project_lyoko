@@ -12,13 +12,13 @@ namespace StartledSeal
         public override void OnEnter()
         {
             MLog.Debug("JumpState", "OnEnter");
-            animator.CrossFade(JumpHash, CrossFadeDuration);
+            _animator.CrossFade(JumpHash, CrossFadeDuration);
         }
 
-        public override void OnFixedUpdate()
+        public override void FixedUpdate()
         {
-            player.HandleJump();
-            player.HandleMovement();
+            _player.HandleJump();
+            _player.HandleMovement();
         }
     }
 }

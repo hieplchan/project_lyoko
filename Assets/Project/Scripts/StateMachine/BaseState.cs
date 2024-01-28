@@ -7,8 +7,8 @@ namespace StartledSeal
     {
         protected const float CrossFadeDuration = 0.1f;
         
-        protected PlayerController player;
-        protected Animator animator;
+        protected PlayerController _player;
+        protected Animator _animator;
         
         protected static readonly int LocomotionHash = Animator.StringToHash("Locomotion");
         protected static readonly int JumpHash = Animator.StringToHash("Jump");
@@ -16,8 +16,8 @@ namespace StartledSeal
 
         protected BaseState(PlayerController player, Animator animator)
         {
-            this.player = player;
-            this.animator = animator;
+            _player = player;
+            _animator = animator;
         }
         
         public virtual void OnEnter()
@@ -25,12 +25,12 @@ namespace StartledSeal
             // noop
         }
 
-        public virtual void OnUpdate()
+        public virtual void Update()
         {
             // noop
         }
 
-        public virtual void OnFixedUpdate()
+        public virtual void FixedUpdate()
         {
             // noop
         }

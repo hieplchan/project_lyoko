@@ -115,9 +115,9 @@ namespace StartledSeal
 
         private bool ReturnToLocomotionState()
         {
-            return _groundChecker.IsGrounded &&
-                   !_jumpTimer.IsRunning &&
-                   !_dashTimer.IsRunning;
+            return _groundChecker.IsGrounded
+                   && !_jumpTimer.IsRunning
+                   && !_dashTimer.IsRunning;
         }
 
 
