@@ -1,18 +1,21 @@
+using StartledSeal.Common;
 using UnityEngine;
 
 namespace StartledSeal
 {
     public abstract class BaseState : IState
     {
-        protected PlayerController playerController;
+        protected const float CrossFadeDuration = 0.1f;
+        
+        protected PlayerController player;
         protected Animator animator;
         
         protected static readonly int LocomotionHash = Animator.StringToHash("Locomotion");
         protected static readonly int JumpHash = Animator.StringToHash("Jump");
 
-        protected BaseState(PlayerController playerController, Animator animator)
+        protected BaseState(PlayerController player, Animator animator)
         {
-            this.playerController = playerController;
+            this.player = player;
             this.animator = animator;
         }
         
@@ -33,7 +36,7 @@ namespace StartledSeal
 
         public virtual void OnExit()
         {
-            // noop
+            MLog.Debug("BaseState", "OnExit");
         }
     }
 }

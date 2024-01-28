@@ -1634,10 +1634,9 @@ MonoBehaviour:
   _moveSpeed: 300
   _rotationSpeed: 15
   _smoothTime: 0.2
-  _jumpForce: 10
+  _jumpForce: 5
   _jumpDuration: 0.5
   _jumpCoolDown: 0
-  _jumpMaxHeight: 2
   _jumpGravityMultiplier: 3
   _jumpLaunchPoint: 0.9
 --- !u!114 &2266504987464839236
