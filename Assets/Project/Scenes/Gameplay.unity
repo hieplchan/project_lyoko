@@ -208,6 +208,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 256218497}
+  - component: {fileID: 256218498}
   m_Layer: 5
   m_Name: Health
   m_TagString: Untagged
@@ -237,6 +238,34 @@ RectTransform:
   m_AnchoredPosition: {x: -626, y: 493.7878}
   m_SizeDelta: {x: 605.44824, y: 52.723694}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &256218498
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 256218496}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d868c2f82a5640219e2b1238d409fd04, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _eventChannel: {fileID: 11400000, guid: 5928448bf7639794db94ec43ff9f7458, type: 2}
+  _unityEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 91017970}
+        m_TargetAssemblyTypeName: UnityEngine.UI.Image, UnityEngine.UI
+        m_MethodName: set_fillAmount
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &771823349
 GameObject:
   m_ObjectHideFlags: 0
@@ -654,6 +683,6 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -236.43921, y: -46.21216}
+  m_AnchoredPosition: {x: -236.43921, y: -46.210938}
   m_SizeDelta: {x: 408.32666, y: 52.7237}
   m_Pivot: {x: 0.5, y: 0.5}
