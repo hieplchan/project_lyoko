@@ -1,5 +1,6 @@
 using System;
 using KBCore.Refs;
+using StartledSeal.Common;
 using StartledSeal.Utils;
 using UnityEngine;
 using UnityEngine.AI;
@@ -15,7 +16,8 @@ namespace StartledSeal
         [SerializeField, Self] private PlayerDetector _playerDetector;
 
         [SerializeField] private float _wanderRadius = 10f;
-        [SerializeField] float _timeBetweenAttacks = 1f;
+        [SerializeField] private float _timeBetweenAttacks = 1f;
+        [SerializeField] private float _attackDamage = 1f;
 
         private StateMachine _stateMachine;
         
@@ -47,6 +49,7 @@ namespace StartledSeal
         private void Update()
         {
             _stateMachine.Update();
+            _attackTimer.Tick(Time.deltaTime);
         }
 
         private void FixedUpdate()
@@ -59,6 +62,7 @@ namespace StartledSeal
             if (_attackTimer.IsRunning) return;
             
             _attackTimer.Start();
+            _playerDetector.PlayerHealth.TakeDamage(_attackDamage);
         }
     }
 }

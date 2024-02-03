@@ -1,4 +1,5 @@
 using System;
+using StartledSeal.Utils;
 using UnityEngine;
 
 namespace StartledSeal.Mechanics
@@ -22,7 +23,7 @@ namespace StartledSeal.Mechanics
 
         private void OnCollisionExit(Collision other)
         {
-            if (other.gameObject.CompareTag("MovingPlatform"))
+            if (other.gameObject.CompareTag(Constance.MovingPlatform))
             {
                 transform.SetParent(null);
                 _platform = null;

@@ -29,7 +29,7 @@ namespace StartledSeal
         private void PublishHealthPercentage()
         {
             if (_playerHealthEventChanel != null) 
-                _playerHealthEventChanel.Invoke(_currentHealth);
+                _playerHealthEventChanel.Invoke(_currentHealth/_maxHealth);
         }
     }
 }

@@ -33,6 +33,11 @@ namespace StartledSeal
         [SerializeField] private float _dashDuration = 1f;
         [SerializeField] private float _dashCoolDown = 2f;
 
+        [Header("Attack Setting")] 
+        [SerializeField] private float _attackCoolDown = 0.5f;
+        [SerializeField] private float _attackDistance = 1f;
+        [SerializeField] private int _attackDamage = 10;
+        
         private Transform _mainCamTransform;
         
         private float _currentSpeed;
@@ -50,6 +55,8 @@ namespace StartledSeal
 
         private CooldownTimer _dashTimer;
         private CooldownTimer _dashCooldownTimer;
+
+        private CooldownTimer _attackCooldownTimer;
 
         // State Machine
         private StateMachine _stateMachine;
@@ -78,8 +85,10 @@ namespace StartledSeal
 
             _dashTimer = new CooldownTimer(_dashDuration);
             _dashCooldownTimer = new CooldownTimer(_dashCoolDown);
+
+            _attackCooldownTimer = new CooldownTimer(_attackCoolDown);
             
-            _timers = new List<Timer>(4) { _jumpTimer, _jumpCooldownTimer, _dashTimer, _dashCooldownTimer };
+            _timers = new List<Timer>(5) { _jumpTimer, _jumpCooldownTimer, _dashTimer, _dashCooldownTimer, _attackCooldownTimer };
 
             _jumpTimer.OnTimerStart += () => _jumpVelocity = _jumpForce;
             _jumpTimer.OnTimerStop += () => _jumpCooldownTimer.Start();
@@ -101,10 +110,13 @@ namespace StartledSeal
             var locomotionState = new LocomotionState(this, _animator);
             var jumpState = new JumpState(this, _animator);
             var dashState = new DashState(this, _animator);
+            var attackState = new AttackState(this, _animator);
             
             // define transition
             At(locomotionState, jumpState, new FuncPredicate(() => _jumpTimer.IsRunning));
             At(locomotionState, dashState, new FuncPredicate(() => _dashTimer.IsRunning));
+            At(locomotionState, attackState, new FuncPredicate(() => _attackCooldownTimer.IsRunning));
+            At(attackState, locomotionState, new FuncPredicate(() => !_attackCooldownTimer.IsRunning));
             Any(locomotionState, new FuncPredicate(ReturnToLocomotionState));
 
             // set init state
@@ -117,10 +129,9 @@ namespace StartledSeal
         {
             return _groundChecker.IsGrounded
                    && !_jumpTimer.IsRunning
-                   && !_dashTimer.IsRunning;
+                   && !_dashTimer.IsRunning
+                   && !_attackCooldownTimer.IsRunning;
         }
-
-
         #endregion
 
         private void Start() => _input.EnableplayerActions();
@@ -129,12 +140,14 @@ namespace StartledSeal
         {
             _input.Jump += OnJump;
             _input.Dash += OnDash;
+            _input.Attack += OnAttack;
         }
 
         private void OnDisable()
         {
             _input.Jump -= OnJump;
             _input.Dash -= OnDash;
+            _input.Attack -= OnAttack;
         }
         
         private void Update()
@@ -182,6 +195,25 @@ namespace StartledSeal
             else if (!performed && !_dashTimer.IsRunning)
             {
                 _dashTimer.Stop();
+            }
+        }
+        
+        private void OnAttack()
+        {
+            if (!_attackCooldownTimer.IsRunning)
+                _attackCooldownTimer.Start();
+        }
+        
+        public void Attack()
+        {
+            var pos = transform.position + Vector3.forward;
+            var hits = Physics.OverlapSphere(pos, _attackDamage);
+            foreach (var hit in hits)
+            {
+                if (hit.CompareTag(Constance.EnemyTag))
+                {
+                    hit.GetComponent<Health>().TakeDamage(_attackDamage);
+                }
             }
         }
 
@@ -251,6 +283,5 @@ namespace StartledSeal
         {
             _animator.SetFloat(Speed, _currentSpeed);
         }
-
     }
 }

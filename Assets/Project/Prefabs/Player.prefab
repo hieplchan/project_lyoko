@@ -1642,6 +1642,9 @@ MonoBehaviour:
   _dashForce: 2
   _dashDuration: 0.5
   _dashCoolDown: 1
+  _attackCoolDown: 0.5
+  _attackDistance: 1
+  _attackDamage: 10
 --- !u!114 &2266504987464839236
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1732,7 +1735,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 375d2660b72e49ecb389e892bf6030f0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _maxHealth: 0
+  _maxHealth: 100
   _playerHealthEventChanel: {fileID: 11400000, guid: 5928448bf7639794db94ec43ff9f7458,
     type: 2}
 --- !u!1 &5159472622030091954

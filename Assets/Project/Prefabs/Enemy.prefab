@@ -99,6 +99,7 @@ MonoBehaviour:
   _playerDetector: {fileID: 5392876710544102562}
   _wanderRadius: 10
   _timeBetweenAttacks: 1
+  _attackDamage: 10
 --- !u!114 &5392876710544102562
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -113,9 +114,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _detectionAngle: 60
   _detectionRadius: 7
-  _innerDetectionRadius: 3
+  _innerDetectionRadius: 1.78
   _detectionCoolDown: 1
-  _attackRange: 2
+  _attackRange: 3
 --- !u!114 &7951002650029678878
 MonoBehaviour:
   m_ObjectHideFlags: 0
