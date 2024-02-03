@@ -13,5 +13,15 @@ namespace StartledSeal.Common
         {
             UnityEngine.Debug.Log(message);
         }
+        
+        public static void Error(string prefix, string message)
+        {
+            UnityEngine.Debug.LogError($"{prefix}: {message}");
+        }
+        
+        public static void Error(string message)
+        {
+            UnityEngine.Debug.LogError(message);
+        }
     }
 }
