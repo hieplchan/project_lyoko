@@ -4,7 +4,7 @@ using Cinemachine;
 using KBCore.Refs;
 using StartledSeal.Utils;
 using UnityEngine;
-using static StartledSeal.FloatExtensions;
+using static StartledSeal.Utils.Extension.FloatExtensions;
 
 namespace StartledSeal
 {
@@ -210,7 +210,7 @@ namespace StartledSeal
             var hits = Physics.OverlapSphere(pos, _attackDamage);
             foreach (var hit in hits)
             {
-                if (hit.CompareTag(Constance.EnemyTag))
+                if (hit.CompareTag(Const.EnemyTag))
                 {
                     hit.GetComponent<Health>().TakeDamage(_attackDamage);
                 }

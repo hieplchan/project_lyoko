@@ -23,7 +23,7 @@ namespace StartledSeal.Mechanics
 
         private void OnCollisionExit(Collision other)
         {
-            if (other.gameObject.CompareTag(Constance.MovingPlatform))
+            if (other.gameObject.CompareTag(Const.MovingPlatform))
             {
                 transform.SetParent(null);
                 _platform = null;

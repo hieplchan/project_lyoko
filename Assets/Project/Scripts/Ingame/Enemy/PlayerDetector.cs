@@ -21,7 +21,7 @@ namespace StartledSeal
 
         private void Awake()
         {
-            Player = GameObject.FindGameObjectWithTag(Constance.PlayerTag).transform;
+            Player = GameObject.FindGameObjectWithTag(Const.PlayerTag).transform;
             PlayerHealth = Player.GetComponent<Health>();
         }
         
