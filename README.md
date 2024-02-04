@@ -1,2 +1,2 @@
-# project_lyoko
+# Project Lyoko
 ![Screen Shot](./screenshot.png)
