@@ -12,7 +12,12 @@ Material:
     type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
-  m_ValidKeywords: []
+  m_ValidKeywords:
+  - _ADDITIONAL_LIGHTS
+  - _ADDITIONAL_LIGHT_SHADOWS
+  - _MAIN_LIGHT_SHADOWS
+  - _MAIN_LIGHT_SHADOWS_CASCADE
+  - _SHADOWS_SOFT
   m_InvalidKeywords: []
   m_LightmapFlags: 2
   m_EnableInstancingVariants: 0
@@ -82,8 +87,8 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - _ADDITIONAL_LIGHTS: 0
-    - _ADDITIONAL_LIGHT_SHADOWS: 0
+    - _ADDITIONAL_LIGHTS: 1
+    - _ADDITIONAL_LIGHT_SHADOWS: 1
     - _AlphaClip: 0
     - _AlphaToMask: 0
     - _Blend: 0
@@ -98,29 +103,30 @@ Material:
     - _DstBlend: 0
     - _DstBlendAlpha: 0
     - _EdgeDiffuse: 0
-    - _EdgeDistanceAttenuation: 0
-    - _EdgeRim: 0.48
-    - _EdgeRimOffset: 0.03
-    - _EdgeShadowAttenuation: 0
+    - _EdgeDistanceAttenuation: 1.01
+    - _EdgeRim: 0.47
+    - _EdgeRimOffset: 0.01
+    - _EdgeShadowAttenuation: 0.51
     - _EdgeSpecular: 0
-    - _EdgeSpecularOffset: 0
+    - _EdgeSpecularOffset: 0.63
     - _EnvironmentReflections: 1
     - _GlossMapScale: 1
     - _Glossiness: 0
     - _GlossyReflections: 1
-    - _MAIN_LIGHT_SHADOWS: 0
-    - _MAIN_LIGHT_SHADOWS_CASCADE: 0
-    - _MaxAdditionalLightSource: 2
+    - _MAIN_LIGHT_SHADOWS: 1
+    - _MAIN_LIGHT_SHADOWS_CASCADE: 1
+    - _MaxAdditionalLightSource: 21
     - _Metallic: 1
+    - _MinShadowValue: 0.49
     - _Mode: 0
     - _OcclusionStrength: 1
     - _Parallax: 0.02
     - _QueueControl: 0
     - _QueueOffset: 0
     - _ReceiveShadows: 1
-    - _RimThreshold: 0.5
-    - _SHADOWS_SOFT: 0
-    - _Smoothness: 1
+    - _RimThreshold: 0.01
+    - _SHADOWS_SOFT: 1
+    - _Smoothness: 1.26
     - _SmoothnessTextureChannel: 0
     - _SpecularHighlights: 1
     - _SrcBlend: 1

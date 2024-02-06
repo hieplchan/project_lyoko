@@ -24,6 +24,8 @@ struct SurfaceVariables
 
     float shininess;
 
+    float minShadowValue;
+
     EdgeConstances ec;
 };
 
@@ -64,7 +66,7 @@ float3 CalculateCelShading(Light l, SurfaceVariables s)
         rim
     );
     
-    return l.color * (diffuse + max(rim, specular));
+    return l.color * max(s.minShadowValue, (diffuse + max(rim, specular)));
 }
 
 void LightingCelShaded_float(
@@ -73,7 +75,7 @@ void LightingCelShaded_float(
     float EdgeDiffuse, float EdgeSpecular, float EdgeSpecularOffset,
     float EdgeDistanceAttenuation, float EdgeShadowAttenuation,
     float EdgeRim, float EdgeRimOffset,
-    float MaxAdditionalLightSource,
+    float MaxAdditionalLightSource, float MinShadowValue,
     out float3 Color)
 {
     SurfaceVariables s;
@@ -81,6 +83,7 @@ void LightingCelShaded_float(
     s.view = SafeNormalize(View);
     s.smoothness = Smoothness;
     s.shininess = exp2(10 * Smoothness + 1);
+    s.minShadowValue = MinShadowValue;
     s.rimThreshold = RimThreshold;
     
     s.ec.diffuse = EdgeDiffuse;
