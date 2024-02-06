@@ -110,6 +110,7 @@ Material:
     - _GlossyReflections: 1
     - _MAIN_LIGHT_SHADOWS: 0
     - _MAIN_LIGHT_SHADOWS_CASCADE: 0
+    - _MaxAdditionalLightSource: 2
     - _Metallic: 1
     - _Mode: 0
     - _OcclusionStrength: 1
