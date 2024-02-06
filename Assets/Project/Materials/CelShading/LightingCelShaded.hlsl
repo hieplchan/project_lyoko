@@ -69,10 +69,11 @@ float3 CalculateCelShading(Light l, SurfaceVariables s)
 
 void LightingCelShaded_float(
     float3 Smoothness, float RimThreshold,
+    float3 Position, float3 Normal, float3 View,
     float EdgeDiffuse, float EdgeSpecular, float EdgeSpecularOffset,
     float EdgeDistanceAttenuation, float EdgeShadowAttenuation,
     float EdgeRim, float EdgeRimOffset,
-    float3 Position, float3 Normal, float3 View,
+    float2 AdditionalLightSourceConfig,
     out float3 Color)
 {
     SurfaceVariables s;
@@ -103,7 +104,9 @@ void LightingCelShaded_float(
 
     // Additional Lights
     int pixelLightCount = GetAdditionalLightsCount();
+    int maxAdditionalLightSource = (int)AdditionalLightSourceConfig;
     for (int i = 0; i < pixelLightCount; i++)
+    // for (int i = 0; i < min(maxAdditionalLightSource, pixelLightCount); i++)
     {
         light = GetAdditionalLight(i, Position, 1);
         Color += CalculateCelShading(light, s);
