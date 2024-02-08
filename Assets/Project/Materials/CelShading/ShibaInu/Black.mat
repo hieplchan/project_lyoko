@@ -116,21 +116,21 @@ Material:
     - _DstBlend: 0
     - _DstBlendAlpha: 0
     - _EdgeDiffuse: 0
-    - _EdgeDistanceAttenuation: 0.67
-    - _EdgeRim: -0.49
-    - _EdgeRimOffset: 1.15
-    - _EdgeShadowAttenuation: 2.14
-    - _EdgeSpecular: -1.08
-    - _EdgeSpecularOffset: 0.28
+    - _EdgeDistanceAttenuation: 1.31
+    - _EdgeRim: 5.97
+    - _EdgeRimOffset: 1.06
+    - _EdgeShadowAttenuation: 5.38
+    - _EdgeSpecular: 0.61
+    - _EdgeSpecularOffset: -7.16
     - _EnvironmentReflections: 1
     - _GlossMapScale: 1
     - _Glossiness: 0.30996522
     - _GlossyReflections: 1
     - _MAIN_LIGHT_SHADOWS: 1
     - _MAIN_LIGHT_SHADOWS_CASCADE: 1
-    - _MaxAdditionalLightSource: 97.69
+    - _MaxAdditionalLightSource: 98.75
     - _Metallic: 0
-    - _MinShadowValue: -1.3
+    - _MinShadowValue: 0.47
     - _Mode: 0
     - _OcclusionStrength: 1
     - _Parallax: 0.02
@@ -139,7 +139,7 @@ Material:
     - _ReceiveShadows: 1
     - _RimThreshold: -0.42
     - _SHADOWS_SOFT: 1
-    - _Smoothness: 0.85
+    - _Smoothness: 0.45
     - _SmoothnessTextureChannel: 0
     - _SpecularHighlights: 1
     - _SrcBlend: 1
