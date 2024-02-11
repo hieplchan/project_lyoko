@@ -41,13 +41,15 @@ namespace StartledSeal.Rendering
                     new ShaderTagId("LightWeightForward"),
                     new ShaderTagId("SRPDefaultUnlit")
                 };
-                _normalsMaterial = new Material(normalsShader);
+                
+                if (normalsShader != null)
+                    _normalsMaterial = new Material(normalsShader);
+                
                 _filteringSettings = new FilteringSettings(RenderQueueRange.opaque, layerMask);
                 
                 _normals = RTHandles.Alloc("_SceneViewSpaceNormals", name: "_SceneViewSpaceNormals");
             }
 
-            // Called before render pass
             public override void Configure(CommandBuffer cmd, RenderTextureDescriptor cameraTextureDescriptor)
             {
                 RenderTextureDescriptor normalsTextureDescriptor = cameraTextureDescriptor;
@@ -65,6 +67,8 @@ namespace StartledSeal.Rendering
 
             public override void Execute(ScriptableRenderContext context, ref RenderingData renderingData)
             {
+                if (_normalsMaterial == null) return;
+                
                 CommandBuffer cmd = CommandBufferPool.Get();
                 using (new ProfilingScope(cmd, new ProfilingSampler("SceneViewSpaceNormalsTextureCreation")))
                 {
@@ -82,7 +86,6 @@ namespace StartledSeal.Rendering
                 CommandBufferPool.Release(cmd);
             }
 
-            // Called after camera finished render
             public override void OnCameraCleanup(CommandBuffer cmd)
             {
                 cmd.ReleaseTemporaryRT(Shader.PropertyToID(_normals.name));
@@ -91,11 +94,42 @@ namespace StartledSeal.Rendering
         
         private class ScreenSpaceOutlinePass : ScriptableRenderPass
         {
-            public ScreenSpaceOutlinePass(RenderPassEvent renderPassEvent)
+            private Material _screenSpaceOutlineMaterial;
+            private RenderTargetIdentifier _cameraColorTarget;
+            private RenderTargetIdentifier _temporaryBuffer;
+            private int _temporaryBufferID = Shader.PropertyToID("_TemporaryBuffer");
+            
+            public ScreenSpaceOutlinePass(RenderPassEvent renderPassEvent, Shader screenSpaceOutlineShader)
             {
+                this.renderPassEvent = renderPassEvent;
+                if (screenSpaceOutlineShader != null)
+                    _screenSpaceOutlineMaterial = new Material(screenSpaceOutlineShader);
             }
+
+            public override void OnCameraSetup(CommandBuffer cmd, ref RenderingData renderingData)
+            {
+                _cameraColorTarget = renderingData.cameraData.renderer.cameraColorTargetHandle.nameID;
+                _temporaryBuffer = new RenderTargetIdentifier("_TemporaryBuffer");
+                cmd.GetTemporaryRT(_temporaryBufferID, renderingData.cameraData.cameraTargetDescriptor);
+            }
+
             public override void Execute(ScriptableRenderContext context, ref RenderingData renderingData)
             {
+                if (_screenSpaceOutlineMaterial == null) return;
+                
+                CommandBuffer cmd = CommandBufferPool.Get();
+                using (new ProfilingScope(cmd, new ProfilingSampler("ScreenSpaceOutlines")))
+                {
+                    Blit(cmd, _cameraColorTarget, _temporaryBuffer);
+                    Blit(cmd, _temporaryBuffer, _cameraColorTarget, _screenSpaceOutlineMaterial);
+                }
+                context.ExecuteCommandBuffer(cmd);
+                CommandBufferPool.Release(cmd);
+            }
+
+            public override void OnCameraCleanup(CommandBuffer cmd)
+            {
+                cmd.ReleaseTemporaryRT(_temporaryBufferID);
             }
         }
         
@@ -106,6 +140,8 @@ namespace StartledSeal.Rendering
         
         [SerializeField] private ViewSpaceNormalsTextureSettings _viewSpaceNormalsTextureSettings;
         [SerializeField] private Shader _normalsShader;
+
+        [SerializeField] private Shader _screenSpaceOutlineShader;
         
         private ViewSpaceNormalsTexturePass _viewSpaceNormalsTexturePass;
         private ScreenSpaceOutlinePass _screenSpaceOutlinePass;
@@ -117,7 +153,10 @@ namespace StartledSeal.Rendering
                 _viewSpaceNormalsTextureSettings, 
                 _normalsShader,
                 _layerMask);
-            _screenSpaceOutlinePass = new ScreenSpaceOutlinePass(_renderPassEvent);
+            
+            _screenSpaceOutlinePass = new ScreenSpaceOutlinePass(
+                _renderPassEvent, 
+                _screenSpaceOutlineShader);
         }
 
         public override void AddRenderPasses(ScriptableRenderer renderer, ref RenderingData renderingData)

@@ -121,3 +121,5 @@ MonoBehaviour:
     backgroundColor: {r: 0, g: 0, b: 0, a: 0}
   _normalsShader: {fileID: -6465566751694194690, guid: 2031fa81c7c89cc409200f98fb215f12,
     type: 3}
+  _screenSpaceOutlineShader: {fileID: -6465566751694194690, guid: 234e57bb5c8165a42ace4fff833ee8bd,
+    type: 3}
