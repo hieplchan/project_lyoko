@@ -95,22 +95,34 @@ namespace StartledSeal.Rendering
         private class ScreenSpaceOutlinePass : ScriptableRenderPass
         {
             private Material _screenSpaceOutlineMaterial;
-            private RenderTargetIdentifier _cameraColorTarget;
-            private RenderTargetIdentifier _temporaryBuffer;
-            private int _temporaryBufferID = Shader.PropertyToID("_TemporaryBuffer");
+            // private RenderTargetIdentifier _cameraColorTarget;
+            private readonly List<ShaderTagId> _shaderTagIdList;
+            private FilteringSettings _filteringSettings;
             
-            public ScreenSpaceOutlinePass(RenderPassEvent renderPassEvent, Shader screenSpaceOutlineShader)
+            // private RenderTargetIdentifier _temporaryBuffer;
+            // private int _temporaryBufferID = Shader.PropertyToID("_TemporaryBuffer");
+            
+            
+            public ScreenSpaceOutlinePass(RenderPassEvent renderPassEvent, Shader screenSpaceOutlineShader, LayerMask layerMask)
             {
                 this.renderPassEvent = renderPassEvent;
                 if (screenSpaceOutlineShader != null)
                     _screenSpaceOutlineMaterial = new Material(screenSpaceOutlineShader);
+                _shaderTagIdList = new List<ShaderTagId>{
+                    new ShaderTagId("UniversalForward"),
+                    new ShaderTagId("UniversalForwardOnly"),
+                    new ShaderTagId("LightWeightForward"),
+                    new ShaderTagId("SRPDefaultUnlit")
+                };
+                _filteringSettings = new FilteringSettings(RenderQueueRange.opaque, layerMask);
             }
 
             public override void OnCameraSetup(CommandBuffer cmd, ref RenderingData renderingData)
             {
-                _cameraColorTarget = renderingData.cameraData.renderer.cameraColorTargetHandle.nameID;
-                _temporaryBuffer = new RenderTargetIdentifier("_TemporaryBuffer");
-                cmd.GetTemporaryRT(_temporaryBufferID, renderingData.cameraData.cameraTargetDescriptor);
+                // _cameraColorTarget = renderingData.cameraData.renderer.cameraColorTargetHandle.nameID;
+                // _temporaryBuffer = new RenderTargetIdentifier("_TemporaryBuffer");
+                // cmd.GetTemporaryRT(_temporaryBufferID, renderingData.cameraData.cameraTargetDescriptor);
+                ConfigureTarget(renderingData.cameraData.renderer.cameraColorTargetHandle);
             }
 
             public override void Execute(ScriptableRenderContext context, ref RenderingData renderingData)
@@ -120,8 +132,15 @@ namespace StartledSeal.Rendering
                 CommandBuffer cmd = CommandBufferPool.Get();
                 using (new ProfilingScope(cmd, new ProfilingSampler("ScreenSpaceOutlines")))
                 {
-                    Blit(cmd, _cameraColorTarget, _temporaryBuffer);
-                    Blit(cmd, _temporaryBuffer, _cameraColorTarget, _screenSpaceOutlineMaterial);
+                    // Blit(cmd, _cameraColorTarget, _temporaryBuffer);
+                    // Blit(cmd, _temporaryBuffer, _cameraColorTarget, _screenSpaceOutlineMaterial);
+                    
+                    DrawingSettings drawingSettings = CreateDrawingSettings(
+                        _shaderTagIdList, ref renderingData,
+                        renderingData.cameraData.defaultOpaqueSortFlags);
+                    drawingSettings.overrideMaterial = _screenSpaceOutlineMaterial;
+                    context.DrawRenderers(renderingData.cullResults,
+                        ref drawingSettings, ref _filteringSettings);
                 }
                 context.ExecuteCommandBuffer(cmd);
                 CommandBufferPool.Release(cmd);
@@ -129,7 +148,7 @@ namespace StartledSeal.Rendering
 
             public override void OnCameraCleanup(CommandBuffer cmd)
             {
-                cmd.ReleaseTemporaryRT(_temporaryBufferID);
+                // cmd.ReleaseTemporaryRT(_temporaryBufferID);
             }
         }
         
@@ -156,7 +175,8 @@ namespace StartledSeal.Rendering
             
             _screenSpaceOutlinePass = new ScreenSpaceOutlinePass(
                 _renderPassEvent, 
-                _screenSpaceOutlineShader);
+                _screenSpaceOutlineShader,
+                _layerMask);
         }
 
         public override void AddRenderPasses(ScriptableRenderer renderer, ref RenderingData renderingData)

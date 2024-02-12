@@ -113,7 +113,7 @@ MonoBehaviour:
   _renderPassEvent: 500
   _layerMask:
     serializedVersion: 2
-    m_Bits: 55
+    m_Bits: 8
   _viewSpaceNormalsTextureSettings:
     colorFormat: 0
     depthBufferBits: 0
