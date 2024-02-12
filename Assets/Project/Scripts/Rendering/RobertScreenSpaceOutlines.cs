@@ -7,7 +7,7 @@ using UnityEngine.Rendering.Universal;
 // https://forum.unity.com/threads/rendertargethandle-is-obsolete-deprecated-in-favor-of-rthandle.1211052/
 namespace StartledSeal.Rendering
 {
-    public class ScreenSpaceOutlines : ScriptableRendererFeature
+    public class RobertScreenSpaceOutlines : ScriptableRendererFeature
     {
         #region Additional Render Pass Implement
 
