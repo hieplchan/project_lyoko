@@ -31,7 +31,11 @@
         }
     ],
     "m_GroupDatas": [],
-    "m_StickyNoteDatas": [],
+    "m_StickyNoteDatas": [
+        {
+            "m_Id": "0a30b1110391415a8d6aaefcfcbbe656"
+        }
+    ],
     "m_Edges": [
         {
             "m_OutputSlot": {
@@ -131,6 +135,26 @@
         "y": 0.0,
         "z": 0.0,
         "w": 0.0
+    }
+}
+
+{
+    "m_SGVersion": 0,
+    "m_Type": "UnityEditor.ShaderGraph.StickyNoteData",
+    "m_ObjectId": "0a30b1110391415a8d6aaefcfcbbe656",
+    "m_Title": "Ref",
+    "m_Content": "https://www.youtube.com/watch?v=LMqio9NsqmM",
+    "m_TextSize": 0,
+    "m_Theme": 0,
+    "m_Position": {
+        "serializedVersion": "2",
+        "x": 270.0,
+        "y": 43.0,
+        "width": 200.0,
+        "height": 160.0
+    },
+    "m_Group": {
+        "m_Id": ""
     }
 }
 
