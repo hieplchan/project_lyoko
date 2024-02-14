@@ -12,13 +12,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8ced1a809096428999abe60edbc53041, type: 3}
   m_Name: CustomScreenSpaceOutlines
   m_EditorClassIdentifier: 
-  m_Active: 1
+  m_Active: 0
   _renderPassEvent: 500
   _layerMask:
     serializedVersion: 2
     m_Bits: 8
   _customScreenSpaceOutlineShader: {fileID: -6465566751694194690, guid: 3d819ca622e33444ba4e3005a9fd8c28,
     type: 3}
+--- !u!114 &-4690051348603325431
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3a14b2ff6e034dffa3cc37387e445a33, type: 3}
+  m_Name: DepthNormalsFeature
+  m_EditorClassIdentifier: 
+  m_Active: 1
 --- !u!114 &-1878332245247344467
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -31,7 +44,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f62c9c65cf3354c93be831c8bc075510, type: 3}
   m_Name: SSAO
   m_EditorClassIdentifier: 
-  m_Active: 1
+  m_Active: 0
   m_Settings:
     AOMethod: 1
     Downsample: 0
@@ -74,7 +87,8 @@ MonoBehaviour:
   - {fileID: -1878332245247344467}
   - {fileID: 2472685569881453240}
   - {fileID: -5856563483026493254}
-  m_RendererFeatureMap: adc0de57c6d2eee5b8b204ca6cbe5022ba70aea58a4eb9ae
+  - {fileID: -4690051348603325431}
+  m_RendererFeatureMap: adc0de57c6d2eee5b8b204ca6cbe5022ba70aea58a4eb9ae093428bc2597e9be
   m_UseNativeRenderPass: 0
   postProcessData: {fileID: 11400000, guid: 41439944d30ece34e96484bdb6645b55, type: 2}
   xrSystemData: {fileID: 11400000, guid: 60e1133243b97e347b653163a8c01b64, type: 2}
