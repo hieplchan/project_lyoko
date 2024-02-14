@@ -1,24 +1,5 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &-5856563483026493254
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8ced1a809096428999abe60edbc53041, type: 3}
-  m_Name: CustomScreenSpaceOutlines
-  m_EditorClassIdentifier: 
-  m_Active: 0
-  _renderPassEvent: 500
-  _layerMask:
-    serializedVersion: 2
-    m_Bits: 8
-  _customScreenSpaceOutlineShader: {fileID: -6465566751694194690, guid: 3d819ca622e33444ba4e3005a9fd8c28,
-    type: 3}
 --- !u!114 &-4690051348603325431
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -85,10 +66,9 @@ MonoBehaviour:
     hdrDebugViewPS: {fileID: 4800000, guid: 573620ae32aec764abd4d728906d2587, type: 3}
   m_RendererFeatures:
   - {fileID: -1878332245247344467}
-  - {fileID: 2472685569881453240}
-  - {fileID: -5856563483026493254}
   - {fileID: -4690051348603325431}
-  m_RendererFeatureMap: adc0de57c6d2eee5b8b204ca6cbe5022ba70aea58a4eb9ae093428bc2597e9be
+  - {fileID: 6149507260299204849}
+  m_RendererFeatureMap: adc0de57c6d2eee5093428bc2597e9bef1d8d19145705755
   m_UseNativeRenderPass: 0
   postProcessData: {fileID: 11400000, guid: 41439944d30ece34e96484bdb6645b55, type: 2}
   xrSystemData: {fileID: 11400000, guid: 60e1133243b97e347b653163a8c01b64, type: 2}
@@ -131,7 +111,7 @@ MonoBehaviour:
   m_CopyDepthMode: 0
   m_AccurateGbufferNormals: 0
   m_IntermediateTextureMode: 1
---- !u!114 &2472685569881453240
+--- !u!114 &6149507260299204849
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -140,20 +120,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f7bfd32a0dee44569794359ab6e528d9, type: 3}
-  m_Name: ScreenSpaceOutlines
+  m_Script: {fileID: 11500000, guid: 8ced1a809096428999abe60edbc53041, type: 3}
+  m_Name: OutlineFeature
   m_EditorClassIdentifier: 
-  m_Active: 0
-  _renderPassEvent: 500
+  m_Active: 1
+  _shader: {fileID: -6465566751694194690, guid: e5638391ff19d95499e3ac6906da847a,
+    type: 3}
   _layerMask:
     serializedVersion: 2
-    m_Bits: 8
-  _viewSpaceNormalsTextureSettings:
-    colorFormat: 0
-    depthBufferBits: 0
-    filterMode: 0
-    backgroundColor: {r: 0, g: 0, b: 0, a: 0}
-  _normalsShader: {fileID: -6465566751694194690, guid: 2031fa81c7c89cc409200f98fb215f12,
-    type: 3}
-  _screenSpaceOutlineShader: {fileID: -6465566751694194690, guid: 234e57bb5c8165a42ace4fff833ee8bd,
-    type: 3}
+    m_Bits: 4294967295

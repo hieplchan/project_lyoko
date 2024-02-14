@@ -5,36 +5,34 @@ using UnityEngine.Rendering.Universal;
 
 namespace StartledSeal.Rendering
 {
-    public class CustomScreenSpaceOutlines : ScriptableRendererFeature
+    public class OutlineFeature : ScriptableRendererFeature
     {
-        [SerializeField] private RenderPassEvent _renderPassEvent;
-        [SerializeField] private LayerMask _layerMask;
-        
-        [SerializeField] private Shader _customScreenSpaceOutlineShader;
+        [SerializeField] private Shader _shader;
+        [SerializeField] private LayerMask _layerMask = -1;
 
-        private CustomScreenSpaceOutlinePass _customScreenSpaceOutlinePass;
+        private OutlinePass _outlinePass;
         
         public override void Create()
         {
-            _customScreenSpaceOutlinePass = new CustomScreenSpaceOutlinePass(
-                _renderPassEvent,
-                _customScreenSpaceOutlineShader,
+            _outlinePass = new OutlinePass(
+                RenderPassEvent.AfterRenderingTransparents,
+                _shader,
                 _layerMask);
         }
 
         public override void AddRenderPasses(ScriptableRenderer renderer, ref RenderingData renderingData)
         {
-            renderer.EnqueuePass(_customScreenSpaceOutlinePass);
+            renderer.EnqueuePass(_outlinePass);
         }
     }
     
-    public class CustomScreenSpaceOutlinePass : ScriptableRenderPass
+    public class OutlinePass : ScriptableRenderPass
     {
         private Material _material;
         private FilteringSettings _filteringSettings;
         private readonly List<ShaderTagId> _shaderTagIdList;
 
-        public CustomScreenSpaceOutlinePass(
+        public OutlinePass(
             RenderPassEvent renderPassEvent, 
             Shader customScreenSpaceOutlineShader, 
             LayerMask layerMask)
