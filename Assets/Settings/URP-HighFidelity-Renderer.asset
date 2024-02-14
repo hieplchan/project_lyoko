@@ -124,8 +124,9 @@ MonoBehaviour:
   m_Name: OutlineFeature
   m_EditorClassIdentifier: 
   m_Active: 1
+  _renderPassEvent: 450
   _shader: {fileID: -6465566751694194690, guid: e5638391ff19d95499e3ac6906da847a,
     type: 3}
   _layerMask:
     serializedVersion: 2
-    m_Bits: 4294967295
+    m_Bits: 8

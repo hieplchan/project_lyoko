@@ -7,6 +7,7 @@ namespace StartledSeal.Rendering
 {
     public class OutlineFeature : ScriptableRendererFeature
     {
+        [SerializeField] private RenderPassEvent _renderPassEvent = RenderPassEvent.AfterRenderingTransparents;
         [SerializeField] private Shader _shader;
         [SerializeField] private LayerMask _layerMask = -1;
 
@@ -15,7 +16,7 @@ namespace StartledSeal.Rendering
         public override void Create()
         {
             _outlinePass = new OutlinePass(
-                RenderPassEvent.AfterRenderingTransparents,
+                _renderPassEvent,
                 _shader,
                 _layerMask);
         }
@@ -58,7 +59,7 @@ namespace StartledSeal.Rendering
         {
             if (_material == null) return;
             
-            CommandBuffer cmd = CommandBufferPool.Get();
+            CommandBuffer cmd = CommandBufferPool.Get("CustomScreenSpaceOutlines");
             using (new ProfilingScope(cmd, new ProfilingSampler("CustomScreenSpaceOutlines")))
             {
                 DrawingSettings drawingSettings = CreateDrawingSettings(
