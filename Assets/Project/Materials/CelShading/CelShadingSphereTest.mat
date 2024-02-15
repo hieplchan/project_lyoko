@@ -71,7 +71,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MainTex:
-        m_Texture: {fileID: 2800000, guid: 40d63f3f614fa4b40afb82b588894b4b, type: 3}
+        m_Texture: {fileID: 2800000, guid: 649211dad4c62e645bb6fb7e11470d5f, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MetallicGlossMap:
@@ -125,7 +125,7 @@ Material:
     - _EdgeDistanceAttenuation: 0
     - _EdgeRim: 0
     - _EdgeRimOffset: 0
-    - _EdgeShadowAttenuation: 0
+    - _EdgeShadowAttenuation: -1.51
     - _EdgeSpecular: 0
     - _EdgeSpecularOffset: 0
     - _EnvironmentReflections: 1
@@ -137,6 +137,7 @@ Material:
     - _MAIN_LIGHT_SHADOWS_CASCADE: 1
     - _MaxAdditionalLightSource: 100
     - _Metallic: 0
+    - _MinShadowValue: 0.3
     - _OcclusionStrength: 1
     - _Parallax: 0.005
     - _QueueControl: 0
