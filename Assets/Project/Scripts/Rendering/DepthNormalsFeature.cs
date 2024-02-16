@@ -40,6 +40,9 @@ namespace StartledSeal.Rendering
                 cmd.GetTemporaryRT(Shader.PropertyToID(_target.name), _descriptor, FilterMode.Point);
                 ConfigureTarget(_target);
                 ConfigureClear(ClearFlag.All, Color.black);
+                
+                // TODO: Split to anothe pass later
+                ConfigureInput(ScriptableRenderPassInput.Normal);
             }
 
             public override void Execute(ScriptableRenderContext context, ref RenderingData renderingData)
