@@ -18,6 +18,30 @@ SAMPLER(sampler_CameraDepthNormalsTexture);
 TEXTURE2D(_CameraNormalsTexture);
 SAMPLER(sampler_CameraNormalsTexture);
 
+float DecodeFloatRG(float2 enc)
+{
+    float2 kDecodeDot = float2(1.0, 1 / 255.0);
+    return dot(enc, kDecodeDot);
+}
+
+float DecodeDepth(float4 enc)
+{
+    return DecodeFloatRG(enc.zw);
+}
+
+float GetDepthValue(float2 uv)
+{
+    float maskValue = SAMPLE_TEXTURE2D(_CameraDepthNormalsTexture, sampler_CameraDepthNormalsTexture, uv).r;
+    float depth = SAMPLE_TEXTURE2D(_CameraDepthTexture, sampler_CameraDepthTexture, uv).r;
+
+    // return depth;
+    
+    if (maskValue > 0)
+        return depth;
+    else
+        return 0;
+}
+
 float3 DecodeNormal(float4 enc)
 {
     float kScale = 1.7777;
@@ -47,23 +71,33 @@ void Outline3_float(float2 UV, float OutlineThickness, float DepthSensitivity,
 
     // Calculate neighbor UV
     float2 Texel = float2(_CameraColorTexture_TexelSize.x, _CameraColorTexture_TexelSize.y);
-    float2 uvSamples[4];
+    float2 uvSamples[4], uvSamplesNew[4];
 
     uvSamples[0] = UV + float2(1, 0) * Texel;
     uvSamples[1] = UV + float2(-1, 0) * Texel;
     uvSamples[2] = UV + float2(0, 1) * Texel;
     uvSamples[3] = UV + float2(0, -1) * Texel;
 
+    float OffsetMultiplier = 1;
+    uvSamplesNew[0] = UV + float2(1, 0) * Texel * OffsetMultiplier;
+    uvSamplesNew[1] = UV + float2(-1, 0) * Texel * OffsetMultiplier;
+    uvSamplesNew[2] = UV + float2(0, 1) * Texel * OffsetMultiplier;
+    uvSamplesNew[3] = UV + float2(0, -1) * Texel * OffsetMultiplier;
+
     // Sample Texture
     float depthOrgigin, depthNeighbors[4];
     float3 normalOrigin, normalNeighbors[4];
 
-    depthOrgigin = SAMPLE_TEXTURE2D(_CameraDepthTexture, sampler_CameraDepthTexture, UV).r;
+    depthOrgigin = GetDepthValue(UV);
+    
     normalOrigin = SAMPLE_TEXTURE2D(_CameraNormalsTexture, sampler_CameraNormalsTexture, UV).rgb;
     // normalOrigin = DecodeNormal(SAMPLE_TEXTURE2D(_CameraDepthNormalsTexture, sampler_CameraDepthNormalsTexture, UV));
     for (int i = 0; i < 4; i++)
     {
-        depthNeighbors[i] = SAMPLE_TEXTURE2D(_CameraDepthTexture, sampler_CameraDepthTexture, uvSamples[i]).r;
+        depthNeighbors[i] = GetDepthValue(uvSamplesNew[i]);
+        // depthNeighbors[i] = GetDepthValue(uvSamples[i]);
+
+        // depthNeighbors[i] = DecodeDepth(SAMPLE_TEXTURE2D(_CameraDepthNormalsTexture, sampler_CameraDepthNormalsTexture, uvSamples[i]));
         normalNeighbors[i] = SAMPLE_TEXTURE2D(_CameraNormalsTexture, sampler_CameraNormalsTexture, uvSamples[i]);
         // normalNeighbors[i] = DecodeNormal(SAMPLE_TEXTURE2D(_CameraDepthNormalsTexture, sampler_CameraDepthNormalsTexture, uvSamples[i]));
     }
@@ -74,8 +108,9 @@ void Outline3_float(float2 UV, float OutlineThickness, float DepthSensitivity,
     {
         depthEdgeIndicator += clamp(depthNeighbors[i] - depthOrgigin, 0.0, 1.0);
     }
-    depthEdgeIndicator = smoothstep(0.005, 0.01, depthEdgeIndicator);
-    // depthEdgeIndicator = floor(smoothstep(0.005, 0.01, depthEdgeIndicator) * 2.0) / 2.0;
+    depthEdgeIndicator = step(0.005, depthEdgeIndicator);
+    // depthEdgeIndicator = smoothstep(0.005, 0.01, depthEdgeIndicator);
+    // depthEdgeIndicator = floor(smoothstep(0.01, 0.02, depthEdgeIndicator) * 2.0) / 2.0;
     
     // Normal
     float normalEdgeIndicator = 0.0;
@@ -97,6 +132,7 @@ void Outline3_float(float2 UV, float OutlineThickness, float DepthSensitivity,
 
     // Final
     float strength = depthEdgeIndicator > 0.0 ?
+        // (1.0 + DepthEdgeStrength * depthEdgeIndicator) :
         (1.0 - DepthEdgeStrength * depthEdgeIndicator) :
         (1.0 + NormalEdgeStrength * normalEdgeIndicator);
     

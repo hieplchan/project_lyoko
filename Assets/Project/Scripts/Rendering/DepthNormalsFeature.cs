@@ -58,7 +58,7 @@ namespace StartledSeal.Rendering
                         _shaderTagId, ref renderingData,
                         renderingData.cameraData.defaultOpaqueSortFlags);
                     drawingSettings.overrideMaterial = _material;
-
+                    
                     context.DrawRenderers(renderingData.cullResults, ref drawingSettings, ref _filteringSettings);
                     cmd.SetGlobalTexture("_CameraDepthNormalsTexture", Shader.PropertyToID(_target.name));
                 }
@@ -71,6 +71,7 @@ namespace StartledSeal.Rendering
                 cmd.ReleaseTemporaryRT(Shader.PropertyToID(_target.name));
             }
         }
+        [SerializeField] private LayerMask _layerMask = -1;
 
         private DepthNormalsPass _depthNormalsPass;
         private RTHandle _depthNormalsTexture;
@@ -82,7 +83,7 @@ namespace StartledSeal.Rendering
             _depthNormalsPass = new DepthNormalsPass(
                 RenderQueueRange.opaque, 
                 RenderPassEvent.AfterRenderingPrePasses,
-                -1, 
+                _layerMask, 
                 _depthNormalsMaterial);
             _depthNormalsTexture = RTHandles.Alloc("_CameraDepthNormalsTexture", name: "_CameraDepthNormalsTexture");
         }
