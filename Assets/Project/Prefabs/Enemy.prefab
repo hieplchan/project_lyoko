@@ -130,7 +130,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _maxHealth: 0
-  _playerHealthEventChanel: {fileID: 0}
+  _playerHealthEventChanel: {fileID: 11400000, guid: 5928448bf7639794db94ec43ff9f7458,
+    type: 2}
 --- !u!1001 &6428337293428268272
 PrefabInstance:
   m_ObjectHideFlags: 0
