@@ -36,7 +36,7 @@ float GetDepthValue(float2 uv)
 
     // return depth;
     
-    if (maskValue > 0)
+    if (maskValue > 0.001)
         return depth;
     else
         return 0;
@@ -68,6 +68,8 @@ void Outline3_float(float2 UV, float OutlineThickness, float DepthSensitivity,
     // Out.xyz = SAMPLE_TEXTURE2D(_CameraNormalsTexture, sampler_CameraNormalsTexture, UV).xyz;
     // Out.xyz = SAMPLE_TEXTURE2D(_CameraDepthNormalsTexture, sampler_CameraDepthNormalsTexture, UV).xyz;
     // Out.xyz = DecodeNormal(SAMPLE_TEXTURE2D(_CameraDepthNormalsTexture, sampler_CameraDepthNormalsTexture, UV));
+    // Out.x = GetDepthValue(UV);
+    // Out.yz = float2(0, 0);
 
     // Calculate neighbor UV
     float2 Texel = float2(_CameraColorTexture_TexelSize.x, _CameraColorTexture_TexelSize.y);
@@ -94,8 +96,8 @@ void Outline3_float(float2 UV, float OutlineThickness, float DepthSensitivity,
     // normalOrigin = DecodeNormal(SAMPLE_TEXTURE2D(_CameraDepthNormalsTexture, sampler_CameraDepthNormalsTexture, UV));
     for (int i = 0; i < 4; i++)
     {
-        depthNeighbors[i] = GetDepthValue(uvSamplesNew[i]);
-        // depthNeighbors[i] = GetDepthValue(uvSamples[i]);
+        // depthNeighbors[i] = GetDepthValue(uvSamplesNew[i]);
+        depthNeighbors[i] = GetDepthValue(uvSamples[i]);
 
         // depthNeighbors[i] = DecodeDepth(SAMPLE_TEXTURE2D(_CameraDepthNormalsTexture, sampler_CameraDepthNormalsTexture, uvSamples[i]));
         normalNeighbors[i] = SAMPLE_TEXTURE2D(_CameraNormalsTexture, sampler_CameraNormalsTexture, uvSamples[i]);
