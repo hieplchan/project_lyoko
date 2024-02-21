@@ -60,9 +60,11 @@ namespace StartledSeal
 
         // State Machine
         private StateMachine _stateMachine;
+        private int _currentStateHash;
         
         // Animator params
         private static readonly int Speed = Animator.StringToHash("Speed");
+        private static readonly int AttackHash = Animator.StringToHash("Attack");
 
         private void Awake()
         {
@@ -131,6 +133,11 @@ namespace StartledSeal
                    && !_jumpTimer.IsRunning
                    && !_dashTimer.IsRunning
                    && !_attackCooldownTimer.IsRunning;
+        }
+
+        public void SetStateHash(int stateHash)
+        {
+            _currentStateHash = stateHash;
         }
         #endregion
 
@@ -242,7 +249,8 @@ namespace StartledSeal
             // Rotate movement direction to match camera rotation
             var adjustedDirection = Quaternion.AngleAxis(_mainCamTransform.eulerAngles.y, Vector3.up) * _movement;
 
-            if (adjustedDirection.magnitude > ZeroF)
+            if (adjustedDirection.magnitude > ZeroF
+                && _currentStateHash != AttackHash)
             {
                 HandleRotation(adjustedDirection);
                 HandleHorizontalMovement(adjustedDirection);

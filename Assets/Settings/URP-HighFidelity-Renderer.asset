@@ -15,7 +15,7 @@ MonoBehaviour:
   m_Active: 1
   _layerMask:
     serializedVersion: 2
-    m_Bits: 72
+    m_Bits: 136
 --- !u!114 &-1878332245247344467
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -132,4 +132,4 @@ MonoBehaviour:
     type: 3}
   _layerMask:
     serializedVersion: 2
-    m_Bits: 72
+    m_Bits: 136

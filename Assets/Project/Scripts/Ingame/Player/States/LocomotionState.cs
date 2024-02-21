@@ -11,8 +11,8 @@ namespace StartledSeal
 
         public override void OnEnter()
         {
-            // MLog.Debug("LocomotionState", "OnEnter");
             _animator.CrossFade(LocomotionHash, CrossFadeDuration);
+            _player.SetStateHash(LocomotionHash);
         }
 
         public override void FixedUpdate()

@@ -14,6 +14,7 @@ namespace StartledSeal
         {
             _animator.CrossFade(AttackHash, CrossFadeDuration);
             _player.Attack();
+            _player.SetStateHash(AttackHash);
         }
 
         public override void FixedUpdate()

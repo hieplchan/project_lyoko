@@ -11,6 +11,7 @@ namespace StartledSeal
         public override void OnEnter()
         {
             _animator.CrossFade(DashHash, CrossFadeDuration);
+            _player.SetStateHash(DashHash);
         }
 
         public override void FixedUpdate()
