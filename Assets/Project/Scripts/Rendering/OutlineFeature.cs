@@ -24,6 +24,7 @@ namespace StartledSeal.Rendering
         public override void AddRenderPasses(ScriptableRenderer renderer, ref RenderingData renderingData)
         {
             if (renderingData.cameraData.isSceneViewCamera) return;
+            if (renderingData.cameraData.isPreviewCamera) return;
             
             renderer.EnqueuePass(_outlinePass);
         }

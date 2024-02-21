@@ -13,7 +13,7 @@ namespace StartledSeal
         [Header("References")] 
         [SerializeField, Self] private Rigidbody _rb;
         [SerializeField, Self] private GroundChecker _groundChecker;
-        [SerializeField, Self] private Animator _animator;
+        [SerializeField, Child] private Animator _animator;
         [SerializeField, Anywhere] private CinemachineFreeLook _freeLookCam;
         [SerializeField, Anywhere] private InputReader _input;
 
