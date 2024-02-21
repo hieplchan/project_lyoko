@@ -132,8 +132,7 @@ void Outline3_float(float2 UV, float OutlineThickness, float DepthSensitivity,
 
     // Final
     float strength = depthEdgeIndicator > 0.0 ?
-        // (1.0 + DepthEdgeStrength * depthEdgeIndicator) :
-        (1.0 - DepthEdgeStrength * depthEdgeIndicator) :
+        (1.0 + DepthEdgeStrength * depthEdgeIndicator) :
         (1.0 + NormalEdgeStrength * normalEdgeIndicator);
     
     float4 original = SAMPLE_TEXTURE2D(_CameraColorTexture, sampler_CameraColorTexture, UV);    
