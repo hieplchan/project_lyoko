@@ -61,9 +61,9 @@ MonoBehaviour:
   _jumpCoolDown: 0
   _jumpGravityMultiplier: 3
   _dashForce: 1
-  _dashDuration: 1.167
+  _dashDuration: 1.17
   _dashCoolDown: 0.5
-  _attackCoolDown: 1.467
+  _attackCoolDown: 0.97
   _attackDistance: 1
   _attackDamage: 10
 --- !u!114 &343462799000968072
