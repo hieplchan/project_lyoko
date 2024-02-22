@@ -64,5 +64,10 @@ namespace StartledSeal
             _attackTimer.Start();
             _playerDetector.PlayerHealth.TakeDamage(_attackDamage);
         }
+        
+        void OnDrawGizmos() {
+            Gizmos.color = Color.green;
+            Gizmos.DrawWireSphere(transform.position, _wanderRadius);
+        }
     }
 }

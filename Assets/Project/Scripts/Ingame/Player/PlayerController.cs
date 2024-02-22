@@ -117,8 +117,16 @@ namespace StartledSeal
             // define transition
             At(locomotionState, jumpState, new FuncPredicate(() => _jumpTimer.IsRunning));
             At(locomotionState, dashState, new FuncPredicate(() => _dashTimer.IsRunning));
+            
             At(locomotionState, attackState, new FuncPredicate(() => _attackCooldownTimer.IsRunning));
             At(attackState, locomotionState, new FuncPredicate(() => !_attackCooldownTimer.IsRunning));
+            
+            At(dashState, jumpState, new FuncPredicate(() => !_dashTimer.IsRunning && _jumpTimer.IsRunning));
+            At(jumpState, dashState, new FuncPredicate(() => _dashTimer.IsRunning && !_jumpTimer.IsRunning));
+            
+            At(dashState, attackState, new FuncPredicate(() => !_dashTimer.IsRunning && _attackCooldownTimer.IsRunning));
+            At(attackState, dashState, new FuncPredicate(() => _dashTimer.IsRunning && !_attackCooldownTimer.IsRunning));
+            
             Any(locomotionState, new FuncPredicate(ReturnToLocomotionState));
 
             // set init state

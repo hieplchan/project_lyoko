@@ -6,6 +6,7 @@ TagManager:
   tags:
   - MovingPlatform
   - Enemy
+  - Pet
   layers:
   - Default
   - TransparentFX

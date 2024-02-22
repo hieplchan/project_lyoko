@@ -97,7 +97,7 @@ MonoBehaviour:
   _agent: {fileID: 5849123056616747646}
   _animator: {fileID: 628556299573571473}
   _playerDetector: {fileID: 5392876710544102562}
-  _wanderRadius: 10
+  _wanderRadius: 4.33
   _timeBetweenAttacks: 1
   _attackDamage: 10
 --- !u!114 &5392876710544102562
@@ -115,7 +115,7 @@ MonoBehaviour:
   _detectionAngle: 60
   _detectionRadius: 7
   _innerDetectionRadius: 1.78
-  _detectionCoolDown: 1
+  _detectionCoolDown: 0.5
   _attackRange: 3
 --- !u!114 &7951002650029678878
 MonoBehaviour:
