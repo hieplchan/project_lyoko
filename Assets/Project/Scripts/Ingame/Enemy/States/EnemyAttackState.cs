@@ -19,6 +19,7 @@ namespace StartledSeal
         {
             MLog.Debug("EnemyAttackState", "OnEnter");
             _animator.CrossFade(AttackHash, CrossDuration);
+            _agent.speed = 0.1f;
         }
 
         public override void Update()
