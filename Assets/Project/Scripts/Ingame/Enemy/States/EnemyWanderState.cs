@@ -9,11 +9,13 @@ namespace StartledSeal
         private readonly NavMeshAgent _agent;
         private readonly float _wanderRadius;
         private readonly Vector3 _startPoint;
+        private float _speed;
         
-        public EnemyWanderState(Enemy enemy, Animator animator, NavMeshAgent agent, float wanderRadius) : base(enemy, animator)
+        public EnemyWanderState(Enemy enemy, Animator animator, NavMeshAgent agent, float wanderRadius, float speed) : base(enemy, animator)
         {
             _agent = agent;
             _wanderRadius = wanderRadius;
+            _speed = speed;
             _startPoint = enemy.transform.position;
         }
 
@@ -21,6 +23,7 @@ namespace StartledSeal
         {
             // MLog.Debug("EnemyWanderState", "OnEnter");
             _animator.CrossFade(WalkHash, CrossDuration);
+            _agent.speed = _speed;
         }
 
         public override void Update()
