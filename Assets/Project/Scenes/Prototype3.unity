@@ -2665,9 +2665,24 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 742362019663296301, guid: 5120d7dd1ab31c146a2faf0ced333fde,
         type: 3}
+      propertyPath: _dashForce
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 742362019663296301, guid: 5120d7dd1ab31c146a2faf0ced333fde,
+        type: 3}
       propertyPath: _freeLookCam
       value: 
       objectReference: {fileID: 732474496}
+    - target: {fileID: 742362019663296301, guid: 5120d7dd1ab31c146a2faf0ced333fde,
+        type: 3}
+      propertyPath: _dashDuration
+      value: 0.77
+      objectReference: {fileID: 0}
+    - target: {fileID: 742362019663296301, guid: 5120d7dd1ab31c146a2faf0ced333fde,
+        type: 3}
+      propertyPath: _attackCoolDown
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 3723487270555151386, guid: 5120d7dd1ab31c146a2faf0ced333fde,
         type: 3}
       propertyPath: m_Name
