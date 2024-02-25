@@ -2665,11 +2665,6 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 742362019663296301, guid: 5120d7dd1ab31c146a2faf0ced333fde,
         type: 3}
-      propertyPath: _animator
-      value: 
-      objectReference: {fileID: 6083818879616529029}
-    - target: {fileID: 742362019663296301, guid: 5120d7dd1ab31c146a2faf0ced333fde,
-        type: 3}
       propertyPath: _freeLookCam
       value: 
       objectReference: {fileID: 732474496}
@@ -2743,9 +2738,3 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5120d7dd1ab31c146a2faf0ced333fde, type: 3}
---- !u!95 &6083818879616529029 stripped
-Animator:
-  m_CorrespondingSourceObject: {fileID: 5980957274566846321, guid: 5120d7dd1ab31c146a2faf0ced333fde,
-    type: 3}
-  m_PrefabInstance: {fileID: 6083818879616529028}
-  m_PrefabAsset: {fileID: 0}
