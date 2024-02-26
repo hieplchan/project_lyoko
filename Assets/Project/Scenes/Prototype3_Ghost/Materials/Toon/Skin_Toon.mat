@@ -20,7 +20,7 @@ Material:
   m_CustomRenderQueue: -1
   stringTagMap: {}
   disabledShaderPasses: []
-  m_LockedProperties: 
+  m_LockedProperties: _SpecularStep
   m_SavedProperties:
     serializedVersion: 3
     m_TexEnvs:
@@ -103,17 +103,17 @@ Material:
     - _Metallic: 0
     - _Mode: 0
     - _OcclusionStrength: 1
-    - _OutlineWidth: 0.082
+    - _OutlineWidth: 0.11
     - _Parallax: 0.02
     - _QueueOffset: 0
     - _ReceiveShadows: 1
     - _RimAmount: 0.558
     - _RimBlend: 0.55
     - _RimStep: 1
-    - _RimStepSmooth: 0.297
+    - _RimStepSmooth: 0.032
     - _RimThreshold: 0
-    - _ShadowStep: 0.633
-    - _ShadowStepSmooth: 0.232
+    - _ShadowStep: 0.355
+    - _ShadowStepSmooth: 0.204
     - _Smoothness: 0.025
     - _SmoothnessTextureChannel: 0
     - _SpecularHighlights: 1
@@ -131,7 +131,7 @@ Material:
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _OutlineColor: {r: 0, g: 0, b: 0, a: 1}
-    - _RimColor: {r: 0.16981131, g: 0.1033634, b: 0, a: 1}
+    - _RimColor: {r: 0.23584908, g: 0.14260642, b: 0, a: 1}
     - _SpecColor: {r: 0.19999996, g: 0.19999996, b: 0.19999996, a: 1}
     - _SpecularColor: {r: 0.125, g: 0.125, b: 0.125, a: 1}
   m_BuildTextureStacks: []
