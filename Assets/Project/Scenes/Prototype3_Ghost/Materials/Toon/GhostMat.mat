@@ -8,12 +8,13 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: GhostMat
-  m_Shader: {fileID: 4800000, guid: 5d828b280155912429aa717d34cd8879, type: 3}
+  m_Shader: {fileID: 4800000, guid: 313fcf3aebc04cf4ab4f8c5f2850be7f, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
   m_ValidKeywords: []
   m_InvalidKeywords:
   - _EMISSION
+  - _FADE_TOGGLE_ON
   m_LightmapFlags: 2
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
@@ -28,8 +29,8 @@ Material:
         m_Texture: {fileID: 2800000, guid: ff9da6b9c3ae4e8439ce851c4452c3a0, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
-    - _Black:
-        m_Texture: {fileID: 2800000, guid: a57d1830013fe844194854109d699647, type: 3}
+    - _BaseMap:
+        m_Texture: {fileID: 2800000, guid: ad2462185548fec429a89a13ef0b2fca, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _BrushedMetalNormal:
@@ -60,20 +61,8 @@ Material:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
-    - _Grunge:
-        m_Texture: {fileID: 2800000, guid: e8f0dce8b25b7a340bab74754e3c5b3b, type: 3}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - _Large_Grunge:
-        m_Texture: {fileID: 2800000, guid: e8f0dce8b25b7a340bab74754e3c5b3b, type: 3}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
     - _MainTex:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - _Mask:
-        m_Texture: {fileID: 2800000, guid: 564c508749358e2429df24162e913c43, type: 3}
+        m_Texture: {fileID: 2800000, guid: ad2462185548fec429a89a13ef0b2fca, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _Metallic:
@@ -82,10 +71,6 @@ Material:
         m_Offset: {x: 0, y: 0}
     - _MetallicGlossMap:
         m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - _Normal_Map:
-        m_Texture: {fileID: 2800000, guid: 180f637da4b840b46bc641a43ebbe31a, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _Normals:
@@ -102,10 +87,6 @@ Material:
         m_Offset: {x: 0, y: 0}
     - _ParallaxMap:
         m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - _Texture:
-        m_Texture: {fileID: 2800000, guid: 180f637da4b840b46bc641a43ebbe31a, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _char_woodman_diffuse:
@@ -134,31 +115,29 @@ Material:
     - _BumpScale: 1
     - _Cutoff: 0.5
     - _DetailNormalMapScale: 1
-    - _Dirt_Amount: 1
-    - _Dirt_Falloff: 14.11765
-    - _Dirt_Tiling: 0
     - _Distortion: 0.076
     - _Distortion1: 0.058
     - _DstBlend: 0
-    - _Dust_Amount: 1
-    - _Dust_FallOff: 14.11765
-    - _Fade_Toggle: 0
+    - _Fade_Toggle: 1
     - _GlossMapScale: 1
     - _Glossiness: 0.5
     - _GlossyReflections: 1
     - _Keyword0: 0
-    - _Large_DirtAmount: 1
-    - _Large_FallOff: 14.11765
-    - _Large_Tiling: 0
-    - _Metalic: 0.297
+    - _Metalic: 0.124
     - _Metallic: 0
     - _Mode: 0
     - _OcclusionStrength: 1
+    - _OutlineWidth: 0.086
     - _Parallax: 0.02
-    - _RimPower: 1.83
-    - _SmoothnessSpec: 0.1962713
+    - _RimPower: 6.21
+    - _RimStep: 0.675
+    - _RimStepSmooth: 0.508
+    - _ShadowStep: 0
+    - _ShadowStepSmooth: 0.253
     - _SmoothnessTextureChannel: 0
     - _SpecularHighlights: 1
+    - _SpecularStep: 0
+    - _SpecularStepSmooth: 0
     - _SrcBlend: 1
     - _TransAmbient: 0.2
     - _TransDirect: 1
@@ -166,17 +145,19 @@ Material:
     - _TransScattering: 2
     - _TransShadow: 0.9
     - _Translucency: 15
-    - _Transparency: 0.075
+    - _Transparency: 0.621
     - _UVSec: 0
     - _ZWrite: 1
     - __dirty: 0
     m_Colors:
+    - _BaseColor: {r: 0.5660378, g: 0.5660378, b: 0.5660378, a: 1}
     - _BaseColour: {r: 0.22242647, g: 0.69642496, b: 0.8897059, a: 0}
     - _Color: {r: 1, g: 1, b: 1, a: 1}
-    - _Dust_Colour: {r: 0.45588237, g: 0.41967988, b: 0.36537623, a: 0}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
-    - _RimColor: {r: 0, g: 0.71034503, b: 1, a: 0}
+    - _OutlineColor: {r: 0, g: 0.00903943, b: 0.13207549, a: 1}
+    - _RimColor: {r: 0.49056602, g: 0.05372158, b: 0, a: 0}
     - _SpecColor: {r: 1, g: 1, b: 1, a: 1}
+    - _SpecularColor: {r: 1, g: 1, b: 1, a: 1}
     - _Tint: {r: 0.6862745, g: 0.7803922, b: 0.7803922, a: 0}
     - _Tint1: {r: 0, g: 0, b: 0, a: 0}
   m_BuildTextureStacks: []

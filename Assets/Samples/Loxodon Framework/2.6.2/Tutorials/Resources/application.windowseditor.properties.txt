@@ -1,5 +1,0 @@
-﻿#application config
-
-#local
-application.local.username = loxodon.framework.editor
-application.local.password = loxodon.framework.editor
