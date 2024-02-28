@@ -2022,7 +2022,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
-  m_AnchoredPosition: {x: 0, y: 105}
+  m_AnchoredPosition: {x: 0, y: 86.19}
   m_SizeDelta: {x: 1920, y: 71.1653}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &940387785
@@ -2518,33 +2518,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f8b2ed11d675446c5a49da1ea296d490, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _rectTransform: {fileID: 0}
-  _graphic: {fileID: 1028403567}
-  _effectMaterialHash:
-    bytes[0]: 0
-    bytes[1]: 0
-    bytes[2]: 0
-    bytes[3]: 0
-    bytes[4]: 0
-    bytes[5]: 0
-    bytes[6]: 0
-    bytes[7]: 0
-    bytes[8]: 0
-    bytes[9]: 0
-    bytes[10]: 0
-    bytes[11]: 0
-    bytes[12]: 0
-    bytes[13]: 0
-    bytes[14]: 0
-    bytes[15]: 0
-  <parameterIndex>k__BackingField: 0
-  m_EffectFactor: 1
-  m_ColorFactor: 1
-  m_BlurFactor: 0.925
-  m_EffectMode: 0
-  m_ColorMode: 1
-  m_BlurMode: 1
-  m_AdvancedBlur: 0
 --- !u!1 &1103020594
 GameObject:
   m_ObjectHideFlags: 3

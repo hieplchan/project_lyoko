@@ -1042,7 +1042,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _maxStamina: 100
   _staminaRestoreTimeOffset: 0.1
-  _staminaRestoreAmountPerSec: 40
+  _staminaRestoreAmountPerSec: 30
 --- !u!4 &9202362186641570748 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8851070763025541990, guid: 5120d7dd1ab31c146a2faf0ced333fde,
