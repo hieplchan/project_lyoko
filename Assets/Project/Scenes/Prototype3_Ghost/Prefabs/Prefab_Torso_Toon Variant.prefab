@@ -25,14 +25,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 968301209359552857}
-  m_LocalRotation: {x: 0.0070779645, y: 0.9926784, z: -0.09558401, w: 0.0735075}
+  m_LocalRotation: {x: -0.0077191563, y: 0.99180645, z: 0.10424296, w: 0.07344294}
   m_LocalPosition: {x: 0, y: -0.3, z: -0.21}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 9202362186641570748}
   m_RootOrder: -1
-  m_LocalEulerAnglesHint: {x: 11, y: 171.53, z: 0}
+  m_LocalEulerAnglesHint: {x: -12, y: 171.53, z: 0}
 --- !u!108 &4858717237427150712
 Light:
   m_ObjectHideFlags: 0
@@ -198,8 +198,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 742362019663296301, guid: 5120d7dd1ab31c146a2faf0ced333fde,
         type: 3}
+      propertyPath: _runSpeed
+      value: 150
+      objectReference: {fileID: 0}
+    - target: {fileID: 742362019663296301, guid: 5120d7dd1ab31c146a2faf0ced333fde,
+        type: 3}
       propertyPath: _dashForce
       value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 742362019663296301, guid: 5120d7dd1ab31c146a2faf0ced333fde,
+        type: 3}
+      propertyPath: _walkSpeed
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 742362019663296301, guid: 5120d7dd1ab31c146a2faf0ced333fde,
         type: 3}
@@ -216,6 +226,11 @@ PrefabInstance:
       propertyPath: _playerStaminaComp
       value: 
       objectReference: {fileID: 5730084515400065689}
+    - target: {fileID: 742362019663296301, guid: 5120d7dd1ab31c146a2faf0ced333fde,
+        type: 3}
+      propertyPath: _runStaminaConsumptionPerSec
+      value: 30
+      objectReference: {fileID: 0}
     - target: {fileID: 1352658028628556516, guid: 5120d7dd1ab31c146a2faf0ced333fde,
         type: 3}
       propertyPath: m_LocalRotation.w
@@ -1026,6 +1041,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _maxStamina: 100
+  _staminaRestoreTimeOffset: 0.1
+  _staminaRestoreAmountPerSec: 40
 --- !u!4 &9202362186641570748 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8851070763025541990, guid: 5120d7dd1ab31c146a2faf0ced333fde,
