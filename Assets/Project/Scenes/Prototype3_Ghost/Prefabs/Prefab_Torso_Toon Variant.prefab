@@ -223,6 +223,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 742362019663296301, guid: 5120d7dd1ab31c146a2faf0ced333fde,
         type: 3}
+      propertyPath: _playerHealthComp
+      value: 
+      objectReference: {fileID: 8427865399434567903}
+    - target: {fileID: 742362019663296301, guid: 5120d7dd1ab31c146a2faf0ced333fde,
+        type: 3}
       propertyPath: _playerStaminaComp
       value: 
       objectReference: {fileID: 5730084515400065689}
@@ -1026,8 +1031,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 375d2660b72e49ecb389e892bf6030f0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _maxHealth: 100
-  _playerHealthEventChanel: {fileID: 0}
+  _maxHealth: 1
+  _playerHealthEventChanel: {fileID: 11400000, guid: 5928448bf7639794db94ec43ff9f7458,
+    type: 2}
 --- !u!114 &5730084515400065689
 MonoBehaviour:
   m_ObjectHideFlags: 0

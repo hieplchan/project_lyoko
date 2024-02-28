@@ -13,7 +13,7 @@ namespace StartledSeal
         [SerializeField] float _attackRange = 2f; // Distance from enemy to player to attack
         
         public Transform Player { get; private set; }
-        public Health PlayerHealth { get; private set; }
+        public HealthComp PlayerHealthComp { get; private set; }
         
         private CooldownTimer _detectionTimer;
 
@@ -22,7 +22,7 @@ namespace StartledSeal
         private void Awake()
         {
             Player = GameObject.FindGameObjectWithTag(Const.PlayerTag).transform;
-            PlayerHealth = Player.GetComponent<Health>();
+            PlayerHealthComp = Player.GetComponent<HealthComp>();
         }
         
         private void Start()

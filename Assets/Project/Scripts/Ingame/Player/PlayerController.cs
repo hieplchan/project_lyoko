@@ -16,8 +16,10 @@ namespace StartledSeal
         [SerializeField, Child] private Animator _animator;
         [SerializeField, Anywhere] private CinemachineFreeLook _freeLookCam;
         [SerializeField, Anywhere] private InputReader _input;
+        
         [SerializeField, Self] private PlayerStaminaComp _playerStaminaComp;
-
+        [SerializeField, Self] private HealthComp _playerHealthComp;
+        
         [Header("Movement Settings")] 
         [SerializeField] private float _runSpeed = 200f;
         [SerializeField] private float _walkSpeed = 130f;
@@ -120,6 +122,7 @@ namespace StartledSeal
             var jumpState = new JumpState(this, _animator);
             var dashState = new DashState(this, _animator);
             var attackState = new AttackState(this, _animator);
+            var deadState = new DeadState(this, _animator);
             
             // define transition
             At(locomotionState, jumpState, new FuncPredicate(() => _jumpTimer.IsRunning));
@@ -134,6 +137,8 @@ namespace StartledSeal
             At(dashState, attackState, new FuncPredicate(() => !_dashTimer.IsRunning && _attackCooldownTimer.IsRunning));
             At(attackState, dashState, new FuncPredicate(() => _dashTimer.IsRunning && !_attackCooldownTimer.IsRunning));
             
+            At(locomotionState, deadState, new FuncPredicate(() => _playerHealthComp.IsDead()));
+            
             Any(locomotionState, new FuncPredicate(ReturnToLocomotionState));
 
             // set init state
@@ -147,7 +152,8 @@ namespace StartledSeal
             return _groundChecker.IsGrounded
                    && !_jumpTimer.IsRunning
                    && !_dashTimer.IsRunning
-                   && !_attackCooldownTimer.IsRunning;
+                   && !_attackCooldownTimer.IsRunning
+                   && !_playerHealthComp.IsDead();
         }
 
         public void SetStateHash(int stateHash)
@@ -250,7 +256,7 @@ namespace StartledSeal
             {
                 if (hit.CompareTag(Const.EnemyTag))
                 {
-                    hit.GetComponent<Health>().TakeDamage(_attackDamage);
+                    hit.GetComponent<HealthComp>().TakeDamage(_attackDamage);
                 }
             }
         }

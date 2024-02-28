@@ -65,7 +65,7 @@ namespace StartledSeal
             if (_attackTimer.IsRunning) return;
             
             _attackTimer.Start();
-            _playerDetector.PlayerHealth.TakeDamage(_attackDamage);
+            _playerDetector.PlayerHealthComp.TakeDamage(_attackDamage);
         }
         
         void OnDrawGizmos() {
