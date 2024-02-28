@@ -2844,6 +2844,12 @@ PrefabInstance:
       propertyPath: _capsuleCollider
       value: 
       objectReference: {fileID: 198262038}
+    - target: {fileID: 7214506919846171313, guid: 67916f9c7b49b9440b08097d8a84b58f,
+        type: 3}
+      propertyPath: _input
+      value: 
+      objectReference: {fileID: 11400000, guid: 3ad9c55985255ad42b508b4163f62a85,
+        type: 2}
     - target: {fileID: 9130338695775949381, guid: 67916f9c7b49b9440b08097d8a84b58f,
         type: 3}
       propertyPath: m_RootOrder

@@ -159,7 +159,7 @@ namespace StartledSeal
             _input.Jump += OnJump;
             _input.Dash += OnDash;
             _input.Sprint += OnSprint;
-            _input.Attack += OnAttack;
+            // _input.Attack += OnAttack;
         }
 
         private void OnDisable()
@@ -167,7 +167,7 @@ namespace StartledSeal
             _input.Jump -= OnJump;
             _input.Dash -= OnDash;
             _input.Sprint -= OnSprint;
-            _input.Attack -= OnAttack;
+            // _input.Attack -= OnAttack;
         }
 
         private void Update()
