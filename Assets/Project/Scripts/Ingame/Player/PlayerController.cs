@@ -16,12 +16,15 @@ namespace StartledSeal
         [SerializeField, Child] private Animator _animator;
         [SerializeField, Anywhere] private CinemachineFreeLook _freeLookCam;
         [SerializeField, Anywhere] private InputReader _input;
+        [SerializeField, Self] private PlayerStaminaComp _playerStaminaComp;
 
         [Header("Movement Settings")] 
         [SerializeField] private float _runSpeed = 200f;
         [SerializeField] private float _walkSpeed = 130f;
         [SerializeField] private float _rotationSpeed = 15f;
         [SerializeField] private float _smoothTime = 0.2f;
+        [SerializeField] private float _runStaminaConsumptionPerSec = 10;
+        [SerializeField] private float _runStaminaThreshold = 50;
         
         [Header("Jump Settings")] 
         [SerializeField] private float _jumpForce = 10f;
@@ -40,14 +43,16 @@ namespace StartledSeal
         [SerializeField] private int _attackDamage = 10;
         
         private Transform _mainCamTransform;
-
-        private float _moveSpeed;
-        private float _currentSpeed;
-        private float _velocity;
+        
+        // Movement
+        public bool IsRunning;
+        
+        // private float _currentSpeed;
+        // private float _velocity;
         private float _jumpVelocity;
         private float _dashVelocity = 1f;
 
-        private Vector3 _movement;
+        public Vector3 Movement { get; private set; }
 
         // Timers
         private List<Timer> _timers;
@@ -77,7 +82,6 @@ namespace StartledSeal
             _freeLookCam.OnTargetObjectWarped(transform, transform.position - _mainCamTransform.position - Vector3.forward);
 
             _rb.freezeRotation = true;
-            _moveSpeed = _walkSpeed;
 
             SetupTimers();
             SetupStateMachine();
@@ -112,7 +116,7 @@ namespace StartledSeal
             _stateMachine = new StateMachine();
             
             // declare state
-            var locomotionState = new LocomotionState(this, _animator);
+            var locomotionState = new LocomotionState(this, _animator, _playerStaminaComp, _runStaminaConsumptionPerSec);
             var jumpState = new JumpState(this, _animator);
             var dashState = new DashState(this, _animator);
             var attackState = new AttackState(this, _animator);
@@ -158,21 +162,27 @@ namespace StartledSeal
         {
             _input.Jump += OnJump;
             _input.Dash += OnDash;
-            _input.Sprint += OnSprint;
+            _input.Run += OnRun;
             // _input.Attack += OnAttack;
+
+            _playerStaminaComp.RunOutStamina += OnRunOutOfStamina;
         }
 
         private void OnDisable()
         {
             _input.Jump -= OnJump;
             _input.Dash -= OnDash;
-            _input.Sprint -= OnSprint;
+            _input.Run -= OnRun;
             // _input.Attack -= OnAttack;
+            
+            _playerStaminaComp.RunOutStamina -= OnRunOutOfStamina;
         }
+        
+        private void OnRunOutOfStamina() => IsRunning = false;
 
         private void Update()
         {
-            _movement = new Vector3(_input.Direction.x, 0f, _input.Direction.y);
+            Movement = new Vector3(_input.Direction.x, 0f, _input.Direction.y);
             _stateMachine.Update();
             
             HandleTimers();
@@ -203,13 +213,13 @@ namespace StartledSeal
                 _jumpTimer.Stop();
             }
         }
-        
-        private void OnSprint(bool performed)
+
+        private void OnRun(bool performed)
         {
-            if (performed)
-                _moveSpeed = _runSpeed;
+            if (performed && _playerStaminaComp.CurrentStamina > _runStaminaThreshold)
+                IsRunning = true;
             else
-                _moveSpeed = _walkSpeed;
+                IsRunning = false;
         }
 
         private void OnDash(bool performed)
@@ -268,7 +278,7 @@ namespace StartledSeal
         public void HandleMovement()
         {
             // Rotate movement direction to match camera rotation
-            var adjustedDirection = Quaternion.AngleAxis(_mainCamTransform.eulerAngles.y, Vector3.up) * _movement;
+            var adjustedDirection = Quaternion.AngleAxis(_mainCamTransform.eulerAngles.y, Vector3.up) * Movement;
 
             if (adjustedDirection.magnitude > ZeroF
                 && _currentStateHash != AttackHash)
@@ -298,15 +308,17 @@ namespace StartledSeal
         
         private void HandleHorizontalMovement(Vector3 adjustedDirection)
         {
+            var moveSpeed = IsRunning ? _runSpeed : _walkSpeed;
+
             // Move the player
-            Vector3 velocity = adjustedDirection * (_moveSpeed * _dashVelocity * Time.fixedDeltaTime);
+            Vector3 velocity = adjustedDirection * (moveSpeed * _dashVelocity * Time.fixedDeltaTime);
             _rb.velocity = new Vector3(velocity.x, _rb.velocity.y, velocity.z);
         }
         
-        private void SmoothSpeed(float value)
-        {
-            _currentSpeed = Mathf.SmoothDamp(_currentSpeed, value, ref _velocity, _smoothTime);
-        }
+        // private void SmoothSpeed(float value)
+        // {
+        //     _currentSpeed = Mathf.SmoothDamp(_currentSpeed, value, ref _velocity, _smoothTime);
+        // }
         
         private void UpdateAnimator()
         {

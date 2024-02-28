@@ -13,7 +13,7 @@ namespace StartledSeal
         public event UnityAction DisableMouseControlCamera = delegate { };
         public event UnityAction<bool> Jump = delegate { };
         public event UnityAction<bool> Dash = delegate { };
-        public event UnityAction<bool> Sprint = delegate { };
+        public event UnityAction<bool> Run = delegate { };
         public event UnityAction Attack = delegate { };
         
         public Vector3 Direction => _inputActions.Player.Move.ReadValue<Vector2>();
@@ -71,10 +71,10 @@ namespace StartledSeal
             switch (context.phase)
             {
                 case InputActionPhase.Started:
-                    Sprint.Invoke(true);
+                    Run.Invoke(true);
                     break;
                 case InputActionPhase.Canceled:
-                    Sprint.Invoke(false);
+                    Run.Invoke(false);
                     break;
             }
         }

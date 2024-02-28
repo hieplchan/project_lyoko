@@ -5,7 +5,7 @@ using UnityEngine.Serialization;
 
 namespace StartledSeal
 {
-    public class GroundChecker : MonoBehaviour
+    public class GroundChecker : ValidatedMonoBehaviour
     {
         private const float HeightOffset = 0.1f;
 
