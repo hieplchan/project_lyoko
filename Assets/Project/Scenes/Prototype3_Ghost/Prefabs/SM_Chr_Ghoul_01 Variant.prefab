@@ -556,7 +556,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _detectionAngle: 135
-  _detectionRadius: 10
+  _detectionRadius: 6.53
   _innerDetectionRadius: 2.14
   _detectionCoolDown: 0.5
   _attackRange: 0.74
