@@ -4,7 +4,6 @@ using UnityEngine;
 
 namespace StartledSeal
 {
-    // [RequireComponent(typeof(SphereCollider))]
     public class HideableObject : MonoBehaviour, IInteractable
     {
         [SerializeField] private GameObject _guildGameObject;

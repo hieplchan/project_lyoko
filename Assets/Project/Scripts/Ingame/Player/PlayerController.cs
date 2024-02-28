@@ -18,10 +18,11 @@ namespace StartledSeal
         [SerializeField, Anywhere] private InputReader _input;
 
         [Header("Movement Settings")] 
-        [SerializeField] private float _moveSpeed = 6f;
+        [SerializeField] private float _runSpeed = 200f;
+        [SerializeField] private float _walkSpeed = 130f;
         [SerializeField] private float _rotationSpeed = 15f;
         [SerializeField] private float _smoothTime = 0.2f;
-
+        
         [Header("Jump Settings")] 
         [SerializeField] private float _jumpForce = 10f;
         [SerializeField] private float _jumpDuration = 0.5f;
@@ -39,7 +40,8 @@ namespace StartledSeal
         [SerializeField] private int _attackDamage = 10;
         
         private Transform _mainCamTransform;
-        
+
+        private float _moveSpeed;
         private float _currentSpeed;
         private float _velocity;
         private float _jumpVelocity;
@@ -75,6 +77,7 @@ namespace StartledSeal
             _freeLookCam.OnTargetObjectWarped(transform, transform.position - _mainCamTransform.position - Vector3.forward);
 
             _rb.freezeRotation = true;
+            _moveSpeed = _walkSpeed;
 
             SetupTimers();
             SetupStateMachine();
@@ -155,6 +158,7 @@ namespace StartledSeal
         {
             _input.Jump += OnJump;
             _input.Dash += OnDash;
+            _input.Sprint += OnSprint;
             _input.Attack += OnAttack;
         }
 
@@ -162,9 +166,10 @@ namespace StartledSeal
         {
             _input.Jump -= OnJump;
             _input.Dash -= OnDash;
+            _input.Sprint -= OnSprint;
             _input.Attack -= OnAttack;
         }
-        
+
         private void Update()
         {
             _movement = new Vector3(_input.Direction.x, 0f, _input.Direction.y);
@@ -199,6 +204,14 @@ namespace StartledSeal
             }
         }
         
+        private void OnSprint(bool performed)
+        {
+            if (performed)
+                _moveSpeed = _runSpeed;
+            else
+                _moveSpeed = _walkSpeed;
+        }
+
         private void OnDash(bool performed)
         {
             if (performed && !_dashCooldownTimer.IsRunning &&
@@ -262,11 +275,11 @@ namespace StartledSeal
             {
                 HandleRotation(adjustedDirection);
                 HandleHorizontalMovement(adjustedDirection);
-                SmoothSpeed(adjustedDirection.magnitude);
+                // SmoothSpeed(adjustedDirection.magnitude);
             }
             else
             {
-                SmoothSpeed(ZeroF);
+                // SmoothSpeed(ZeroF);
 
                 // Reset horizontal velocity for snappy stop
                 _rb.velocity = new Vector3(ZeroF, _rb.velocity.y, ZeroF);
@@ -297,7 +310,8 @@ namespace StartledSeal
         
         private void UpdateAnimator()
         {
-            _animator.SetFloat(Speed, _currentSpeed);
+            // _animator.SetFloat(Speed, _currentSpeed);
+            _animator.SetFloat(Speed, _rb.velocity.magnitude);
         }
     }
 }

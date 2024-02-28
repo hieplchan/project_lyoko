@@ -2829,11 +2829,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 968301209359552857, guid: 67916f9c7b49b9440b08097d8a84b58f,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 1093649045039081463, guid: 67916f9c7b49b9440b08097d8a84b58f,
         type: 3}
       propertyPath: _freeLookCam
@@ -2849,11 +2844,6 @@ PrefabInstance:
       propertyPath: _capsuleCollider
       value: 
       objectReference: {fileID: 198262038}
-    - target: {fileID: 6843615972467014641, guid: 67916f9c7b49b9440b08097d8a84b58f,
-        type: 3}
-      propertyPath: m_IsTrigger
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 9130338695775949381, guid: 67916f9c7b49b9440b08097d8a84b58f,
         type: 3}
       propertyPath: m_RootOrder
@@ -2924,12 +2914,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 5416565175900172718, guid: de43b062beaadc343a956f6352d18c45,
         type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5416565175900172718, guid: de43b062beaadc343a956f6352d18c45,
-        type: 3}
-      propertyPath: _detectionAngle
+      propertyPath: _detectionRadius
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6812748951928891728, guid: de43b062beaadc343a956f6352d18c45,
@@ -2991,11 +2976,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: SM_Chr_Ghoul_01
-      objectReference: {fileID: 0}
-    - target: {fileID: 6817913280295901552, guid: de43b062beaadc343a956f6352d18c45,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
