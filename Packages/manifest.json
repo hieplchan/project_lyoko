@@ -1,5 +1,8 @@
 {
   "dependencies": {
+    "com.brunomikoski.animationsequencer": "https://github.com/brunomikoski/Animation-Sequencer.git",
+    "com.coffee.softmask-for-ugui": "https://github.com/mob-sakai/SoftMaskForUGUI.git",
+    "com.coffee.ui-effect": "https://github.com/mob-sakai/UIEffect.git",
     "com.cysharp.messagepipe": "https://github.com/Cysharp/MessagePipe.git?path=src/MessagePipe.Unity/Assets/Plugins/MessagePipe",
     "com.cysharp.unitask": "https://github.com/Cysharp/UniTask.git?path=src/UniTask/Assets/Plugins/UniTask",
     "com.kylewbanks.scenerefattribute": "https://github.com/KyleBanks/scene-ref-attribute.git",
@@ -52,8 +55,6 @@
     "com.unity.modules.video": "1.0.0",
     "com.unity.modules.vr": "1.0.0",
     "com.unity.modules.wind": "1.0.0",
-    "com.unity.modules.xr": "1.0.0",
-    "com.coffee.ui-effect": "https://github.com/mob-sakai/UIEffect.git",
-    "com.coffee.softmask-for-ugui": "https://github.com/mob-sakai/SoftMaskForUGUI.git"
+    "com.unity.modules.xr": "1.0.0"
   }
 }

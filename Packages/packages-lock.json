@@ -1,5 +1,12 @@
 {
   "dependencies": {
+    "com.brunomikoski.animationsequencer": {
+      "version": "https://github.com/brunomikoski/Animation-Sequencer.git",
+      "depth": 0,
+      "source": "git",
+      "dependencies": {},
+      "hash": "e492db247531fb8ab55d30a2fb78d9777712612d"
+    },
     "com.coffee.softmask-for-ugui": {
       "version": "https://github.com/mob-sakai/SoftMaskForUGUI.git",
       "depth": 0,
