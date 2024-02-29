@@ -147,7 +147,7 @@ Transform:
   m_GameObject: {fileID: 7982255195715485566}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 10, y: 10, z: 10}
+  m_LocalScale: {x: 40, y: 40, z: 40}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 9130338695775949381}
@@ -238,6 +238,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _collider: {fileID: 3420737642490888501}
   _publishMessageInterval: 0.1
+  _warningDistanceThreshold: 20
 --- !u!1001 &387320914363699418
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1049,7 +1050,7 @@ PrefabInstance:
     - target: {fileID: 8923162458332381855, guid: 5120d7dd1ab31c146a2faf0ced333fde,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 11
+      value: 21.3
       objectReference: {fileID: 0}
     - target: {fileID: 8923162458332381855, guid: 5120d7dd1ab31c146a2faf0ced333fde,
         type: 3}
@@ -1059,7 +1060,7 @@ PrefabInstance:
     - target: {fileID: 8923162458332381855, guid: 5120d7dd1ab31c146a2faf0ced333fde,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -0.375
+      value: -1.3
       objectReference: {fileID: 0}
     - target: {fileID: 8923162458332381855, guid: 5120d7dd1ab31c146a2faf0ced333fde,
         type: 3}
