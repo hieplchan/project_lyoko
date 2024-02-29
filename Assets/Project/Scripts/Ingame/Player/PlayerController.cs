@@ -85,6 +85,8 @@ namespace StartledSeal
 
             _rb.freezeRotation = true;
 
+            _playerHealthComp.SetTag(Const.PlayerTag);
+            
             SetupTimers();
             SetupStateMachine();
         }

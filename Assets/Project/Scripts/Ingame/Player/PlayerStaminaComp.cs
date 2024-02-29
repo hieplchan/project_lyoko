@@ -58,7 +58,7 @@ namespace StartledSeal
         
         private void PublishStaminaMessage()
         {
-            MLog.Debug("PlayerStaminaComp", $"{CurrentStamina} - {_maxStamina}");
+            // MLog.Debug("PlayerStaminaComp", $"{CurrentStamina} - {_maxStamina}");
             
             var payload = new PlayerStaminaPayload()
             {

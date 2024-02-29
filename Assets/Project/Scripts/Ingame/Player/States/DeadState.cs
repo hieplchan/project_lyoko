@@ -1,4 +1,5 @@
 using StartledSeal.Common;
+using SuperMaxim.Messaging;
 using UnityEngine;
 
 namespace StartledSeal
@@ -15,6 +16,8 @@ namespace StartledSeal
         {
             _animator.CrossFade(DeadHash, CrossFadeDuration);
             _player.SetStateHash(DeadHash);
+
+            Messenger.Default.Publish(new PlayerDeadEventPayload());
         }
     }
 }

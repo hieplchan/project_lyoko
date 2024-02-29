@@ -1,4 +1,4 @@
-namespace StartledSeal.Utils
+namespace StartledSeal
 {
     public static class Const
     {

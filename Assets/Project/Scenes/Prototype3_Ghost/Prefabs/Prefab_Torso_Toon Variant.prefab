@@ -1032,8 +1032,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _maxHealth: 1
-  _playerHealthEventChanel: {fileID: 11400000, guid: 5928448bf7639794db94ec43ff9f7458,
-    type: 2}
+  _isNeedToPublishMessage: 1
+  <Tag>k__BackingField: Player
 --- !u!114 &5730084515400065689
 MonoBehaviour:
   m_ObjectHideFlags: 0
