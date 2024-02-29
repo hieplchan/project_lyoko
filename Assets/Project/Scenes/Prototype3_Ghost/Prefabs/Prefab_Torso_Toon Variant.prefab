@@ -1045,12 +1045,12 @@ PrefabInstance:
     - target: {fileID: 8923162458332381855, guid: 5120d7dd1ab31c146a2faf0ced333fde,
         type: 3}
       propertyPath: m_RootOrder
-      value: 14
+      value: 18
       objectReference: {fileID: 0}
     - target: {fileID: 8923162458332381855, guid: 5120d7dd1ab31c146a2faf0ced333fde,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 21.3
+      value: 19.23
       objectReference: {fileID: 0}
     - target: {fileID: 8923162458332381855, guid: 5120d7dd1ab31c146a2faf0ced333fde,
         type: 3}
@@ -1060,7 +1060,7 @@ PrefabInstance:
     - target: {fileID: 8923162458332381855, guid: 5120d7dd1ab31c146a2faf0ced333fde,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -1.3
+      value: -1.74
       objectReference: {fileID: 0}
     - target: {fileID: 8923162458332381855, guid: 5120d7dd1ab31c146a2faf0ced333fde,
         type: 3}
@@ -1177,8 +1177,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _maxStamina: 100
-  _staminaRestoreTimeOffset: 0.1
-  _staminaRestoreAmountPerSec: 30
+  _staminaRestoreTimeOffset: 0.5
+  _staminaRestoreAmountPerSec: 40
 --- !u!4 &9130338695775949381 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8923162458332381855, guid: 5120d7dd1ab31c146a2faf0ced333fde,

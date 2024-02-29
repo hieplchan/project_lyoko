@@ -10,7 +10,6 @@ namespace StartledSeal
 {
     public class PlayerAvatarUI : ValidatedMonoBehaviour
     {
-        
         [SerializeField] private UIOutline _outline;
 
         [Header("Heart Beat Effect")] 
