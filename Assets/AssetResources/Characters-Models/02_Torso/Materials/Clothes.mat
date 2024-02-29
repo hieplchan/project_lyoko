@@ -126,7 +126,7 @@ Material:
     - _RimBlend: 0.5
     - _RimThreshold: 0.1
     - _SHADOWS_SOFT: 0
-    - _Smoothness: 0.015
+    - _Smoothness: 0
     - _SmoothnessTextureChannel: 0
     - _SpecularHighlights: 1
     - _SrcBlend: 1
