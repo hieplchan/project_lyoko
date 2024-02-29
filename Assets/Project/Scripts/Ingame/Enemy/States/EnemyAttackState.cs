@@ -17,7 +17,7 @@ namespace StartledSeal
         
         public override void OnEnter()
         {
-            MLog.Debug("EnemyAttackState", "OnEnter");
+            // MLog.Debug("EnemyAttackState", "OnEnter");
             _animator.CrossFade(AttackHash, CrossDuration);
             _agent.speed = 0.1f;
         }

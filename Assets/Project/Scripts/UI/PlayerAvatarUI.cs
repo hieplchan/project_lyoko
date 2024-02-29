@@ -1,8 +1,10 @@
 using BrunoMikoski.AnimationSequencer;
 using KBCore.Refs;
 using Sirenix.OdinInspector;
+using StartledSeal.Common;
 using SuperMaxim.Messaging;
 using UnityEngine;
+using UnityEngine.ProBuilder;
 
 namespace StartledSeal
 {
@@ -18,12 +20,14 @@ namespace StartledSeal
         private void Awake()
         {
             Messenger.Default.Subscribe<PlayerDeadEventPayload>(HandlePlayerDeadEvent);
+            Messenger.Default.Subscribe<NearbyEnemyDistancePayload>(HandleNearbyEnemyDistanceMessage);
             SetHeartbeatSpeed(_minAnimSpeed);
         }
 
         private void OnDestroy()
         {
             Messenger.Default.Unsubscribe<PlayerDeadEventPayload>(HandlePlayerDeadEvent);
+            Messenger.Default.Unsubscribe<NearbyEnemyDistancePayload>(HandleNearbyEnemyDistanceMessage);
         }
         
         private void HandlePlayerDeadEvent(PlayerDeadEventPayload payload)
@@ -31,11 +35,17 @@ namespace StartledSeal
             _outline.color = Color.red;
             SetHeartbeatSpeed(0f);
         }
+        
+        private void HandleNearbyEnemyDistanceMessage(NearbyEnemyDistancePayload payload)
+        {
+            SetHeartbeatSpeed(Mathf.Lerp(_minAnimSpeed, _maxAnimSpeed, payload.WarningRatio));
+        }
 
         [Button]
         private void SetHeartbeatSpeed(float timeScale)
         {
             _heartbeatAnimController.PlayingSequence.timeScale = timeScale;
+            MLog.Debug($"SetHeartbeatSpeed {timeScale}");
         }
     }
 }
