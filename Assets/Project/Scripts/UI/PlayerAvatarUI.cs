@@ -12,7 +12,7 @@ namespace StartledSeal
     public class PlayerAvatarUI : ValidatedMonoBehaviour
     {
         [SerializeField] private UIOutline _outline;
-        [SerializeField, Child] private UIDissolve _heartImageDissolve;
+        [SerializeField] private UIDissolve _heartImageDissolve;
         
         [Header("Heart Beat Effect")] 
         [SerializeField] private Gradient _outlineBGGradient;
@@ -27,7 +27,8 @@ namespace StartledSeal
             SetHeartbeatSpeed(_minAnimSpeed);
 
             _outline.color = _outlineBGGradient.Evaluate(0f);
-            _heartImageDissolve.effectFactor = 0.2f;
+            if (_heartImageDissolve != null)
+                _heartImageDissolve.effectFactor = 0.2f;
         }
 
         private void OnDestroy()
@@ -48,7 +49,8 @@ namespace StartledSeal
         {
             _outline.color = _outlineBGGradient.Evaluate(payload.WarningRatio);
             SetHeartbeatSpeed(Mathf.Lerp(_minAnimSpeed, _maxAnimSpeed, payload.WarningRatio));
-            _heartImageDissolve.effectFactor = Mathf.Lerp(0.2f, 0.5f, payload.WarningRatio);
+            if (_heartImageDissolve != null)
+                _heartImageDissolve.effectFactor = Mathf.Lerp(0.2f, 0.5f, payload.WarningRatio);
         }
 
         [Button]

@@ -60,7 +60,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _outline: {fileID: 7488016708973684348}
-  _heartImageDissolve: {fileID: 8401943803480795245}
+  _heartImageDissolve: {fileID: 0}
   _outlineBGGradient:
     serializedVersion: 2
     key0: {r: 0.7647059, g: 0.8509804, b: 0.7019608, a: 1}
@@ -105,8 +105,8 @@ GameObject:
   - component: {fileID: 742224466913331950}
   - component: {fileID: 2452266814109331802}
   - component: {fileID: 8701158553683261416}
-  - component: {fileID: 8401943803480795245}
   - component: {fileID: 1978592762147727782}
+  - component: {fileID: 2671340539040978249}
   m_Layer: 5
   m_Name: imgAvatar
   m_TagString: Untagged
@@ -172,34 +172,6 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &8401943803480795245
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5101226154690134277}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ce76b7a490bd74f34a2f2752641aea24, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_EffectFactor: 0
-  m_Width: 0.253
-  m_Softness: 1
-  m_Color: {r: 1, g: 0, b: 0.01960802, a: 1}
-  m_ColorMode: 0
-  m_TransitionTexture: {fileID: 2800000, guid: 3e04c247fb2604af186173fce0bc62de, type: 3}
-  m_EffectArea: 0
-  m_KeepAspectRatio: 0
-  m_Player:
-    play: 0
-    initialPlayDelay: 0
-    duration: 1
-    loop: 0
-    loopDelay: 0
-    updateMode: 0
-  m_Reverse: 0
 --- !u!114 &1978592762147727782
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -217,6 +189,18 @@ MonoBehaviour:
   m_EffectColor: {r: 0, g: 0, b: 0, a: 0.4627451}
   m_EffectDistance: {x: 1, y: 1}
   m_UseGraphicAlpha: 1
+--- !u!225 &2671340539040978249
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5101226154690134277}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1 &6920044502296401995
 GameObject:
   m_ObjectHideFlags: 0
@@ -229,7 +213,6 @@ GameObject:
   - component: {fileID: 7488016708973684348}
   - component: {fileID: 585912627315012917}
   - component: {fileID: 996235050053136820}
-  - component: {fileID: 3275378261353341059}
   m_Layer: 5
   m_Name: imgBG
   m_TagString: Untagged
@@ -363,15 +346,3 @@ MonoBehaviour:
         delay: 0
         flowType: 0
         interval: 0.7
---- !u!225 &3275378261353341059
-CanvasGroup:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6920044502296401995}
-  m_Enabled: 1
-  m_Alpha: 1
-  m_Interactable: 1
-  m_BlocksRaycasts: 1
-  m_IgnoreParentGroups: 0
