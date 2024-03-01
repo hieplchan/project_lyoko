@@ -354,6 +354,11 @@ PrefabInstance:
       objectReference: {fileID: 5730084515400065689}
     - target: {fileID: 742362019663296301, guid: 5120d7dd1ab31c146a2faf0ced333fde,
         type: 3}
+      propertyPath: _runStaminaThreshold
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 742362019663296301, guid: 5120d7dd1ab31c146a2faf0ced333fde,
+        type: 3}
       propertyPath: _nearbyEnemyDetectorComp
       value: 
       objectReference: {fileID: 1264467327393397457}

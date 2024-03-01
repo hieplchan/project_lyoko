@@ -12,21 +12,18 @@ namespace StartledSeal.Project.Scripts.UI
     public class PlayerStaminaSlider : ValidatedMonoBehaviour
     {
         [SerializeField, Self] private CanvasGroup _canvasGroup;
+        [SerializeField] private CanvasGroup _iconImageCanvasGroup;
         
-        [SerializeField] private float _middleThreshold = 0.5f;
         [SerializeField] private float _timeOutHideUISec = 0.5f;
 
         [SerializeField] private bool _isAutoHideEnable;
         
         [SerializeField] private List<Slider> _sliderList;
-        [SerializeField] private List<Slider> _middleSliderList;
 
         [SerializeField] private List<Image> _imgBGList;
         [SerializeField] private List<UIOutline> _outlineBGList;
 
-        [SerializeField] private Color _normalColor;
-        [SerializeField] private Color _warningColor;
-        [SerializeField] private Color _staminaRunOutColor;
+        [SerializeField] private Gradient _gradientColor;
         private float _lastValueChangedTime;
 
         private void Awake()
@@ -35,6 +32,7 @@ namespace StartledSeal.Project.Scripts.UI
             Messenger.Default.Subscribe<PlayerDeadEventPayload>(HandlePlayerDeadEvent);
 
             _lastValueChangedTime = Time.time;
+            _iconImageCanvasGroup.alpha = 0;
         }
         
         private void OnDestroy()
@@ -61,17 +59,13 @@ namespace StartledSeal.Project.Scripts.UI
             _lastValueChangedTime = Time.time;
             
             var value = payload.CurrentStamina / payload.MaxStamina;
-            var color = value > _middleThreshold ? _normalColor : 
-                Color.Lerp(_warningColor, _staminaRunOutColor, 1 - value * 2);
+            var color = _gradientColor.Evaluate(1 - value);
+
+            _iconImageCanvasGroup.alpha = 1 - value > 0f ? 1 : 0;
                 
             foreach (var slider in _sliderList)
             {
                 slider.value = value;
-            }
-
-            foreach (var middleSlider in _middleSliderList)
-            {
-                middleSlider.gameObject.SetActive(value > _middleThreshold);    
             }
 
             ChangeColor(color);
@@ -101,7 +95,7 @@ namespace StartledSeal.Project.Scripts.UI
         [Button]
         private void ApplyNormalColor()
         {
-            ChangeColor(_normalColor);
+            ChangeColor(_gradientColor.Evaluate(0f));
         }
         #endif
     }
