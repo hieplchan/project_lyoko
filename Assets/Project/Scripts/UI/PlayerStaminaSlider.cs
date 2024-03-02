@@ -32,7 +32,7 @@ namespace StartledSeal.Project.Scripts.UI
             Messenger.Default.Subscribe<PlayerDeadEventPayload>(HandlePlayerDeadEvent);
 
             _lastValueChangedTime = Time.time;
-            _iconImageCanvasGroup.alpha = 0;
+            // _iconImageCanvasGroup.alpha = 0;
         }
         
         private void OnDestroy()
@@ -61,7 +61,7 @@ namespace StartledSeal.Project.Scripts.UI
             var value = payload.CurrentStamina / payload.MaxStamina;
             var color = _gradientColor.Evaluate(1 - value);
 
-            _iconImageCanvasGroup.alpha = 1 - value > 0f ? 1 : 0;
+            // _iconImageCanvasGroup.alpha = 1 - value > 0f ? 1 : 0;
                 
             foreach (var slider in _sliderList)
             {
