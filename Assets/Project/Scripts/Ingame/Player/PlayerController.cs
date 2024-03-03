@@ -19,7 +19,7 @@ namespace StartledSeal
         
         [SerializeField, Self] private PlayerStaminaComp _playerStaminaComp;
         [SerializeField, Self] private HealthComp _playerHealthComp;
-        [SerializeField, Child] private NearbyEnemyDetector _nearbyEnemyDetectorComp;
+        // [SerializeField, Child] private NearbyEnemyDetector _nearbyEnemyDetectorComp;
         
         [Header("Movement Settings")] 
         [SerializeField] private float _runSpeed = 200f;
