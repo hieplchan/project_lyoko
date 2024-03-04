@@ -174,7 +174,7 @@ namespace StartledSeal
             _input.Jump += OnJump;
             _input.Dash += OnDash;
             _input.Run += OnRun;
-            // _input.Attack += OnAttack;
+            _input.Attack += OnAttack;
 
             _playerStaminaComp.RunOutStamina += OnRunOutOfStamina;
         }
@@ -184,7 +184,7 @@ namespace StartledSeal
             _input.Jump -= OnJump;
             _input.Dash -= OnDash;
             _input.Run -= OnRun;
-            // _input.Attack -= OnAttack;
+            _input.Attack -= OnAttack;
             
             _playerStaminaComp.RunOutStamina -= OnRunOutOfStamina;
         }

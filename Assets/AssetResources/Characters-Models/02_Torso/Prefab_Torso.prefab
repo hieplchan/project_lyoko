@@ -498,7 +498,7 @@ MonoBehaviour:
   _dashForce: 1.5
   _dashDuration: 0.77
   _dashCoolDown: 0
-  _attackCoolDown: 2
+  _attackCoolDown: 0.433
   _attackDistance: 1
   _attackDamage: 10
   IsRunning: 0
@@ -562,9 +562,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _playerController: {fileID: 8771666887422096332}
   _flashLight: {fileID: 6239710371219919742}
+  _volumetricLightBeam: {fileID: 2777228923974522424}
   _input: {fileID: 11400000, guid: 3ad9c55985255ad42b508b4163f62a85, type: 2}
   _maxBattery: 100
   _batteryConsumePerSec: 0
+  _flashDurationIn: 0.1
+  _flashDurationOut: 3
+  _flashValueFrom: 10
+  _flashValueTo: 0.1
 --- !u!1 &4972021744846225941
 GameObject:
   m_ObjectHideFlags: 0
@@ -1286,6 +1291,21 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3727700231335938264, guid: 5221edaf6cd012e40a0000ceecb5e212,
         type: 3}
+      propertyPath: m_ColorFlat.b
+      value: 0.80203325
+      objectReference: {fileID: 0}
+    - target: {fileID: 3727700231335938264, guid: 5221edaf6cd012e40a0000ceecb5e212,
+        type: 3}
+      propertyPath: m_ColorFlat.g
+      value: 0.6929957
+      objectReference: {fileID: 0}
+    - target: {fileID: 3727700231335938264, guid: 5221edaf6cd012e40a0000ceecb5e212,
+        type: 3}
+      propertyPath: m_ColorFlat.r
+      value: 0.8207547
+      objectReference: {fileID: 0}
+    - target: {fileID: 3727700231335938264, guid: 5221edaf6cd012e40a0000ceecb5e212,
+        type: 3}
       propertyPath: m_NoiseIntensity
       value: 1
       objectReference: {fileID: 0}
@@ -1382,37 +1402,52 @@ PrefabInstance:
     - target: {fileID: 4462232287992713746, guid: 5221edaf6cd012e40a0000ceecb5e212,
         type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.70954853
+      value: -0.041325662
       objectReference: {fileID: 0}
     - target: {fileID: 4462232287992713746, guid: 5221edaf6cd012e40a0000ceecb5e212,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0.6877266
+      value: 0.025288643
       objectReference: {fileID: 0}
     - target: {fileID: 4462232287992713746, guid: 5221edaf6cd012e40a0000ceecb5e212,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.14909178
+      value: 0.70605236
       objectReference: {fileID: 0}
     - target: {fileID: 4462232287992713746, guid: 5221edaf6cd012e40a0000ceecb5e212,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.036669582
+      value: 0.7065004
       objectReference: {fileID: 0}
     - target: {fileID: 4462232287992713746, guid: 5221edaf6cd012e40a0000ceecb5e212,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
-      value: -74.8
+      value: -91.3
       objectReference: {fileID: 0}
     - target: {fileID: 4462232287992713746, guid: 5221edaf6cd012e40a0000ceecb5e212,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: 87.9
+      value: 94.3
       objectReference: {fileID: 0}
     - target: {fileID: 4462232287992713746, guid: 5221edaf6cd012e40a0000ceecb5e212,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: -78.7
+      value: 91.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4874626408266648990, guid: 5221edaf6cd012e40a0000ceecb5e212,
+        type: 3}
+      propertyPath: m_Color.b
+      value: 0.80203325
+      objectReference: {fileID: 0}
+    - target: {fileID: 4874626408266648990, guid: 5221edaf6cd012e40a0000ceecb5e212,
+        type: 3}
+      propertyPath: m_Color.g
+      value: 0.6929957
+      objectReference: {fileID: 0}
+    - target: {fileID: 4874626408266648990, guid: 5221edaf6cd012e40a0000ceecb5e212,
+        type: 3}
+      propertyPath: m_Color.r
+      value: 0.8207547
       objectReference: {fileID: 0}
     - target: {fileID: 5481600657559840099, guid: 5221edaf6cd012e40a0000ceecb5e212,
         type: 3}
@@ -1470,6 +1505,10 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 7453470950532397627}
+    - targetCorrespondingSourceObject: {fileID: 2983288261831531609, guid: 5221edaf6cd012e40a0000ceecb5e212,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 8190768203846175436}
   m_SourcePrefab: {fileID: 100100000, guid: 5221edaf6cd012e40a0000ceecb5e212, type: 3}
 --- !u!4 &2371996203393444744 stripped
 Transform:
@@ -1477,6 +1516,18 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1527214374309764832}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &2777228923974522424 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3727700231335938264, guid: 5221edaf6cd012e40a0000ceecb5e212,
+    type: 3}
+  m_PrefabInstance: {fileID: 1527214374309764832}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4347950287199470265}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 92b0a6142b2b0b449a62558873544363, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &4347950287199470265 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2983288261831531609, guid: 5221edaf6cd012e40a0000ceecb5e212,
@@ -1514,7 +1565,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 51e172702b541584f96980fe85c79969, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Strength: 0.354
+  m_Strength: 0.129
   m_UpdateRate: 8
   m_WaitXFrames: 3
   m_LayerMask:
@@ -1534,7 +1585,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e39f0f7e17f11f2448932da58e9b63d4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  alpha: 0.25
+  alpha: 0.107
   size: 0.0184
   direction: 0
   velocity: {x: 0, y: 0, z: 0.03}
@@ -1548,6 +1599,24 @@ MonoBehaviour:
   cullingEnabled: 0
   cullingMaxDistance: 10
   m_AlphaAdditionalRuntime: 1
+--- !u!114 &8190768203846175436
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4347950287199470265}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d4d69db65d6d47040b7bd02d847008da, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  componentsToChange: 2147483647
+  restoreIntensityOnDisable: 1
+  frequency: 10
+  intensityAmplitude:
+    m_MinValue: -1
+    m_MaxValue: 1
 --- !u!108 &6239710371219919742 stripped
 Light:
   m_CorrespondingSourceObject: {fileID: 4874626408266648990, guid: 5221edaf6cd012e40a0000ceecb5e212,
