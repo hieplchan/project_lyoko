@@ -10,6 +10,8 @@ namespace StartledSeal
 {
     public class PlayerController : ValidatedMonoBehaviour
     {
+        public Animator Animator => _animator;
+        
         [Header("References")] 
         [SerializeField, Self] private Rigidbody _rb;
         [SerializeField, Self] private GroundChecker _groundChecker;

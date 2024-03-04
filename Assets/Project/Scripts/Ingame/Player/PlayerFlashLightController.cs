@@ -8,12 +8,16 @@ namespace StartledSeal
 {
     public class PlayerFlashLightController : ValidatedMonoBehaviour
     {
+        [SerializeField, Self] PlayerController _playerController;
+        
         [SerializeField, Child] private Light _flashLight;
         [SerializeField, Anywhere] private InputReader _input;
         [SerializeField] private float _maxBattery = 100f;
         [SerializeField] private float _batteryConsumePerSec = 10f;
 
         private float _currentBattery;
+        private Animator _animator;
+        private int _rightArmAnimatorLayerIndex;
         
         public float CurrentBattery
         {
@@ -28,6 +32,9 @@ namespace StartledSeal
 
         private void Awake()
         {
+            _animator = _playerController.Animator;
+            _rightArmAnimatorLayerIndex = _animator.GetLayerIndex(Const.RightArmAnimatorLayerIndex);
+            
             _input.Attack += ToggleLight;
             _currentBattery = _maxBattery;
         }
@@ -69,6 +76,7 @@ namespace StartledSeal
         private void ToggleLight()
         {
             _flashLight.gameObject.SetActive(!_flashLight.gameObject.activeSelf);
+            _animator.SetLayerWeight(_rightArmAnimatorLayerIndex, _flashLight.gameObject.activeSelf ? 1.0f : 0f);
         }
 
         [Button]
