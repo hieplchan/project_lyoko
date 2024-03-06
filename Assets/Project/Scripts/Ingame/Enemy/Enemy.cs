@@ -4,6 +4,7 @@ using StartledSeal.Common;
 using StartledSeal.Utils;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.Events;
 
 namespace StartledSeal
 {
@@ -11,6 +12,9 @@ namespace StartledSeal
     [RequireComponent(typeof(PlayerDetector))]
     public class Enemy : Entity
     {
+        // Event
+        public UnityEvent StartChasingEvent;
+        
         [SerializeField, Self] private NavMeshAgent _agent;
         [SerializeField, Child] private Animator _animator;
         [SerializeField, Self] private PlayerDetector _playerDetector;

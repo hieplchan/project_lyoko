@@ -28,6 +28,8 @@ namespace StartledSeal
             // MLog.Debug("EnemyChaseState", "OnEnter");
             _animator.CrossFade(ChaseHash, CrossDuration);
             _agent.speed = _speed;
+            
+            _enemy.StartChasingEvent?.Invoke();
 
             _agent.isStopped = true;
             _startChasingCountDownTimer.Start();
