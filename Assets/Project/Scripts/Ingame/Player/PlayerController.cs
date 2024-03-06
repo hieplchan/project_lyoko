@@ -22,6 +22,7 @@ namespace StartledSeal
         [SerializeField, Self] private PlayerStaminaComp _playerStaminaComp;
         [SerializeField, Self] private HealthComp _playerHealthComp;
         // [SerializeField, Child] private NearbyEnemyDetector _nearbyEnemyDetectorComp;
+        [SerializeField, Child] private PlayerFlashLightController _playerFlashLightController;
         
         [Header("Movement Settings")] 
         [SerializeField] private float _runSpeed = 200f;
@@ -255,14 +256,19 @@ namespace StartledSeal
         
         public void Attack()
         {
-            var pos = transform.position + Vector3.forward;
-            var hits = Physics.OverlapSphere(pos, _attackDamage);
-            foreach (var hit in hits)
+            // var pos = transform.position + Vector3.forward;
+            // var hits = Physics.OverlapSphere(pos, _attackDamage);
+            // foreach (var hit in hits)
+            // {
+            //     if (hit.CompareTag(Const.EnemyTag))
+            //     {
+            //         hit.GetComponent<Enemy>().GetHit(_attackDamage);
+            //     }
+            // }
+
+            foreach (var enemy in _playerFlashLightController.EnemiesInRangeList)
             {
-                if (hit.CompareTag(Const.EnemyTag))
-                {
-                    hit.GetComponent<Enemy>().GetHit(_attackDamage);
-                }
+                enemy.GetHit(_attackDamage);
             }
         }
 

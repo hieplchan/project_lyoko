@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using DG.Tweening;
 using KBCore.Refs;
 using Sirenix.OdinInspector;
@@ -11,11 +12,12 @@ namespace StartledSeal
 {
     public class PlayerFlashLightController : ValidatedMonoBehaviour
     {
-        [SerializeField, Self] PlayerController _playerController;
+        [SerializeField, Parent] PlayerController _playerController;
         
-        [SerializeField, Child] private Light _flashLight;
-        [SerializeField, Child] private VolumetricLightBeamHD _volumetricLightBeam;
-
+        [SerializeField, Self] private Light _flashLight;
+        [SerializeField, Self] private VolumetricLightBeamHD _volumetricLightBeam;
+        [SerializeField, Self] private TriggerZone _volumetricLightTiggerZone;
+        
         [SerializeField, Anywhere] private InputReader _input;
         [SerializeField] private float _maxBattery = 100f;
         [SerializeField] private float _batteryConsumePerSec = 10f;
@@ -28,6 +30,9 @@ namespace StartledSeal
         private float _currentBattery;
         private Animator _animator;
         private int _rightArmAnimatorLayerIndex;
+
+        public List<Enemy> EnemiesInRangeList => _enemiesInRangeList;
+        private List<Enemy> _enemiesInRangeList;
         
         public float CurrentBattery
         {
@@ -51,8 +56,29 @@ namespace StartledSeal
             TurnOnLight();
             
             _currentBattery = _maxBattery;
+
+            _enemiesInRangeList ??= new List<Enemy>();
         }
-        
+
+        private void OnTriggerEnter(Collider other)
+        {
+            MLog.Debug("OnTriggerEnter", other.gameObject.name);
+            if (other.gameObject.TryGetComponent<Enemy>(out var enemy))
+            {
+                _enemiesInRangeList.Add(enemy);
+            }
+        }
+
+        private void OnTriggerExit(Collider other)
+        {
+            MLog.Debug("OnTriggerExit", other.gameObject.name);
+            if (other.gameObject.TryGetComponent<Enemy>(out var enemy)
+                && _enemiesInRangeList.Contains(enemy))
+            {
+                _enemiesInRangeList.Remove(enemy);
+            }
+        }
+
         private void OnDestroy()
         {
             // _input.Attack -= ToggleLight;
@@ -124,5 +150,8 @@ namespace StartledSeal
         {
             _volumetricLightBeam.sideSoftness = 10;
         }
+
+        [Button]
+        private void EnableTriggerZone() => _volumetricLightTiggerZone.gameObject.SetActive(true);
     }
 }
