@@ -2440,10 +2440,11 @@ MonoBehaviour:
   _animator: {fileID: 4883280302340495896}
   _playerDetector: {fileID: 2931060407373789939}
   _wanderRadius: 4.33
+  _startChasingTimeOffset: 0.5
   _timeBetweenAttacks: 1
   _attackDamage: 0
   _walkSpeed: 1
-  _runSpeed: 2.15
+  _runSpeed: 2.2
 --- !u!114 &2931060407373789939
 MonoBehaviour:
   m_ObjectHideFlags: 0

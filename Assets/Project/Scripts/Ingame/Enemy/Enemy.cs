@@ -16,6 +16,8 @@ namespace StartledSeal
         [SerializeField, Self] private PlayerDetector _playerDetector;
 
         [SerializeField] private float _wanderRadius = 10f;
+        [SerializeField] private float _startChasingTimeOffset = 0.5f;
+        
         [SerializeField] private float _timeBetweenAttacks = 1f;
         [SerializeField] private float _attackDamage = 1f;
 
@@ -33,7 +35,7 @@ namespace StartledSeal
             _stateMachine = new StateMachine();
 
             var wanderState = new EnemyWanderState(this, _animator, _agent, _wanderRadius, _walkSpeed);
-            var chaseState = new EnemyChaseState(this, _animator, _agent, _playerDetector.Player, _runSpeed);
+            var chaseState = new EnemyChaseState(this, _animator, _agent, _playerDetector.Player, _runSpeed, _startChasingTimeOffset);
             var attackState = new EnemyAttackState(this, _animator, _agent, _playerDetector.Player);
             
             At(wanderState, chaseState, new FuncPredicate(() => _playerDetector.CanDetectPlayer()));
