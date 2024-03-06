@@ -14,7 +14,7 @@ namespace StartledSeal
         protected static readonly int WalkHash = Animator.StringToHash("Walk");
         protected static readonly int AttackHash = Animator.StringToHash("Attack");
         protected static readonly int DieHash = Animator.StringToHash("Die");
-
+        protected static readonly int GetHit = Animator.StringToHash("GetHit");
         
         protected EnemyBaseState(Enemy enemy, Animator animator)
         {
