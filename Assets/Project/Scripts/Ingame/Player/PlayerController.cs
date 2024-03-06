@@ -261,7 +261,7 @@ namespace StartledSeal
             {
                 if (hit.CompareTag(Const.EnemyTag))
                 {
-                    hit.GetComponent<HealthComp>().TakeDamage(_attackDamage);
+                    hit.GetComponent<Enemy>().GetHit(_attackDamage);
                 }
             }
         }

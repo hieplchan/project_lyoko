@@ -404,7 +404,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _enemy: {fileID: 0}
-  _startChasingNotiAnim: {fileID: 0}
+  _startChasingNotiAnim: {fileID: 1491235519082751022}
+  _getHitParticleSystem: {fileID: 3372235063074932585}
 --- !u!1001 &6607076782016901324
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -761,6 +762,12 @@ PrefabInstance:
 --- !u!4 &3372235063074932567 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8466090823223343003, guid: f63d499c677329944ac13334afab1698,
+    type: 3}
+  m_PrefabInstance: {fileID: 6607076782016901324}
+  m_PrefabAsset: {fileID: 0}
+--- !u!198 &3372235063074932585 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 8466090823223343013, guid: f63d499c677329944ac13334afab1698,
     type: 3}
   m_PrefabInstance: {fileID: 6607076782016901324}
   m_PrefabAsset: {fileID: 0}
