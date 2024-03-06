@@ -554,7 +554,7 @@ MonoBehaviour:
   m_ShowCameraFrustum: 1
   m_IgnoreTimeScale: 0
   m_WorldUpOverride: {fileID: 0}
-  m_UpdateMethod: 2
+  m_UpdateMethod: 0
   m_BlendUpdateMethod: 0
   m_DefaultBlend:
     m_Style: 1
@@ -1814,11 +1814,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Prefab_Torso_Toon_ver4
-      objectReference: {fileID: 0}
-    - target: {fileID: 5608476721331458486, guid: 91510aeba0907064bac07b8aaa81b031,
-        type: 3}
-      propertyPath: _flashValueTo
-      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 6723957471999038834, guid: 91510aeba0907064bac07b8aaa81b031,
         type: 3}

@@ -62,7 +62,7 @@ namespace StartledSeal
 
         private void OnTriggerEnter(Collider other)
         {
-            MLog.Debug("OnTriggerEnter", other.gameObject.name);
+            // MLog.Debug("OnTriggerEnter", other.gameObject.name);
             if (other.gameObject.TryGetComponent<Enemy>(out var enemy))
             {
                 _enemiesInRangeList.Add(enemy);
@@ -71,7 +71,7 @@ namespace StartledSeal
 
         private void OnTriggerExit(Collider other)
         {
-            MLog.Debug("OnTriggerExit", other.gameObject.name);
+            // MLog.Debug("OnTriggerExit", other.gameObject.name);
             if (other.gameObject.TryGetComponent<Enemy>(out var enemy)
                 && _enemiesInRangeList.Contains(enemy))
             {

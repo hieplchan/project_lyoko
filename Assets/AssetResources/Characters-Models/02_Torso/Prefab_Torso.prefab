@@ -413,7 +413,7 @@ Transform:
   - {fileID: 6335375230603842020}
   - {fileID: 1460667998187843663}
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
 --- !u!136 &2794197040928545209
 CapsuleCollider:
@@ -484,6 +484,7 @@ MonoBehaviour:
   _input: {fileID: 11400000, guid: 3ad9c55985255ad42b508b4163f62a85, type: 2}
   _playerStaminaComp: {fileID: 1872986106841875437}
   _playerHealthComp: {fileID: 7975264351348284834}
+  _playerFlashLightController: {fileID: 5608476721331458486}
   _runSpeed: 130
   _walkSpeed: 80
   _rotationSpeed: 15
@@ -1636,9 +1637,9 @@ MonoBehaviour:
   _maxBattery: 100
   _batteryConsumePerSec: 0
   _flashDurationIn: 0.1
-  _flashDurationOut: 3
+  _flashDurationOut: 1
   _flashValueFrom: 10
-  _flashValueTo: 0.1
+  _flashValueTo: 2
 --- !u!108 &6239710371219919742 stripped
 Light:
   m_CorrespondingSourceObject: {fileID: 4874626408266648990, guid: 5221edaf6cd012e40a0000ceecb5e212,
