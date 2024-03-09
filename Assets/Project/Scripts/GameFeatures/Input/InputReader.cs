@@ -15,6 +15,7 @@ namespace StartledSeal
         public event UnityAction<bool> Dash = delegate { };
         public event UnityAction<bool> Run = delegate { };
         public event UnityAction Attack = delegate { };
+        public event UnityAction Equip = delegate { };
         
         public Vector3 Direction => _inputActions.Player.Move.ReadValue<Vector2>();
         private PlayerInputActions _inputActions;
@@ -90,7 +91,19 @@ namespace StartledSeal
                     Jump.Invoke(false);
                     break;
             }
-            
+        }
+
+        public void OnEquip(InputAction.CallbackContext context)
+        {
+            switch (context.phase)
+            {
+                case InputActionPhase.Started:
+                    Equip.Invoke();
+                    break;
+                // case InputActionPhase.Canceled:
+                //     Equip.Invoke();
+                //     break;
+            };
         }
     }
 }

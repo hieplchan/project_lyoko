@@ -1502,6 +1502,12 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1527214374309764832}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &2589073539976898978 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3954158046228592450, guid: 5221edaf6cd012e40a0000ceecb5e212,
+    type: 3}
+  m_PrefabInstance: {fileID: 1527214374309764832}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &2777228923974522424 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 3727700231335938264, guid: 5221edaf6cd012e40a0000ceecb5e212,
@@ -1631,6 +1637,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _playerController: {fileID: 8771666887422096332}
   _flashLight: {fileID: 6239710371219919742}
+  _flashLightModelGO: {fileID: 2589073539976898978}
   _volumetricLightBeam: {fileID: 2777228923974522424}
   _volumetricLightTiggerZone: {fileID: 8945844781518002554}
   _input: {fileID: 11400000, guid: 3ad9c55985255ad42b508b4163f62a85, type: 2}

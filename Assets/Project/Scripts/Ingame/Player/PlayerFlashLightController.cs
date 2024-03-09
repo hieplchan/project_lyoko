@@ -15,6 +15,7 @@ namespace StartledSeal
         [SerializeField, Parent] PlayerController _playerController;
         
         [SerializeField, Self] private Light _flashLight;
+        [SerializeField] private GameObject _flashLightModelGO;
         [SerializeField, Self] private VolumetricLightBeamHD _volumetricLightBeam;
         [SerializeField, Self] private TriggerZone _volumetricLightTiggerZone;
         
@@ -50,7 +51,7 @@ namespace StartledSeal
             _animator = _playerController.Animator;
             _rightArmAnimatorLayerIndex = _animator.GetLayerIndex(Const.RightArmAnimatorLayerIndex);
             
-            // _input.Attack += ToggleLight;
+            _input.Equip += ToggleLight;
             _input.Attack += OnAttack;
             
             TurnOnLight();
@@ -81,7 +82,7 @@ namespace StartledSeal
 
         private void OnDestroy()
         {
-            // _input.Attack -= ToggleLight;
+            _input.Equip -= ToggleLight;
             _input.Attack -= OnAttack;
         }
         
@@ -141,9 +142,13 @@ namespace StartledSeal
         
         [Button]
         private void TurnOffLight() => TurnLight(false);
-        
+
         [Button]
-        private void ToggleLight() => TurnLight(!_flashLight.gameObject.activeSelf);
+        private void ToggleLight()
+        {
+            TurnLight(!_flashLight.gameObject.activeSelf);
+            _flashLightModelGO.SetActive(_flashLight.gameObject.activeSelf);
+        }
 
         [Button]
         private void ResetLight()
