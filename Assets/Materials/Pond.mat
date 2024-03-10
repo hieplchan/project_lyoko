@@ -115,8 +115,8 @@ Material:
     - _DstBlendAlpha: 10
     - _EnvironmentReflections: 1
     - _FadeDistance: 1.07
-    - _FoamAmount: 0.56
-    - _FoamDepth: 0.98
+    - _FoamAmount: 0
+    - _FoamDepth: 0.74
     - _FoamDirection: 0
     - _FoamMode: 1
     - _FoamNoiseAmount: 0
@@ -137,7 +137,7 @@ Material:
     - _QueueOffset: 0
     - _ReceiveShadows: 1
     - _RefractionAmplitude: 0.0104
-    - _RefractionFrequency: 6.65
+    - _RefractionFrequency: 6.28
     - _RefractionScale: 0.23
     - _RefractionSpeed: 0.5
     - _ShadowStrength: 0.45
