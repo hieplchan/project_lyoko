@@ -13,7 +13,7 @@ namespace StartledSeal
         [SerializeField, Anywhere] private CinemachineFreeLook _freeLookCam;
 
         [Header("Settings")] 
-        [SerializeField, Range(0.5f, 3f)] private float _speedMultiplier = 1f;
+        [SerializeField, Range(0.0f, 3f)] private float _speedMultiplier = 1f;
         [SerializeField, Range(1f, 1000f)] private float _gamepadMultiplier = 100f;
 
         private bool _isRightMouseBtnPress;

@@ -791,11 +791,81 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1460667998187843663, guid: 91510aeba0907064bac07b8aaa81b031,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1.6968249
+      objectReference: {fileID: 0}
+    - target: {fileID: 1460667998187843663, guid: 91510aeba0907064bac07b8aaa81b031,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1.6968249
+      objectReference: {fileID: 0}
+    - target: {fileID: 1460667998187843663, guid: 91510aeba0907064bac07b8aaa81b031,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1.6968249
+      objectReference: {fileID: 0}
+    - target: {fileID: 1460667998187843663, guid: 91510aeba0907064bac07b8aaa81b031,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.011
+      objectReference: {fileID: 0}
+    - target: {fileID: 2794197040928545209, guid: 91510aeba0907064bac07b8aaa81b031,
+        type: 3}
+      propertyPath: m_Height
+      value: 1.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 2794197040928545209, guid: 91510aeba0907064bac07b8aaa81b031,
+        type: 3}
+      propertyPath: m_Radius
+      value: 0.27307594
+      objectReference: {fileID: 0}
+    - target: {fileID: 2794197040928545209, guid: 91510aeba0907064bac07b8aaa81b031,
+        type: 3}
+      propertyPath: m_Center.x
+      value: -0.02153629
+      objectReference: {fileID: 0}
+    - target: {fileID: 2794197040928545209, guid: 91510aeba0907064bac07b8aaa81b031,
+        type: 3}
+      propertyPath: m_Center.y
+      value: 0.9
+      objectReference: {fileID: 0}
+    - target: {fileID: 2794197040928545209, guid: 91510aeba0907064bac07b8aaa81b031,
+        type: 3}
+      propertyPath: m_Center.z
+      value: 0.021538764
+      objectReference: {fileID: 0}
     - target: {fileID: 4746871946132451616, guid: 91510aeba0907064bac07b8aaa81b031,
         type: 3}
       propertyPath: m_Name
       value: Prefab_Torso
       objectReference: {fileID: 0}
+    - target: {fileID: 5186509330950006786, guid: 91510aeba0907064bac07b8aaa81b031,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 913a1c2831c46e742a9d7169156355a4, type: 2}
+    - target: {fileID: 5186509330950006786, guid: 91510aeba0907064bac07b8aaa81b031,
+        type: 3}
+      propertyPath: m_Materials.Array.data[1]
+      value: 
+      objectReference: {fileID: 2100000, guid: 1c67b71019e9a7f409efb4f359a31981, type: 2}
+    - target: {fileID: 5186509330950006786, guid: 91510aeba0907064bac07b8aaa81b031,
+        type: 3}
+      propertyPath: m_Materials.Array.data[2]
+      value: 
+      objectReference: {fileID: 2100000, guid: a6cea7e711815a74c9d92f9d915d9de0, type: 2}
+    - target: {fileID: 5186509330950006786, guid: 91510aeba0907064bac07b8aaa81b031,
+        type: 3}
+      propertyPath: m_Materials.Array.data[3]
+      value: 
+      objectReference: {fileID: 2100000, guid: a6cea7e711815a74c9d92f9d915d9de0, type: 2}
+    - target: {fileID: 5186509330950006786, guid: 91510aeba0907064bac07b8aaa81b031,
+        type: 3}
+      propertyPath: m_Materials.Array.data[4]
+      value: 
+      objectReference: {fileID: 2100000, guid: a6cea7e711815a74c9d92f9d915d9de0, type: 2}
     - target: {fileID: 6723957471999038834, guid: 91510aeba0907064bac07b8aaa81b031,
         type: 3}
       propertyPath: m_RootOrder
@@ -804,7 +874,7 @@ PrefabInstance:
     - target: {fileID: 6723957471999038834, guid: 91510aeba0907064bac07b8aaa81b031,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -2.55
+      value: -30.75
       objectReference: {fileID: 0}
     - target: {fileID: 6723957471999038834, guid: 91510aeba0907064bac07b8aaa81b031,
         type: 3}
@@ -814,7 +884,7 @@ PrefabInstance:
     - target: {fileID: 6723957471999038834, guid: 91510aeba0907064bac07b8aaa81b031,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: -26.125
       objectReference: {fileID: 0}
     - target: {fileID: 6723957471999038834, guid: 91510aeba0907064bac07b8aaa81b031,
         type: 3}
@@ -853,9 +923,29 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8771666887422096332, guid: 91510aeba0907064bac07b8aaa81b031,
         type: 3}
+      propertyPath: _runSpeed
+      value: 300
+      objectReference: {fileID: 0}
+    - target: {fileID: 8771666887422096332, guid: 91510aeba0907064bac07b8aaa81b031,
+        type: 3}
+      propertyPath: _jumpForce
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8771666887422096332, guid: 91510aeba0907064bac07b8aaa81b031,
+        type: 3}
+      propertyPath: _walkSpeed
+      value: 150
+      objectReference: {fileID: 0}
+    - target: {fileID: 8771666887422096332, guid: 91510aeba0907064bac07b8aaa81b031,
+        type: 3}
       propertyPath: _freeLookCam
       value: 
-      objectReference: {fileID: 2064575383}
+      objectReference: {fileID: 8343752438854617588}
+    - target: {fileID: 8771666887422096332, guid: 91510aeba0907064bac07b8aaa81b031,
+        type: 3}
+      propertyPath: _jumpDuration
+      value: 0.5
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -10463,18 +10553,6 @@ Mesh:
     offset: 0
     size: 0
     path: 
---- !u!114 &2064575383 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 468931660814654834, guid: a236e638c3a14f445b1de9c4611585ac,
-    type: 3}
-  m_PrefabInstance: {fileID: 8451862864107410566}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 319d2fe34a804e245819465c9505ea59, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!43 &2145918718
 Mesh:
   m_ObjectHideFlags: 0
@@ -10691,7 +10769,7 @@ GameObject:
   - component: {fileID: 7462316697464193826}
   - component: {fileID: 4328661287439266132}
   - component: {fileID: 5809615338522568183}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Slope (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10832,7 +10910,7 @@ GameObject:
   - component: {fileID: 6892906963615737816}
   - component: {fileID: 640516310987494435}
   - component: {fileID: 5493195925500489974}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Slope (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -11177,7 +11255,7 @@ GameObject:
   - component: {fileID: 2272369042613717392}
   - component: {fileID: 3968304530703412540}
   - component: {fileID: 1818877271923548220}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Arch (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -11218,7 +11296,7 @@ GameObject:
   - component: {fileID: 8054223312443072420}
   - component: {fileID: 2532926980506173546}
   - component: {fileID: 4435542208531946581}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Cube (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -11306,7 +11384,7 @@ GameObject:
   - component: {fileID: 8350170974922279788}
   - component: {fileID: 789487115848213813}
   - component: {fileID: 8937301109392463202}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Slope 15
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -11435,7 +11513,7 @@ GameObject:
   - component: {fileID: 999471013015726050}
   - component: {fileID: 5290029065664100083}
   - component: {fileID: 3816334331021270077}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Slope 9
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -11719,7 +11797,7 @@ GameObject:
   - component: {fileID: 878076546470314262}
   - component: {fileID: 4031508430477580653}
   - component: {fileID: 2629585955948431091}
-  m_Layer: 10
+  m_Layer: 6
   m_Name: Simplified Stairs
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -12813,7 +12891,7 @@ GameObject:
   - component: {fileID: 5224888714159088762}
   - component: {fileID: 1701207501482285497}
   - component: {fileID: 5487988644495630064}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -14233,7 +14311,7 @@ GameObject:
   - component: {fileID: 8789108808243786916}
   - component: {fileID: 3419274545678837221}
   - component: {fileID: 7805135459400783910}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -15653,7 +15731,7 @@ GameObject:
   - component: {fileID: 357379666919296098}
   - component: {fileID: 2207347405003371608}
   - component: {fileID: 5077826479863111925}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Slope 18
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -16314,7 +16392,7 @@ GameObject:
   - component: {fileID: 8271313622407221915}
   - component: {fileID: 788250233178949959}
   - component: {fileID: 2687229829325149410}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Slope 14
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -20084,7 +20162,7 @@ GameObject:
   - component: {fileID: 2900166473136109788}
   - component: {fileID: 6173583719674823518}
   - component: {fileID: 7355549425907853361}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Slope
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -20302,7 +20380,7 @@ GameObject:
   - component: {fileID: 3275558881934442437}
   - component: {fileID: 6308475618999587366}
   - component: {fileID: 6060851649603826574}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Slope 7
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -23377,7 +23455,7 @@ GameObject:
   - component: {fileID: 3943468876528144117}
   - component: {fileID: 2572367004430295614}
   - component: {fileID: 82471808434227642}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Slope 4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -23949,7 +24027,7 @@ GameObject:
   - component: {fileID: 1510634544946387348}
   - component: {fileID: 6944995704225434288}
   - component: {fileID: 6310349567821209231}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Slope 5
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -24994,7 +25072,7 @@ GameObject:
   - component: {fileID: 7517143759828059663}
   - component: {fileID: 484453732855183005}
   - component: {fileID: 5672113396759604191}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Arch
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -25389,7 +25467,7 @@ GameObject:
   - component: {fileID: 6017396663842503401}
   - component: {fileID: 3657434615067053359}
   - component: {fileID: 4069219722929264820}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Slope 3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -25431,7 +25509,7 @@ GameObject:
   - component: {fileID: 1545939866518288415}
   - component: {fileID: 8773217691097597634}
   - component: {fileID: 2347910640910021624}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Slope 17
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -25459,7 +25537,7 @@ GameObject:
   - component: {fileID: 7430133008682039396}
   - component: {fileID: 1431773516856990624}
   - component: {fileID: 8019064219696086769}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Arch (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -27720,7 +27798,7 @@ GameObject:
   - component: {fileID: 579201750200605880}
   - component: {fileID: 1268142785189807710}
   - component: {fileID: 8226540920525837759}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -28482,6 +28560,109 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 951620816}
+--- !u!1001 &2995298223768767885
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 957037704396359384, guid: 36fd9a2732363f644a9a63b5b635b8a9,
+        type: 3}
+      propertyPath: m_FollowOffset.y
+      value: 3.158159
+      objectReference: {fileID: 0}
+    - target: {fileID: 957037704396359384, guid: 36fd9a2732363f644a9a63b5b635b8a9,
+        type: 3}
+      propertyPath: m_FollowOffset.z
+      value: -9.683079
+      objectReference: {fileID: 0}
+    - target: {fileID: 1758614678102971896, guid: 36fd9a2732363f644a9a63b5b635b8a9,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1758614678102971896, guid: 36fd9a2732363f644a9a63b5b635b8a9,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -45.90277
+      objectReference: {fileID: 0}
+    - target: {fileID: 1758614678102971896, guid: 36fd9a2732363f644a9a63b5b635b8a9,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 2.3340974
+      objectReference: {fileID: 0}
+    - target: {fileID: 1758614678102971896, guid: 36fd9a2732363f644a9a63b5b635b8a9,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -31.051714
+      objectReference: {fileID: 0}
+    - target: {fileID: 1758614678102971896, guid: 36fd9a2732363f644a9a63b5b635b8a9,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1758614678102971896, guid: 36fd9a2732363f644a9a63b5b635b8a9,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1758614678102971896, guid: 36fd9a2732363f644a9a63b5b635b8a9,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1758614678102971896, guid: 36fd9a2732363f644a9a63b5b635b8a9,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1758614678102971896, guid: 36fd9a2732363f644a9a63b5b635b8a9,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1758614678102971896, guid: 36fd9a2732363f644a9a63b5b635b8a9,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1758614678102971896, guid: 36fd9a2732363f644a9a63b5b635b8a9,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5386065669693326809, guid: 36fd9a2732363f644a9a63b5b635b8a9,
+        type: 3}
+      propertyPath: m_Name
+      value: CameraSystem
+      objectReference: {fileID: 0}
+    - target: {fileID: 7863007315750236480, guid: 36fd9a2732363f644a9a63b5b635b8a9,
+        type: 3}
+      propertyPath: m_FollowOffset.y
+      value: 3.158159
+      objectReference: {fileID: 0}
+    - target: {fileID: 7863007315750236480, guid: 36fd9a2732363f644a9a63b5b635b8a9,
+        type: 3}
+      propertyPath: m_FollowOffset.z
+      value: -9.683079
+      objectReference: {fileID: 0}
+    - target: {fileID: 8595503258352855592, guid: 36fd9a2732363f644a9a63b5b635b8a9,
+        type: 3}
+      propertyPath: m_FollowOffset.y
+      value: 3.158159
+      objectReference: {fileID: 0}
+    - target: {fileID: 8595503258352855592, guid: 36fd9a2732363f644a9a63b5b635b8a9,
+        type: 3}
+      propertyPath: m_FollowOffset.z
+      value: -9.683079
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 36fd9a2732363f644a9a63b5b635b8a9, type: 3}
 --- !u!4 &3023962906002885031
 Transform:
   m_ObjectHideFlags: 0
@@ -28510,7 +28691,7 @@ GameObject:
   - component: {fileID: 3358301030164177909}
   - component: {fileID: 1808168097691683108}
   - component: {fileID: 2933785259827528355}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Slope 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -29892,7 +30073,7 @@ GameObject:
   - component: {fileID: 7844924053720969787}
   - component: {fileID: 2887063399747438308}
   - component: {fileID: 5239474579224745859}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Door
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -30004,7 +30185,7 @@ GameObject:
   - component: {fileID: 6005006788338054607}
   - component: {fileID: 8435801625156947432}
   - component: {fileID: 3860214091505429506}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -35556,7 +35737,7 @@ GameObject:
   - component: {fileID: 8143686260640181828}
   - component: {fileID: 1114964927117656296}
   - component: {fileID: 3936506208550889620}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Door
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -36237,7 +36418,7 @@ GameObject:
   - component: {fileID: 3175013612809991518}
   - component: {fileID: 1743524067721313255}
   - component: {fileID: 7276429534223271378}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Slope (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -36452,7 +36633,7 @@ GameObject:
   - component: {fileID: 8846941565578950324}
   - component: {fileID: 5765066385944841338}
   - component: {fileID: 2865559742418069053}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Slope 19
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -36574,7 +36755,7 @@ GameObject:
   - component: {fileID: 2550703709531405390}
   - component: {fileID: 955127382344012235}
   - component: {fileID: 2937383237809314433}
-  m_Layer: 9
+  m_Layer: 6
   m_Name: Stairs
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -37948,7 +38129,7 @@ GameObject:
   - component: {fileID: 8761638121074660729}
   - component: {fileID: 4868408797833304485}
   - component: {fileID: 8158016053822751597}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Slope (4)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -37998,7 +38179,7 @@ GameObject:
   - component: {fileID: 3738661601639361241}
   - component: {fileID: 1267439115621260809}
   - component: {fileID: 2931590874606488918}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Slope 6
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -38040,7 +38221,7 @@ GameObject:
   - component: {fileID: 6147471867189937867}
   - component: {fileID: 587725360130429830}
   - component: {fileID: 3495710953889450527}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Slope 2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -38388,7 +38569,7 @@ GameObject:
   - component: {fileID: 3859612181116373676}
   - component: {fileID: 3314830752904959377}
   - component: {fileID: 330228551938548733}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Cube (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -38528,7 +38709,7 @@ GameObject:
   - component: {fileID: 8893571179402672907}
   - component: {fileID: 7712108544949025808}
   - component: {fileID: 3250468740397413918}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -38609,7 +38790,7 @@ GameObject:
   - component: {fileID: 87648504218009992}
   - component: {fileID: 1484051984410966372}
   - component: {fileID: 5393295199831602025}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Cube (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -38953,7 +39134,7 @@ GameObject:
   - component: {fileID: 7665008409557856642}
   - component: {fileID: 787766597348569879}
   - component: {fileID: 2091333282943842650}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Cylinder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -41318,7 +41499,7 @@ GameObject:
   - component: {fileID: 6552418700021417556}
   - component: {fileID: 6003439029963329556}
   - component: {fileID: 7501671877320926074}
-  m_Layer: 10
+  m_Layer: 6
   m_Name: Simplified Stairs
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -42456,7 +42637,7 @@ GameObject:
   - component: {fileID: 3155699052406826231}
   - component: {fileID: 3058431466963610235}
   - component: {fileID: 4512604803929898342}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Arch (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -42968,7 +43149,7 @@ GameObject:
   - component: {fileID: 4929777688366298602}
   - component: {fileID: 9045536268444170930}
   - component: {fileID: 4519006110461693528}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Arch
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -43279,7 +43460,7 @@ GameObject:
   - component: {fileID: 3645154012728718377}
   - component: {fileID: 2141514307298567979}
   - component: {fileID: 8582264416651237352}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -45088,7 +45269,7 @@ GameObject:
   - component: {fileID: 3199377080457196601}
   - component: {fileID: 428292310635959161}
   - component: {fileID: 445638572610859131}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Slope 13
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -45399,7 +45580,7 @@ GameObject:
   - component: {fileID: 5910439612268652736}
   - component: {fileID: 5001932399610746215}
   - component: {fileID: 8789014234750647868}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -46106,7 +46287,7 @@ GameObject:
   - component: {fileID: 5312394766893149512}
   - component: {fileID: 3287703390397430615}
   - component: {fileID: 8045760452261860053}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Arch
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -47019,7 +47200,7 @@ GameObject:
   - component: {fileID: 3876737180750061568}
   - component: {fileID: 3408956766594537478}
   - component: {fileID: 7352360365472913506}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -48592,7 +48773,7 @@ GameObject:
   - component: {fileID: 9150565759801113470}
   - component: {fileID: 2661807564924806752}
   - component: {fileID: 6511458501803470473}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Slope 10
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -48752,6 +48933,18 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2128576267128493125}
   m_Mesh: {fileID: 113471768}
+--- !u!114 &8343752438854617588 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1347960963316978508, guid: 36fd9a2732363f644a9a63b5b635b8a9,
+    type: 3}
+  m_PrefabInstance: {fileID: 2995298223768767885}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 319d2fe34a804e245819465c9505ea59, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!23 &8350170974922279788
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -49956,79 +50149,6 @@ Transform:
   m_Father: {fileID: 2100079595050983200}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1001 &8451862864107410566
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 3599033400855477330, guid: a236e638c3a14f445b1de9c4611585ac,
-        type: 3}
-      propertyPath: m_RootOrder
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3599033400855477330, guid: a236e638c3a14f445b1de9c4611585ac,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -2.4262435
-      objectReference: {fileID: 0}
-    - target: {fileID: 3599033400855477330, guid: a236e638c3a14f445b1de9c4611585ac,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 1.4892442
-      objectReference: {fileID: 0}
-    - target: {fileID: 3599033400855477330, guid: a236e638c3a14f445b1de9c4611585ac,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -1.5441326
-      objectReference: {fileID: 0}
-    - target: {fileID: 3599033400855477330, guid: a236e638c3a14f445b1de9c4611585ac,
-        type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3599033400855477330, guid: a236e638c3a14f445b1de9c4611585ac,
-        type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3599033400855477330, guid: a236e638c3a14f445b1de9c4611585ac,
-        type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3599033400855477330, guid: a236e638c3a14f445b1de9c4611585ac,
-        type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3599033400855477330, guid: a236e638c3a14f445b1de9c4611585ac,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3599033400855477330, guid: a236e638c3a14f445b1de9c4611585ac,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3599033400855477330, guid: a236e638c3a14f445b1de9c4611585ac,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5254143786305444402, guid: a236e638c3a14f445b1de9c4611585ac,
-        type: 3}
-      propertyPath: m_Name
-      value: ThirdPersonCamera
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: a236e638c3a14f445b1de9c4611585ac, type: 3}
 --- !u!4 &8547379782882410773
 Transform:
   m_ObjectHideFlags: 0
@@ -50381,7 +50501,7 @@ GameObject:
   - component: {fileID: 4946863051929055420}
   - component: {fileID: 2609393970648690641}
   - component: {fileID: 530899331684686425}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Slope 11
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -50416,7 +50536,7 @@ GameObject:
   - component: {fileID: 645486880865741880}
   - component: {fileID: 8806870739233962263}
   - component: {fileID: 7676112184875937200}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Slope 16
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -50436,7 +50556,7 @@ GameObject:
   - component: {fileID: 6010280107640345743}
   - component: {fileID: 8045412230967520661}
   - component: {fileID: 7303174059915812546}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Arch
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -50456,7 +50576,7 @@ GameObject:
   - component: {fileID: 87448794288307237}
   - component: {fileID: 6355025983729754798}
   - component: {fileID: 3281450253557782423}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -50860,7 +50980,7 @@ GameObject:
   - component: {fileID: 8414463315400772504}
   - component: {fileID: 1410542348609957493}
   - component: {fileID: 56984265344543984}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Slope 20
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -51171,7 +51291,7 @@ GameObject:
   - component: {fileID: 6637768140192093411}
   - component: {fileID: 3699440857052700238}
   - component: {fileID: 3299876278448986676}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Slope 12
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -51528,7 +51648,7 @@ GameObject:
   - component: {fileID: 3208653927274506192}
   - component: {fileID: 7127649906265383943}
   - component: {fileID: 6548537156269201202}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Slope 8
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -53162,7 +53282,7 @@ GameObject:
   - component: {fileID: 3235273966349218958}
   - component: {fileID: 5264050894087028557}
   - component: {fileID: 4773088701395970977}
-  m_Layer: 9
+  m_Layer: 6
   m_Name: Stairs (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
