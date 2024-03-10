@@ -10,6 +10,8 @@ namespace StartledSeal
 {
     public class PlayerController : ValidatedMonoBehaviour
     {
+        public Animator Animator => _animator;
+        
         [Header("References")] 
         [SerializeField, Self] private Rigidbody _rb;
         [SerializeField, Self] private GroundChecker _groundChecker;
@@ -19,7 +21,8 @@ namespace StartledSeal
         
         [SerializeField, Self] private PlayerStaminaComp _playerStaminaComp;
         [SerializeField, Self] private HealthComp _playerHealthComp;
-        [SerializeField, Child] private NearbyEnemyDetector _nearbyEnemyDetectorComp;
+        // [SerializeField, Child] private NearbyEnemyDetector _nearbyEnemyDetectorComp;
+        [SerializeField, Child] private PlayerFlashLightController _playerFlashLightController;
         
         [Header("Movement Settings")] 
         [SerializeField] private float _runSpeed = 200f;
@@ -172,7 +175,7 @@ namespace StartledSeal
             _input.Jump += OnJump;
             _input.Dash += OnDash;
             _input.Run += OnRun;
-            // _input.Attack += OnAttack;
+            _input.Attack += OnAttack;
 
             _playerStaminaComp.RunOutStamina += OnRunOutOfStamina;
         }
@@ -182,7 +185,7 @@ namespace StartledSeal
             _input.Jump -= OnJump;
             _input.Dash -= OnDash;
             _input.Run -= OnRun;
-            // _input.Attack -= OnAttack;
+            _input.Attack -= OnAttack;
             
             _playerStaminaComp.RunOutStamina -= OnRunOutOfStamina;
         }
@@ -253,14 +256,19 @@ namespace StartledSeal
         
         public void Attack()
         {
-            var pos = transform.position + Vector3.forward;
-            var hits = Physics.OverlapSphere(pos, _attackDamage);
-            foreach (var hit in hits)
+            // var pos = transform.position + Vector3.forward;
+            // var hits = Physics.OverlapSphere(pos, _attackDamage);
+            // foreach (var hit in hits)
+            // {
+            //     if (hit.CompareTag(Const.EnemyTag))
+            //     {
+            //         hit.GetComponent<Enemy>().GetHit(_attackDamage);
+            //     }
+            // }
+
+            foreach (var enemy in _playerFlashLightController.EnemiesInRangeList)
             {
-                if (hit.CompareTag(Const.EnemyTag))
-                {
-                    hit.GetComponent<HealthComp>().TakeDamage(_attackDamage);
-                }
+                enemy.GetHit(_attackDamage);
             }
         }
 
