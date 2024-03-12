@@ -1,4 +1,5 @@
 using UnityEngine;
+using static StartledSeal.Const;
 
 namespace StartledSeal
 {

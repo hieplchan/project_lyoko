@@ -5,12 +5,14 @@ using KBCore.Refs;
 using StartledSeal.Utils;
 using UnityEngine;
 using static StartledSeal.Utils.Extension.FloatExtensions;
+using static StartledSeal.Const;
 
 namespace StartledSeal
 {
     public class PlayerController : ValidatedMonoBehaviour
     {
         public Animator Animator => _animator;
+        public Rigidbody RigidBody => _rb;
         
         [Header("References")] 
         [SerializeField, Self] private Rigidbody _rb;
@@ -36,6 +38,10 @@ namespace StartledSeal
         [SerializeField] private float _jumpForce = 10f;
         [SerializeField] private float _jumpDuration = 0.5f;
         [SerializeField] private float _jumpGravityMultiplier = 3f; // falling faster
+        
+        [Header("Fly Setting")]
+        [SerializeField] private float _flySpeed = 400f;
+        [SerializeField] private float _flyDrag = 6f;
 
         [Header("Dash Setting")] 
         [SerializeField] private float _dashForce = 10f;
@@ -51,6 +57,7 @@ namespace StartledSeal
         
         // Movement
         public bool IsRunning;
+        public bool IsFlying;
         
         // private float _currentSpeed;
         // private float _velocity;
@@ -73,10 +80,6 @@ namespace StartledSeal
         // State Machine
         private StateMachine _stateMachine;
         private int _currentStateHash;
-        
-        // Animator params
-        private static readonly int Speed = Animator.StringToHash("Speed");
-        private static readonly int AttackHash = Animator.StringToHash("Attack");
 
         private void Awake()
         {
@@ -105,8 +108,6 @@ namespace StartledSeal
             
             _timers = new List<Timer>(4) { _jumpTimer, _dashTimer, _dashCooldownTimer, _attackCooldownTimer };
 
-            _jumpTimer.OnTimerStart += () => _jumpVelocity = _jumpForce;
-
             _dashTimer.OnTimerStart += () => _dashVelocity = _dashForce;
             _dashTimer.OnTimerStop += () =>
             {
@@ -126,6 +127,7 @@ namespace StartledSeal
             var dashState = new DashState(this, _animator);
             var attackState = new AttackState(this, _animator);
             var deadState = new DeadState(this, _animator);
+            var flyState = new FlyState(this, _animator, _flyDrag, _rb.drag);
             
             // define transition
             At(locomotionState, jumpState, new FuncPredicate(() => _jumpTimer.IsRunning));
@@ -141,6 +143,9 @@ namespace StartledSeal
             At(attackState, dashState, new FuncPredicate(() => _dashTimer.IsRunning && !_attackCooldownTimer.IsRunning));
             
             At(locomotionState, deadState, new FuncPredicate(() => _playerHealthComp.IsDead()));
+            
+            At(jumpState, flyState, new FuncPredicate(() => !_groundChecker.IsGrounded && IsFlying));
+            At(flyState, jumpState, new FuncPredicate(() => !_groundChecker.IsGrounded && !IsFlying));
             
             Any(locomotionState, new FuncPredicate(ReturnToLocomotionState));
 
@@ -211,14 +216,17 @@ namespace StartledSeal
         
         private void OnJump(bool performed)
         {
-            if (performed && _groundChecker.IsGrounded) // only jump when on ground
+            if (!performed) return;
+            if (_groundChecker.IsGrounded) // only jump when on ground
             {
-                if (!_jumpTimer.IsRunning)  // not jump when jumping
-                    _jumpTimer.Start();
+                if (_jumpTimer.IsRunning) return; // not jump when jumping
+                _jumpVelocity = _jumpForce;
+                _jumpTimer.Start();
             }
-            else if (!performed && _jumpTimer.IsRunning)
+            else
             {
-                _jumpTimer.Stop();
+                // handle in-air
+                IsFlying = !IsFlying;
             }
         }
 
@@ -288,6 +296,11 @@ namespace StartledSeal
             _rb.velocity = new Vector3(_rb.velocity.x, _jumpVelocity, _rb.velocity.z);
         }
 
+        public void HandleFly()
+        {
+            
+        }
+
         public void HandleMovement()
         {
             // Rotate movement direction to match camera rotation
@@ -322,6 +335,7 @@ namespace StartledSeal
         private void HandleHorizontalMovement(Vector3 adjustedDirection)
         {
             var moveSpeed = IsRunning ? _runSpeed : _walkSpeed;
+            moveSpeed = IsFlying ? _flySpeed : moveSpeed;
 
             // Move the player
             Vector3 velocity = adjustedDirection * (moveSpeed * _dashVelocity * Time.fixedDeltaTime);

@@ -10,12 +10,6 @@ namespace StartledSeal
         protected PlayerController _player;
         protected Animator _animator;
         
-        protected static readonly int LocomotionHash = Animator.StringToHash("Locomotion");
-        protected static readonly int JumpHash = Animator.StringToHash("Jump");
-        protected static readonly int DashHash = Animator.StringToHash("Dash");
-        protected static readonly int AttackHash = Animator.StringToHash("Attack");
-        protected static readonly int DeadHash = Animator.StringToHash("Dead");
-        
         protected BaseState(PlayerController player, Animator animator)
         {
             _player = player;

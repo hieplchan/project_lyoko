@@ -1,5 +1,6 @@
 using StartledSeal.Common;
 using UnityEngine;
+using static StartledSeal.Const;
 
 namespace StartledSeal
 {

@@ -1,6 +1,7 @@
 using StartledSeal.Common;
 using UnityEngine;
 using static StartledSeal.Utils.Extension.FloatExtensions;
+using static StartledSeal.Const;
 
 namespace StartledSeal
 {

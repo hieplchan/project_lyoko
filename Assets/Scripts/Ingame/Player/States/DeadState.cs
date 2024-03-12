@@ -1,6 +1,7 @@
 using StartledSeal.Common;
 using SuperMaxim.Messaging;
 using UnityEngine;
+using static StartledSeal.Const;
 
 namespace StartledSeal
 {
