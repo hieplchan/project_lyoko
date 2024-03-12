@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using Cinemachine;
 using KBCore.Refs;
+using StartledSeal.Common;
 using StartledSeal.Utils;
 using UnityEngine;
 using static StartledSeal.Utils.Extension.FloatExtensions;
@@ -17,6 +18,7 @@ namespace StartledSeal
         [Header("References")] 
         [SerializeField, Self] private Rigidbody _rb;
         [SerializeField, Self] private GroundChecker _groundChecker;
+        [SerializeField, Self] private WaterChecker _waterChecker;
         [SerializeField, Child] private Animator _animator;
         [SerializeField, Anywhere] private CinemachineFreeLook _freeLookCam;
         [SerializeField, Anywhere] private InputReader _input;
@@ -42,6 +44,9 @@ namespace StartledSeal
         [Header("Fly Setting")]
         [SerializeField] private float _flySpeed = 400f;
         [SerializeField] private float _flyDrag = 6f;
+        
+        [Header("Swim Setting")]
+        [SerializeField] private float _swimSpeed = 150f;
 
         [Header("Dash Setting")] 
         [SerializeField] private float _dashForce = 10f;
@@ -128,6 +133,7 @@ namespace StartledSeal
             var attackState = new AttackState(this, _animator);
             var deadState = new DeadState(this, _animator);
             var flyState = new FlyState(this, _animator, _flyDrag, _rb.drag);
+            var swimState = new SwimState(this, _animator);
             
             // define transition
             At(locomotionState, jumpState, new FuncPredicate(() => _jumpTimer.IsRunning));
@@ -147,7 +153,10 @@ namespace StartledSeal
             At(jumpState, flyState, new FuncPredicate(() => !_groundChecker.IsGrounded && IsFlying));
             At(flyState, jumpState, new FuncPredicate(() => !_groundChecker.IsGrounded && !IsFlying));
             
+            At(swimState, locomotionState, new FuncPredicate(ReturnToLocomotionState));
+            
             Any(locomotionState, new FuncPredicate(ReturnToLocomotionState));
+            Any(swimState, new FuncPredicate(() => _waterChecker.IsInWater));
 
             // set init state
             _stateMachine.SetState(locomotionState);
@@ -161,7 +170,8 @@ namespace StartledSeal
                    && !_jumpTimer.IsRunning
                    && !_dashTimer.IsRunning
                    && !_attackCooldownTimer.IsRunning
-                   && !_playerHealthComp.IsDead();
+                   && !_playerHealthComp.IsDead()
+                   && !_waterChecker.IsInWater;
         }
 
         public void SetStateHash(int stateHash)
@@ -296,11 +306,6 @@ namespace StartledSeal
             _rb.velocity = new Vector3(_rb.velocity.x, _jumpVelocity, _rb.velocity.z);
         }
 
-        public void HandleFly()
-        {
-            
-        }
-
         public void HandleMovement()
         {
             // Rotate movement direction to match camera rotation
@@ -335,7 +340,8 @@ namespace StartledSeal
         private void HandleHorizontalMovement(Vector3 adjustedDirection)
         {
             var moveSpeed = IsRunning ? _runSpeed : _walkSpeed;
-            moveSpeed = IsFlying ? _flySpeed : moveSpeed;
+            moveSpeed = _currentStateHash.Equals(FlyHash) ? _flySpeed : moveSpeed;
+            moveSpeed = _currentStateHash.Equals(SwimHash) ? _swimSpeed : moveSpeed;
 
             // Move the player
             Vector3 velocity = adjustedDirection * (moveSpeed * _dashVelocity * Time.fixedDeltaTime);

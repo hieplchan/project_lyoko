@@ -7,7 +7,7 @@ namespace StartledSeal
 {
     public sealed class FlyState : BaseState
     {
-        private float _speed, _flyDrag, _defaultDrag;
+        private float _flyDrag, _defaultDrag;
         
         public FlyState(PlayerController player, Animator animator, float flyDrag, float defaultDrag) : base(player, animator)
         {
@@ -30,7 +30,6 @@ namespace StartledSeal
 
         public override void FixedUpdate()
         {
-            _player.HandleFly();
             _player.HandleMovement();
         }
 

@@ -330,7 +330,10 @@ Animator:
   m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
   m_StabilizeFeet: 0
-  m_WarningMessage: 
+  m_WarningMessage: "\nBinding warning: Some generic clip(s) animate transforms that
+    are already bound by a Humanoid avatar. These transforms can only be changed
+    by Humanoid clips.\n\tTransform 'mixamorig:Head'\n\tTransform 'mixamorig:Head'\n\tFrom
+    animation clip 'Swimming'"
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
@@ -739,7 +742,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4746871946132451616}
   serializedVersion: 4
-  m_Mass: 1
+  m_Mass: 30
   m_Drag: 0
   m_AngularDrag: 0.05
   m_CenterOfMass: {x: 0, y: 0, z: 0}
@@ -772,6 +775,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _rb: {fileID: 3840669303846951257}
   _groundChecker: {fileID: 6034957122040570339}
+  _waterChecker: {fileID: 4106347055504856992}
   _animator: {fileID: 6720550032249569888}
   _freeLookCam: {fileID: 0}
   _input: {fileID: 11400000, guid: 3ad9c55985255ad42b508b4163f62a85, type: 2}
@@ -789,6 +793,7 @@ MonoBehaviour:
   _jumpGravityMultiplier: 2.5
   _flySpeed: 400
   _flyDrag: 6
+  _swimSpeed: 150
   _dashForce: 1.5
   _dashDuration: 0.77
   _dashCoolDown: 0
@@ -829,7 +834,7 @@ MonoBehaviour:
   _waterLayers:
     serializedVersion: 2
     m_Bits: 16
-  _inWaterHeightThreshold: 0.7
+  _inWaterHeightThreshold: 0.8
 --- !u!114 &7975264351348284834
 MonoBehaviour:
   m_ObjectHideFlags: 0
