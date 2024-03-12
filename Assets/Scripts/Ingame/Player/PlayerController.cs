@@ -35,7 +35,6 @@ namespace StartledSeal
         [Header("Jump Settings")] 
         [SerializeField] private float _jumpForce = 10f;
         [SerializeField] private float _jumpDuration = 0.5f;
-        [SerializeField] private float _jumpCoolDown = 0f;
         [SerializeField] private float _jumpGravityMultiplier = 3f; // falling faster
 
         [Header("Dash Setting")] 
@@ -98,17 +97,15 @@ namespace StartledSeal
         private void SetupTimers()
         {
             _jumpTimer = new CooldownTimer(_jumpDuration);
-            _jumpCooldownTimer = new CooldownTimer(_jumpCoolDown);
 
             _dashTimer = new CooldownTimer(_dashDuration);
             _dashCooldownTimer = new CooldownTimer(_dashCoolDown);
 
             _attackCooldownTimer = new CooldownTimer(_attackCoolDown);
             
-            _timers = new List<Timer>(5) { _jumpTimer, _jumpCooldownTimer, _dashTimer, _dashCooldownTimer, _attackCooldownTimer };
+            _timers = new List<Timer>(4) { _jumpTimer, _dashTimer, _dashCooldownTimer, _attackCooldownTimer };
 
             _jumpTimer.OnTimerStart += () => _jumpVelocity = _jumpForce;
-            _jumpTimer.OnTimerStop += () => _jumpCooldownTimer.Start();
 
             _dashTimer.OnTimerStart += () => _dashVelocity = _dashForce;
             _dashTimer.OnTimerStop += () =>
@@ -214,11 +211,10 @@ namespace StartledSeal
         
         private void OnJump(bool performed)
         {
-            if (performed && !_jumpCooldownTimer.IsRunning &&
-                !_jumpTimer.IsRunning && // not jump when jumping
-                _groundChecker.IsGrounded) // only jump when on ground
+            if (performed && _groundChecker.IsGrounded) // only jump when on ground
             {
-                _jumpTimer.Start();
+                if (!_jumpTimer.IsRunning)  // not jump when jumping
+                    _jumpTimer.Start();
             }
             else if (!performed && _jumpTimer.IsRunning)
             {
