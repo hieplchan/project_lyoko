@@ -71577,7 +71577,7 @@ PrefabInstance:
     - target: {fileID: 304856761955423904, guid: 36fd9a2732363f644a9a63b5b635b8a9,
         type: 3}
       propertyPath: m_TrackedObjectOffset.y
-      value: 0.9
+      value: 1.8
       objectReference: {fileID: 0}
     - target: {fileID: 777652399087072731, guid: 36fd9a2732363f644a9a63b5b635b8a9,
         type: 3}

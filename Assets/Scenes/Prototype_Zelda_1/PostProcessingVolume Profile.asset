@@ -24,7 +24,7 @@ MonoBehaviour:
     m_Value: 1
   areaSize:
     m_OverrideState: 1
-    m_Value: 0.42
+    m_Value: 0.403
   areaFalloff:
     m_OverrideState: 1
     m_Value: 0.883
