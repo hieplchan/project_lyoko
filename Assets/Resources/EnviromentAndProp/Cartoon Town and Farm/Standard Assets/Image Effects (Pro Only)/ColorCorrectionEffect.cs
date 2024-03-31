@@ -1,5 +1,6 @@
 using UnityEngine;
 using System.Collections;
+using UnityStandardAssets.ImageEffects;
 
 [ExecuteInEditMode]
 [AddComponentMenu("Image Effects/Color Adjustments/Color Correction (Ramp)")]
