@@ -1,0 +1,43 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &1
+MonoBehaviour:
+  m_ObjectHideFlags: 52
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 60cfc8d3abbb89545a156b421a79d41b, type: 3}
+  m_Name: NPC
+  m_EditorClassIdentifier: 
+  _root: {fileID: 0}
+  _parent: {fileID: 0}
+  _parentID:
+    _serializedGuid: c522e045e0e5fb45b295d129d2452484
+  _subcollections: []
+  _subcollectionIDs: []
+  _collectionName: NPC
+  _id:
+    _serializedGuid: 29ab7eb6fb5b6a488aaca5f8151664de
+  _icon: {fileID: 0}
+  _rules:
+    _rules: []
+  _items:
+    _hashSetList:
+    - 7e6ea47b2322d6b42b5c2bae17c07bbf
+    - fb672b358ab59e04c9406a2b439f8bdc
+    - 20f731327aa9c0d4caf4166dfdec4008
+    - 2c6c6131ccdde4758831bfca1f79bb7a
+    - e79366cc54b68471eb4530bc371a52d2
+    - 15da5581969e64c4eaceaae7f5d16f46
+    - 7655fcb8793d14becadc8538e703b985
+    - 1b3543cccdd524a72a823324f6f3fab2
+    - a97c0950801cf4c6da6acc515d3b2143
+  _itemDisplaySize: 100
+  _viewStyle: 0
+  _useCollectionViewSettings: 0
+  references:
+    version: 2
+    RefIds: []

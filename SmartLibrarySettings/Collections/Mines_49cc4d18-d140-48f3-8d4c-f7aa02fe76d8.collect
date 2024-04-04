@@ -1,0 +1,64 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &1
+MonoBehaviour:
+  m_ObjectHideFlags: 52
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 60cfc8d3abbb89545a156b421a79d41b, type: 3}
+  m_Name: Mines
+  m_EditorClassIdentifier: 
+  _root: {fileID: 0}
+  _parent: {fileID: 0}
+  _parentID:
+    _serializedGuid: c522e045e0e5fb45b295d129d2452484
+  _subcollections: []
+  _subcollectionIDs: []
+  _collectionName: Mines
+  _id:
+    _serializedGuid: 184dcc4940d1f3488d4cf7aa02fe76d8
+  _icon: {fileID: 0}
+  _rules:
+    _rules: []
+  _items:
+    _hashSetList:
+    - d2430f994d02d14409d28a3d0c2a1fc5
+    - ca322494927659544852b438b93b2c15
+    - 1490be89b338ab84db654315ac036eae
+    - f0fbbd8b8510e8148b5519e17aa154d3
+    - 0413056bf0726f943a4b33b62777620c
+    - 69750458041118e458f4bdc935658a49
+    - befc40a22cfe85f4c9857e4d2fac1431
+    - 7cc62045fd20cc24b89c0655a4ee77f3
+    - d7fa3436d83204b4eb6b434b68a3eaea
+    - a992c583663380545809e831ac581cd6
+    - 5102e252149fd45488f67a23d15d3a79
+    - 226238c9a6891bb4fbf8c4a3a6a006da
+    - 6b28093ad41f372488e48edd95cc2274
+    - 159c940ec737b3d47b9e71aa8a3acc8b
+    - 14feda0d883278f4ba2b67ba677d3b00
+    - 350ffc006a7ed1640a157e6efb637c5c
+    - 04bf022595168e64eb1a65030e7d2556
+    - 2bcba24d08bbb504984bd342116f9589
+    - 7f957e40c0c5f224d914e623b75f897b
+    - 5d756df882d93234aa4d89e3fecd7d08
+    - 76fcbc850e078334289eee374b16cf0e
+    - 71b166a7cb2d35f4089615ba2e3ac509
+    - f1fd3588277581b438d6a54f2bcc4eb8
+    - b0241345573be9246b6f5ade29c05089
+    - 98050c286dbe12f4aad0b550ac31165a
+    - d42888c143611a4408ae87fbe31f063c
+    - 8250a6d5f6a4b174285ddb6fc2807fd7
+    - 0ca929a25107851429ab7d8117dbe7d9
+    - f16f3637ce05bcd4a8d4e4349c189553
+    - ccb1ab5cedc1c2842bb610b59f57a29d
+  _itemDisplaySize: 100
+  _viewStyle: 0
+  _useCollectionViewSettings: 0
+  references:
+    version: 2
+    RefIds: []

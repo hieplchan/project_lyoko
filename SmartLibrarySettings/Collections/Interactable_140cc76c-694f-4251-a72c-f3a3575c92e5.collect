@@ -1,0 +1,69 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &1
+MonoBehaviour:
+  m_ObjectHideFlags: 52
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 60cfc8d3abbb89545a156b421a79d41b, type: 3}
+  m_Name: Interactable
+  m_EditorClassIdentifier: 
+  _root: {fileID: 0}
+  _parent: {fileID: 0}
+  _parentID:
+    _serializedGuid: c522e045e0e5fb45b295d129d2452484
+  _subcollections:
+  - {fileID: 0}
+  - {fileID: 0}
+  _subcollectionIDs:
+  - _serializedGuid: 4217d5b4e1d5d449bbfd80dc9d0f2f5c
+  - _serializedGuid: bd48d0028521b747a0a3741da0bcb23c
+  _collectionName: Interactable
+  _id:
+    _serializedGuid: 6cc70c144f695142a72cf3a3575c92e5
+  _icon: {fileID: 0}
+  _rules:
+    _rules: []
+  _items:
+    _hashSetList:
+    - 7fa91eed088a14782967b3a5aad5be5a
+    - faf8c1e283ed74c919d92db643ceab95
+    - 1fbe49dcde4d34cc3905aebf9a198601
+    - 0a4c47e64dc9b4073aa589ed3192b69c
+    - 77d54b7dafce7415b9406ca06fa75ef1
+    - b0d400ea77965c04f877093788cd60bf
+    - da3acea4398e5aa45b1f549b9d996740
+    - 92d0e6560b4ba48438d3ef084106194d
+    - 271a33330d1bda246b0ac8d4b8fa116b
+    - 62eff793e3da8784f97d9bee2500c724
+    - eeafc524949dd3844847150088fcfd4b
+    - b46ca0e4348f741409cf3b97b5d7897e
+    - e1042f98c7e4f2b468032b02e399b24b
+    - bb3f510bbe6428146a0bd88d1b83428d
+    - a5f11ab856611d8409577e1b36ccf610
+    - a9c386c6817ed0f499c31ac2254d98d0
+    - fbdf97981db797846a398915a2b01a91
+    - 4f39b37ede9a931458338ddd6674d539
+    - c58693769b0e8824bbfe972351428b25
+    - 38e0ffa2ab1fa2e44917e99b750170b6
+    - 187a65e427b09c648af34d93f2a9eb18
+    - 1f771af0c00d28741b4076ea1c003c68
+    - 29fa11f8314634e45a63c9359c9705b2
+    - 20fbbb25c2212674e90510a00197751e
+    - 93e2199978370384b84ef16a635aa491
+    - e308c2032566af64d9a827b846714915
+    - 84df4eff4b2e6d74c98137c29d4e8e57
+    - 28e1f3fc98e1f1748bd42821c6440ae4
+    - e73da36d2489b4a40af35689e3ab4983
+    - f4659e14c15ef4a2db2d5a46f800e4fc
+    - 4291c1636248a4a30ac94220cf7bcaae
+  _itemDisplaySize: 100
+  _viewStyle: 0
+  _useCollectionViewSettings: 0
+  references:
+    version: 2
+    RefIds: []

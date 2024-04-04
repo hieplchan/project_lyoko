@@ -1,0 +1,42 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &1
+MonoBehaviour:
+  m_ObjectHideFlags: 52
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 60cfc8d3abbb89545a156b421a79d41b, type: 3}
+  m_Name: Weapon
+  m_EditorClassIdentifier: 
+  _root: {fileID: 0}
+  _parent: {fileID: 0}
+  _parentID:
+    _serializedGuid: 6cc70c144f695142a72cf3a3575c92e5
+  _subcollections: []
+  _subcollectionIDs: []
+  _collectionName: Weapon
+  _id:
+    _serializedGuid: 4217d5b4e1d5d449bbfd80dc9d0f2f5c
+  _icon: {fileID: 0}
+  _rules:
+    _rules: []
+  _items:
+    _hashSetList:
+    - 1c62864b1353b10498d5ea90331fd4d9
+    - 3223543c5c1bd614d93d621524c4e9ba
+    - 6d690b6b66149154aab9866e1aabbcfa
+    - 70c76c199e92341bda42992bf4a2bb68
+    - 0819edb7a5c7141f9af7207825c628d6
+    - 7b1b29d76fd644db2814929ef5ee70cd
+    - 04f6d580aaafa41f09ddc0ccab8a1875
+    - e1471969e8eef4e35afa833da2f53301
+  _itemDisplaySize: 100
+  _viewStyle: 0
+  _useCollectionViewSettings: 0
+  references:
+    version: 2
+    RefIds: []
