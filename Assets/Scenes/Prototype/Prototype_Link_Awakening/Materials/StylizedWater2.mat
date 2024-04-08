@@ -19,7 +19,6 @@ Material:
   - _FOAM
   - _NORMALMAP
   - _REFRACTION
-  - _SHARP_INERSECTION
   - _TRANSLUCENCY
   - _WAVES
   m_InvalidKeywords:
@@ -195,7 +194,7 @@ Material:
     - _IntersectionSize: 0.944
     - _IntersectionSource: 0
     - _IntersectionSpeed: 0.06999999
-    - _IntersectionStyle: 1
+    - _IntersectionStyle: 0
     - _IntersectionTiling: 0.13999975
     - _IntersectionWaveDist: 33.28
     - _LightingMode: 2

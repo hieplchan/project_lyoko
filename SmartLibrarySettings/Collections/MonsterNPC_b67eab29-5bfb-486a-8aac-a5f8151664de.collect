@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 60cfc8d3abbb89545a156b421a79d41b, type: 3}
-  m_Name: NPC
+  m_Name: MonsterNPC
   m_EditorClassIdentifier: 
   _root: {fileID: 0}
   _parent: {fileID: 0}
@@ -18,7 +18,7 @@ MonoBehaviour:
     _serializedGuid: c522e045e0e5fb45b295d129d2452484
   _subcollections: []
   _subcollectionIDs: []
-  _collectionName: NPC
+  _collectionName: MonsterNPC
   _id:
     _serializedGuid: 29ab7eb6fb5b6a488aaca5f8151664de
   _icon: {fileID: 0}
@@ -35,6 +35,8 @@ MonoBehaviour:
     - 7655fcb8793d14becadc8538e703b985
     - 1b3543cccdd524a72a823324f6f3fab2
     - a97c0950801cf4c6da6acc515d3b2143
+    - 75f057b43e0a449dae5f6549f5107474
+    - 586a8fad78c64d758ef4b7e17ea63960
   _itemDisplaySize: 100
   _viewStyle: 0
   _useCollectionViewSettings: 0
