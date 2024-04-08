@@ -24,13 +24,13 @@ MonoBehaviour:
     m_Value: 1
   areaSize:
     m_OverrideState: 1
-    m_Value: 0.353
+    m_Value: 0.565
   areaFalloff:
     m_OverrideState: 1
-    m_Value: 1
+    m_Value: 0.539
   offset:
     m_OverrideState: 1
-    m_Value: -0.17
+    m_Value: 0
   angle:
     m_OverrideState: 1
     m_Value: 0
