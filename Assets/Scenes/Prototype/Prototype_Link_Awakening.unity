@@ -1942,7 +1942,7 @@ PrefabInstance:
     - target: {fileID: 3054566516119258676, guid: 75f057b43e0a449dae5f6549f5107474,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -3.9
+      value: -4.43
       objectReference: {fileID: 0}
     - target: {fileID: 3054566516119258676, guid: 75f057b43e0a449dae5f6549f5107474,
         type: 3}
@@ -2322,7 +2322,7 @@ PrefabInstance:
     - target: {fileID: 3054566516119258676, guid: 75f057b43e0a449dae5f6549f5107474,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -3.019338
+      value: -4.43
       objectReference: {fileID: 0}
     - target: {fileID: 3054566516119258676, guid: 75f057b43e0a449dae5f6549f5107474,
         type: 3}
@@ -4415,8 +4415,8 @@ MonoBehaviour:
     - Mode: 0
       Tension: 0.5
       m_DistanceToInterpolation:
-      - Distance: -1
-        T: -1
+      - Distance: 0
+        T: 0
       - Distance: 0.13353592
         T: 0.03448276
       - Distance: 0.26618868
@@ -5695,7 +5695,7 @@ PrefabInstance:
     - target: {fileID: 304856761955423904, guid: 36fd9a2732363f644a9a63b5b635b8a9,
         type: 3}
       propertyPath: m_TrackedObjectOffset.y
-      value: 1.8
+      value: 2.64
       objectReference: {fileID: 0}
     - target: {fileID: 777652399087072731, guid: 36fd9a2732363f644a9a63b5b635b8a9,
         type: 3}
@@ -5710,12 +5710,12 @@ PrefabInstance:
     - target: {fileID: 957037704396359384, guid: 36fd9a2732363f644a9a63b5b635b8a9,
         type: 3}
       propertyPath: m_FollowOffset.y
-      value: 6.1
+      value: 6.112676
       objectReference: {fileID: 0}
     - target: {fileID: 957037704396359384, guid: 36fd9a2732363f644a9a63b5b635b8a9,
         type: 3}
       propertyPath: m_FollowOffset.z
-      value: -11.69
+      value: -11.68238
       objectReference: {fileID: 0}
     - target: {fileID: 1347960963316978508, guid: 36fd9a2732363f644a9a63b5b635b8a9,
         type: 3}
@@ -5820,7 +5820,7 @@ PrefabInstance:
     - target: {fileID: 3304997561243295539, guid: 36fd9a2732363f644a9a63b5b635b8a9,
         type: 3}
       propertyPath: m_TrackedObjectOffset.y
-      value: 1.8
+      value: 2.64
       objectReference: {fileID: 0}
     - target: {fileID: 5201639836711014626, guid: 36fd9a2732363f644a9a63b5b635b8a9,
         type: 3}
@@ -5895,12 +5895,12 @@ PrefabInstance:
     - target: {fileID: 7863007315750236480, guid: 36fd9a2732363f644a9a63b5b635b8a9,
         type: 3}
       propertyPath: m_FollowOffset.y
-      value: 6.1
+      value: 6.112676
       objectReference: {fileID: 0}
     - target: {fileID: 7863007315750236480, guid: 36fd9a2732363f644a9a63b5b635b8a9,
         type: 3}
       propertyPath: m_FollowOffset.z
-      value: -11.69
+      value: -11.68238
       objectReference: {fileID: 0}
     - target: {fileID: 8253160277026723721, guid: 36fd9a2732363f644a9a63b5b635b8a9,
         type: 3}
@@ -5975,12 +5975,12 @@ PrefabInstance:
     - target: {fileID: 8595503258352855592, guid: 36fd9a2732363f644a9a63b5b635b8a9,
         type: 3}
       propertyPath: m_FollowOffset.y
-      value: 6.1
+      value: 6.112676
       objectReference: {fileID: 0}
     - target: {fileID: 8595503258352855592, guid: 36fd9a2732363f644a9a63b5b635b8a9,
         type: 3}
       propertyPath: m_FollowOffset.z
-      value: -11.69
+      value: -11.68238
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
