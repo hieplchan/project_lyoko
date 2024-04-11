@@ -132,7 +132,7 @@ namespace StartledSeal
             var dashState = new DashState(this, _animator);
             var attackState = new AttackState(this, _animator);
             var deadState = new DeadState(this, _animator);
-            var flyState = new FlyState(this, _animator, _flyDrag, _rb.drag);
+            // var flyState = new FlyState(this, _animator, _flyDrag, _rb.drag);
             var swimState = new SwimState(this, _animator);
             
             // define transition
@@ -150,8 +150,8 @@ namespace StartledSeal
             
             At(locomotionState, deadState, new FuncPredicate(() => _playerHealthComp.IsDead()));
             
-            At(jumpState, flyState, new FuncPredicate(() => !_groundChecker.IsGrounded && IsFlying));
-            At(flyState, jumpState, new FuncPredicate(() => !_groundChecker.IsGrounded && !IsFlying));
+            // At(jumpState, flyState, new FuncPredicate(() => !_groundChecker.IsGrounded && IsFlying));
+            // At(flyState, jumpState, new FuncPredicate(() => !_groundChecker.IsGrounded && !IsFlying));
             
             At(swimState, locomotionState, new FuncPredicate(ReturnToLocomotionState));
             
@@ -236,7 +236,7 @@ namespace StartledSeal
             else
             {
                 // handle in-air
-                IsFlying = !IsFlying;
+                // IsFlying = !IsFlying;
             }
         }
 
