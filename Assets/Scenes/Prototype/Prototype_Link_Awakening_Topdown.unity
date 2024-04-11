@@ -8755,6 +8755,16 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5851496836544492565, guid: 8aab3ef884dd87947b756493d593a55f,
+        type: 3}
+      propertyPath: m_LODs.Array.data[0].screenRelativeHeight
+      value: 0.101664774
+      objectReference: {fileID: 0}
+    - target: {fileID: 5851496836544492565, guid: 8aab3ef884dd87947b756493d593a55f,
+        type: 3}
+      propertyPath: m_LODs.Array.data[1].screenRelativeHeight
+      value: 0.04067084
+      objectReference: {fileID: 0}
     - target: {fileID: 8035669612551744969, guid: 8aab3ef884dd87947b756493d593a55f,
         type: 3}
       propertyPath: _freeLookCam
