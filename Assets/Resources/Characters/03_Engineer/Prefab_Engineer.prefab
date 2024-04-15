@@ -127,7 +127,7 @@ MonoBehaviour:
   _dashForce: 1.5
   _dashDuration: 0.77
   _dashCoolDown: 0
-  _attackCoolDown: 0.433
+  _attackCoolDown: 0.3
   _attackDistance: 1
   _attackDamage: 10
   IsRunning: 0
