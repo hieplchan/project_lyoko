@@ -37,7 +37,7 @@ Transform:
   - {fileID: 5436981651566042742}
   - {fileID: 3735455276598230410}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &8549272871908259847
 MonoBehaviour:
@@ -409,18 +409,6 @@ PrefabInstance:
       value: -1
       objectReference: {fileID: 0}
     - target: {fileID: 4660143430925686, guid: 260660f99259357419a55a34c8dd34f1, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 1.9
-      objectReference: {fileID: 0}
-    - target: {fileID: 4660143430925686, guid: 260660f99259357419a55a34c8dd34f1, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 1.9
-      objectReference: {fileID: 0}
-    - target: {fileID: 4660143430925686, guid: 260660f99259357419a55a34c8dd34f1, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 1.9
-      objectReference: {fileID: 0}
-    - target: {fileID: 4660143430925686, guid: 260660f99259357419a55a34c8dd34f1, type: 3}
       propertyPath: m_LocalPosition.x
       value: 2.44
       objectReference: {fileID: 0}
@@ -571,6 +559,10 @@ PrefabInstance:
     - target: {fileID: 1675263899577056, guid: 221426e035dd5a647bea398fe0b2a60c, type: 3}
       propertyPath: m_Name
       value: sandstone_stair_straight
+      objectReference: {fileID: 0}
+    - target: {fileID: 1675263899577056, guid: 221426e035dd5a647bea398fe0b2a60c, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4835775811210954, guid: 221426e035dd5a647bea398fe0b2a60c, type: 3}
       propertyPath: m_RootOrder
