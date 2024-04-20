@@ -7,7 +7,8 @@ namespace StartledSeal
 {
     public class GroundChecker : ValidatedMonoBehaviour
     {
-        private const float HeightOffset = 0.1f;
+        [SerializeField] private bool isGizmoEnabled;
+        [SerializeField] private float HeightOffset = 0.1f;
 
         [SerializeField, Self] private CapsuleCollider _capsuleCollider;
         [SerializeField] private LayerMask _groundLayers;
@@ -29,15 +30,17 @@ namespace StartledSeal
                 out _, HeightOffset * 2, _groundLayers);
         }
 
-        // private void OnDrawGizmosSelected() 
-        // {
-        //     // Start point
-        //     Gizmos.color = Color.yellow;
-        //     Gizmos.DrawWireSphere(transform.position + new Vector3(0f, _groundDistance + HeightOffset, 0f), _groundDistance);
-        //     
-        //     // End point
-        //     Gizmos.color = Color.red;
-        //     Gizmos.DrawWireSphere(transform.position + new Vector3(0f, _groundDistance + HeightOffset - HeightOffset *2, 0f), _groundDistance);
-        // }
+        private void OnDrawGizmosSelected()
+        {
+            if (!isGizmoEnabled) return;
+            
+            // Start point
+            Gizmos.color = Color.yellow;
+            Gizmos.DrawWireSphere(transform.position + new Vector3(0f, _groundDistance + HeightOffset, 0f), _groundDistance);
+            
+            // End point
+            Gizmos.color = Color.red;
+            Gizmos.DrawWireSphere(transform.position + new Vector3(0f, _groundDistance + HeightOffset - HeightOffset *2, 0f), _groundDistance);
+        }
     }
 }
