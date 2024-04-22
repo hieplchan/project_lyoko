@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using Cinemachine;
 using KBCore.Refs;
 using StartledSeal.Common;
+using StartledSeal.Ingame.Player;
 using StartledSeal.Utils;
 using UnityEngine;
 using static StartledSeal.Utils.Extension.FloatExtensions;
@@ -22,6 +23,7 @@ namespace StartledSeal
         [SerializeField, Child] private Animator _animator;
         [SerializeField, Anywhere] private CinemachineFreeLook _freeLookCam;
         [SerializeField, Anywhere] private InputReader _input;
+        [SerializeField, Child] private PlayerVFXController _vfxController;
         
         [SerializeField, Self] private PlayerStaminaComp _playerStaminaComp;
         [SerializeField, Self] private HealthComp _playerHealthComp;
@@ -128,12 +130,12 @@ namespace StartledSeal
             
             // declare state
             var locomotionState = new LocomotionState(this, _animator, _playerStaminaComp, _runStaminaConsumptionPerSec);
-            var jumpState = new JumpState(this, _animator);
+            var jumpState = new JumpState(this, _animator, _vfxController);
             var dashState = new DashState(this, _animator);
-            var attackState = new AttackState(this, _animator);
+            var attackState = new AttackState(this, _animator, _vfxController);
             var deadState = new DeadState(this, _animator);
             // var flyState = new FlyState(this, _animator, _flyDrag, _rb.drag);
-            var swimState = new SwimState(this, _animator);
+            var swimState = new SwimState(this, _animator, _vfxController);
             
             // define transition
             At(locomotionState, jumpState, new FuncPredicate(() => _jumpTimer.IsRunning));
