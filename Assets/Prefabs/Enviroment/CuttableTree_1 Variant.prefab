@@ -36,7 +36,7 @@ PrefabInstance:
     - target: {fileID: 6693385786935569976, guid: 67508185608264f3f9155697b3b699e7,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 8.476746
+      value: 3.2267456
       objectReference: {fileID: 0}
     - target: {fileID: 6693385786935569976, guid: 67508185608264f3f9155697b3b699e7,
         type: 3}
@@ -46,7 +46,7 @@ PrefabInstance:
     - target: {fileID: 6693385786935569976, guid: 67508185608264f3f9155697b3b699e7,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -22.502045
+      value: -25.252045
       objectReference: {fileID: 0}
     - target: {fileID: 6693385786935569976, guid: 67508185608264f3f9155697b3b699e7,
         type: 3}
@@ -147,6 +147,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _vfx: {fileID: 9129667049911966370}
   _meshRenderer: {fileID: 6094060091403642457}
+  _collider: {fileID: 1114608506413589049}
 --- !u!4 &8727136673257264531 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6693385786935569976, guid: 67508185608264f3f9155697b3b699e7,

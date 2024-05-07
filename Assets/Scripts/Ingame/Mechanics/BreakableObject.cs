@@ -8,7 +8,7 @@ using UnityEngine.Serialization;
 
 namespace StartledSeal
 {
-    public class BreakableObject: MonoBehaviour, IDamageable
+    public sealed class BreakableObject: MonoBehaviour, IDamageable
     {
         [SerializeField] private ParticleSystem _vfx;
         [SerializeField] private MeshRenderer _meshRenderer;
@@ -20,7 +20,8 @@ namespace StartledSeal
             if (_vfx != null && !_vfx.isPlaying)
                 _vfx!.Play();
             _meshRenderer!.enabled = false;
-            _collider!.enabled = false;
+            if (_collider != null)
+                _collider.enabled = false;
 
             if (_vfx != null)
                 await UniTask.WaitUntil(() => _vfx.isStopped);
