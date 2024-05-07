@@ -330,48 +330,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _vfx: {fileID: 4069205016574181857}
   _model: {fileID: 8489525573596555997}
-  _animationSequencerController: {fileID: 6303737747911678861}
---- !u!114 &6303737747911678861
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8490103625204728655}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c10d422b52559da41aa9676770a8fc65, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  animationSteps:
-  - rid: 2628237574273761285
-  updateType: 0
-  timeScaleIndependent: 0
-  autoplayMode: 2
-  startPaused: 0
-  playbackSpeed: 1
-  playType: 0
-  loops: 0
-  loopType: 0
-  autoKill: 1
-  onStartEvent:
-    m_PersistentCalls:
-      m_Calls: []
-  onFinishedEvent:
-    m_PersistentCalls:
-      m_Calls: []
-  onProgressEvent:
-    m_PersistentCalls:
-      m_Calls: []
-  progress: -1
-  references:
-    version: 2
-    RefIds:
-    - rid: 2628237574273761285
-      type: {class: SetGameObjectActiveStep, ns: BrunoMikoski.AnimationSequencer,
-        asm: BrunoMikoski.AnimationSequencer}
-      data:
-        delay: 0.3
-        flowType: 0
-        targetGameObject: {fileID: 8490103625204728655}
-        active: 0
+  _collider: {fileID: 4019526867031504778}
