@@ -1,7 +1,10 @@
+using System.Threading.Tasks;
+using Cysharp.Threading.Tasks;
+
 namespace StartledSeal
 {
     public interface IDamageable
     {
-        public void TakeDamage(int damageAmount);
+        public UniTask TakeDamage(int damageAmount);
     }
 }
