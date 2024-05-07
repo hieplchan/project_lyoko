@@ -3,7 +3,7 @@ using DG.Tweening;
 using UnityEngine;
 using UnityEngine.Serialization;
 
-namespace StartledSeal.Mechanics
+namespace StartledSeal
 {
     public class PlatformMover : MonoBehaviour
     {

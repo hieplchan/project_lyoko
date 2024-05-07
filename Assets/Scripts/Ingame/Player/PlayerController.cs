@@ -272,15 +272,19 @@ namespace StartledSeal
         
         public void Attack()
         {
-            // var pos = transform.position + Vector3.forward;
-            // var hits = Physics.OverlapSphere(pos, _attackDamage);
-            // foreach (var hit in hits)
-            // {
-            //     if (hit.CompareTag(Const.EnemyTag))
-            //     {
-            //         hit.GetComponent<Enemy>().GetHit(_attackDamage);
-            //     }
-            // }
+            var pos = transform.position + Vector3.forward;
+            var hits = Physics.OverlapSphere(pos, _attackDistance);
+            foreach (var hit in hits)
+            {
+                var damageableObj = hit.gameObject.GetComponent<IDamageable>();
+                if (damageableObj != null)
+                    damageableObj.TakeDamage(_attackDamage);
+
+                // if (hit.CompareTag(Const.EnemyTag))
+                // {
+                //     hit.GetComponent<Enemy>().GetHit(_attackDamage);
+                // }
+            }
 
             // foreach (var enemy in _playerFlashLightController.EnemiesInRangeList)
             // {
