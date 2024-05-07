@@ -24,11 +24,12 @@ namespace StartledSeal
         [SerializeField, Anywhere] private CinemachineFreeLook _freeLookCam;
         [SerializeField, Anywhere] private InputReader _input;
         [SerializeField, Child] private PlayerVFXController _vfxController;
+        [SerializeField, Child] private PlayerWeaponController _playerWeaponController;
         
         [SerializeField, Self] private PlayerStaminaComp _playerStaminaComp;
         [SerializeField, Self] private HealthComp _playerHealthComp;
         // [SerializeField, Child] private NearbyEnemyDetector _nearbyEnemyDetectorComp;
-        [SerializeField] private PlayerFlashLightController _playerFlashLightController;
+        // [SerializeField] private PlayerFlashLightController _playerFlashLightController;
         
         [Header("Movement Settings")] 
         [SerializeField] private float _runSpeed = 200f;
@@ -57,8 +58,6 @@ namespace StartledSeal
 
         [Header("Attack Setting")] 
         [SerializeField] private float _attackCoolDown = 0.5f;
-        [SerializeField] private float _attackDistance = 1f;
-        [SerializeField] private int _attackDamage = 10;
         
         private Transform _mainCamTransform;
         
@@ -195,6 +194,7 @@ namespace StartledSeal
         }
 
         private void OnDisable()
+        
         {
             _input.Jump -= OnJump;
             _input.Dash -= OnDash;
@@ -272,24 +272,7 @@ namespace StartledSeal
         
         public void Attack()
         {
-            var pos = transform.position + Vector3.forward;
-            var hits = Physics.OverlapSphere(pos, _attackDistance);
-            foreach (var hit in hits)
-            {
-                var damageableObj = hit.gameObject.GetComponent<IDamageable>();
-                if (damageableObj != null)
-                    damageableObj.TakeDamage(_attackDamage);
-
-                // if (hit.CompareTag(Const.EnemyTag))
-                // {
-                //     hit.GetComponent<Enemy>().GetHit(_attackDamage);
-                // }
-            }
-
-            // foreach (var enemy in _playerFlashLightController.EnemiesInRangeList)
-            // {
-            //     enemy.GetHit(_attackDamage);
-            // }
+            _playerWeaponController.Attack();
         }
 
         public void HandleJump()

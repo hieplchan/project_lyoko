@@ -332,6 +332,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 50d67e5e097845299d90385d7821ae4e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _vfx: {fileID: 4069205016574181857}
+  _model: {fileID: 8489525573596555997}
   _animationSequencerController: {fileID: 6303737747911678861}
 --- !u!114 &6303737747911678861
 MonoBehaviour:
@@ -346,9 +348,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animationSteps:
-  - rid: 2628237574273761280
-  - rid: 2628237574273761282
-  - rid: 2628237574273761283
+  - rid: 2628237574273761285
   updateType: 0
   timeScaleIndependent: 0
   autoplayMode: 2
@@ -371,37 +371,7 @@ MonoBehaviour:
   references:
     version: 2
     RefIds:
-    - rid: 2628237574273761280
-      type: {class: InvokeCallbackAnimationStep, ns: BrunoMikoski.AnimationSequencer,
-        asm: BrunoMikoski.AnimationSequencer}
-      data:
-        delay: 0
-        flowType: 0
-        callback:
-          m_PersistentCalls:
-            m_Calls:
-            - m_Target: {fileID: 8489525573596555997}
-              m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-              m_MethodName: SetActive
-              m_Mode: 6
-              m_Arguments:
-                m_ObjectArgument: {fileID: 0}
-                m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-                m_IntArgument: 0
-                m_FloatArgument: 0
-                m_StringArgument: 
-                m_BoolArgument: 0
-              m_CallState: 2
-    - rid: 2628237574273761282
-      type: {class: PlayParticleSystemAnimationStep, ns: BrunoMikoski.AnimationSequencer,
-        asm: BrunoMikoski.AnimationSequencer}
-      data:
-        delay: 0
-        flowType: 1
-        particleSystem: {fileID: 4069205016574181857}
-        duration: 0.2
-        stopEmittingWhenOver: 0
-    - rid: 2628237574273761283
+    - rid: 2628237574273761285
       type: {class: SetGameObjectActiveStep, ns: BrunoMikoski.AnimationSequencer,
         asm: BrunoMikoski.AnimationSequencer}
       data:

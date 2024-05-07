@@ -2977,57 +2977,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 2995298223768767885}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &826348545 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 2397685789666979313, guid: cb34ac7a1e6ded84f83aec5923c86fe1,
-    type: 3}
-  m_PrefabInstance: {fileID: 7659428934874473211}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &826348548
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 826348545}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c10d422b52559da41aa9676770a8fc65, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  animationSteps:
-  - rid: 3115876822142418945
-  updateType: 0
-  timeScaleIndependent: 0
-  autoplayMode: 2
-  startPaused: 0
-  playbackSpeed: 1
-  playType: 0
-  loops: 0
-  loopType: 0
-  autoKill: 1
-  onStartEvent:
-    m_PersistentCalls:
-      m_Calls: []
-  onFinishedEvent:
-    m_PersistentCalls:
-      m_Calls: []
-  onProgressEvent:
-    m_PersistentCalls:
-      m_Calls: []
-  progress: -1
-  references:
-    version: 2
-    RefIds:
-    - rid: 3115876822142418945
-      type: {class: PlayParticleSystemAnimationStep, ns: BrunoMikoski.AnimationSequencer,
-        asm: BrunoMikoski.AnimationSequencer}
-      data:
-        delay: 0
-        flowType: 1
-        particleSystem: {fileID: 1015142822}
-        duration: 0.1
-        stopEmittingWhenOver: 0
 --- !u!198 &828649166 stripped
 ParticleSystem:
   m_CorrespondingSourceObject: {fileID: 7574696893941345249, guid: cb34ac7a1e6ded84f83aec5923c86fe1,
@@ -3875,12 +3824,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 67508185608264f3f9155697b3b699e7, type: 3}
---- !u!198 &1015142822 stripped
-ParticleSystem:
-  m_CorrespondingSourceObject: {fileID: 3721521260583776821, guid: cb34ac7a1e6ded84f83aec5923c86fe1,
-    type: 3}
-  m_PrefabInstance: {fileID: 7659428934874473211}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1039996913 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3054566516119258676, guid: 75f057b43e0a449dae5f6549f5107474,
@@ -6072,18 +6015,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1717550227}
   m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
---- !u!114 &1748089125 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 6701029129495253267, guid: cb34ac7a1e6ded84f83aec5923c86fe1,
-    type: 3}
-  m_PrefabInstance: {fileID: 7659428934874473211}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 72d47c8f054a4948866ff115cf8c547c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &1765818064
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8668,21 +8599,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Prefab_Engineer
       objectReference: {fileID: 0}
-    - target: {fileID: 1012671291553015150, guid: cb34ac7a1e6ded84f83aec5923c86fe1,
-        type: 3}
-      propertyPath: foamAmount
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1012671291553015150, guid: cb34ac7a1e6ded84f83aec5923c86fe1,
-        type: 3}
-      propertyPath: displacementScale
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1380367793654023939, guid: cb34ac7a1e6ded84f83aec5923c86fe1,
-        type: 3}
-      propertyPath: m_RootOrder
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 1380367793654023939, guid: cb34ac7a1e6ded84f83aec5923c86fe1,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -8696,7 +8612,7 @@ PrefabInstance:
     - target: {fileID: 1380367793654023939, guid: cb34ac7a1e6ded84f83aec5923c86fe1,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -453.88
+      value: -453.25
       objectReference: {fileID: 0}
     - target: {fileID: 1380367793654023939, guid: cb34ac7a1e6ded84f83aec5923c86fe1,
         type: 3}
@@ -8779,51 +8695,15 @@ PrefabInstance:
       propertyPath: serializationData.PrefabModificationsReferencedUnityObjects.Array.data[2]
       value: 
       objectReference: {fileID: 828649166}
-    - target: {fileID: 6954704536951433138, guid: cb34ac7a1e6ded84f83aec5923c86fe1,
-        type: 3}
-      propertyPath: serializationData.Prefab
-      value: 
-      objectReference: {fileID: 6954704536951433138, guid: cb34ac7a1e6ded84f83aec5923c86fe1,
-        type: 3}
-    - target: {fileID: 6954704536951433138, guid: cb34ac7a1e6ded84f83aec5923c86fe1,
-        type: 3}
-      propertyPath: serializationData.PrefabModifications.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6954704536951433138, guid: cb34ac7a1e6ded84f83aec5923c86fe1,
-        type: 3}
-      propertyPath: serializationData.PrefabModifications.Array.data[0]
-      value: '"path":"_vfxDic.{\"Jump\"}","value":$eref:0'
-      objectReference: {fileID: 0}
-    - target: {fileID: 6954704536951433138, guid: cb34ac7a1e6ded84f83aec5923c86fe1,
-        type: 3}
-      propertyPath: serializationData.PrefabModificationsReferencedUnityObjects.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6954704536951433138, guid: cb34ac7a1e6ded84f83aec5923c86fe1,
-        type: 3}
-      propertyPath: serializationData.PrefabModificationsReferencedUnityObjects.Array.data[0]
-      value: 
-      objectReference: {fileID: 1015142822}
     - target: {fileID: 8675114378790124053, guid: cb34ac7a1e6ded84f83aec5923c86fe1,
         type: 3}
       propertyPath: _freeLookCam
       value: 
       objectReference: {fileID: 8343752438854617588}
-    - target: {fileID: 8675114378790124053, guid: cb34ac7a1e6ded84f83aec5923c86fe1,
-        type: 3}
-      propertyPath: _vfxController
-      value: 
-      objectReference: {fileID: 1748089125}
-    m_RemovedComponents:
-    - {fileID: 6954704536951433138, guid: cb34ac7a1e6ded84f83aec5923c86fe1, type: 3}
+    m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 2397685789666979313, guid: cb34ac7a1e6ded84f83aec5923c86fe1,
-        type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 826348548}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cb34ac7a1e6ded84f83aec5923c86fe1, type: 3}
 --- !u!198 &7659428934874473212 stripped
 ParticleSystem:
