@@ -277,15 +277,15 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 702476787117967230}
   m_SourcePrefab: {fileID: 100100000, guid: dcc41d9941059dc4e8d22891f5b1ec36, type: 3}
---- !u!4 &8486536283324311503 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 4760191163787714, guid: dcc41d9941059dc4e8d22891f5b1ec36,
+--- !u!23 &8468140059507193279 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 23136009458645938, guid: dcc41d9941059dc4e8d22891f5b1ec36,
     type: 3}
   m_PrefabInstance: {fileID: 8491205695086202381}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &8489525573596555997 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1697718962627792, guid: dcc41d9941059dc4e8d22891f5b1ec36,
+--- !u!4 &8486536283324311503 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4760191163787714, guid: dcc41d9941059dc4e8d22891f5b1ec36,
     type: 3}
   m_PrefabInstance: {fileID: 8491205695086202381}
   m_PrefabAsset: {fileID: 0}
@@ -329,5 +329,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _vfx: {fileID: 4069205016574181857}
-  _model: {fileID: 8489525573596555997}
+  _meshRenderer: {fileID: 8468140059507193279}
   _collider: {fileID: 4019526867031504778}
