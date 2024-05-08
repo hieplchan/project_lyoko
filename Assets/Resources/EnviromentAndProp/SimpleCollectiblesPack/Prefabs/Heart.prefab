@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 114931685396349096}
   - component: {fileID: 82831355036859214}
   - component: {fileID: 135408418541661930}
+  - component: {fileID: 6446036684479290953}
   m_Layer: 2
   m_Name: Heart
   m_TagString: Untagged
@@ -28,13 +29,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1781561378815422}
-  m_LocalRotation: {x: -0.10560158, y: 0.73544663, z: 0.091068015, w: 0.6630786}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0.10559887, y: 0.73544693, z: 0.091068506, w: 0.66307867}
   m_LocalPosition: {x: -0.08, y: -0.86, z: -0.69000006}
   m_LocalScale: {x: 1.6448841, y: 1.6448833, z: 1.6448842}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: -15.902, y: 96.212006, z: -2.059}
 --- !u!33 &33775494356401126
 MeshFilter:
@@ -100,7 +101,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   CollectibleType: 0
   rotate: 1
-  rotationSpeed: 10
+  rotationSpeed: 30
   collectSound: {fileID: 0}
   collectEffect: {fileID: 1702657300312902, guid: a45c51da10cf1a84abc6a99c06951e3f,
     type: 3}
@@ -221,3 +222,16 @@ SphereCollider:
   serializedVersion: 3
   m_Radius: 0.25295
   m_Center: {x: -0.00000007071872, y: 0.12511864, z: 0.000000003867206}
+--- !u!114 &6446036684479290953
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1781561378815422}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 69174dc8a9be424c9bdbc9922b1d7635, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _score: 1

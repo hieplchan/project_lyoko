@@ -1,4 +1,5 @@
 using Cysharp.Threading.Tasks;
+using SuperMaxim.Messaging;
 using UnityEngine;
 
 namespace StartledSeal
@@ -17,9 +18,20 @@ namespace StartledSeal
             if (_collider != null)
                 _collider.enabled = false;
 
+            RequestSpawnCollectible(transform);
+            
             if (_vfx != null)
                 await UniTask.WaitUntil(() => _vfx.isStopped);
             Destroy(gameObject);
+        }
+        
+        private void RequestSpawnCollectible(Transform transform)
+        {
+            var payload = new SpawnCollectibleRequest()
+            {
+                spawnTransform = transform
+            };
+            Messenger.Default.Publish(payload);
         }
     }
 }

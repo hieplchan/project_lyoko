@@ -3,6 +3,7 @@ using System.Threading.Tasks;
 using BrunoMikoski.AnimationSequencer;
 using Cysharp.Threading.Tasks;
 using Sirenix.OdinInspector;
+using SuperMaxim.Messaging;
 using UnityEngine;
 using UnityEngine.Serialization;
 
@@ -22,10 +23,21 @@ namespace StartledSeal
             _meshRenderer!.enabled = false;
             if (_collider != null)
                 _collider.enabled = false;
+            
+            RequestSpawnCollectible(transform);
 
             if (_vfx != null)
                 await UniTask.WaitUntil(() => _vfx.isStopped);
             Destroy(gameObject);
+        }
+
+        private void RequestSpawnCollectible(Transform transform)
+        {
+            var payload = new SpawnCollectibleRequest()
+            {
+                spawnTransform = transform
+            };
+            Messenger.Default.Publish(payload);
         }
     }
 }

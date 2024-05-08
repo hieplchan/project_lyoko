@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 114092693196050024}
   - component: {fileID: 82949050323633162}
   - component: {fileID: 135506371905761694}
+  - component: {fileID: 7904778734838622309}
   m_Layer: 2
   m_Name: CoinGold
   m_TagString: Untagged
@@ -28,13 +29,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1516206009078322}
+  serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &33653846698673226
 MeshFilter:
@@ -100,7 +101,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   CollectibleType: 0
   rotate: 1
-  rotationSpeed: 10
+  rotationSpeed: 30
   collectSound: {fileID: 0}
   collectEffect: {fileID: 1702657300312902, guid: a45c51da10cf1a84abc6a99c06951e3f,
     type: 3}
@@ -221,3 +222,16 @@ SphereCollider:
   serializedVersion: 3
   m_Radius: 0.45090213
   m_Center: {x: 0, y: 0, z: 0.000000014901161}
+--- !u!114 &7904778734838622309
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1516206009078322}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 69174dc8a9be424c9bdbc9922b1d7635, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _score: 2
