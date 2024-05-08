@@ -266,8 +266,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 1, y: 0.92692274, z: 1.0000006}
+  m_Center: {x: 0, y: 0.26098815, z: -0.00000025544847}
 --- !u!114 &1001911726899523467
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -282,6 +282,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _vfx: {fileID: 7849300507085450701}
   _meshRenderer: {fileID: 179298846099164917}
+  _collider: {fileID: 0}
 --- !u!4 &3267921211192162238 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4708690559213519523, guid: f1f908d3a725f470bb4dc20c6c68d0ed,

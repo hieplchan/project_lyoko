@@ -251,6 +251,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _vfx: {fileID: 8348734196700598564}
   _meshRenderer: {fileID: 6500182192457718847}
+  _collider: {fileID: 0}
 --- !u!65 &4699206163655890564
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -270,8 +271,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 2.0707607, y: 2.5466533, z: 1.9874743}
+  m_Center: {x: -0.107076384, y: 0.7733269, z: 0.005949085}
 --- !u!23 &6500182192457718847 stripped
 MeshRenderer:
   m_CorrespondingSourceObject: {fileID: 2552403235504077669, guid: d9cafe8c3348540b69613d2a5228f524,
