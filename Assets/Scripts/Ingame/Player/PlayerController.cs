@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using Animancer;
 using Cinemachine;
 using KBCore.Refs;
 using StartledSeal.Common;
@@ -14,13 +15,17 @@ namespace StartledSeal
     public class PlayerController : ValidatedMonoBehaviour
     {
         public Animator Animator => _animator;
+        public AnimancerComponent AnimancerComp => _animancerComp;
         public Rigidbody RigidBody => _rb;
         
-        [Header("References")] 
+        [Header("References")]
         [SerializeField, Self] private Rigidbody _rb;
         [SerializeField, Self] private GroundChecker _groundChecker;
         [SerializeField, Self] private WaterChecker _waterChecker;
+        
         [SerializeField, Child] private Animator _animator;
+        [SerializeField, Child] private AnimancerComponent _animancerComp;
+        
         [SerializeField, Anywhere] private CinemachineFreeLook _freeLookCam;
         [SerializeField, Anywhere] private InputReader _input;
         [SerializeField, Child] private PlayerVFXController _vfxController;

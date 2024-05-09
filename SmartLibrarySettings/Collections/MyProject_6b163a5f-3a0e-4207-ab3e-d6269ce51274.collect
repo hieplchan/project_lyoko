@@ -16,8 +16,12 @@ MonoBehaviour:
   _parent: {fileID: 0}
   _parentID:
     _serializedGuid: c522e045e0e5fb45b295d129d2452484
-  _subcollections: []
-  _subcollectionIDs: []
+  _subcollections:
+  - {fileID: 0}
+  - {fileID: 0}
+  _subcollectionIDs:
+  - _serializedGuid: 89db478a6a938345b84ade05d7cc7f13
+  - _serializedGuid: 2f9191ae9dd68c419da09267970636ae
   _collectionName: MyProject
   _id:
     _serializedGuid: 5f3a166b0e3a0742ab3ed6269ce51274
