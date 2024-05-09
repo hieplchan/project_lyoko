@@ -366,6 +366,7 @@ MonoBehaviour:
   _equipmentSpawnPoint: {fileID: 4861998526376992654}
   _playerController: {fileID: 8675114378790124053}
   _equipmentList:
+  - {fileID: 8762295467567345008}
   - {fileID: 2157371856090161473}
 --- !u!1 &2195020728851037822
 GameObject:
@@ -1665,6 +1666,10 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 7997947301047521070, guid: f31fe531855993e458caacd01b946f23,
         type: 3}
       insertIndex: -1
+      addedObject: {fileID: 5032246811060706423}
+    - targetCorrespondingSourceObject: {fileID: 7997947301047521070, guid: f31fe531855993e458caacd01b946f23,
+        type: 3}
+      insertIndex: -1
       addedObject: {fileID: 3443890045716314049}
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: f31fe531855993e458caacd01b946f23,
@@ -1760,6 +1765,105 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 3280629698657718432}
   m_PrefabAsset: {fileID: 0}
+--- !u!1001 &4781864775135067036
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 4861998526376992654}
+    m_Modifications:
+    - target: {fileID: -8679921383154817045, guid: 74c1bf3ded39dfc4da8a3090a059303f,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 74c1bf3ded39dfc4da8a3090a059303f,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 74c1bf3ded39dfc4da8a3090a059303f,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 74c1bf3ded39dfc4da8a3090a059303f,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: -0.7071065
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 74c1bf3ded39dfc4da8a3090a059303f,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0.0000002663581
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 74c1bf3ded39dfc4da8a3090a059303f,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.70710707
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 74c1bf3ded39dfc4da8a3090a059303f,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0.0000006174665
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 74c1bf3ded39dfc4da8a3090a059303f,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 74c1bf3ded39dfc4da8a3090a059303f,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: -90
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 74c1bf3ded39dfc4da8a3090a059303f,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 360
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 74c1bf3ded39dfc4da8a3090a059303f,
+        type: 3}
+      propertyPath: m_Name
+      value: shotgun
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 74c1bf3ded39dfc4da8a3090a059303f,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 8762295467567345008}
+  m_SourcePrefab: {fileID: 100100000, guid: 74c1bf3ded39dfc4da8a3090a059303f, type: 3}
+--- !u!4 &5032246811060706423 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 74c1bf3ded39dfc4da8a3090a059303f,
+    type: 3}
+  m_PrefabInstance: {fileID: 4781864775135067036}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &5664949423628469965 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 74c1bf3ded39dfc4da8a3090a059303f,
+    type: 3}
+  m_PrefabInstance: {fileID: 4781864775135067036}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &8762295467567345008
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5664949423628469965}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1ac19c5101b44cabb6cd93b35227ad30, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _weaponController: {fileID: 2575526602863033000}
+  _vfx: {fileID: 0}
+  AnimState: Shotgun
 --- !u!1001 &6670948280610473033
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2096,6 +2200,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: sword_1handed
+      objectReference: {fileID: 0}
+    - target: {fileID: 8828730681120574984, guid: a37f12c3a758c7548ad20a70b8995a89,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
