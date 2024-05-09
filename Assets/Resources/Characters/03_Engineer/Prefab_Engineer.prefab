@@ -108,8 +108,7 @@ MonoBehaviour:
   _rb: {fileID: 8686178169984705354}
   _groundChecker: {fileID: 3473077154477050725}
   _waterChecker: {fileID: 2879669171760659683}
-  _animator: {fileID: 1494195398445934186}
-  _animancerComp: {fileID: 2101416645570085918}
+  _animatorComp: {fileID: 1494195398445934186}
   _freeLookCam: {fileID: 0}
   _input: {fileID: 11400000, guid: 3ad9c55985255ad42b508b4163f62a85, type: 2}
   _vfxController: {fileID: 6701029129495253267}
@@ -1760,10 +1759,6 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: f31fe531855993e458caacd01b946f23,
         type: 3}
       insertIndex: -1
-      addedObject: {fileID: 2101416645570085918}
-    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: f31fe531855993e458caacd01b946f23,
-        type: 3}
-      insertIndex: -1
       addedObject: {fileID: 7466122604077925347}
   m_SourcePrefab: {fileID: 100100000, guid: f31fe531855993e458caacd01b946f23, type: 3}
 --- !u!1 &2397685789666979313 stripped
@@ -1793,20 +1788,6 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!114 &2101416645570085918
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2397685789666979313}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0ad50f81b1d25c441943c37a89ba23f6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _Animator: {fileID: 1494195398445934186}
-  _ActionOnDisable: 0
 --- !u!114 &7466122604077925347
 MonoBehaviour:
   m_ObjectHideFlags: 0

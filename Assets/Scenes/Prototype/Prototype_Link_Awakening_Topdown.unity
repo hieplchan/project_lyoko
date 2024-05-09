@@ -6544,7 +6544,8 @@ PrefabInstance:
       propertyPath: _freeLookCam
       value: 
       objectReference: {fileID: 8343752438854617588}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 2101416645570085918, guid: cb34ac7a1e6ded84f83aec5923c86fe1, type: 3}
     m_RemovedGameObjects:
     - {fileID: 3086091777364174172, guid: cb34ac7a1e6ded84f83aec5923c86fe1, type: 3}
     - {fileID: 560580144772746620, guid: cb34ac7a1e6ded84f83aec5923c86fe1, type: 3}
