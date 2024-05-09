@@ -1,5 +1,4 @@
 using Cysharp.Threading.Tasks;
-using KBCore.Refs;
 using UnityEngine;
 
 namespace StartledSeal
@@ -14,8 +13,10 @@ namespace StartledSeal
 
         public override bool IsUsable() => true;
         
-        public override async UniTask Use()
+        public override async UniTask Use(Animator _animatorComp)
         {
+            base.Use(_animatorComp);
+            
             var _originTransform = _weaponController.gameObject.transform;
             
             var pos = _originTransform.position + Vector3.forward;

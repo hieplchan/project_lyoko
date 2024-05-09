@@ -5893,6 +5893,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4896964130255782450, guid: a37f12c3a758c7548ad20a70b8995a89,
         type: 3}
+      propertyPath: AnimState
+      value: Sword
+      objectReference: {fileID: 0}
+    - target: {fileID: 4896964130255782450, guid: a37f12c3a758c7548ad20a70b8995a89,
+        type: 3}
       propertyPath: _originTransform
       value: 
       objectReference: {fileID: 1144376327}
@@ -5901,6 +5906,16 @@ PrefabInstance:
       propertyPath: _weaponController
       value: 
       objectReference: {fileID: 1144376326}
+    - target: {fileID: 4896964130255782450, guid: a37f12c3a758c7548ad20a70b8995a89,
+        type: 3}
+      propertyPath: <AnimClip>k__BackingField
+      value: 
+      objectReference: {fileID: 7400000, guid: 50e4dceea4fa6184b9e46681d68205e1, type: 2}
+    - target: {fileID: 4896964130255782450, guid: a37f12c3a758c7548ad20a70b8995a89,
+        type: 3}
+      propertyPath: <AnimSpeed>k__BackingField
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 8200530917101966514, guid: a37f12c3a758c7548ad20a70b8995a89,
         type: 3}
       propertyPath: m_LocalPosition.x

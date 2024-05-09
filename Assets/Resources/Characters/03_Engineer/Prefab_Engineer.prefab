@@ -366,6 +366,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _equipmentSpawnPoint: {fileID: 0}
   _playerController: {fileID: 8675114378790124053}
+  _equipmentList: []
 --- !u!1 &2195020728851037822
 GameObject:
   m_ObjectHideFlags: 0

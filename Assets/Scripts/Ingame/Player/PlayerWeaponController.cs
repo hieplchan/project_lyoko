@@ -15,7 +15,7 @@ namespace StartledSeal
         
         public void Attack()
         {
-            _equipmentList[0].Use();
+            _equipmentList[0].Use(_playerController.AnimatorComp);
         }
     }
 }

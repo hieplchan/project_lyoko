@@ -48,7 +48,7 @@ namespace StartledSeal
 
         private void Awake()
         {
-            _animator = _playerController.Animator;
+            _animator = _playerController.AnimatorComp;
             _rightArmAnimatorLayerIndex = _animator.GetLayerIndex(Const.RightArmAnimatorLayerIndex);
             
             _input.Equip += ToggleLight;

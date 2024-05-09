@@ -1,9 +1,6 @@
-using System;
 using System.Collections.Generic;
-using Animancer;
 using Cinemachine;
 using KBCore.Refs;
-using StartledSeal.Common;
 using StartledSeal.Ingame.Player;
 using StartledSeal.Utils;
 using UnityEngine;
@@ -14,8 +11,7 @@ namespace StartledSeal
 {
     public class PlayerController : ValidatedMonoBehaviour
     {
-        public Animator Animator => _animator;
-        public AnimancerComponent AnimancerComp => _animancerComp;
+        public Animator AnimatorComp => _animatorComp;
         public Rigidbody RigidBody => _rb;
         
         [Header("References")]
@@ -23,8 +19,7 @@ namespace StartledSeal
         [SerializeField, Self] private GroundChecker _groundChecker;
         [SerializeField, Self] private WaterChecker _waterChecker;
         
-        [SerializeField, Child] private Animator _animator;
-        [SerializeField, Child] private AnimancerComponent _animancerComp;
+        [SerializeField, Child] private Animator _animatorComp;
         
         [SerializeField, Anywhere] private CinemachineFreeLook _freeLookCam;
         [SerializeField, Anywhere] private InputReader _input;
@@ -133,13 +128,13 @@ namespace StartledSeal
             _stateMachine = new StateMachine();
             
             // declare state
-            var locomotionState = new LocomotionState(this, _animator, _playerStaminaComp, _runStaminaConsumptionPerSec);
-            var jumpState = new JumpState(this, _animator, _vfxController);
-            var dashState = new DashState(this, _animator);
-            var attackState = new AttackState(this, _animator, _vfxController);
-            var deadState = new DeadState(this, _animator);
+            var locomotionState = new LocomotionState(this, _animatorComp, _playerStaminaComp, _runStaminaConsumptionPerSec);
+            var jumpState = new JumpState(this, _animatorComp, _vfxController);
+            var dashState = new DashState(this, _animatorComp);
+            var attackState = new AttackState(this, _animatorComp, _vfxController);
+            var deadState = new DeadState(this, _animatorComp);
             // var flyState = new FlyState(this, _animator, _flyDrag, _rb.drag);
-            var swimState = new SwimState(this, _animator, _vfxController);
+            var swimState = new SwimState(this, _animatorComp, _vfxController);
             
             // define transition
             At(locomotionState, jumpState, new FuncPredicate(() => _jumpTimer.IsRunning));
@@ -350,7 +345,7 @@ namespace StartledSeal
         private void UpdateAnimator()
         {
             // _animator.SetFloat(Speed, _currentSpeed);
-            _animator.SetFloat(Speed, _rb.velocity.magnitude);
+            _animatorComp.SetFloat(Speed, _rb.velocity.magnitude);
         }
     }
 }
