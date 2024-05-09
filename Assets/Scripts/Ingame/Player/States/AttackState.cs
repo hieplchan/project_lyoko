@@ -22,7 +22,7 @@ namespace StartledSeal
             _player.Attack();
             _player.SetStateHash(AttackHash);
 
-            _vfxController.RestartVFX("Attack");
+            // _vfxController.RestartVFX("Attack");
         }
 
         public override void FixedUpdate()
