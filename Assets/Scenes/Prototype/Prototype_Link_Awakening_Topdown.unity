@@ -907,6 +907,12 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 324111173}
   m_PrefabAsset: {fileID: 0}
+--- !u!20 &385292194 stripped
+Camera:
+  m_CorrespondingSourceObject: {fileID: 5009267008259323527, guid: 36fd9a2732363f644a9a63b5b635b8a9,
+    type: 3}
+  m_PrefabInstance: {fileID: 2995298223768767885}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &415131333
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6331,6 +6337,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2553074701652921881, guid: cb34ac7a1e6ded84f83aec5923c86fe1,
+        type: 3}
+      propertyPath: cameraShake.cameras.Array.data[0]
+      value: 
+      objectReference: {fileID: 385292194}
     - target: {fileID: 6701029129495253267, guid: cb34ac7a1e6ded84f83aec5923c86fe1,
         type: 3}
       propertyPath: serializationData.Prefab
