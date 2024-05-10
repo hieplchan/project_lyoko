@@ -1865,10 +1865,11 @@ MonoBehaviour:
   _weaponController: {fileID: 2575526602863033000}
   _vfx: {fileID: 2553074701652921883}
   AnimState: Shotgun
-  _attackDistance: 5
+  _attackDistance: 4.5
   _attackAngle: 50
   _attackDamage: 10
   _isShowGizmos: 1
+  _cameraEffect: {fileID: 2553074701652921881}
 --- !u!1001 &6670948280610473033
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2462,11 +2463,38 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5329740088837029646, guid: e919a2cd42e62fe449076da4f4bb35ac,
+        type: 3}
+      propertyPath: cameraShake.shakeStrength.x
+      value: 0.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5329740088837029646, guid: e919a2cd42e62fe449076da4f4bb35ac,
+        type: 3}
+      propertyPath: cameraShake.shakeStrength.y
+      value: 0.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5329740088837029646, guid: e919a2cd42e62fe449076da4f4bb35ac,
+        type: 3}
+      propertyPath: cameraShake.shakeStrength.z
+      value: 0.3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e919a2cd42e62fe449076da4f4bb35ac, type: 3}
+--- !u!114 &2553074701652921881 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5329740088837029646, guid: e919a2cd42e62fe449076da4f4bb35ac,
+    type: 3}
+  m_PrefabInstance: {fileID: 7681273673327915287}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9205bc1bbacc90040a998067b5643d16, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &2553074701652921882 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5329740088837029645, guid: e919a2cd42e62fe449076da4f4bb35ac,

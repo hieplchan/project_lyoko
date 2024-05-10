@@ -1,3 +1,4 @@
+using CartoonFX;
 using Cysharp.Threading.Tasks;
 using UnityEngine;
 
@@ -11,11 +12,16 @@ namespace StartledSeal
 
         [SerializeField] private bool _isShowGizmos;
 
+        [SerializeField] private CFXR_Effect _cameraEffect;
+
         public override bool IsUsable() => true;
         
         public override async UniTask Use(Animator _animatorComp)
         {
             base.Use(_animatorComp);
+            
+            _cameraEffect.ResetState();
+            _cameraEffect.Animate(0f);
             
             var _originTransform = _weaponController.gameObject.transform;
             
