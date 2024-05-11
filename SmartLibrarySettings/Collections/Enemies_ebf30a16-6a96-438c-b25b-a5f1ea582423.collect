@@ -10,35 +10,24 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 60cfc8d3abbb89545a156b421a79d41b, type: 3}
-  m_Name: MyProject
+  m_Name: Enemies
   m_EditorClassIdentifier: 
   _root: {fileID: 0}
   _parent: {fileID: 0}
   _parentID:
-    _serializedGuid: c522e045e0e5fb45b295d129d2452484
-  _subcollections:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  _subcollectionIDs:
-  - _serializedGuid: 89db478a6a938345b84ade05d7cc7f13
-  - _serializedGuid: 2f9191ae9dd68c419da09267970636ae
-  - _serializedGuid: 160af3eb966a8c43b25ba5f1ea582423
-  _collectionName: MyProject
-  _id:
     _serializedGuid: 5f3a166b0e3a0742ab3ed6269ce51274
+  _subcollections: []
+  _subcollectionIDs: []
+  _collectionName: Enemies
+  _id:
+    _serializedGuid: 160af3eb966a8c43b25ba5f1ea582423
   _icon: {fileID: 0}
   _rules:
     _rules: []
   _items:
     _hashSetList:
-    - fc28384220b77304dbb79cf8c964be22
-    - cb34ac7a1e6ded84f83aec5923c86fe1
-    - 8493905ed6569704fa1777688b89b6ee
-    - 52d6cd86344f2b145b00281a3659f618
-    - 8678c4e3ce8fc1f4ba7bca2ba4a5fab1
-    - bf1388e993c9a044989424a41548e56d
-    - 9fba2af21280bb54e825951c9ccf9a78
+    - 517ce4f38cd96d742b939ff8d37dd8c8
+    - ad0506d12bf554642aa60917d725283e
   _itemDisplaySize: 100
   _viewStyle: 0
   _useCollectionViewSettings: 0

@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using Cysharp.Threading.Tasks;
 using KBCore.Refs;
 using Sirenix.OdinInspector;
 using StartledSeal.Common;
@@ -12,7 +13,7 @@ namespace StartledSeal
 {
     [RequireComponent(typeof(NavMeshAgent))]
     [RequireComponent(typeof(PlayerDetector))]
-    public class Enemy : Entity
+    public class Enemy : Entity, IDamageable
     {
         // Event
         public UnityEvent StartChasingEvent;
@@ -64,6 +65,7 @@ namespace StartledSeal
             var chaseState = new EnemyChaseState(this, _animator, _agent, _playerDetector.Player, _runSpeed, _startChasingTimeOffset);
             var attackState = new EnemyAttackState(this, _animator, _agent, _playerDetector.Player);
             var getHitState = new EnemyGetHitState(this, _animator, _agent);
+            var dieState = new EnemyDieState(this, _animator, _agent);
             
             At(wanderState, chaseState, new FuncPredicate(() => _playerDetector.CanDetectPlayer()));
             At(chaseState, wanderState, new FuncPredicate(() => !_playerDetector.CanDetectPlayer()));
@@ -75,6 +77,8 @@ namespace StartledSeal
             At(getHitState, chaseState, new FuncPredicate(() => _playerDetector.CanDetectPlayer()));
             At(getHitState, wanderState, new FuncPredicate(() => !_playerDetector.CanDetectPlayer()));
 
+            Any(dieState, new FuncPredicate(() => _healthComp.IsDead()));
+            
             _stateMachine.SetState(wanderState);
         }
 
@@ -121,5 +125,13 @@ namespace StartledSeal
 
         [Button("TestGetHit")]
         private void TestGetHit() => GetHit(0);
+
+        public UniTask TakeDamage(int damageAmount)
+        {
+            // MLog.Debug("Enemy", $"TakeDamage {damageAmount}");
+            
+            GetHit(damageAmount);
+            return UniTask.CompletedTask;
+        }
     }
 }
