@@ -1,3 +1,4 @@
+using StartledSeal.Common;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -14,6 +15,7 @@ namespace StartledSeal
 
         public override void OnEnter()
         {
+            MLog.Debug("EnemyGetHitState OnEnter");
             _enemy.GetHitEvent?.Invoke();
             
             _animator.CrossFade(GetHitHash, CrossDuration);

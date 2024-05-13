@@ -18,6 +18,7 @@ namespace StartledSeal
         // Event
         public UnityEvent StartChasingEvent;
         public UnityEvent GetHitEvent;
+        public UnityEvent DieEvent;
         
         [SerializeField, Self] private NavMeshAgent _agent;
         [SerializeField, Child] private Animator _animator;
@@ -31,6 +32,7 @@ namespace StartledSeal
         [SerializeField] private float _attackDamage = 1f;
 
         [SerializeField] private float _getHitTime = 3f;
+        [SerializeField] private float _dieTime = 0.5f;
 
         [SerializeField] private float _walkSpeed = 1f;
         [SerializeField] private float _runSpeed = 2f;
@@ -65,12 +67,14 @@ namespace StartledSeal
             var chaseState = new EnemyChaseState(this, _animator, _agent, _playerDetector.Player, _runSpeed, _startChasingTimeOffset);
             var attackState = new EnemyAttackState(this, _animator, _agent, _playerDetector.Player);
             var getHitState = new EnemyGetHitState(this, _animator, _agent);
-            var dieState = new EnemyDieState(this, _animator, _agent);
+            var dieState = new EnemyDieState(this, _animator, _agent, _dieTime);
             
             At(wanderState, chaseState, new FuncPredicate(() => _playerDetector.CanDetectPlayer()));
             At(chaseState, wanderState, new FuncPredicate(() => !_playerDetector.CanDetectPlayer()));
             At(chaseState, attackState, new FuncPredicate(() => _playerDetector.CanAttackPlayer()));
             At(attackState, chaseState, new FuncPredicate(() => !_playerDetector.CanAttackPlayer()));
+            At(attackState, attackState, new FuncPredicate(() => !_playerDetector.CanAttackPlayer()));
+
             
             Any(getHitState, new FuncPredicate(() => _getHitTimer.IsRunning));
             At(getHitState, attackState, new FuncPredicate(() => _playerDetector.CanAttackPlayer()));
@@ -132,6 +136,12 @@ namespace StartledSeal
             
             GetHit(damageAmount);
             return UniTask.CompletedTask;
+        }
+
+        [Button]
+        public void DestroyAfterDie()
+        {
+            Destroy(gameObject);
         }
     }
 }
