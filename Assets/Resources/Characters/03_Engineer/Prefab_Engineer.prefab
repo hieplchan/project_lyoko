@@ -180,7 +180,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 375d2660b72e49ecb389e892bf6030f0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _maxHealth: 1
+  _maxHealth: 1000000
   _isNeedToPublishMessage: 1
   <Tag>k__BackingField: Player
 --- !u!114 &7490827989259888145
@@ -366,8 +366,8 @@ MonoBehaviour:
   _equipmentSpawnPoint: {fileID: 4861998526376992654}
   _playerController: {fileID: 8675114378790124053}
   _equipmentList:
-  - {fileID: 8762295467567345008}
   - {fileID: 2157371856090161473}
+  - {fileID: 8762295467567345008}
 --- !u!1 &2195020728851037822
 GameObject:
   m_ObjectHideFlags: 0
@@ -1829,6 +1829,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: shotgun
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 74c1bf3ded39dfc4da8a3090a059303f,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2139,6 +2144,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4896964130255782450, guid: a37f12c3a758c7548ad20a70b8995a89,
         type: 3}
+      propertyPath: _attackDistance
+      value: 1.55
+      objectReference: {fileID: 0}
+    - target: {fileID: 4896964130255782450, guid: a37f12c3a758c7548ad20a70b8995a89,
+        type: 3}
       propertyPath: _originTransform
       value: 
       objectReference: {fileID: 1583577453627860238}
@@ -2215,7 +2225,7 @@ PrefabInstance:
     - target: {fileID: 8828730681120574984, guid: a37f12c3a758c7548ad20a70b8995a89,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

@@ -1,5 +1,6 @@
 using StartledSeal.Common;
 using StartledSeal.Utils;
+using SuperMaxim.Messaging;
 using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.Events;
@@ -28,11 +29,13 @@ namespace StartledSeal
             _agent.isStopped = true;
             
             _enemy.DieEvent?.Invoke();
+            _enemy.ColliderComp.enabled = false;
             
             _cooldownTimer.Start();
             _cooldownTimer.OnTimerStop += () =>
             {
                 _enemy.DestroyAfterDie();
+                RequestSpawnCollectible(_enemy.transform);
             };
         }
 
@@ -44,6 +47,15 @@ namespace StartledSeal
         public override void OnExit()
         {
             _agent.isStopped = false;
+        }
+        
+        private void RequestSpawnCollectible(Transform transform)
+        {
+            var payload = new SpawnCollectibleRequest()
+            {
+                spawnTransform = transform
+            };
+            Messenger.Default.Publish(payload);
         }
     }
 }

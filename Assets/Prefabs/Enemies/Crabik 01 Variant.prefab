@@ -56,7 +56,7 @@ PrefabInstance:
     - target: {fileID: 5781927832435029352, guid: 3fcfd62e155bcc5459718e0edecf9874,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -1.4680054
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5781927832435029352, guid: 3fcfd62e155bcc5459718e0edecf9874,
         type: 3}
@@ -247,6 +247,12 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 1999813048163157711}
   m_SourcePrefab: {fileID: 100100000, guid: 3fcfd62e155bcc5459718e0edecf9874, type: 3}
+--- !u!198 &1225411683680038830 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 5781927832435029353, guid: 3fcfd62e155bcc5459718e0edecf9874,
+    type: 3}
+  m_PrefabInstance: {fileID: 4700634128702724807}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1225411683680038831 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5781927832435029352, guid: 3fcfd62e155bcc5459718e0edecf9874,
@@ -461,7 +467,7 @@ PrefabInstance:
     - target: {fileID: 3494850717287444460, guid: e348c9d9f884f58498f3881f150ca132,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 3.209961
+      value: 0.62997437
       objectReference: {fileID: 0}
     - target: {fileID: 3494850717287444460, guid: e348c9d9f884f58498f3881f150ca132,
         type: 3}
@@ -471,7 +477,7 @@ PrefabInstance:
     - target: {fileID: 3494850717287444460, guid: e348c9d9f884f58498f3881f150ca132,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -7.100006
+      value: -8.25
       objectReference: {fileID: 0}
     - target: {fileID: 3494850717287444460, guid: e348c9d9f884f58498f3881f150ca132,
         type: 3}
@@ -601,11 +607,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 91d1e7ba98414123964ce449978b6f41, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _detectionAngle: 60
+  _detectionAngle: 90
   _detectionRadius: 10
-  _innerDetectionRadius: 3
-  _detectionCoolDown: 1
-  _attackRange: 2
+  _innerDetectionRadius: 0.1
+  _detectionCoolDown: 0.2
+  _attackRange: 2.3
 --- !u!114 &5682156228256627419
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -639,7 +645,7 @@ MonoBehaviour:
   DieEvent:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1225411683680038830}
         m_TargetAssemblyTypeName: UnityEngine.ParticleSystem, UnityEngine
         m_MethodName: Play
         m_Mode: 1
@@ -656,6 +662,7 @@ MonoBehaviour:
   _playerDetector: {fileID: 6721231946261428476}
   _healthComp: {fileID: 2183006325872344834}
   _rb: {fileID: 8563997403361019708}
+  _collider: {fileID: 7122345720910667153}
   _wanderRadius: 10
   _startChasingTimeOffset: 0.5
   _timeBetweenAttacks: 0.3
@@ -677,7 +684,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 375d2660b72e49ecb389e892bf6030f0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _maxHealth: 10
+  _maxHealth: 100
   _isNeedToPublishMessage: 0
   <Tag>k__BackingField: 
 --- !u!136 &7122345720910667153
@@ -700,9 +707,9 @@ CapsuleCollider:
   m_Enabled: 1
   serializedVersion: 2
   m_Radius: 0.5
-  m_Height: 1.3165934
+  m_Height: 1
   m_Direction: 1
-  m_Center: {x: -0, y: 0.15829611, z: -0}
+  m_Center: {x: -0, y: 0.47386685, z: -0}
 --- !u!54 &8563997403361019708
 Rigidbody:
   m_ObjectHideFlags: 0

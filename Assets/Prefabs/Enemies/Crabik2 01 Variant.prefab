@@ -206,27 +206,27 @@ PrefabInstance:
     - target: {fileID: 5781927833227808850, guid: 3fcfd62e155bcc5459718e0edecf9874,
         type: 3}
       propertyPath: m_Range
-      value: 9.925926
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 5781927833227808850, guid: 3fcfd62e155bcc5459718e0edecf9874,
         type: 3}
       propertyPath: m_Color.b
-      value: 0.051419392
+      value: 0.05240625
       objectReference: {fileID: 0}
     - target: {fileID: 5781927833227808850, guid: 3fcfd62e155bcc5459718e0edecf9874,
         type: 3}
       propertyPath: m_Color.g
-      value: 0.33334473
+      value: 0.17468749
       objectReference: {fileID: 0}
     - target: {fileID: 5781927833227808850, guid: 3fcfd62e155bcc5459718e0edecf9874,
         type: 3}
       propertyPath: m_Color.r
-      value: 0.7095156
+      value: 0.559
       objectReference: {fileID: 0}
     - target: {fileID: 5781927833227808850, guid: 3fcfd62e155bcc5459718e0edecf9874,
         type: 3}
       propertyPath: m_Intensity
-      value: 4.219713
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5825231774423856237, guid: 3fcfd62e155bcc5459718e0edecf9874,
         type: 3}
@@ -448,7 +448,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 91d1e7ba98414123964ce449978b6f41, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _detectionAngle: 60
+  _detectionAngle: 90
   _detectionRadius: 10
   _innerDetectionRadius: 0.1
   _detectionCoolDown: 0.2
@@ -503,9 +503,10 @@ MonoBehaviour:
   _playerDetector: {fileID: 7266896341585247158}
   _healthComp: {fileID: 5347076550452656305}
   _rb: {fileID: 8774384380498716955}
+  _collider: {fileID: 6990008325191918310}
   _wanderRadius: 10
   _startChasingTimeOffset: 0.5
-  _timeBetweenAttacks: 1
+  _timeBetweenAttacks: 0.3
   _attackDamage: 1
   _getHitTime: 0.2
   _getHitImpactForceMultiply: 70
@@ -524,7 +525,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 375d2660b72e49ecb389e892bf6030f0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _maxHealth: 10
+  _maxHealth: 100
   _isNeedToPublishMessage: 0
   <Tag>k__BackingField: 
 --- !u!136 &6990008325191918310
@@ -547,9 +548,9 @@ CapsuleCollider:
   m_Enabled: 1
   serializedVersion: 2
   m_Radius: 0.5
-  m_Height: 1.3165934
+  m_Height: 1
   m_Direction: 1
-  m_Center: {x: -0, y: 0.15829611, z: -0}
+  m_Center: {x: -0, y: 0.44489536, z: -0}
 --- !u!54 &8774384380498716955
 Rigidbody:
   m_ObjectHideFlags: 0

@@ -19,13 +19,16 @@ namespace StartledSeal
         public UnityEvent StartChasingEvent;
         public UnityEvent GetHitEvent;
         public UnityEvent DieEvent;
+
+        public Collider ColliderComp => _collider;
         
         [SerializeField, Self] private NavMeshAgent _agent;
         [SerializeField, Child] private Animator _animator;
         [SerializeField, Self] private PlayerDetector _playerDetector;
         [SerializeField, Self] private HealthComp _healthComp;
         [SerializeField, Self] private Rigidbody _rb;
-
+        [SerializeField, Self] private Collider _collider;
+        
         [SerializeField] private float _wanderRadius = 10f;
         [SerializeField] private float _startChasingTimeOffset = 0.5f;
         
@@ -108,11 +111,11 @@ namespace StartledSeal
             _stateMachine.FixedUpdate();
         }
 
-        public void GetHit(float attackDamage)
+        public void GetHit(float damageAmount)
         {
             if (_getHitTimer.IsRunning) return;
             
-            _healthComp.TakeDamage(_attackDamage);
+            _healthComp.TakeDamage(damageAmount);
             _getHitTimer.Start();
         }
 
