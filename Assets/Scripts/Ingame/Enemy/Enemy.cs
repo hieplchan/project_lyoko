@@ -24,6 +24,7 @@ namespace StartledSeal
         [SerializeField, Child] private Animator _animator;
         [SerializeField, Self] private PlayerDetector _playerDetector;
         [SerializeField, Self] private HealthComp _healthComp;
+        [SerializeField, Self] private Rigidbody _rb;
 
         [SerializeField] private float _wanderRadius = 10f;
         [SerializeField] private float _startChasingTimeOffset = 0.5f;
@@ -32,6 +33,7 @@ namespace StartledSeal
         [SerializeField] private float _attackDamage = 1f;
 
         [SerializeField] private float _getHitTime = 3f;
+        [SerializeField] private float _getHitImpactForceMultiply = 70f;
         [SerializeField] private float _dieTime = 0.5f;
 
         [SerializeField] private float _walkSpeed = 1f;
@@ -42,7 +44,7 @@ namespace StartledSeal
         private List<Timer> _timers;
         private CooldownTimer _attackTimer;
         private CooldownTimer _getHitTimer;
-        
+
         private void OnValidate() => this.ValidateRefs();
 
         private void Start()
@@ -130,12 +132,24 @@ namespace StartledSeal
         [Button("TestGetHit")]
         private void TestGetHit() => GetHit(0);
 
-        public UniTask TakeDamage(int damageAmount)
+        public UniTask TakeDamage(int damageAmount, Transform impactObject)
         {
             // MLog.Debug("Enemy", $"TakeDamage {damageAmount}");
             
             GetHit(damageAmount);
+            
+            Vector3 impactVector = transform.position - impactObject.position;
+            impactVector.y = 0;
+            ApplyForce(damageAmount, impactVector);
+            
             return UniTask.CompletedTask;
+        }
+
+        [Button]
+        private void ApplyForce(int damageAmount, Vector3 impactVector)
+        {
+            _rb.AddForce(impactVector * damageAmount * _getHitImpactForceMultiply);
+            MLog.Debug("Enemy", $"ApplyForce {impactVector} - {damageAmount}");
         }
 
         [Button]

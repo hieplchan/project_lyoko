@@ -33,7 +33,7 @@ namespace StartledSeal
                     // MLog.Debug("PlayerWeaponController", $"angleToPlayer {angleToPlayer}");
                     
                     if (Mathf.Abs(angleToPlayer) < _attackAngle / 2)
-                        damageableObj.TakeDamage(_attackDamage);
+                        damageableObj.TakeDamage(_attackDamage, _originTransform);
                 }
             }
         }

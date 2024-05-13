@@ -16,7 +16,7 @@ namespace StartledSeal
         [SerializeField] private Collider _collider;
         
         [Button]
-        public async UniTask TakeDamage(int damageAmount)
+        public async UniTask TakeDamage(int damageAmount, Transform impactObject)
         {
             if (_vfx != null && !_vfx.isPlaying)
                 _vfx!.Play();
