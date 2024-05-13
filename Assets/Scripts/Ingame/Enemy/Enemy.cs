@@ -21,6 +21,7 @@ namespace StartledSeal
         public UnityEvent DieEvent;
 
         public Collider ColliderComp => _collider;
+        public Rigidbody RigidbodyComp => _rb;
         
         [SerializeField, Self] private NavMeshAgent _agent;
         [SerializeField, Child] private Animator _animator;

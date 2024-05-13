@@ -181,7 +181,7 @@ PrefabInstance:
     - target: {fileID: 5781927832435029355, guid: 3fcfd62e155bcc5459718e0edecf9874,
         type: 3}
       propertyPath: m_Enabled
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5781927832435029355, guid: 3fcfd62e155bcc5459718e0edecf9874,
         type: 3}
@@ -607,10 +607,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 91d1e7ba98414123964ce449978b6f41, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _detectionAngle: 90
+  _detectionAngle: 120
   _detectionRadius: 10
   _innerDetectionRadius: 0.1
-  _detectionCoolDown: 0.2
+  _detectionCoolDown: 0.5
   _attackRange: 2.3
 --- !u!114 &5682156228256627419
 MonoBehaviour:
