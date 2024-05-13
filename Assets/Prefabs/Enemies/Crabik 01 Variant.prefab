@@ -120,7 +120,17 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5781927832435029353, guid: 3fcfd62e155bcc5459718e0edecf9874,
         type: 3}
+      propertyPath: InitialModule.startLifetime.scalar
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5781927832435029353, guid: 3fcfd62e155bcc5459718e0edecf9874,
+        type: 3}
       propertyPath: InitialModule.startSpeed.minMaxState
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5781927832435029353, guid: 3fcfd62e155bcc5459718e0edecf9874,
+        type: 3}
+      propertyPath: InitialModule.startLifetime.minMaxState
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5781927832435029353, guid: 3fcfd62e155bcc5459718e0edecf9874,
@@ -669,7 +679,7 @@ MonoBehaviour:
   _attackDamage: 1
   _getHitTime: 0.2
   _getHitImpactForceMultiply: 70
-  _dieTime: 2.5
+  _dieTime: 1
   _walkSpeed: 1
   _runSpeed: 2
 --- !u!114 &2183006325872344834
@@ -684,7 +694,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 375d2660b72e49ecb389e892bf6030f0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _maxHealth: 100
+  _maxHealth: 40
   _isNeedToPublishMessage: 0
   <Tag>k__BackingField: 
 --- !u!136 &7122345720910667153

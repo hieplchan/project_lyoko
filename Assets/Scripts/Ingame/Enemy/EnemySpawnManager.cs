@@ -14,7 +14,7 @@ namespace StartledSeal
         [SerializeField] private List<GameObject> _enemyPrefabs;
 
         [Button]
-        private async UniTask SpawnEnemy(int quantity = 10)
+        private async UniTask SpawnEnemy(int quantity = 100)
         {
             for (int i = 0; i < quantity; i++)
             {
