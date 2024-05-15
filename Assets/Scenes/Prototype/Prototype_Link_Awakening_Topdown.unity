@@ -236,6 +236,18 @@ Transform:
   - {fileID: 333707732}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &163513385 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8762295467567345008, guid: cb34ac7a1e6ded84f83aec5923c86fe1,
+    type: 3}
+  m_PrefabInstance: {fileID: 7659428934874473211}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1ac19c5101b44cabb6cd93b35227ad30, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!43 &174109243
 Mesh:
   m_ObjectHideFlags: 0
@@ -3854,6 +3866,18 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1496991824}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1511813042 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2157371856090161473, guid: cb34ac7a1e6ded84f83aec5923c86fe1,
+    type: 3}
+  m_PrefabInstance: {fileID: 7659428934874473211}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f048eab15f674f34b2d598f47cdb4fa1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1545253199
 GameObject:
   m_ObjectHideFlags: 0
@@ -6596,6 +6620,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Prefab_Engineer
       objectReference: {fileID: 0}
+    - target: {fileID: 799265408215305091, guid: cb34ac7a1e6ded84f83aec5923c86fe1,
+        type: 3}
+      propertyPath: playOnAwake
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1380367793654023939, guid: cb34ac7a1e6ded84f83aec5923c86fe1,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -6646,25 +6675,70 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 2157371856090161473, guid: cb34ac7a1e6ded84f83aec5923c86fe1,
+    - target: {fileID: 2553074701652921881, guid: cb34ac7a1e6ded84f83aec5923c86fe1,
         type: 3}
-      propertyPath: AttackCoolDown
-      value: 0.15
+      propertyPath: cameraShake.shakeStrength.x
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2553074701652921881, guid: cb34ac7a1e6ded84f83aec5923c86fe1,
+        type: 3}
+      propertyPath: cameraShake.shakeStrength.y
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2553074701652921881, guid: cb34ac7a1e6ded84f83aec5923c86fe1,
+        type: 3}
+      propertyPath: cameraShake.shakeStrength.z
+      value: 0.1
       objectReference: {fileID: 0}
     - target: {fileID: 2553074701652921881, guid: cb34ac7a1e6ded84f83aec5923c86fe1,
         type: 3}
       propertyPath: cameraShake.cameras.Array.data[0]
       value: 
       objectReference: {fileID: 385292194}
-    - target: {fileID: 3443890045716314049, guid: cb34ac7a1e6ded84f83aec5923c86fe1,
+    - target: {fileID: 2553074701652921883, guid: cb34ac7a1e6ded84f83aec5923c86fe1,
         type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0.00000002185569
+      propertyPath: moveWithTransform
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2575526602863033000, guid: cb34ac7a1e6ded84f83aec5923c86fe1,
+        type: 3}
+      propertyPath: _equipmentList.Array.data[0]
+      value: 
+      objectReference: {fileID: 163513385}
+    - target: {fileID: 2575526602863033000, guid: cb34ac7a1e6ded84f83aec5923c86fe1,
+        type: 3}
+      propertyPath: _equipmentList.Array.data[1]
+      value: 
+      objectReference: {fileID: 1511813042}
+    - target: {fileID: 2630374228278177147, guid: cb34ac7a1e6ded84f83aec5923c86fe1,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2677115118112367924, guid: cb34ac7a1e6ded84f83aec5923c86fe1,
+        type: 3}
+      propertyPath: playOnAwake
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2677115118112367924, guid: cb34ac7a1e6ded84f83aec5923c86fe1,
+        type: 3}
+      propertyPath: moveWithTransform
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4430500595658863800, guid: cb34ac7a1e6ded84f83aec5923c86fe1,
+        type: 3}
+      propertyPath: playOnAwake
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4430500595658863800, guid: cb34ac7a1e6ded84f83aec5923c86fe1,
+        type: 3}
+      propertyPath: moveWithTransform
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5664949423628469965, guid: cb34ac7a1e6ded84f83aec5923c86fe1,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6701029129495253267, guid: cb34ac7a1e6ded84f83aec5923c86fe1,
         type: 3}
@@ -6672,20 +6746,35 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 6701029129495253267, guid: cb34ac7a1e6ded84f83aec5923c86fe1,
         type: 3}
+    - target: {fileID: 7419055911039718040, guid: cb34ac7a1e6ded84f83aec5923c86fe1,
+        type: 3}
+      propertyPath: playOnAwake
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7419055911039718040, guid: cb34ac7a1e6ded84f83aec5923c86fe1,
+        type: 3}
+      propertyPath: moveWithTransform
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7642931642253877572, guid: cb34ac7a1e6ded84f83aec5923c86fe1,
+        type: 3}
+      propertyPath: playOnAwake
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7642931642253877572, guid: cb34ac7a1e6ded84f83aec5923c86fe1,
+        type: 3}
+      propertyPath: moveWithTransform
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8675114378790124053, guid: cb34ac7a1e6ded84f83aec5923c86fe1,
         type: 3}
       propertyPath: _freeLookCam
       value: 
       objectReference: {fileID: 8343752438854617588}
-    - target: {fileID: 9019759600598177287, guid: cb34ac7a1e6ded84f83aec5923c86fe1,
+    - target: {fileID: 8762295467567345008, guid: cb34ac7a1e6ded84f83aec5923c86fe1,
         type: 3}
-      propertyPath: m_Radius
-      value: 0.2730759
-      objectReference: {fileID: 0}
-    - target: {fileID: 9019759600598177287, guid: cb34ac7a1e6ded84f83aec5923c86fe1,
-        type: 3}
-      propertyPath: m_Center.z
-      value: 0.02153876
+      propertyPath: _isUseCameraShake
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

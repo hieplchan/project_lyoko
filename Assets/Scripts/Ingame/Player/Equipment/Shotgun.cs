@@ -10,18 +10,22 @@ namespace StartledSeal
         [SerializeField] private float _attackAngle = 180f;
         [SerializeField] private int _attackDamage = 10;
 
-        [SerializeField] private bool _isShowGizmos;
-
+        [SerializeField] private bool _isUseCameraShake;
         [SerializeField] private CFXR_Effect _cameraEffect;
+
+        [SerializeField] private bool _isShowGizmos;
 
         public override bool IsUsable() => true;
         
         public override async UniTask Use(Animator _animatorComp)
         {
             base.Use(_animatorComp);
-            
-            _cameraEffect.ResetState();
-            _cameraEffect.Animate(0f);
+
+            if (_isUseCameraShake && _cameraEffect != null)
+            {
+                _cameraEffect.ResetState();
+                _cameraEffect.Animate(0f);   
+            }
             
             var _originTransform = _weaponController.gameObject.transform;
             
