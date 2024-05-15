@@ -184,20 +184,37 @@ namespace StartledSeal
             _input.Jump += OnJump;
             _input.Dash += OnDash;
             _input.Run += OnRun;
-            _input.Attack += OnAttack;
+
+            EnableUsingItem();
 
             _playerStaminaComp.RunOutStamina += OnRunOutOfStamina;
         }
 
         private void OnDisable()
-        
         {
             _input.Jump -= OnJump;
             _input.Dash -= OnDash;
             _input.Run -= OnRun;
-            _input.Attack -= OnAttack;
+
+            DisableUsingItem();
             
             _playerStaminaComp.RunOutStamina -= OnRunOutOfStamina;
+        }
+
+        public void EnableUsingItem()
+        {
+            // _input.Attack += OnAttack;
+            _input.Item1 += OnItem1;
+            _input.Item2 += OnItem2;
+            _input.Item3 += OnItem3;
+        }
+
+        public void DisableUsingItem()
+        {
+            // _input.Attack -= OnAttack;
+            _input.Item1 -= OnItem1;
+            _input.Item2 -= OnItem2;
+            _input.Item3 -= OnItem3;
         }
         
         private void OnRunOutOfStamina() => IsRunning = false;
@@ -259,16 +276,15 @@ namespace StartledSeal
                 _dashTimer.Stop();
             }
         }
+
+        private void OnItem1() => UseItem(0);
+        private void OnItem2() => UseItem(1);
+        private void OnItem3() => UseItem(2);
         
-        private void OnAttack()
+        private void UseItem(int itemIndex)
         {
-            if (!_playerWeaponController.IsAttacking() && _playerWeaponController.CanAttack())
-                _playerWeaponController.Attack();
-        }
-        
-        public void Attack()
-        {
-            // _playerWeaponController.Attack();
+            if (!_playerWeaponController.IsAttacking() && _playerWeaponController.CanAttack(itemIndex))
+                _playerWeaponController.Attack(itemIndex);
         }
 
         public void HandleJump()

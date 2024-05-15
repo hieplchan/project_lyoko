@@ -89,6 +89,33 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Item1"",
+                    ""type"": ""Button"",
+                    ""id"": ""cc40ced8-4354-44ef-a4ea-4a8e6bed2a55"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Item2"",
+                    ""type"": ""Button"",
+                    ""id"": ""6c2548c7-4976-4182-be75-55b52a9dcb96"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Item3"",
+                    ""type"": ""Button"",
+                    ""id"": ""0de1c3df-ff29-4fa5-9a43-4dd8bcfc8868"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -397,6 +424,72 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""groups"": ""Keyboard&Mouse"",
                     ""action"": ""MouseControlCamera"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""0c844426-d7cd-42b5-8eef-5e7aed90e661"",
+                    ""path"": ""<Keyboard>/j"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Item1"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""dba31986-cd2b-49c4-aa93-3ad1bab852b0"",
+                    ""path"": ""<Gamepad>/buttonWest"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""Item1"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""aba0ea49-0993-49c6-87ee-f0747049da00"",
+                    ""path"": ""<Keyboard>/k"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Item2"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""c328c3a5-73e5-43e4-8ab0-d7335b24d51c"",
+                    ""path"": ""<Gamepad>/buttonNorth"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""Item2"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""bab32ca6-46f6-4502-9666-6bbb1d9e1a3b"",
+                    ""path"": ""<Keyboard>/l"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Item3"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""49b4a10e-6959-46a4-89dd-b061774ac645"",
+                    ""path"": ""<Gamepad>/buttonEast"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""Item3"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -991,6 +1084,9 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
         m_Player_Run = m_Player.FindAction("Run", throwIfNotFound: true);
         m_Player_Jump = m_Player.FindAction("Jump", throwIfNotFound: true);
         m_Player_Equip = m_Player.FindAction("Equip", throwIfNotFound: true);
+        m_Player_Item1 = m_Player.FindAction("Item1", throwIfNotFound: true);
+        m_Player_Item2 = m_Player.FindAction("Item2", throwIfNotFound: true);
+        m_Player_Item3 = m_Player.FindAction("Item3", throwIfNotFound: true);
         // UI
         m_UI = asset.FindActionMap("UI", throwIfNotFound: true);
         m_UI_Navigate = m_UI.FindAction("Navigate", throwIfNotFound: true);
@@ -1071,6 +1167,9 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
     private readonly InputAction m_Player_Run;
     private readonly InputAction m_Player_Jump;
     private readonly InputAction m_Player_Equip;
+    private readonly InputAction m_Player_Item1;
+    private readonly InputAction m_Player_Item2;
+    private readonly InputAction m_Player_Item3;
     public struct PlayerActions
     {
         private @PlayerInputActions m_Wrapper;
@@ -1082,6 +1181,9 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
         public InputAction @Run => m_Wrapper.m_Player_Run;
         public InputAction @Jump => m_Wrapper.m_Player_Jump;
         public InputAction @Equip => m_Wrapper.m_Player_Equip;
+        public InputAction @Item1 => m_Wrapper.m_Player_Item1;
+        public InputAction @Item2 => m_Wrapper.m_Player_Item2;
+        public InputAction @Item3 => m_Wrapper.m_Player_Item3;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -1112,6 +1214,15 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
             @Equip.started += instance.OnEquip;
             @Equip.performed += instance.OnEquip;
             @Equip.canceled += instance.OnEquip;
+            @Item1.started += instance.OnItem1;
+            @Item1.performed += instance.OnItem1;
+            @Item1.canceled += instance.OnItem1;
+            @Item2.started += instance.OnItem2;
+            @Item2.performed += instance.OnItem2;
+            @Item2.canceled += instance.OnItem2;
+            @Item3.started += instance.OnItem3;
+            @Item3.performed += instance.OnItem3;
+            @Item3.canceled += instance.OnItem3;
         }
 
         private void UnregisterCallbacks(IPlayerActions instance)
@@ -1137,6 +1248,15 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
             @Equip.started -= instance.OnEquip;
             @Equip.performed -= instance.OnEquip;
             @Equip.canceled -= instance.OnEquip;
+            @Item1.started -= instance.OnItem1;
+            @Item1.performed -= instance.OnItem1;
+            @Item1.canceled -= instance.OnItem1;
+            @Item2.started -= instance.OnItem2;
+            @Item2.performed -= instance.OnItem2;
+            @Item2.canceled -= instance.OnItem2;
+            @Item3.started -= instance.OnItem3;
+            @Item3.performed -= instance.OnItem3;
+            @Item3.canceled -= instance.OnItem3;
         }
 
         public void RemoveCallbacks(IPlayerActions instance)
@@ -1326,6 +1446,9 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
         void OnRun(InputAction.CallbackContext context);
         void OnJump(InputAction.CallbackContext context);
         void OnEquip(InputAction.CallbackContext context);
+        void OnItem1(InputAction.CallbackContext context);
+        void OnItem2(InputAction.CallbackContext context);
+        void OnItem3(InputAction.CallbackContext context);
     }
     public interface IUIActions
     {

@@ -20,6 +20,8 @@ namespace StartledSeal
 
             _player.RigidBody.useGravity = false;
             _player.RigidBody.velocity = new Vector3(_player.RigidBody.velocity.x, 0f, _player.RigidBody.velocity.z);
+            
+            _player.DisableUsingItem();
 
             _vfxController.PlayVFX("Swim");
         }
@@ -31,6 +33,8 @@ namespace StartledSeal
 
         public override void OnExit()
         {
+            _player.EnableUsingItem();
+
             _player.RigidBody.useGravity = true;
             _vfxController.StopVFX("Swim");
         }

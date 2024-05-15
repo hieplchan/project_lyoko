@@ -18,7 +18,7 @@ namespace StartledSeal
 
         public override void OnEnter()
         {
-            MLog.Debug("AttackState", "OnEnter");
+            // MLog.Debug("AttackState", "OnEnter");
             
             // _animator.CrossFade(AttackHash, 0.001f);
             // _animator.Play(AttackHash, 0, 0f);
@@ -27,12 +27,7 @@ namespace StartledSeal
 
             // _vfxController.RestartVFX("Attack");
         }
-
-        public override void OnExit()
-        {
-            MLog.Debug("AttackState", "OnExit");
-        }
-
+        
         public override void FixedUpdate()
         {
             _player.HandleMovement();

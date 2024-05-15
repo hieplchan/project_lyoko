@@ -16,9 +16,16 @@ namespace StartledSeal
 
         public override void OnEnter()
         {
+            _player.DisableUsingItem();
+            
             _animator.CrossFade(JumpHash, CrossFadeDuration);
             _player.SetStateHash(JumpHash);
             _vfxController.PlayVFX("Jump");
+        }
+
+        public override void OnExit()
+        {
+            _player.EnableUsingItem();
         }
 
         public override void FixedUpdate()

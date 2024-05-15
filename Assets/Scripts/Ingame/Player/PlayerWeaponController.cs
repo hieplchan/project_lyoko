@@ -21,28 +21,34 @@ namespace StartledSeal
         {
             _currentEquipment = _equipmentList[0];
             _attackCooldownTimer = new CooldownTimer(_currentEquipment.AttackCoolDown);
+            _attackCooldownTimer.Reset(_currentEquipment.AttackCoolDown);
         }
 
-        public void Attack()
+        public void Attack(int itemIndex)
         {
-            if (!CanAttack()) return;
+            if (!CanAttack(itemIndex)) return;
+
+            // Enable new item, disable old
+            if (_currentEquipment != _equipmentList[itemIndex])
+            {
+                _currentEquipment.gameObject.SetActive(false);
+                _currentEquipment = _equipmentList[itemIndex];
+                _currentEquipment.gameObject.SetActive(true);
+                _attackCooldownTimer.Reset(_currentEquipment.AttackCoolDown);
+            }
             
-            _attackCooldownTimer.Reset(_currentEquipment.AttackCoolDown);
             _attackCooldownTimer.Start();
             _currentEquipment.Use(_playerController.AnimatorComp);
         }
 
-        public bool CanAttack()
+        public bool CanAttack(int itemIndex)
         {
-            return !IsAttacking() && _currentEquipment.IsUsable();
+            return !IsAttacking() 
+                   && itemIndex <= _equipmentList.Count - 1
+                   && _equipmentList[itemIndex].IsUsable();
         }
 
-        public bool IsAttacking()
-        {
-            MLog.Debug("PlayerWeaponController", $"IsAttacking {_attackCooldownTimer.IsRunning}");
-            
-            return _attackCooldownTimer.IsRunning;
-        }
+        public bool IsAttacking() => _attackCooldownTimer.IsRunning;
 
         private void Update()
         {
