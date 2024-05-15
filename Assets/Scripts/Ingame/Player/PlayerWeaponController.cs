@@ -34,7 +34,7 @@ namespace StartledSeal
 
         public bool CanAttack()
         {
-            return !_attackCooldownTimer.IsRunning && _currentEquipment.IsUsable();
+            return !IsAttacking() && _currentEquipment.IsUsable();
         }
 
         public bool IsAttacking()
