@@ -62,10 +62,10 @@ CapsuleCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.27307594
+  m_Radius: 0.2730759
   m_Height: 1.8
   m_Direction: 1
-  m_Center: {x: -0.02153629, y: 0.9, z: 0.021538764}
+  m_Center: {x: -0.02153629, y: 0.9, z: 0.02153876}
 --- !u!54 &8686178169984705354
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1870,6 +1870,7 @@ MonoBehaviour:
   _weaponController: {fileID: 2575526602863033000}
   _vfx: {fileID: 2553074701652921883}
   AnimState: Shotgun
+  AttackCoolDown: 0.5
   _attackDistance: 4.5
   _attackAngle: 50
   _attackDamage: 10
@@ -2144,6 +2145,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4896964130255782450, guid: a37f12c3a758c7548ad20a70b8995a89,
         type: 3}
+      propertyPath: AttackCoolDown
+      value: 0.15
+      objectReference: {fileID: 0}
+    - target: {fileID: 4896964130255782450, guid: a37f12c3a758c7548ad20a70b8995a89,
+        type: 3}
       propertyPath: _attackDistance
       value: 1.55
       objectReference: {fileID: 0}
@@ -2190,7 +2196,7 @@ PrefabInstance:
     - target: {fileID: 8200530917101966514, guid: a37f12c3a758c7548ad20a70b8995a89,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0.000000021855694
+      value: 0.00000002185569
       objectReference: {fileID: 0}
     - target: {fileID: 8200530917101966514, guid: a37f12c3a758c7548ad20a70b8995a89,
         type: 3}

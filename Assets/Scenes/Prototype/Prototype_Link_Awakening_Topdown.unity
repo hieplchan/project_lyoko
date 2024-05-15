@@ -6646,11 +6646,26 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2157371856090161473, guid: cb34ac7a1e6ded84f83aec5923c86fe1,
+        type: 3}
+      propertyPath: AttackCoolDown
+      value: 0.15
+      objectReference: {fileID: 0}
     - target: {fileID: 2553074701652921881, guid: cb34ac7a1e6ded84f83aec5923c86fe1,
         type: 3}
       propertyPath: cameraShake.cameras.Array.data[0]
       value: 
       objectReference: {fileID: 385292194}
+    - target: {fileID: 3443890045716314049, guid: cb34ac7a1e6ded84f83aec5923c86fe1,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0.00000002185569
+      objectReference: {fileID: 0}
+    - target: {fileID: 5664949423628469965, guid: cb34ac7a1e6ded84f83aec5923c86fe1,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6701029129495253267, guid: cb34ac7a1e6ded84f83aec5923c86fe1,
         type: 3}
       propertyPath: serializationData.Prefab
@@ -6662,6 +6677,16 @@ PrefabInstance:
       propertyPath: _freeLookCam
       value: 
       objectReference: {fileID: 8343752438854617588}
+    - target: {fileID: 9019759600598177287, guid: cb34ac7a1e6ded84f83aec5923c86fe1,
+        type: 3}
+      propertyPath: m_Radius
+      value: 0.2730759
+      objectReference: {fileID: 0}
+    - target: {fileID: 9019759600598177287, guid: cb34ac7a1e6ded84f83aec5923c86fe1,
+        type: 3}
+      propertyPath: m_Center.z
+      value: 0.02153876
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

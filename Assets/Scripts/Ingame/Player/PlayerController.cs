@@ -81,8 +81,6 @@ namespace StartledSeal
         private CooldownTimer _dashTimer;
         private CooldownTimer _dashCooldownTimer;
 
-        private CooldownTimer _attackCooldownTimer;
-
         // State Machine
         private StateMachine _stateMachine;
         private int _currentStateHash;
@@ -109,10 +107,8 @@ namespace StartledSeal
 
             _dashTimer = new CooldownTimer(_dashDuration);
             _dashCooldownTimer = new CooldownTimer(_dashCoolDown);
-
-            _attackCooldownTimer = new CooldownTimer(_attackCoolDown);
             
-            _timers = new List<Timer>(4) { _jumpTimer, _dashTimer, _dashCooldownTimer, _attackCooldownTimer };
+            _timers = new List<Timer>(3) { _jumpTimer, _dashTimer, _dashCooldownTimer };
 
             _dashTimer.OnTimerStart += () => _dashVelocity = _dashForce;
             _dashTimer.OnTimerStop += () =>
@@ -140,14 +136,14 @@ namespace StartledSeal
             At(locomotionState, jumpState, new FuncPredicate(() => _jumpTimer.IsRunning));
             At(locomotionState, dashState, new FuncPredicate(() => _dashTimer.IsRunning));
             
-            At(locomotionState, attackState, new FuncPredicate(() => _attackCooldownTimer.IsRunning));
-            At(attackState, locomotionState, new FuncPredicate(() => !_attackCooldownTimer.IsRunning));
+            At(locomotionState, attackState, new FuncPredicate(() => _playerWeaponController.IsAttacking()));
+            At(attackState, locomotionState, new FuncPredicate(() => !_playerWeaponController.IsAttacking()));
             
             At(dashState, jumpState, new FuncPredicate(() => !_dashTimer.IsRunning && _jumpTimer.IsRunning));
             At(jumpState, dashState, new FuncPredicate(() => _dashTimer.IsRunning && !_jumpTimer.IsRunning));
             
-            At(dashState, attackState, new FuncPredicate(() => !_dashTimer.IsRunning && _attackCooldownTimer.IsRunning));
-            At(attackState, dashState, new FuncPredicate(() => _dashTimer.IsRunning && !_attackCooldownTimer.IsRunning));
+            // At(dashState, attackState, new FuncPredicate(() => !_dashTimer.IsRunning && _playerWeaponController.IsAttacking()));
+            // At(attackState, dashState, new FuncPredicate(() => _dashTimer.IsRunning && !_playerWeaponController.IsAttacking()));
             
             At(locomotionState, deadState, new FuncPredicate(() => _playerHealthComp.IsDead()));
             
@@ -170,7 +166,7 @@ namespace StartledSeal
             return _groundChecker.IsGrounded
                    && !_jumpTimer.IsRunning
                    && !_dashTimer.IsRunning
-                   && !_attackCooldownTimer.IsRunning
+                   && !_playerWeaponController.IsAttacking()
                    && !_playerHealthComp.IsDead()
                    && !_waterChecker.IsInWater;
         }
@@ -266,13 +262,13 @@ namespace StartledSeal
         
         private void OnAttack()
         {
-            if (!_attackCooldownTimer.IsRunning)
-                _attackCooldownTimer.Start();
+            if (!_playerWeaponController.IsAttacking() && _playerWeaponController.CanAttack())
+                _playerWeaponController.Attack();
         }
         
         public void Attack()
         {
-            _playerWeaponController.Attack();
+            // _playerWeaponController.Attack();
         }
 
         public void HandleJump()

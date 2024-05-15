@@ -9,6 +9,7 @@ namespace StartledSeal
         [SerializeField, Anywhere] protected PlayerWeaponController _weaponController;
         [SerializeField] ParticleSystem _vfx;
         [SerializeField] private string AnimState;
+        [field: SerializeField] public float AttackCoolDown = 0.5f;
 
         protected int _animHash;
 

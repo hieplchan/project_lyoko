@@ -1,3 +1,4 @@
+using StartledSeal.Common;
 using StartledSeal.Ingame.Player;
 using UnityEngine;
 using static StartledSeal.Const;
@@ -17,12 +18,19 @@ namespace StartledSeal
 
         public override void OnEnter()
         {
+            MLog.Debug("AttackState", "OnEnter");
+            
             // _animator.CrossFade(AttackHash, 0.001f);
             // _animator.Play(AttackHash, 0, 0f);
-            _player.Attack();
+            // _player.Attack();
             _player.SetStateHash(AttackHash);
 
             // _vfxController.RestartVFX("Attack");
+        }
+
+        public override void OnExit()
+        {
+            MLog.Debug("AttackState", "OnExit");
         }
 
         public override void FixedUpdate()

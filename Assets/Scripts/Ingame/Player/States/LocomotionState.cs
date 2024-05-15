@@ -24,6 +24,8 @@ namespace StartledSeal
 
         public override void OnEnter()
         {
+            MLog.Debug("LocomotionState", "OnEnter");
+
             _animator.CrossFade(LocomotionHash, CrossFadeDuration);
             _player.SetStateHash(LocomotionHash);
         }
@@ -41,6 +43,11 @@ namespace StartledSeal
         public override void FixedUpdate()
         {
             _player.HandleMovement();
+        }
+        
+        public override void OnExit()
+        {
+            MLog.Debug("LocomotionState", "OnExit");
         }
     }
 }
