@@ -1,7 +1,9 @@
+using System;
 using System.Collections.Generic;
 using Cysharp.Threading.Tasks;
 using Sirenix.OdinInspector;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 namespace StartledSeal
 {
@@ -9,9 +11,18 @@ namespace StartledSeal
     {
         [SerializeField] private float _spawnForce = 1000f;
         [SerializeField] private int _spawnDelay = 100;
-
+        
+        [SerializeField] private bool _spawnWhenStartGame;
+        [SerializeField] private int _spawnWhenStartGameQuantity = 5;
+        
         [SerializeField] private List<Transform> _spawnPoints;
         [SerializeField] private List<GameObject> _enemyPrefabs;
+
+        private void Start()
+        {
+            if (_spawnWhenStartGame)
+            SpawnEnemy(_spawnWhenStartGameQuantity);
+        }
 
         [Button]
         private async UniTask SpawnEnemy(int quantity = 100)
