@@ -11,7 +11,6 @@ using UnityEngine.Events;
 namespace StartledSeal
 {
     [RequireComponent(typeof(NavMeshAgent))]
-    [RequireComponent(typeof(PlayerDetector))]
     [RequireComponent(typeof(HealthComp))]
     public abstract class EnemyBase : Entity, IDamageable
     {
@@ -20,22 +19,26 @@ namespace StartledSeal
         
         public Collider ColliderComp => _collider;
         public Rigidbody RigidbodyComp => _rb;
-        
+        public Animator AnimatorComp => _animator;
+        public CooldownTimer AttackCooldownTimer => _attackCooldownTimer;
+        public HealthComp HealthComp => _healthComp;
+
         [SerializeField, Self] private Rigidbody _rb;
         [SerializeField, Self] private Collider _collider;
         [SerializeField, Self] private NavMeshAgent _agent;
         [SerializeField, Child] private Animator _animator;
         [SerializeField, Self] private HealthComp _healthComp;
-        [SerializeField, Self] private PlayerDetector _playerDetector;
-        
-        [SerializeField] private float _getHitTime = 3f;
-        [SerializeField] private float _getHitImpactForceMultiply = 70f;
-        [SerializeField] private float _dieTime = 0.5f;
 
-        private StateMachine _stateMachine;
-        private List<Timer> _timers;
+        [SerializeField] private float _attackCooldownTime = 1.1f;
+        [SerializeField] private float _getHitTime = 0.5f;
+        [SerializeField] private float _getHitImpactForceMultiply = 70f;
+        [SerializeField] protected float _dieTime = 0.5f;
+
+        protected StateMachine StateMachine;
         
-        private CooldownTimer _getHitTimer;
+        protected List<Timer> Timers;
+        protected CooldownTimer _getHitTimer;
+        protected CooldownTimer _attackCooldownTimer;
         
         private void OnValidate() => this.ValidateRefs();
         
@@ -47,40 +50,43 @@ namespace StartledSeal
 
         protected virtual void SetupTimers()
         {
-            _timers = new List<Timer>();
+            Timers = new List<Timer>();
             
             _getHitTimer = new CooldownTimer(_getHitTime);
-            _timers.Add(_getHitTimer);
+            _attackCooldownTimer = new CooldownTimer(_attackCooldownTime);
+            
+            Timers.Add(_getHitTimer);
+            Timers.Add(_attackCooldownTimer);
         }
 
         protected virtual void SetupStateMachine()
         {
-            _stateMachine = new StateMachine();
+            StateMachine = new StateMachine();
         }
         
-        void At(IState from, IState to, IPredicate condition) => _stateMachine.AddTransition(from, to, condition);
-        void Any(IState to, IPredicate condition) => _stateMachine.AddAnyTransition(to, condition);
+        protected void At(IState from, IState to, IPredicate condition) => StateMachine.AddTransition(from, to, condition);
+        protected void Any(IState to, IPredicate condition) => StateMachine.AddAnyTransition(to, condition);
         
         private void Update()
         {
-            _stateMachine.Update();
+            StateMachine.Update();
             HandleTimers();
         }
         
         private void FixedUpdate()
         {
-            _stateMachine.FixedUpdate();
+            StateMachine.FixedUpdate();
         }
         
         private void HandleTimers()
         {
-            foreach (var timer in _timers)
+            foreach (var timer in Timers)
                 timer.Tick(Time.deltaTime);
         }
         
         public void GetHit(float damageAmount)
         {
-            // Wait little bit between gethit multiple times
+            // Wait a little bit between get hit multiple times
             if (_getHitTimer.IsRunning) return;
             
             _healthComp.TakeDamage(damageAmount);
