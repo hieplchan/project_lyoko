@@ -32,8 +32,8 @@ namespace StartledSeal
         private Animator _animator;
         private int _rightArmAnimatorLayerIndex;
 
-        public List<Enemy> EnemiesInRangeList => _enemiesInRangeList;
-        private List<Enemy> _enemiesInRangeList;
+        public List<NormalEnemy> EnemiesInRangeList => _enemiesInRangeList;
+        private List<NormalEnemy> _enemiesInRangeList;
         
         public float CurrentBattery
         {
@@ -58,13 +58,13 @@ namespace StartledSeal
             
             _currentBattery = _maxBattery;
 
-            _enemiesInRangeList ??= new List<Enemy>();
+            _enemiesInRangeList ??= new List<NormalEnemy>();
         }
 
         private void OnTriggerEnter(Collider other)
         {
             // MLog.Debug("OnTriggerEnter", other.gameObject.name);
-            if (other.gameObject.TryGetComponent<Enemy>(out var enemy))
+            if (other.gameObject.TryGetComponent<NormalEnemy>(out var enemy))
             {
                 _enemiesInRangeList.Add(enemy);
             }
@@ -73,7 +73,7 @@ namespace StartledSeal
         private void OnTriggerExit(Collider other)
         {
             // MLog.Debug("OnTriggerExit", other.gameObject.name);
-            if (other.gameObject.TryGetComponent<Enemy>(out var enemy)
+            if (other.gameObject.TryGetComponent<NormalEnemy>(out var enemy)
                 && _enemiesInRangeList.Contains(enemy))
             {
                 _enemiesInRangeList.Remove(enemy);

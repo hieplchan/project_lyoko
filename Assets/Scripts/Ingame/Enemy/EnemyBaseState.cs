@@ -6,7 +6,7 @@ namespace StartledSeal
     {
         protected const float CrossDuration = 0.1f;
         
-        protected readonly Enemy _enemy;
+        protected readonly EnemyBase _enemyBase;
         protected readonly Animator _animator;
         
         protected static readonly int IdleHash = Animator.StringToHash("Idle");
@@ -17,9 +17,14 @@ namespace StartledSeal
         protected static readonly int GetHitHash = Animator.StringToHash("GetHit");
         protected static readonly int ChaseHash = Animator.StringToHash("Chase");
         
-        protected EnemyBaseState(Enemy enemy, Animator animator)
+        protected EnemyBaseState(EnemyBase enemyBaseComp, Animator animator)
         {
-            _enemy = enemy;
+            _enemyBase = enemyBaseComp;
+            _animator = animator;
+        }
+        
+        protected EnemyBaseState(Animator animator)
+        {
             _animator = animator;
         }
 

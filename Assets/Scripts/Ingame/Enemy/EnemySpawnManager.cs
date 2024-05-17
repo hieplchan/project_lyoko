@@ -32,7 +32,7 @@ namespace StartledSeal
                 GameObject enemy = GameObject.Instantiate(_enemyPrefabs[i % _enemyPrefabs.Count], 
                     _spawnPoints[i % _spawnPoints.Count].position, 
                     _spawnPoints[i % _spawnPoints.Count].rotation);
-                enemy.GetComponent<Enemy>().RigidbodyComp.AddRelativeForce(Random.onUnitSphere * _spawnForce);
+                enemy.GetComponent<NormalEnemy>().RigidbodyComp.AddRelativeForce(Random.onUnitSphere * _spawnForce);
 
                 await UniTask.Delay(_spawnDelay);
             }

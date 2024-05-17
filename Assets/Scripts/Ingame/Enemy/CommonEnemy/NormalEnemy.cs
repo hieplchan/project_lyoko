@@ -13,7 +13,7 @@ namespace StartledSeal
 {
     [RequireComponent(typeof(NavMeshAgent))]
     [RequireComponent(typeof(PlayerDetector))]
-    public class Enemy : Entity, IDamageable
+    public class NormalEnemy : Entity, IDamageable
     {
         // Event
         public UnityEvent StartChasingEvent;

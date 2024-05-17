@@ -9,13 +9,13 @@ namespace StartledSeal
 {
     public class EnemyDieState : EnemyBaseState
     {
-        private readonly Enemy _enemy;
+        private readonly NormalEnemy _normalEnemy;
         private NavMeshAgent _agent;
         private CooldownTimer _cooldownTimer;
 
-        public EnemyDieState(Enemy enemy, Animator animator, NavMeshAgent agent, float dieTime) : base(enemy, animator)
+        public EnemyDieState(NormalEnemy normalEnemy, Animator animator, NavMeshAgent agent, float dieTime) : base(animator)
         {
-            _enemy = enemy;
+            _normalEnemy = normalEnemy;
             _agent = agent;
 
             _cooldownTimer = new CooldownTimer(dieTime);
@@ -28,14 +28,14 @@ namespace StartledSeal
             _animator.CrossFade(DieHash, CrossDuration);
             _agent.isStopped = true;
             
-            _enemy.DieEvent?.Invoke();
-            _enemy.ColliderComp.enabled = false;
+            _normalEnemy.DieEvent?.Invoke();
+            _normalEnemy.ColliderComp.enabled = false;
             
             _cooldownTimer.Start();
             _cooldownTimer.OnTimerStop += () =>
             {
-                _enemy.DestroyAfterDie();
-                RequestSpawnCollectible(_enemy.transform);
+                _normalEnemy.DestroyAfterDie();
+                RequestSpawnCollectible(_normalEnemy.transform);
             };
         }
 

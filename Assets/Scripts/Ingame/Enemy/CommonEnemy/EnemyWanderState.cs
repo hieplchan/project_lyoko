@@ -11,12 +11,12 @@ namespace StartledSeal
         private readonly Vector3 _startPoint;
         private float _speed;
         
-        public EnemyWanderState(Enemy enemy, Animator animator, NavMeshAgent agent, float wanderRadius, float speed) : base(enemy, animator)
+        public EnemyWanderState(NormalEnemy normalEnemy, Animator animator, NavMeshAgent agent, float wanderRadius, float speed) : base(animator)
         {
             _agent = agent;
             _wanderRadius = wanderRadius;
             _speed = speed;
-            _startPoint = enemy.transform.position;
+            _startPoint = normalEnemy.transform.position;
         }
 
         public override void OnEnter()

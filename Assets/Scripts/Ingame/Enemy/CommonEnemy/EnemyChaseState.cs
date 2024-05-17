@@ -7,15 +7,17 @@ namespace StartledSeal
 {
     public sealed class EnemyChaseState : EnemyBaseState
     {
+        private readonly NormalEnemy _normalEnemy;
         private NavMeshAgent _agent;
         private Transform _player;
         private float _speed;
 
         private CooldownTimer _startChasingCountDownTimer;
 
-        public EnemyChaseState(Enemy enemy, Animator animator, NavMeshAgent agent, Transform player, float speed, float startChasingTimeOffset) 
-            : base(enemy, animator)
+        public EnemyChaseState(NormalEnemy normalEnemy, Animator animator, NavMeshAgent agent, Transform player, float speed, float startChasingTimeOffset) 
+            : base(animator)
         {
+            _normalEnemy = normalEnemy;
             _agent = agent;
             _player = player;
             _speed = speed;
@@ -29,7 +31,7 @@ namespace StartledSeal
             _animator.CrossFade(ChaseHash, CrossDuration);
             _agent.speed = _speed;
             
-            _enemy.StartChasingEvent?.Invoke();
+            _normalEnemy.StartChasingEvent?.Invoke();
 
             _agent.isStopped = true;
             _startChasingCountDownTimer.Start();

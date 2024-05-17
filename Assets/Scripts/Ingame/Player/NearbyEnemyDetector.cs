@@ -14,13 +14,13 @@ namespace StartledSeal
         [SerializeField] private float _publishMessageInterval = 0.1f;
         [SerializeField] private float _warningDistanceThreshold = 15f;
         
-        private List<Enemy> _nearbyEnemyList;
+        private List<NormalEnemy> _nearbyEnemyList;
         private float _lastPublishMessageTime;
 
         private void Awake()
         {
             _lastPublishMessageTime = Time.time;
-            _nearbyEnemyList ??= new List<Enemy>();
+            _nearbyEnemyList ??= new List<NormalEnemy>();
         }
 
         private void Update()
@@ -70,7 +70,7 @@ namespace StartledSeal
 
         private void OnTriggerEnter(Collider other)
         {
-            if (other.TryGetComponent<Enemy>(out var enemy))
+            if (other.TryGetComponent<NormalEnemy>(out var enemy))
             {
                 _nearbyEnemyList.Add(enemy);
             }
@@ -78,7 +78,7 @@ namespace StartledSeal
 
         private void OnTriggerExit(Collider other)
         {
-            if (other.TryGetComponent<Enemy>(out var enemy))
+            if (other.TryGetComponent<NormalEnemy>(out var enemy))
             {
                 if (_nearbyEnemyList.Contains(enemy))
                     _nearbyEnemyList.Remove(enemy);

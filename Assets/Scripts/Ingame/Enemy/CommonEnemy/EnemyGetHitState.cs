@@ -6,17 +6,19 @@ namespace StartledSeal
 {
     public sealed class EnemyGetHitState : EnemyBaseState
     {
+        private readonly NormalEnemy _normalEnemy;
         private NavMeshAgent _agent;
 
-        public EnemyGetHitState(Enemy enemy, Animator animator, NavMeshAgent agent) : base(enemy, animator)
+        public EnemyGetHitState(NormalEnemy normalEnemy, Animator animator, NavMeshAgent agent) : base(animator)
         {
+            _normalEnemy = normalEnemy;
             _agent = agent;
         }
 
         public override void OnEnter()
         {
             MLog.Debug("EnemyGetHitState OnEnter");
-            _enemy.GetHitEvent?.Invoke();
+            _normalEnemy.GetHitEvent?.Invoke();
             
             _animator.CrossFade(GetHitHash, CrossDuration);
             _agent.isStopped = true;

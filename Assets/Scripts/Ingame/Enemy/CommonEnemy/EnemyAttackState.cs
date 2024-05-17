@@ -6,11 +6,13 @@ namespace StartledSeal
 {
     public sealed class EnemyAttackState : EnemyBaseState
     {
+        private readonly NormalEnemy _normalEnemy;
         private NavMeshAgent _agent;
         private Transform _player;
         
-        public EnemyAttackState(Enemy enemy, Animator animator, NavMeshAgent agent, Transform player) : base(enemy, animator)
+        public EnemyAttackState(NormalEnemy normalEnemy, Animator animator, NavMeshAgent agent, Transform player) : base(animator)
         {
+            _normalEnemy = normalEnemy;
             _agent = agent;
             _player = player;
         }
@@ -25,7 +27,7 @@ namespace StartledSeal
         public override void Update()
         {
             _agent.SetDestination(_player.position);
-            _enemy.Attack();
+            _normalEnemy.Attack();
         }
     }
 }
