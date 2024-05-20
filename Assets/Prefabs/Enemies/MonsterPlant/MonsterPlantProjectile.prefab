@@ -24369,6 +24369,7 @@ GameObject:
   - component: {fileID: 8601633071562714704}
   - component: {fileID: 5409140216315839543}
   - component: {fileID: 6484262375448812887}
+  - component: {fileID: 6532461939671206507}
   m_Layer: 0
   m_Name: MonsterPlantProjectile
   m_TagString: Untagged
@@ -24457,11 +24458,11 @@ SphereCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Radius: 0.5
+  m_Radius: 1.5
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!54 &6484262375448812887
 Rigidbody:
@@ -24490,3 +24491,17 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 0
+--- !u!114 &6532461939671206507
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4092572173528474721}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: be013887b3d6472dac16eda820008e30, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damageAmount: 20
+  lifeTimeSec: 10
