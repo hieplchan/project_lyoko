@@ -9,6 +9,10 @@ namespace StartledSeal
         public PlayerDetector PlayerDetectorComp => _playerDetector;
         
         [SerializeField, Self] private PlayerDetector _playerDetector;
+        
+        [SerializeField] private GameObject _projectilePrefab;
+        [SerializeField] private Transform _projectileLaunchPoint;
+        [SerializeField] private float _projectileLaunchVelocity = 700f;
 
         protected override void SetupStateMachine()
         {
@@ -38,6 +42,10 @@ namespace StartledSeal
         public void Attack()
         {
             MLog.Debug("MonsterPlant", "Attack");
+
+            GameObject projectile = Instantiate(_projectilePrefab, 
+                _projectileLaunchPoint.position,  _projectileLaunchPoint.rotation);
+            projectile.GetComponent<Rigidbody>().AddRelativeForce(new Vector3 (0, 0,_projectileLaunchVelocity));
         }
     }
 }
