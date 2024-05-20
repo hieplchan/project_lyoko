@@ -136,7 +136,7 @@ namespace StartledSeal
         [Button("TestGetHit")]
         private void TestGetHit() => GetHit(0);
 
-        public UniTask TakeDamage(int damageAmount, Transform impactObject)
+        public UniTask TakeDamage(AttackType attackType, int damageAmount, Transform impactObject)
         {
             // MLog.Debug("Enemy", $"TakeDamage {damageAmount}");
             

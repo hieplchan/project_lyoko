@@ -29,7 +29,12 @@ namespace StartledSeal
                 RequestSpawnCollectible(_monsterPlant.transform);
             };
         }
-        
+
+        public override void Update()
+        {
+            _cooldownTimer.Tick(Time.deltaTime);
+        }
+
         private void RequestSpawnCollectible(Transform transform)
         {
             var payload = new SpawnCollectibleRequest()

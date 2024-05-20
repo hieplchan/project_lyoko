@@ -21,7 +21,7 @@ namespace StartledSeal
             _awakeTimePoint = Time.time;
         }
 
-        public UniTask TakeDamage(int damageAmount, Transform impactObject)
+        public UniTask TakeDamage(AttackType attackType, int damageAmount, Transform impactObject)
         {
             Vector3 impactVector = impactObject.position - transform.position;
             impactVector.y = 0;
@@ -31,18 +31,15 @@ namespace StartledSeal
 
         private void OnTriggerEnter(Collider other)
         {
-            MLog.Debug("MonsterPlantProjectile", $"OnTriggerEnter {other.name}");
+            // 2 projectiles not affect each others
+            if (other.gameObject.GetComponent<MonsterPlantProjectile>()) return;
+            
             var damageableObj = other.gameObject.GetComponent<IDamageable>();
 
             if (damageableObj != null)
             {
-                MLog.Debug("MonsterPlantProjectile", $"TakeDamage {damageableObj}");
-
-                if (other.CompareTag(Const.PlayerTag) || other.CompareTag(Const.EnemyTag))
-                {
-                    damageableObj.TakeDamage(damageAmount, transform);
-                    Destroy(gameObject);
-                }
+                damageableObj.TakeDamage(AttackType.Projectile, damageAmount, transform);
+                Destroy(gameObject);
             }
         }
 

@@ -361,7 +361,7 @@ namespace StartledSeal
             _animatorComp.SetFloat(Speed, _rb.velocity.magnitude);
         }
 
-        public UniTask TakeDamage(int damageAmount, Transform impactObject)
+        public UniTask TakeDamage(AttackType attackType, int damageAmount, Transform impactObject)
         {
             _playerHealthComp.TakeDamage(damageAmount);
             return UniTask.CompletedTask;

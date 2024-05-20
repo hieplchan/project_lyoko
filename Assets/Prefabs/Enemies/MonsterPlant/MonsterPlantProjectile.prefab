@@ -4917,7 +4917,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &2527757262018994071
 Transform:
   m_ObjectHideFlags: 0
@@ -14645,7 +14645,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &2525002454369388537
 Transform:
   m_ObjectHideFlags: 0
@@ -19509,7 +19509,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &2528084357061369799
 Transform:
   m_ObjectHideFlags: 0
@@ -24503,5 +24503,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be013887b3d6472dac16eda820008e30, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _rb: {fileID: 6484262375448812887}
   damageAmount: 20
-  lifeTimeSec: 10
+  lifeTimeSec: 5
+  _projectileReverseVelocity: 700

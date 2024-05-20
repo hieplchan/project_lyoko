@@ -4,8 +4,16 @@ using UnityEngine;
 
 namespace StartledSeal
 {
+    public enum AttackType
+    {
+        None = 0,
+        Sword = 1,
+        Gun = 2,
+        Projectile = 3,
+    }
+    
     public interface IDamageable
     {
-        public UniTask TakeDamage(int damageAmount, Transform impactObject);
+        public UniTask TakeDamage(AttackType attackType, int damageAmount, Transform impactObject);
     }
 }

@@ -93,7 +93,7 @@ namespace StartledSeal
             _getHitTimer.Start();
         }
 
-        public UniTask TakeDamage(int damageAmount, Transform impactObject)
+        public UniTask TakeDamage(AttackType attackType, int damageAmount, Transform impactObject)
         {
             GetHit(damageAmount);
             ApplyFallbackForce(damageAmount, impactObject);

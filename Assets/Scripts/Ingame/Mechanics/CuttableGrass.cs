@@ -10,7 +10,7 @@ namespace StartledSeal
         [SerializeField] private MeshRenderer _meshRenderer;
         [SerializeField] private Collider _collider;
 
-        public async UniTask TakeDamage(int damageAmount, Transform impactObject)
+        public async UniTask TakeDamage(AttackType attackType, int damageAmount, Transform impactObject)
         {
             if (_vfx != null && !_vfx.isPlaying)
                 _vfx!.Play();
