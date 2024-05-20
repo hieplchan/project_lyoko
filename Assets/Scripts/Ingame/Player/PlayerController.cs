@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using Cinemachine;
+using Cysharp.Threading.Tasks;
 using KBCore.Refs;
 using StartledSeal.Ingame.Player;
 using StartledSeal.Utils;
@@ -9,7 +10,7 @@ using static StartledSeal.Const;
 
 namespace StartledSeal
 {
-    public class PlayerController : ValidatedMonoBehaviour
+    public class PlayerController : ValidatedMonoBehaviour, IDamageable
     {
         public Animator AnimatorComp => _animatorComp;
         public Rigidbody RigidBody => _rb;
@@ -358,6 +359,12 @@ namespace StartledSeal
         {
             // _animator.SetFloat(Speed, _currentSpeed);
             _animatorComp.SetFloat(Speed, _rb.velocity.magnitude);
+        }
+
+        public UniTask TakeDamage(int damageAmount, Transform impactObject)
+        {
+            _playerHealthComp.TakeDamage(damageAmount);
+            return UniTask.CompletedTask;
         }
     }
 }

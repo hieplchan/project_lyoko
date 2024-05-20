@@ -12,7 +12,7 @@ namespace StartledSeal
         
         [SerializeField] private GameObject _projectilePrefab;
         [SerializeField] private Transform _projectileLaunchPoint;
-        [SerializeField] private float _projectileLaunchVelocity = 700f;
+        [SerializeField] private float _projectileLaunchVelocity = 400f;
 
         protected override void SetupStateMachine()
         {
