@@ -1032,7 +1032,7 @@ ParticleSystem:
           m_RotationOrder: 0
       cycleCount: 1
       repeatInterval: 0.01
-      probability: 1
+      probability: 0.5
   SizeModule:
     enabled: 1
     curve:
