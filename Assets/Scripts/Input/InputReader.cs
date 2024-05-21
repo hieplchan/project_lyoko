@@ -20,6 +20,7 @@ namespace StartledSeal
         public event UnityAction Item1 = delegate { };
         public event UnityAction Item2 = delegate { };
         public event UnityAction Item3 = delegate { };
+        public event UnityAction<bool> Shield = delegate { }; 
 
         
         public Vector3 Direction => _inputActions.Player.Move.ReadValue<Vector2>();
@@ -133,6 +134,19 @@ namespace StartledSeal
             {
                 Item3.Invoke();
             }
+        }
+
+        public void OnShield(InputAction.CallbackContext context)
+        {
+            switch (context.phase)
+            {
+                case InputActionPhase.Started:
+                    Shield.Invoke(true);
+                    break;
+                case InputActionPhase.Canceled:
+                    Shield.Invoke(false);
+                    break;
+            };
         }
     }
 }

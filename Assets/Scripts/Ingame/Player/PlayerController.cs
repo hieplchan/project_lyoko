@@ -14,6 +14,7 @@ namespace StartledSeal
     {
         public Animator AnimatorComp => _animatorComp;
         public Rigidbody RigidBody => _rb;
+        public PlayerWeaponController PlayerWeaponControllerComp => _playerWeaponController;
         
         [Header("References")]
         [SerializeField, Self] private Rigidbody _rb;
@@ -65,6 +66,7 @@ namespace StartledSeal
         // Movement
         public bool IsRunning;
         public bool IsFlying;
+        public bool IsRotationLocked;
         
         // private float _currentSpeed;
         // private float _velocity;
@@ -208,6 +210,7 @@ namespace StartledSeal
             _input.Item1 += OnItem1;
             _input.Item2 += OnItem2;
             _input.Item3 += OnItem3;
+            _input.Shield += OnToggleShield;
         }
 
         public void DisableUsingItem()
@@ -216,6 +219,7 @@ namespace StartledSeal
             _input.Item1 -= OnItem1;
             _input.Item2 -= OnItem2;
             _input.Item3 -= OnItem3;
+            _input.Shield -= OnToggleShield;
         }
         
         private void OnRunOutOfStamina() => IsRunning = false;
@@ -287,6 +291,12 @@ namespace StartledSeal
             if (!_playerWeaponController.IsAttacking() && _playerWeaponController.CanAttack(itemIndex))
                 _playerWeaponController.Attack(itemIndex);
         }
+        
+        private void OnToggleShield(bool isUsingShield)
+        {
+            IsRotationLocked = isUsingShield;
+            _playerWeaponController.ToggleShield(isUsingShield);
+        }
 
         public void HandleJump()
         {
@@ -316,7 +326,9 @@ namespace StartledSeal
             if (adjustedDirection.magnitude > ZeroF
                 && _currentStateHash != AttackHash)
             {
-                HandleRotation(adjustedDirection);
+                if (!IsRotationLocked)
+                    HandleRotation(adjustedDirection);
+                
                 HandleHorizontalMovement(adjustedDirection);
                 // SmoothSpeed(adjustedDirection.magnitude);
             }

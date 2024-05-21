@@ -116,6 +116,15 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Shield"",
+                    ""type"": ""Button"",
+                    ""id"": ""c5ca4d7a-6b0f-4eef-809d-287dc09fbfec"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -490,6 +499,28 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""groups"": ""Gamepad"",
                     ""action"": ""Item3"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""4859e195-e854-4495-8469-9b29acb941c8"",
+                    ""path"": ""<Keyboard>/i"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Shield"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""6b716408-2ed2-4f91-b72d-565d8282159c"",
+                    ""path"": ""<Gamepad>/rightShoulder"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Shield"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -1087,6 +1118,7 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
         m_Player_Item1 = m_Player.FindAction("Item1", throwIfNotFound: true);
         m_Player_Item2 = m_Player.FindAction("Item2", throwIfNotFound: true);
         m_Player_Item3 = m_Player.FindAction("Item3", throwIfNotFound: true);
+        m_Player_Shield = m_Player.FindAction("Shield", throwIfNotFound: true);
         // UI
         m_UI = asset.FindActionMap("UI", throwIfNotFound: true);
         m_UI_Navigate = m_UI.FindAction("Navigate", throwIfNotFound: true);
@@ -1170,6 +1202,7 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
     private readonly InputAction m_Player_Item1;
     private readonly InputAction m_Player_Item2;
     private readonly InputAction m_Player_Item3;
+    private readonly InputAction m_Player_Shield;
     public struct PlayerActions
     {
         private @PlayerInputActions m_Wrapper;
@@ -1184,6 +1217,7 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
         public InputAction @Item1 => m_Wrapper.m_Player_Item1;
         public InputAction @Item2 => m_Wrapper.m_Player_Item2;
         public InputAction @Item3 => m_Wrapper.m_Player_Item3;
+        public InputAction @Shield => m_Wrapper.m_Player_Shield;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -1223,6 +1257,9 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
             @Item3.started += instance.OnItem3;
             @Item3.performed += instance.OnItem3;
             @Item3.canceled += instance.OnItem3;
+            @Shield.started += instance.OnShield;
+            @Shield.performed += instance.OnShield;
+            @Shield.canceled += instance.OnShield;
         }
 
         private void UnregisterCallbacks(IPlayerActions instance)
@@ -1257,6 +1294,9 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
             @Item3.started -= instance.OnItem3;
             @Item3.performed -= instance.OnItem3;
             @Item3.canceled -= instance.OnItem3;
+            @Shield.started -= instance.OnShield;
+            @Shield.performed -= instance.OnShield;
+            @Shield.canceled -= instance.OnShield;
         }
 
         public void RemoveCallbacks(IPlayerActions instance)
@@ -1449,6 +1489,7 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
         void OnItem1(InputAction.CallbackContext context);
         void OnItem2(InputAction.CallbackContext context);
         void OnItem3(InputAction.CallbackContext context);
+        void OnShield(InputAction.CallbackContext context);
     }
     public interface IUIActions
     {

@@ -44,5 +44,11 @@ namespace StartledSeal
         {
             _player.HandleMovement();
         }
+
+        public override void OnExit()
+        {
+            _player.IsRotationLocked = false;
+            _player.PlayerWeaponControllerComp.ToggleShield(false);
+        }
     }
 }

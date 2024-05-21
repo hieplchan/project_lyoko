@@ -11,7 +11,8 @@ namespace StartledSeal
     {
         [SerializeField] private Transform _equipmentSpawnPoint;
         [SerializeField, Parent] private PlayerController _playerController;
-
+        
+        [SerializeField] private Shield _shield;
         [SerializeField] private List<BaseEquipment> _equipmentList;
 
         private CooldownTimer _attackCooldownTimer;
@@ -53,6 +54,24 @@ namespace StartledSeal
         private void Update()
         {
             _attackCooldownTimer.Tick(Time.deltaTime);
+        }
+
+        public void ToggleShield(bool isUsingShield)
+        {
+            if (isUsingShield)
+            {
+                if (_currentEquipment != null)
+                    _currentEquipment.gameObject.SetActive(false);
+                _shield.gameObject.SetActive(true);
+                _shield.Use(_playerController.AnimatorComp);
+            }
+            else
+            {
+                if (_currentEquipment != null)
+                    _currentEquipment.gameObject.SetActive(true);
+                _shield.gameObject.SetActive(false);
+                _shield.DisableShield(_playerController.AnimatorComp);
+            }
         }
     }
 }
