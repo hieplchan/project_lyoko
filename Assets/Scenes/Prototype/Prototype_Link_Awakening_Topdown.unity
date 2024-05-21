@@ -6878,6 +6878,56 @@ PrefabInstance:
       propertyPath: cameraShake.cameras.Array.data[0]
       value: 
       objectReference: {fileID: 385292194}
+    - target: {fileID: 5032246811060706423, guid: cb34ac7a1e6ded84f83aec5923c86fe1,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.025861314
+      objectReference: {fileID: 0}
+    - target: {fileID: 5032246811060706423, guid: cb34ac7a1e6ded84f83aec5923c86fe1,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.07231146
+      objectReference: {fileID: 0}
+    - target: {fileID: 5032246811060706423, guid: cb34ac7a1e6ded84f83aec5923c86fe1,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.114047155
+      objectReference: {fileID: 0}
+    - target: {fileID: 5032246811060706423, guid: cb34ac7a1e6ded84f83aec5923c86fe1,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: -0.6723968
+      objectReference: {fileID: 0}
+    - target: {fileID: 5032246811060706423, guid: cb34ac7a1e6ded84f83aec5923c86fe1,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0.41579285
+      objectReference: {fileID: 0}
+    - target: {fileID: 5032246811060706423, guid: cb34ac7a1e6ded84f83aec5923c86fe1,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.41579157
+      objectReference: {fileID: 0}
+    - target: {fileID: 5032246811060706423, guid: cb34ac7a1e6ded84f83aec5923c86fe1,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0.4495735
+      objectReference: {fileID: 0}
+    - target: {fileID: 5032246811060706423, guid: cb34ac7a1e6ded84f83aec5923c86fe1,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 10.679
+      objectReference: {fileID: 0}
+    - target: {fileID: 5032246811060706423, guid: cb34ac7a1e6ded84f83aec5923c86fe1,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: -71.705
+      objectReference: {fileID: 0}
+    - target: {fileID: 5032246811060706423, guid: cb34ac7a1e6ded84f83aec5923c86fe1,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 284.738
+      objectReference: {fileID: 0}
     - target: {fileID: 6701029129495253267, guid: cb34ac7a1e6ded84f83aec5923c86fe1,
         type: 3}
       propertyPath: serializationData.Prefab

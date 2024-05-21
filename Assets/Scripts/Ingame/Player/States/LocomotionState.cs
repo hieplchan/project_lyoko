@@ -7,6 +7,8 @@ namespace StartledSeal
 {
     public sealed class LocomotionState : BaseState
     {
+        private readonly bool _isUsingShield;
+        private readonly PlayerWeaponController _playerWeaponControllerComp;
         private PlayerStaminaComp _playerStaminaComp;
         private float _runStaminaConsumptionPerSec;
         
@@ -15,7 +17,8 @@ namespace StartledSeal
         {
         }
 
-        public LocomotionState(PlayerController player, Animator animator, PlayerStaminaComp playerStaminaComp, float runStaminaConsumptionPerSec) 
+        public LocomotionState(PlayerController player, Animator animator, 
+            PlayerStaminaComp playerStaminaComp, float runStaminaConsumptionPerSec) 
             : base(player, animator)
         {
             _playerStaminaComp = playerStaminaComp;
@@ -28,6 +31,12 @@ namespace StartledSeal
 
             _animator.CrossFade(LocomotionHash, CrossFadeDuration);
             _player.SetStateHash(LocomotionHash);
+
+            if (_player.IsUsingShield)
+            {
+                _player.IsRotationLocked = true;
+                _player.PlayerWeaponControllerComp.ToggleShield(true);
+            }
         }
 
         public override void Update()
