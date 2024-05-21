@@ -6919,11 +6919,10 @@ PrefabInstance:
       propertyPath: m_WarningMessage
       value: "\nBinding warning: Some generic clip(s) animate transforms that are
         already bound by a Humanoid avatar. These transforms can only be changed
-        by Humanoid clips.\n\tTransform 'root'\n\tTransform 'upperleg.l'\n\tTransform
-        'hips'\n\tTransform 'upperarm.l'\n\tTransform 'upperarm.r'\n\tTransform 'upperleg.r'\n\tTransform
-        'upperleg.l'\n\tTransform 'lowerarm.l'\n\tTransform 'hips'\n\tTransform 'lowerarm.r'\n\tand
-        more ...\n\tFrom animation clip 'Idle'\n\tFrom animation clip 'Running_A'\n\tFrom
-        animation clip 'Jump_Full_Short'\n\tFrom animation clip '2H_Melee_Attack_Slice'\n\tFrom
+        by Humanoid clips.\n\tTransform 'upperleg.l'\n\tTransform 'hips'\n\tTransform
+        'upperarm.l'\n\tTransform 'upperleg.r'\n\tTransform 'upperleg.l'\n\tTransform
+        'lowerarm.l'\n\tTransform 'hips'\n\tTransform 'lowerarm.r'\n\tTransform 'toes.l'\n\tTransform
+        'upperarm.l'\n\tand more ...\n\tFrom animation clip 'Jump_Full_Short'\n\tFrom
         animation clip 'Swim'\n\tFrom animation clip 'Swim'"
       objectReference: {fileID: 0}
     - target: {fileID: 2553074701652921881, guid: cb34ac7a1e6ded84f83aec5923c86fe1,
