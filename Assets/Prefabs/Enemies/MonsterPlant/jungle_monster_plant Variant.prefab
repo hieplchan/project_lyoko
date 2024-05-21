@@ -406,6 +406,16 @@ PrefabInstance:
       propertyPath: _maxHealth
       value: 40
       objectReference: {fileID: 0}
+    - target: {fileID: 6209259322873662316, guid: 1b3543cccdd524a72a823324f6f3fab2,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.05999756
+      objectReference: {fileID: 0}
+    - target: {fileID: 6209259322873662316, guid: 1b3543cccdd524a72a823324f6f3fab2,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.5024416
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects:
