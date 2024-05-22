@@ -39,7 +39,8 @@ namespace StartledSeal
             if (damageableObj != null)
             {
                 damageableObj.TakeDamage(AttackType.Projectile, damageAmount, transform);
-                Destroy(gameObject);
+                if (!other.gameObject.GetComponent<Shield>())
+                    Destroy(gameObject);
             }
         }
 

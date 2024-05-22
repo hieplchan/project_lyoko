@@ -7,7 +7,7 @@ namespace StartledSeal
     public abstract class BaseEquipment : ValidatedMonoBehaviour
     {
         [SerializeField, Anywhere] protected PlayerWeaponController _weaponController;
-        [SerializeField] ParticleSystem _vfx;
+        [SerializeField] public ParticleSystem _vfx;
         [SerializeField] private string AnimState;
         [field: SerializeField] public float AttackCoolDown = 0.5f;
 

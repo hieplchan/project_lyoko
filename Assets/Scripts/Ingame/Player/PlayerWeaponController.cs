@@ -9,6 +9,8 @@ namespace StartledSeal
 {
     public class PlayerWeaponController : ValidatedMonoBehaviour
     {
+        public PlayerController PlayerControllerComp => _playerController;
+        
         [SerializeField] private Transform _equipmentSpawnPoint;
         [SerializeField, Parent] private PlayerController _playerController;
         
