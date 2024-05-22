@@ -5,6 +5,7 @@ using KBCore.Refs;
 using StartledSeal.Ingame.Player;
 using StartledSeal.Utils;
 using UnityEngine;
+using UnityEngine.Events;
 using static StartledSeal.Utils.Extension.FloatExtensions;
 using static StartledSeal.Const;
 
@@ -15,6 +16,9 @@ namespace StartledSeal
         public Animator AnimatorComp => _animatorComp;
         public Rigidbody RigidBody => _rb;
         public PlayerWeaponController PlayerWeaponControllerComp => _playerWeaponController;
+
+        [Header("Event")] 
+        public UnityEvent GetHitEvent;
         
         [Header("References")]
         [SerializeField, Self] private Rigidbody _rb;
@@ -379,6 +383,7 @@ namespace StartledSeal
 
         public UniTask TakeDamage(AttackType attackType, int damageAmount, Transform impactObject)
         {
+            GetHitEvent?.Invoke();
             _playerHealthComp.TakeDamage(damageAmount);
             return UniTask.CompletedTask;
         }

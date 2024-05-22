@@ -1,4 +1,5 @@
 using System;
+using BrunoMikoski.AnimationSequencer;
 using Cysharp.Threading.Tasks;
 using Sirenix.OdinInspector;
 using UnityEngine;
@@ -8,6 +9,7 @@ namespace StartledSeal
     public class Shield : BaseEquipment, IDamageable
     {
         [SerializeField] private float _fallbackForce = 700f;
+        [SerializeField] private AnimationSequencerController _animationSequencer;
         
         public override bool IsUsable() => true;
 
@@ -24,8 +26,10 @@ namespace StartledSeal
 
         public UniTask TakeDamage(AttackType attackType, int damageAmount, Transform impactObject)
         {
-            if (_vfx != null)
-                _vfx.Play();
+            _vfx?.Play();             
+            
+            if (_animationSequencer != null && !_animationSequencer.IsPlaying)
+                _animationSequencer.Play();
             
             // ApplyFallbackForce();
             
