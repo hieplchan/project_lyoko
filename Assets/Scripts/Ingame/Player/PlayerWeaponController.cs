@@ -62,15 +62,15 @@ namespace StartledSeal
         {
             if (isUsingShield)
             {
-                if (_currentEquipment != null)
-                    _currentEquipment.gameObject.SetActive(false);
+                // if (_currentEquipment != null)
+                //     _currentEquipment.gameObject.SetActive(false);
                 _shield.gameObject.SetActive(true);
                 _shield.Use(_playerController.AnimatorComp);
             }
             else
             {
-                if (_currentEquipment != null)
-                    _currentEquipment.gameObject.SetActive(true);
+                // if (_currentEquipment != null)
+                //     _currentEquipment.gameObject.SetActive(true);
                 _shield.gameObject.SetActive(false);
                 _shield.DisableShield(_playerController.AnimatorComp);
             }
