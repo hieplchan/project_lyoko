@@ -23,6 +23,8 @@ namespace StartledSeal
             if (_vfx != null)
                 await UniTask.WaitUntil(() => _vfx.isStopped);
             Destroy(gameObject);
+
+            await UniTask.CompletedTask;
         }
         
         private void RequestSpawnCollectible(Transform transform)

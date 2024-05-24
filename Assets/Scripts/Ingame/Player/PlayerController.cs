@@ -114,7 +114,7 @@ namespace StartledSeal
             
             HandleTimers();
             UpdateAnimator();
-        }
+        }   
         
         private void FixedUpdate()
         {

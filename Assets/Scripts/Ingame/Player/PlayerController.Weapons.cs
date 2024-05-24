@@ -18,7 +18,7 @@ namespace StartledSeal
             _input.Item3 += OnItem3;
             _input.Shield += OnToggleShield;
         }
-
+        
         public void DisableUsingItem()
         {
             // _input.Attack -= OnAttack;
@@ -28,14 +28,17 @@ namespace StartledSeal
             _input.Shield -= OnToggleShield;
         }
         
-        private void OnItem1() => UseItem(0);
-        private void OnItem2() => UseItem(1);
-        private void OnItem3() => UseItem(2);
+        private void OnItem1(bool active) => UseItem(0, active);
+        private void OnItem2(bool active) => UseItem(1, active);
+        private void OnItem3(bool active) => UseItem(2, active);
         
-        private void UseItem(int itemIndex)
+        private void UseItem(int itemIndex, bool active)
         {
-            if (!PlayerWeaponControllerComp.IsAttacking() && PlayerWeaponControllerComp.CanAttack(itemIndex))
-                PlayerWeaponControllerComp.Attack(itemIndex);
+            if (active)
+            {
+                if (!PlayerWeaponControllerComp.IsAttacking() && PlayerWeaponControllerComp.CanAttack(itemIndex))
+                    PlayerWeaponControllerComp.Attack(itemIndex);
+            }
         }
         
         private void OnToggleShield(bool isUsingShield)

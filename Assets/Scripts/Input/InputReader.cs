@@ -17,9 +17,9 @@ namespace StartledSeal
         public event UnityAction Attack = delegate { };
         public event UnityAction Equip = delegate { };
         
-        public event UnityAction Item1 = delegate { };
-        public event UnityAction Item2 = delegate { };
-        public event UnityAction Item3 = delegate { };
+        public event UnityAction<bool> Item1 = delegate { };
+        public event UnityAction<bool> Item2 = delegate { };
+        public event UnityAction<bool> Item3 = delegate { };
         public event UnityAction<bool> Shield = delegate { }; 
 
         
@@ -116,7 +116,11 @@ namespace StartledSeal
         {
             if (context.phase == InputActionPhase.Started)
             {
-                Item1.Invoke();
+                Item1.Invoke(true);
+            }
+            else if (context.phase == InputActionPhase.Canceled)
+            {
+                Item1.Invoke(false);
             }
         }
 
@@ -124,15 +128,23 @@ namespace StartledSeal
         {
             if (context.phase == InputActionPhase.Started)
             {
-                Item2.Invoke();
-            }        
+                Item2.Invoke(true);
+            }
+            else if (context.phase == InputActionPhase.Canceled)
+            {
+                Item1.Invoke(false);
+            }
         }
 
         public void OnItem3(InputAction.CallbackContext context)
         {
             if (context.phase == InputActionPhase.Started)
             {
-                Item3.Invoke();
+                Item3.Invoke(true);
+            }
+            else if (context.phase == InputActionPhase.Canceled)
+            {
+                Item1.Invoke(false);
             }
         }
 

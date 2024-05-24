@@ -41,7 +41,7 @@ namespace StartledSeal
             }
             
             _attackCooldownTimer.Start();
-            _currentEquipment.Use(_playerController.AnimatorComp);
+            _currentEquipment.NormalAttack(_playerController.AnimatorComp);
         }
 
         public bool CanAttack(int itemIndex)
@@ -65,7 +65,7 @@ namespace StartledSeal
                 // if (_currentEquipment != null)
                 //     _currentEquipment.gameObject.SetActive(false);
                 _shield.gameObject.SetActive(true);
-                _shield.Use(_playerController.AnimatorComp);
+                _shield.NormalAttack(_playerController.AnimatorComp);
             }
             else
             {

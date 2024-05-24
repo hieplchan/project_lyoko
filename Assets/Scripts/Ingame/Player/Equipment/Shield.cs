@@ -9,13 +9,13 @@ namespace StartledSeal
     public class Shield : BaseEquipment, IDamageable
     {
         [SerializeField] private float _fallbackForce = 700f;
-        [SerializeField] private AnimationSequencerController _animationSequencer;
-        
+        [SerializeField] private AnimationSequencerController _getHitAnimSeq;
+
         public override bool IsUsable() => true;
 
-        public override async UniTask Use(Animator animatorComp)
+        public override async UniTask NormalAttack(Animator animatorComp)
         {
-            animatorComp.CrossFade(_animHash, 0.001f);
+            animatorComp.CrossFade(_animNormalAttackHash, 0.001f);
             animatorComp.SetLayerWeight(1, 1);
         }
 
@@ -26,10 +26,8 @@ namespace StartledSeal
 
         public UniTask TakeDamage(AttackType attackType, int damageAmount, Transform impactObject)
         {
-            _vfx?.Play();             
-            
-            if (_animationSequencer != null && !_animationSequencer.IsPlaying)
-                _animationSequencer.Play();
+            if (_getHitAnimSeq != null && !_getHitAnimSeq.IsPlaying)
+                _getHitAnimSeq.Play();
             
             // ApplyFallbackForce();
             

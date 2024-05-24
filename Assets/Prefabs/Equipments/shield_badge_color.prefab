@@ -46,6 +46,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   animationSteps:
   - rid: 2628237917678731268
+  - rid: 2628237959668957184
   updateType: 0
   timeScaleIndependent: 0
   autoplayMode: 2
@@ -96,6 +97,15 @@ MonoBehaviour:
         punch: {x: 1, y: 1, z: 1}
         vibrato: 2
         elasticity: 1
+    - rid: 2628237959668957184
+      type: {class: PlayParticleSystemAnimationStep, ns: BrunoMikoski.AnimationSequencer,
+        asm: BrunoMikoski.AnimationSequencer}
+      data:
+        delay: 0
+        flowType: 1
+        particleSystem: {fileID: 5069507508135545606}
+        duration: 0.1
+        stopEmittingWhenOver: 0
 --- !u!1001 &2271153173301339869
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -219,11 +229,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _weaponController: {fileID: 0}
-  _vfx: {fileID: 5069507508135545606}
-  AnimState: Shield
   AttackCoolDown: 0.5
+  _normalAttackAnimSeq: {fileID: 0}
+  _startChargingAnimSeq: {fileID: 0}
+  _chargedAttackAnimSeq: {fileID: 0}
+  NormalAttackAnimState: Shield
+  ChargingAnimState: 
+  ChargedAttackAnimState: 
   _fallbackForce: 700
-  _animationSequencer: {fileID: 3438578694892284626}
+  _getHitAnimSeq: {fileID: 3438578694892284626}
 --- !u!65 &3117566995922071580
 BoxCollider:
   m_ObjectHideFlags: 0

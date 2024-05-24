@@ -17,9 +17,9 @@ namespace StartledSeal
 
         public override bool IsUsable() => true;
         
-        public override async UniTask Use(Animator _animatorComp)
+        public override async UniTask NormalAttack(Animator _animatorComp)
         {
-            base.Use(_animatorComp);
+            base.NormalAttack(_animatorComp);
 
             if (_isUseCameraShake && _cameraEffect != null)
             {

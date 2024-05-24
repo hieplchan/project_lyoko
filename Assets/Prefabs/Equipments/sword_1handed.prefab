@@ -1,5 +1,114 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &4291428615185287573
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8433054199819514480}
+  m_Layer: 0
+  m_Name: AnimSeq
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8433054199819514480
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4291428615185287573}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 7882278549807102762}
+  m_Father: {fileID: 8200530917101966514}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &4383459851001945039
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7882278549807102762}
+  - component: {fileID: 1253606282895396652}
+  m_Layer: 0
+  m_Name: NormalAttack
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7882278549807102762
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4383459851001945039}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 8433054199819514480}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1253606282895396652
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4383459851001945039}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c10d422b52559da41aa9676770a8fc65, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animationSteps:
+  - rid: 2628237959668957186
+  updateType: 0
+  timeScaleIndependent: 0
+  autoplayMode: 0
+  startPaused: 0
+  playbackSpeed: 1
+  playType: 0
+  loops: 0
+  loopType: 0
+  autoKill: 1
+  onStartEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  onFinishedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  onProgressEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  progress: -1
+  references:
+    version: 2
+    RefIds:
+    - rid: 2628237959668957186
+      type: {class: PlayParticleSystemAnimationStep, ns: BrunoMikoski.AnimationSequencer,
+        asm: BrunoMikoski.AnimationSequencer}
+      data:
+        delay: 0
+        flowType: 1
+        particleSystem: {fileID: 0}
+        duration: 0.3
+        stopEmittingWhenOver: 0
 --- !u!1001 &8522105817489863513
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -31,7 +140,7 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: 2aedb29b3919b454287c2d9d9e0c5b70,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0.000000021855694
+      value: 0.00000002185569
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 2aedb29b3919b454287c2d9d9e0c5b70,
         type: 3}
@@ -65,13 +174,23 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
-    m_AddedGameObjects: []
+    m_AddedGameObjects:
+    - targetCorrespondingSourceObject: {fileID: -8679921383154817045, guid: 2aedb29b3919b454287c2d9d9e0c5b70,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 8433054199819514480}
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 2aedb29b3919b454287c2d9d9e0c5b70,
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 4896964130255782450}
   m_SourcePrefab: {fileID: 100100000, guid: 2aedb29b3919b454287c2d9d9e0c5b70, type: 3}
+--- !u!4 &8200530917101966514 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 2aedb29b3919b454287c2d9d9e0c5b70,
+    type: 3}
+  m_PrefabInstance: {fileID: 8522105817489863513}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &8828730681120574984 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 2aedb29b3919b454287c2d9d9e0c5b70,
@@ -90,8 +209,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f048eab15f674f34b2d598f47cdb4fa1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _originTransform: {fileID: 0}
-  _attackDistance: 1.8
+  _weaponController: {fileID: 0}
+  AttackCoolDown: 0.15
+  _normalAttackAnimSeq: {fileID: 1253606282895396652}
+  _startChargingAnimSeq: {fileID: 0}
+  _chargedAttackAnimSeq: {fileID: 0}
+  NormalAttackAnimState: Sword
+  ChargingAnimState: 
+  ChargedAttackAnimState: 
+  _attackDistance: 1.55
   _attackAngle: 180
-  _attackDamage: 10
+  _attackDamage: 20
   _isShowGizmos: 1
