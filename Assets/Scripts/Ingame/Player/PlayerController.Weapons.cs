@@ -1,3 +1,4 @@
+using Cysharp.Threading.Tasks;
 using KBCore.Refs;
 using UnityEngine;
 
@@ -5,10 +6,8 @@ namespace StartledSeal
 {
     public partial class PlayerController
     {
-        public PlayerWeaponController PlayerWeaponControllerComp => _playerWeaponController;
-        
-        [SerializeField, Child] private PlayerWeaponController _playerWeaponController;
-        
+        [field: SerializeField, Child] public PlayerWeaponController PlayerWeaponControllerComp { get; private set; }
+
         public bool IsUsingShield;
         
         public void EnableUsingItem()
@@ -35,14 +34,14 @@ namespace StartledSeal
         
         private void UseItem(int itemIndex)
         {
-            if (!_playerWeaponController.IsAttacking() && _playerWeaponController.CanAttack(itemIndex))
-                _playerWeaponController.Attack(itemIndex);
+            if (!PlayerWeaponControllerComp.IsAttacking() && PlayerWeaponControllerComp.CanAttack(itemIndex))
+                PlayerWeaponControllerComp.Attack(itemIndex);
         }
         
         private void OnToggleShield(bool isUsingShield)
         {
             IsRotationLocked = IsUsingShield = isUsingShield;
-            _playerWeaponController.ToggleShield(isUsingShield);
+            PlayerWeaponControllerComp.ToggleShield(isUsingShield);
         }
     }
 }

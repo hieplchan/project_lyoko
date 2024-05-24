@@ -6,6 +6,7 @@ using StartledSeal.Ingame.Player;
 using StartledSeal.Utils;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.Serialization;
 using static StartledSeal.Utils.Extension.FloatExtensions;
 using static StartledSeal.Const;
 
@@ -13,27 +14,17 @@ namespace StartledSeal
 {
     public partial class PlayerController : ValidatedMonoBehaviour, IDamageable
     {
-        public Animator AnimatorComp => _animatorComp;
-        public Rigidbody RigidBody => _rb;
-
         [Header("Event")] 
         public UnityEvent GetHitEvent;
         
-        [Header("References")]
-        [SerializeField, Self] private Rigidbody _rb;
-        [SerializeField, Self] private GroundChecker _groundChecker;
-        [SerializeField, Self] private WaterChecker _waterChecker;
-        
-        [SerializeField, Child] private Animator _animatorComp;
+        [field: SerializeField, Child] public Rigidbody RigidBodyComp { get; private set; }
+        [field: SerializeField, Child] public Animator AnimatorComp { get; private set; }
+        [field: SerializeField, Child] public PlayerVFXController PlayerVFXControllerComp { get; private set; }
+        [field: SerializeField, Child] public GroundChecker GroundCheckerComp { get; private set; }
+        [field: SerializeField, Child] public WaterChecker WaterCheckerComp { get; private set; }
         
         [SerializeField, Anywhere] private CinemachineFreeLook _freeLookCam;
         [SerializeField, Anywhere] private InputReader _input;
-        [SerializeField, Child] private PlayerVFXController _vfxController;
-        
-        [SerializeField, Self] private PlayerStaminaComp _playerStaminaComp;
-        [SerializeField, Self] private HealthComp _playerHealthComp;
-        // [SerializeField, Child] private NearbyEnemyDetector _nearbyEnemyDetectorComp;
-        // [SerializeField] private PlayerFlashLightController _playerFlashLightController;
         
         [Header("Movement Settings")] 
         [SerializeField] private float _runSpeed = 200f;
@@ -83,9 +74,9 @@ namespace StartledSeal
             // Invoke when observed transform is teleported, adjust _freeLookCam position accordingly
             _freeLookCam.OnTargetObjectWarped(transform, transform.position - _mainCamTransform.position - Vector3.forward);
 
-            _rb.freezeRotation = true;
+            RigidBodyComp.freezeRotation = true;
 
-            _playerHealthComp.SetTag(Const.PlayerTag);
+            PlayerHealthComp.SetTag(Const.PlayerTag);
             
             SetupTimers();
             SetupStateMachine();
@@ -102,7 +93,7 @@ namespace StartledSeal
 
             EnableUsingItem();
 
-            _playerStaminaComp.RunOutStamina += OnRunOutOfStamina;
+            PlayerStaminaComp.RunOutStamina += OnRunOutOfStamina;
         }
 
         private void OnDisable()
@@ -113,11 +104,9 @@ namespace StartledSeal
 
             DisableUsingItem();
             
-            _playerStaminaComp.RunOutStamina -= OnRunOutOfStamina;
+            PlayerStaminaComp.RunOutStamina -= OnRunOutOfStamina;
         }
         
-        private void OnRunOutOfStamina() => IsRunning = false;
-
         private void Update()
         {
             Movement = new Vector3(_input.Direction.x, 0f, _input.Direction.y);
@@ -126,7 +115,7 @@ namespace StartledSeal
             HandleTimers();
             UpdateAnimator();
         }
-
+        
         private void FixedUpdate()
         {
             _stateMachine.FixedUpdate();
@@ -135,7 +124,7 @@ namespace StartledSeal
         private void OnJump(bool performed)
         {
             if (!performed) return;
-            if (_groundChecker.IsGrounded) // only jump when on ground
+            if (GroundCheckerComp.IsGrounded) // only jump when on ground
             {
                 if (_jumpTimer.IsRunning) return; // not jump when jumping
                 _jumpVelocity = _jumpForce;
@@ -150,7 +139,7 @@ namespace StartledSeal
 
         private void OnRun(bool performed)
         {
-            if (performed && _playerStaminaComp.CurrentStamina > _runStaminaThreshold)
+            if (performed && PlayerStaminaComp.CurrentStamina > _runStaminaThreshold)
                 IsRunning = true;
             else
                 IsRunning = false;
@@ -160,7 +149,7 @@ namespace StartledSeal
         {
             if (performed && !_dashCooldownTimer.IsRunning &&
                 !_dashTimer.IsRunning &&
-                _groundChecker.IsGrounded)
+                GroundCheckerComp.IsGrounded)
             {
                 _dashTimer.Start();
             }
@@ -173,7 +162,7 @@ namespace StartledSeal
         public void HandleJump()
         {
             // If not jumping and grounded, keep jump velocity at 0
-            if (!_jumpTimer.IsRunning && _groundChecker.IsGrounded)
+            if (!_jumpTimer.IsRunning && GroundCheckerComp.IsGrounded)
             {
                 _jumpVelocity = ZeroF;
                 _jumpTimer.Stop();
@@ -187,7 +176,7 @@ namespace StartledSeal
             }
 
             // Apply velocity
-            _rb.velocity = new Vector3(_rb.velocity.x, _jumpVelocity, _rb.velocity.z);
+            RigidBodyComp.velocity = new Vector3(RigidBodyComp.velocity.x, _jumpVelocity, RigidBodyComp.velocity.z);
         }
 
         public void HandleMovement()
@@ -209,7 +198,7 @@ namespace StartledSeal
                 // SmoothSpeed(ZeroF);
 
                 // Reset horizontal velocity for snappy stop
-                _rb.velocity = new Vector3(ZeroF, _rb.velocity.y, ZeroF);
+                RigidBodyComp.velocity = new Vector3(ZeroF, RigidBodyComp.velocity.y, ZeroF);
             }
         }
 
@@ -233,7 +222,7 @@ namespace StartledSeal
 
             // Move the player
             Vector3 velocity = adjustedDirection * (moveSpeed * _dashVelocity * Time.fixedDeltaTime);
-            _rb.velocity = new Vector3(velocity.x, _rb.velocity.y, velocity.z);
+            RigidBodyComp.velocity = new Vector3(velocity.x, RigidBodyComp.velocity.y, velocity.z);
         }
         
         // private void SmoothSpeed(float value)
@@ -244,14 +233,7 @@ namespace StartledSeal
         private void UpdateAnimator()
         {
             // _animator.SetFloat(Speed, _currentSpeed);
-            _animatorComp.SetFloat(Speed, _rb.velocity.magnitude);
-        }
-
-        public UniTask TakeDamage(AttackType attackType, int damageAmount, Transform impactObject)
-        {
-            GetHitEvent?.Invoke();
-            _playerHealthComp.TakeDamage(damageAmount);
-            return UniTask.CompletedTask;
+            AnimatorComp.SetFloat(Speed, RigidBodyComp.velocity.magnitude);
         }
     }
 }

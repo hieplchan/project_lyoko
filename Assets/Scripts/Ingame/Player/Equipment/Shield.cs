@@ -48,7 +48,7 @@ namespace StartledSeal
         {
             Vector3 impactVector = -_weaponController.PlayerControllerComp.transform.forward;
             impactVector.y = 0;
-            _weaponController.PlayerControllerComp.RigidBody
+            _weaponController.PlayerControllerComp.RigidBodyComp
                 .AddForce(impactVector * _fallbackForce);
         }
     }

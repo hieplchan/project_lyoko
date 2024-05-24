@@ -50,20 +50,20 @@ namespace StartledSeal
             _stateMachine = new StateMachine();
             
             // declare state
-            var locomotionState = new LocomotionState(this, _animatorComp, _playerStaminaComp, _runStaminaConsumptionPerSec);
-            var jumpState = new JumpState(this, _animatorComp, _vfxController);
-            var dashState = new DashState(this, _animatorComp);
-            var attackState = new AttackState(this, _animatorComp, _vfxController);
-            var deadState = new DeadState(this, _animatorComp);
+            var locomotionState = new LocomotionState(this, AnimatorComp, PlayerStaminaComp, _runStaminaConsumptionPerSec);
+            var jumpState = new JumpState(this, AnimatorComp, PlayerVFXControllerComp);
+            var dashState = new DashState(this, AnimatorComp);
+            var attackState = new AttackState(this, AnimatorComp, PlayerVFXControllerComp);
+            var deadState = new DeadState(this, AnimatorComp);
             // var flyState = new FlyState(this, _animator, _flyDrag, _rb.drag);
-            var swimState = new SwimState(this, _animatorComp, _vfxController);
+            var swimState = new SwimState(this, AnimatorComp, PlayerVFXControllerComp);
             
             // define transition
             At(locomotionState, jumpState, new FuncPredicate(() => _jumpTimer.IsRunning));
             At(locomotionState, dashState, new FuncPredicate(() => _dashTimer.IsRunning));
             
-            At(locomotionState, attackState, new FuncPredicate(() => _playerWeaponController.IsAttacking()));
-            At(attackState, locomotionState, new FuncPredicate(() => !_playerWeaponController.IsAttacking()));
+            At(locomotionState, attackState, new FuncPredicate(() => PlayerWeaponControllerComp.IsAttacking()));
+            At(attackState, locomotionState, new FuncPredicate(() => !PlayerWeaponControllerComp.IsAttacking()));
             
             At(dashState, jumpState, new FuncPredicate(() => !_dashTimer.IsRunning && _jumpTimer.IsRunning));
             At(jumpState, dashState, new FuncPredicate(() => _dashTimer.IsRunning && !_jumpTimer.IsRunning));
@@ -71,7 +71,7 @@ namespace StartledSeal
             // At(dashState, attackState, new FuncPredicate(() => !_dashTimer.IsRunning && _playerWeaponController.IsAttacking()));
             // At(attackState, dashState, new FuncPredicate(() => _dashTimer.IsRunning && !_playerWeaponController.IsAttacking()));
             
-            At(locomotionState, deadState, new FuncPredicate(() => _playerHealthComp.IsDead()));
+            At(locomotionState, deadState, new FuncPredicate(() => PlayerHealthComp.IsDead()));
             
             // At(jumpState, flyState, new FuncPredicate(() => !_groundChecker.IsGrounded && IsFlying));
             // At(flyState, jumpState, new FuncPredicate(() => !_groundChecker.IsGrounded && !IsFlying));
@@ -79,7 +79,7 @@ namespace StartledSeal
             At(swimState, locomotionState, new FuncPredicate(ReturnToLocomotionState));
             
             Any(locomotionState, new FuncPredicate(ReturnToLocomotionState));
-            Any(swimState, new FuncPredicate(() => _waterChecker.IsInWater));
+            Any(swimState, new FuncPredicate(() => WaterCheckerComp.IsInWater));
 
             // set init state
             _stateMachine.SetState(locomotionState);
@@ -87,12 +87,12 @@ namespace StartledSeal
 
         private bool ReturnToLocomotionState()
         {
-            return _groundChecker.IsGrounded
+            return GroundCheckerComp.IsGrounded
                    && !_jumpTimer.IsRunning
                    && !_dashTimer.IsRunning
-                   && !_playerWeaponController.IsAttacking()
-                   && !_playerHealthComp.IsDead()
-                   && !_waterChecker.IsInWater;
+                   && !PlayerWeaponControllerComp.IsAttacking()
+                   && !PlayerHealthComp.IsDead()
+                   && !WaterCheckerComp.IsInWater;
         }
 
         public void SetStateHash(int stateHash)

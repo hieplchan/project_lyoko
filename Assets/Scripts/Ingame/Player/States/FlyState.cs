@@ -20,7 +20,7 @@ namespace StartledSeal
             _animator.CrossFade(FlyHash, CrossFadeDuration);
             _player.SetStateHash(FlyHash);
 
-            _player.RigidBody.drag = _flyDrag;
+            _player.RigidBodyComp.drag = _flyDrag;
 
             Messenger.Default.Publish(new PlayerFlyingPayload()
             {
@@ -35,7 +35,7 @@ namespace StartledSeal
 
         public override void OnExit()
         {
-            _player.RigidBody.drag = _defaultDrag;
+            _player.RigidBodyComp.drag = _defaultDrag;
             _player.IsFlying = false;
             
             Messenger.Default.Publish(new PlayerFlyingPayload()

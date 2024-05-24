@@ -18,8 +18,8 @@ namespace StartledSeal
             _animator.CrossFade(SwimHash, CrossFadeDuration);
             _player.SetStateHash(SwimHash);
 
-            _player.RigidBody.useGravity = false;
-            _player.RigidBody.velocity = new Vector3(_player.RigidBody.velocity.x, 0f, _player.RigidBody.velocity.z);
+            _player.RigidBodyComp.useGravity = false;
+            _player.RigidBodyComp.velocity = new Vector3(_player.RigidBodyComp.velocity.x, 0f, _player.RigidBodyComp.velocity.z);
             
             _player.DisableUsingItem();
 
@@ -35,7 +35,7 @@ namespace StartledSeal
         {
             _player.EnableUsingItem();
 
-            _player.RigidBody.useGravity = true;
+            _player.RigidBodyComp.useGravity = true;
             _vfxController.StopVFX("Swim");
         }
     }
