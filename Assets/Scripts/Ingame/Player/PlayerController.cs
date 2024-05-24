@@ -11,11 +11,10 @@ using static StartledSeal.Const;
 
 namespace StartledSeal
 {
-    public class PlayerController : ValidatedMonoBehaviour, IDamageable
+    public partial class PlayerController : ValidatedMonoBehaviour, IDamageable
     {
         public Animator AnimatorComp => _animatorComp;
         public Rigidbody RigidBody => _rb;
-        public PlayerWeaponController PlayerWeaponControllerComp => _playerWeaponController;
 
         [Header("Event")] 
         public UnityEvent GetHitEvent;
@@ -30,7 +29,6 @@ namespace StartledSeal
         [SerializeField, Anywhere] private CinemachineFreeLook _freeLookCam;
         [SerializeField, Anywhere] private InputReader _input;
         [SerializeField, Child] private PlayerVFXController _vfxController;
-        [SerializeField, Child] private PlayerWeaponController _playerWeaponController;
         
         [SerializeField, Self] private PlayerStaminaComp _playerStaminaComp;
         [SerializeField, Self] private HealthComp _playerHealthComp;
@@ -62,9 +60,6 @@ namespace StartledSeal
         [SerializeField] private float _dashForce = 10f;
         [SerializeField] private float _dashDuration = 1f;
         [SerializeField] private float _dashCoolDown = 2f;
-
-        [Header("Attack Setting")] 
-        [SerializeField] private float _attackCoolDown = 0.5f;
         
         private Transform _mainCamTransform;
         
@@ -72,7 +67,6 @@ namespace StartledSeal
         public bool IsRunning;
         public bool IsFlying;
         public bool IsRotationLocked;
-        public bool IsUsingShield;
         
         // private float _currentSpeed;
         // private float _velocity;
@@ -80,19 +74,6 @@ namespace StartledSeal
         private float _dashVelocity = 1f;
 
         public Vector3 Movement { get; private set; }
-
-        // Timers
-        private List<Timer> _timers;
-        
-        private CooldownTimer _jumpTimer; // how long user hold jump btn
-        private CooldownTimer _jumpCooldownTimer; // wait to next jump
-
-        private CooldownTimer _dashTimer;
-        private CooldownTimer _dashCooldownTimer;
-
-        // State Machine
-        private StateMachine _stateMachine;
-        private int _currentStateHash;
 
         private void Awake()
         {
@@ -110,81 +91,6 @@ namespace StartledSeal
             SetupStateMachine();
         }
 
-        private void SetupTimers()
-        {
-            _jumpTimer = new CooldownTimer(_jumpDuration);
-
-            _dashTimer = new CooldownTimer(_dashDuration);
-            _dashCooldownTimer = new CooldownTimer(_dashCoolDown);
-            
-            _timers = new List<Timer>(3) { _jumpTimer, _dashTimer, _dashCooldownTimer };
-
-            _dashTimer.OnTimerStart += () => _dashVelocity = _dashForce;
-            _dashTimer.OnTimerStop += () =>
-            {
-                _dashCooldownTimer.Start();
-                _dashVelocity = 1f;
-            };
-        }
-
-        #region State Machine
-        private void SetupStateMachine()
-        {
-            _stateMachine = new StateMachine();
-            
-            // declare state
-            var locomotionState = new LocomotionState(this, _animatorComp, _playerStaminaComp, _runStaminaConsumptionPerSec);
-            var jumpState = new JumpState(this, _animatorComp, _vfxController);
-            var dashState = new DashState(this, _animatorComp);
-            var attackState = new AttackState(this, _animatorComp, _vfxController);
-            var deadState = new DeadState(this, _animatorComp);
-            // var flyState = new FlyState(this, _animator, _flyDrag, _rb.drag);
-            var swimState = new SwimState(this, _animatorComp, _vfxController);
-            
-            // define transition
-            At(locomotionState, jumpState, new FuncPredicate(() => _jumpTimer.IsRunning));
-            At(locomotionState, dashState, new FuncPredicate(() => _dashTimer.IsRunning));
-            
-            At(locomotionState, attackState, new FuncPredicate(() => _playerWeaponController.IsAttacking()));
-            At(attackState, locomotionState, new FuncPredicate(() => !_playerWeaponController.IsAttacking()));
-            
-            At(dashState, jumpState, new FuncPredicate(() => !_dashTimer.IsRunning && _jumpTimer.IsRunning));
-            At(jumpState, dashState, new FuncPredicate(() => _dashTimer.IsRunning && !_jumpTimer.IsRunning));
-            
-            // At(dashState, attackState, new FuncPredicate(() => !_dashTimer.IsRunning && _playerWeaponController.IsAttacking()));
-            // At(attackState, dashState, new FuncPredicate(() => _dashTimer.IsRunning && !_playerWeaponController.IsAttacking()));
-            
-            At(locomotionState, deadState, new FuncPredicate(() => _playerHealthComp.IsDead()));
-            
-            // At(jumpState, flyState, new FuncPredicate(() => !_groundChecker.IsGrounded && IsFlying));
-            // At(flyState, jumpState, new FuncPredicate(() => !_groundChecker.IsGrounded && !IsFlying));
-            
-            At(swimState, locomotionState, new FuncPredicate(ReturnToLocomotionState));
-            
-            Any(locomotionState, new FuncPredicate(ReturnToLocomotionState));
-            Any(swimState, new FuncPredicate(() => _waterChecker.IsInWater));
-
-            // set init state
-            _stateMachine.SetState(locomotionState);
-        }
-        void At(IState from, IState to, IPredicate condition) => _stateMachine.AddTransition(from, to, condition);
-        void Any(IState to, IPredicate condition) => _stateMachine.AddAnyTransition(to, condition);
-
-        private bool ReturnToLocomotionState()
-        {
-            return _groundChecker.IsGrounded
-                   && !_jumpTimer.IsRunning
-                   && !_dashTimer.IsRunning
-                   && !_playerWeaponController.IsAttacking()
-                   && !_playerHealthComp.IsDead()
-                   && !_waterChecker.IsInWater;
-        }
-
-        public void SetStateHash(int stateHash)
-        {
-            _currentStateHash = stateHash;
-        }
-        #endregion
 
         private void Start() => _input.EnableplayerActions();
 
@@ -209,24 +115,6 @@ namespace StartledSeal
             
             _playerStaminaComp.RunOutStamina -= OnRunOutOfStamina;
         }
-
-        public void EnableUsingItem()
-        {
-            // _input.Attack += OnAttack;
-            _input.Item1 += OnItem1;
-            _input.Item2 += OnItem2;
-            _input.Item3 += OnItem3;
-            _input.Shield += OnToggleShield;
-        }
-
-        public void DisableUsingItem()
-        {
-            // _input.Attack -= OnAttack;
-            _input.Item1 -= OnItem1;
-            _input.Item2 -= OnItem2;
-            _input.Item3 -= OnItem3;
-            _input.Shield -= OnToggleShield;
-        }
         
         private void OnRunOutOfStamina() => IsRunning = false;
 
@@ -237,12 +125,6 @@ namespace StartledSeal
             
             HandleTimers();
             UpdateAnimator();
-        }
-
-        private void HandleTimers()
-        {
-            foreach (var timer in _timers)
-                timer.Tick(Time.deltaTime);
         }
 
         private void FixedUpdate()
@@ -286,22 +168,6 @@ namespace StartledSeal
             {
                 _dashTimer.Stop();
             }
-        }
-
-        private void OnItem1() => UseItem(0);
-        private void OnItem2() => UseItem(1);
-        private void OnItem3() => UseItem(2);
-        
-        private void UseItem(int itemIndex)
-        {
-            if (!_playerWeaponController.IsAttacking() && _playerWeaponController.CanAttack(itemIndex))
-                _playerWeaponController.Attack(itemIndex);
-        }
-        
-        private void OnToggleShield(bool isUsingShield)
-        {
-            IsRotationLocked = IsUsingShield = isUsingShield;
-            _playerWeaponController.ToggleShield(isUsingShield);
         }
 
         public void HandleJump()
