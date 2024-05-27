@@ -9,7 +9,7 @@ namespace StartledSeal
     {
         private float _flyDrag, _defaultDrag;
         
-        public FlyState(PlayerController player, Animator animator, float flyDrag, float defaultDrag) : base(player, animator)
+        public FlyState(PlayerController player, float flyDrag, float defaultDrag) : base(player)
         {
             _flyDrag = flyDrag;
             _defaultDrag = defaultDrag;

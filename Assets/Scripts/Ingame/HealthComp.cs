@@ -42,7 +42,6 @@ namespace StartledSeal
         public void TakeDamage(float damage)
         {
             CurrentHealth -= damage;
-            MLog.Debug($"CurrentHealth {CurrentHealth}");
         }
         
         private void PublishHealthMessage()

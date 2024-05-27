@@ -8,44 +8,35 @@ namespace StartledSeal
     public sealed class LocomotionState : BaseState
     {
         private readonly bool _isUsingShield;
-        private readonly PlayerWeaponController _playerWeaponControllerComp;
-        private PlayerStaminaComp _playerStaminaComp;
         private float _runStaminaConsumptionPerSec;
         
-        public LocomotionState(PlayerController player, Animator animator) 
-            : base(player, animator)
+        public LocomotionState(PlayerController player) : base(player)
         {
         }
 
-        public LocomotionState(PlayerController player, Animator animator, 
-            PlayerStaminaComp playerStaminaComp, float runStaminaConsumptionPerSec) 
-            : base(player, animator)
+        public LocomotionState(PlayerController player, float runStaminaConsumptionPerSec) 
+            : base(player)
         {
-            _playerStaminaComp = playerStaminaComp;
             _runStaminaConsumptionPerSec = runStaminaConsumptionPerSec;
         }
 
         public override void OnEnter()
         {
-            // MLog.Debug("LocomotionState", "OnEnter");
+            MLog.Debug("LocomotionState", $"OnEnter IsUsingShield: {_player.PlayerWeaponControllerComp.IsUsingShield}");
 
             _animator.CrossFade(LocomotionHash, CrossFadeDuration);
             _player.SetStateHash(LocomotionHash);
 
-            if (_player.IsUsingShield)
-            {
-                _player.IsRotationLocked = true;
-                _player.PlayerWeaponControllerComp.ToggleShield(true);
-            }
+            _player.PlayerWeaponControllerComp.OnToggleShield(_player.Input.InputActions.Player.Shield.IsPressed());
         }
 
         public override void Update()
         {
-            if (_playerStaminaComp != null 
+            if (_player.PlayerStaminaComp != null 
                 && _player.IsRunning 
                 && _player.Movement.magnitude > ZeroF)
             {
-                _playerStaminaComp.ConsumeStamina(_runStaminaConsumptionPerSec * Time.deltaTime);
+                _player.PlayerStaminaComp.ConsumeStamina(_runStaminaConsumptionPerSec * Time.deltaTime);
             }
         }
 
@@ -57,7 +48,7 @@ namespace StartledSeal
         public override void OnExit()
         {
             _player.IsRotationLocked = false;
-            _player.PlayerWeaponControllerComp.ToggleShield(false);
+            _player.PlayerWeaponControllerComp.OnToggleShield(false);
         }
     }
 }

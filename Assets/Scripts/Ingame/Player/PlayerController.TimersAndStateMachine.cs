@@ -50,20 +50,20 @@ namespace StartledSeal
             _stateMachine = new StateMachine();
             
             // declare state
-            var locomotionState = new LocomotionState(this, AnimatorComp, PlayerStaminaComp, _runStaminaConsumptionPerSec);
-            var jumpState = new JumpState(this, AnimatorComp, PlayerVFXControllerComp);
-            var dashState = new DashState(this, AnimatorComp);
-            var attackState = new AttackState(this, AnimatorComp, PlayerVFXControllerComp);
-            var deadState = new DeadState(this, AnimatorComp);
+            var locomotionState = new LocomotionState(this, _runStaminaConsumptionPerSec);
+            var jumpState = new JumpState(this);
+            var dashState = new DashState(this);
+            var attackState = new AttackState(this);
+            var deadState = new DeadState(this);
             // var flyState = new FlyState(this, _animator, _flyDrag, _rb.drag);
-            var swimState = new SwimState(this, AnimatorComp, PlayerVFXControllerComp);
+            var swimState = new SwimState(this);
             
             // define transition
             At(locomotionState, jumpState, new FuncPredicate(() => _jumpTimer.IsRunning));
             At(locomotionState, dashState, new FuncPredicate(() => _dashTimer.IsRunning));
             
-            At(locomotionState, attackState, new FuncPredicate(() => PlayerWeaponControllerComp.IsAttacking()));
-            At(attackState, locomotionState, new FuncPredicate(() => !PlayerWeaponControllerComp.IsAttacking()));
+            At(locomotionState, attackState, new FuncPredicate(() => PlayerWeaponControllerComp.IsAttacking));
+            At(attackState, locomotionState, new FuncPredicate(() => !PlayerWeaponControllerComp.IsAttacking));
             
             At(dashState, jumpState, new FuncPredicate(() => !_dashTimer.IsRunning && _jumpTimer.IsRunning));
             At(jumpState, dashState, new FuncPredicate(() => _dashTimer.IsRunning && !_jumpTimer.IsRunning));
@@ -90,7 +90,7 @@ namespace StartledSeal
             return GroundCheckerComp.IsGrounded
                    && !_jumpTimer.IsRunning
                    && !_dashTimer.IsRunning
-                   && !PlayerWeaponControllerComp.IsAttacking()
+                   && !PlayerWeaponControllerComp.IsAttacking
                    && !PlayerHealthComp.IsDead()
                    && !WaterCheckerComp.IsInWater;
         }

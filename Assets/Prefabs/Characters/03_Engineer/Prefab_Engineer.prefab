@@ -122,11 +122,13 @@ MonoBehaviour:
         m_CallState: 2
   <RigidBodyComp>k__BackingField: {fileID: 8686178169984705354}
   <AnimatorComp>k__BackingField: {fileID: 1494195398445934186}
+  <PlayerWeaponControllerComp>k__BackingField: {fileID: 2575526602863033000}
   <PlayerVFXControllerComp>k__BackingField: {fileID: 6701029129495253267}
   <GroundCheckerComp>k__BackingField: {fileID: 3473077154477050725}
   <WaterCheckerComp>k__BackingField: {fileID: 2879669171760659683}
+  <Input>k__BackingField: {fileID: 11400000, guid: 3ad9c55985255ad42b508b4163f62a85,
+    type: 2}
   _freeLookCam: {fileID: 0}
-  _input: {fileID: 11400000, guid: 3ad9c55985255ad42b508b4163f62a85, type: 2}
   _runSpeed: 300
   _walkSpeed: 250
   _usingShieldSpeed: 130
@@ -148,8 +150,6 @@ MonoBehaviour:
   IsRotationLocked: 0
   <PlayerStaminaComp>k__BackingField: {fileID: 7490827989259888145}
   <PlayerHealthComp>k__BackingField: {fileID: 2260378426135068998}
-  <PlayerWeaponControllerComp>k__BackingField: {fileID: 2575526602863033000}
-  IsUsingShield: 0
 --- !u!114 &3473077154477050725
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -380,8 +380,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 893b74c6428147fc839b0d2e85ae0933, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  <PlayerControllerComp>k__BackingField: {fileID: 8675114378790124053}
+  _input: {fileID: 11400000, guid: 3ad9c55985255ad42b508b4163f62a85, type: 2}
   _equipmentSpawnPoint: {fileID: 4861998526376992654}
-  _playerController: {fileID: 8675114378790124053}
   _shield: {fileID: 4878962970676225653}
   _equipmentList:
   - {fileID: 2157371856090161473}

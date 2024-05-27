@@ -24,6 +24,8 @@ namespace StartledSeal
 
         
         public Vector3 Direction => _inputActions.Player.Move.ReadValue<Vector2>();
+        public PlayerInputActions InputActions => _inputActions;
+        
         private PlayerInputActions _inputActions;
 
         private void OnEnable()

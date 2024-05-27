@@ -10,10 +10,10 @@ namespace StartledSeal
         protected PlayerController _player;
         protected Animator _animator;
         
-        protected BaseState(PlayerController player, Animator animator)
+        protected BaseState(PlayerController player)
         {
             _player = player;
-            _animator = animator;
+            _animator = player.AnimatorComp;
         }
         
         public virtual void OnEnter()

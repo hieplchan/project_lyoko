@@ -41,8 +41,6 @@ namespace StartledSeal
         
         public void Attack()
         {
-            MLog.Debug("MonsterPlant", "Attack");
-
             GameObject projectile = Instantiate(_projectilePrefab, 
                 _projectileLaunchPoint.position,  _projectileLaunchPoint.rotation);
             projectile.GetComponent<Rigidbody>().AddRelativeForce(new Vector3 (0, 0,_projectileLaunchVelocity));

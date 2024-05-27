@@ -5,7 +5,7 @@ namespace StartledSeal
 {
     public sealed class DashState : BaseState
     {
-        public DashState(PlayerController player, Animator animator) : base(player, animator)
+        public DashState(PlayerController player) : base(player)
         {
         }
 

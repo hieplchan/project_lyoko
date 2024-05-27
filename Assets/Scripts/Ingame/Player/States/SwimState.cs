@@ -8,9 +8,9 @@ namespace StartledSeal
     {
         private readonly PlayerVFXController _vfxController;
 
-        public SwimState(PlayerController player, Animator animator, PlayerVFXController vfxController) : base(player, animator)
+        public SwimState(PlayerController player) : base(player)
         {
-            _vfxController = vfxController;
+            _vfxController = _player.PlayerVFXControllerComp;
         }
         
         public override void OnEnter()
@@ -21,7 +21,7 @@ namespace StartledSeal
             _player.RigidBodyComp.useGravity = false;
             _player.RigidBodyComp.velocity = new Vector3(_player.RigidBodyComp.velocity.x, 0f, _player.RigidBodyComp.velocity.z);
             
-            _player.DisableUsingItem();
+            _player.PlayerWeaponControllerComp.DisableUsingItem();
 
             _vfxController.PlayVFX("Swim");
         }
@@ -33,7 +33,7 @@ namespace StartledSeal
 
         public override void OnExit()
         {
-            _player.EnableUsingItem();
+            _player.PlayerWeaponControllerComp.EnableUsingItem();
 
             _player.RigidBodyComp.useGravity = true;
             _vfxController.StopVFX("Swim");

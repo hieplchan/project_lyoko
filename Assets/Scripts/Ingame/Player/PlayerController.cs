@@ -19,14 +19,15 @@ namespace StartledSeal
         
         [field: SerializeField, Child] public Rigidbody RigidBodyComp { get; private set; }
         [field: SerializeField, Child] public Animator AnimatorComp { get; private set; }
+        [field: SerializeField, Child] public PlayerWeaponController PlayerWeaponControllerComp { get; private set; }
         [field: SerializeField, Child] public PlayerVFXController PlayerVFXControllerComp { get; private set; }
         [field: SerializeField, Child] public GroundChecker GroundCheckerComp { get; private set; }
         [field: SerializeField, Child] public WaterChecker WaterCheckerComp { get; private set; }
         
+        [field: SerializeField, Anywhere] public InputReader Input { get; private set; }
         [SerializeField, Anywhere] private CinemachineFreeLook _freeLookCam;
-        [SerializeField, Anywhere] private InputReader _input;
         
-        [Header("Movement Settings")] 
+        [Header("Movement Settings")]
         [SerializeField] private float _runSpeed = 200f;
         [SerializeField] private float _walkSpeed = 130f;
         [SerializeField] private float _usingShieldSpeed = 150f;
@@ -82,34 +83,33 @@ namespace StartledSeal
             SetupStateMachine();
         }
 
-
-        private void Start() => _input.EnableplayerActions();
+        private void Start() => Input.EnableplayerActions();
 
         private void OnEnable()
         {
-            _input.Jump += OnJump;
-            _input.Dash += OnDash;
-            _input.Run += OnRun;
+            Input.Jump += OnJump;
+            Input.Dash += OnDash;
+            Input.Run += OnRun;
 
-            EnableUsingItem();
+            PlayerWeaponControllerComp.EnableUsingItem();
 
             PlayerStaminaComp.RunOutStamina += OnRunOutOfStamina;
         }
 
         private void OnDisable()
         {
-            _input.Jump -= OnJump;
-            _input.Dash -= OnDash;
-            _input.Run -= OnRun;
+            Input.Jump -= OnJump;
+            Input.Dash -= OnDash;
+            Input.Run -= OnRun;
 
-            DisableUsingItem();
+            PlayerWeaponControllerComp.DisableUsingItem();
             
             PlayerStaminaComp.RunOutStamina -= OnRunOutOfStamina;
         }
         
         private void Update()
         {
-            Movement = new Vector3(_input.Direction.x, 0f, _input.Direction.y);
+            Movement = new Vector3(Input.Direction.x, 0f, Input.Direction.y);
             _stateMachine.Update();
             
             HandleTimers();
@@ -215,7 +215,7 @@ namespace StartledSeal
         private void HandleHorizontalMovement(Vector3 adjustedDirection)
         {
             var moveSpeed = IsRunning ? _runSpeed : _walkSpeed;
-            if (IsUsingShield)
+            if (PlayerWeaponControllerComp.IsUsingShield)
                 moveSpeed = _usingShieldSpeed;
             moveSpeed = _currentStateHash.Equals(FlyHash) ? _flySpeed : moveSpeed;
             moveSpeed = _currentStateHash.Equals(SwimHash) ? _swimSpeed : moveSpeed;

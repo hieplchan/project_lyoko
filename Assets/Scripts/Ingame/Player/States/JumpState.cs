@@ -7,25 +7,22 @@ namespace StartledSeal
 {
     public sealed class JumpState : BaseState
     {
-        private readonly PlayerVFXController _vfxController;
-
-        public JumpState(PlayerController player, Animator animator, PlayerVFXController vfxController) : base(player, animator)
+        public JumpState(PlayerController player) : base(player)
         {
-            _vfxController = vfxController;
         }
 
         public override void OnEnter()
         {
-            _player.DisableUsingItem();
+            _player.PlayerWeaponControllerComp.DisableUsingItem();
             
             _animator.CrossFade(JumpHash, CrossFadeDuration);
             _player.SetStateHash(JumpHash);
-            _vfxController.PlayVFX("Jump");
+            _player.PlayerVFXControllerComp.PlayVFX("Jump");
         }
 
         public override void OnExit()
         {
-            _player.EnableUsingItem();
+            _player.PlayerWeaponControllerComp.EnableUsingItem();
         }
 
         public override void FixedUpdate()
