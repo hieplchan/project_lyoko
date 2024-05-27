@@ -13,21 +13,24 @@ namespace StartledSeal
         [SerializeField, Anywhere] private InputReader _input;
 
         [SerializeField] private Transform _equipmentSpawnPoint;
-        [SerializeField] private Shield _shield;
         [SerializeField] private List<BaseEquipment> _equipmentList;
+        [SerializeField] private Shield _shield;
+
+        [SerializeField] private float _chargingTime = 0.1f;
         
         public bool IsUsingShield { get; private set; }
+        public BaseEquipment CurrentEquipment => _equipmentList[_currentEquipmentIndex];
 
         public bool IsAttacking => _attackCooldownTimer.IsRunning;
 
         private CooldownTimer _attackCooldownTimer;
-        private BaseEquipment _currentEquipment;
+        private int _currentEquipmentIndex;
         
         private void Awake()
         {
-            _currentEquipment = _equipmentList[0];
-            _attackCooldownTimer = new CooldownTimer(_currentEquipment.AttackCoolDown);
-            _attackCooldownTimer.Reset(_currentEquipment.AttackCoolDown);
+            _currentEquipmentIndex = 0;
+            _attackCooldownTimer = new CooldownTimer(CurrentEquipment.AttackCoolDown);
+            _attackCooldownTimer.Reset(CurrentEquipment.AttackCoolDown);
         }
         
         public void EnableUsingItem()
@@ -52,35 +55,32 @@ namespace StartledSeal
         
         private void UseItem(int itemIndex, bool active)
         {
+            if (_equipmentList.Count == 0) return;
+            if (itemIndex < 0 || itemIndex > _equipmentList.Count - 1) return;
+            if (!_equipmentList[itemIndex].IsUsable()) return;
+            if (_attackCooldownTimer.IsRunning) return;
+
             if (active)
             {
-                if (!IsAttacking && CanAttack(itemIndex))
-                    Attack(itemIndex);
+                Attack(itemIndex);
             }
         }
 
         public void Attack(int itemIndex)
         {
-            if (!CanAttack(itemIndex)) return;
-
             // Enable new item, disable old
-            if (_currentEquipment != _equipmentList[itemIndex])
+            if (CurrentEquipment != _equipmentList[itemIndex])
             {
-                _currentEquipment.gameObject.SetActive(false);
-                _currentEquipment = _equipmentList[itemIndex];
-                _currentEquipment.gameObject.SetActive(true);
-                _attackCooldownTimer.Reset(_currentEquipment.AttackCoolDown);
+                CurrentEquipment.gameObject.SetActive(false);
+                
+                _currentEquipmentIndex = itemIndex;
+                CurrentEquipment.gameObject.SetActive(true);
+                
+                _attackCooldownTimer.Reset(CurrentEquipment.AttackCoolDown);
             }
             
             _attackCooldownTimer.Start();
-            _currentEquipment.NormalAttack(PlayerControllerComp.AnimatorComp);
-        }
-
-        public bool CanAttack(int itemIndex)
-        {
-            return !IsAttacking
-                   && itemIndex <= _equipmentList.Count - 1
-                   && _equipmentList[itemIndex].IsUsable();
+            CurrentEquipment.NormalAttack(PlayerControllerComp.AnimatorComp);
         }
         
         private void Update()
