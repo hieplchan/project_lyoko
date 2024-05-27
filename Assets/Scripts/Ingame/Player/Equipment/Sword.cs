@@ -13,9 +13,9 @@ namespace StartledSeal
 
         public override bool IsUsable() => true;
         
-        public override async UniTask NormalAttack(Animator _animatorComp)
+        public override async UniTask NormalAttack(PlayerController playerController)
         {
-            base.NormalAttack(_animatorComp);
+            base.NormalAttack(playerController);
             
             var _originTransform = _weaponController.gameObject.transform;
             

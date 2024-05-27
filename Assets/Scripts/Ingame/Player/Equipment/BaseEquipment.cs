@@ -32,9 +32,9 @@ namespace StartledSeal
 
         public abstract bool IsUsable();
 
-        public virtual UniTask NormalAttack(Animator _animatorComp)
+        public virtual UniTask NormalAttack(PlayerController playerController)
         {
-            _animatorComp.CrossFade(_animNormalAttackHash, 0.001f);
+            playerController.AnimatorComp.Play(_animNormalAttackHash, 0, 0f);
 
             if (_normalAttackAnimSeq != null)
                 _normalAttackAnimSeq.Play();
@@ -42,14 +42,19 @@ namespace StartledSeal
             return UniTask.CompletedTask;
         }
         
-        public virtual UniTask StartCharging(Animator _animatorComp)
+        public virtual UniTask StartCharging(PlayerController playerController)
         {
             return UniTask.CompletedTask;
         }
         
-        public virtual UniTask ChargedAttack(Animator _animatorComp)
+        public virtual UniTask ChargedAttack(PlayerController playerController)
         {
-            return UniTask.CompletedTask;
+            playerController.AnimatorComp.Play(_animChargedAttackHash, 0, 0f);
+            
+            if (_chargedAttackAnimSeq != null)
+                _chargedAttackAnimSeq.Play();
+            
+            return UniTask.CompletedTask;        
         }
     }
 }

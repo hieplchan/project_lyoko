@@ -383,10 +383,11 @@ MonoBehaviour:
   <PlayerControllerComp>k__BackingField: {fileID: 8675114378790124053}
   _input: {fileID: 11400000, guid: 3ad9c55985255ad42b508b4163f62a85, type: 2}
   _equipmentSpawnPoint: {fileID: 4861998526376992654}
-  _shield: {fileID: 4878962970676225653}
   _equipmentList:
   - {fileID: 2157371856090161473}
   - {fileID: 8762295467567345008}
+  _shield: {fileID: 4878962970676225653}
+  _chargedAttackThresholdSec: 0.1
 --- !u!1 &2195020728851037822
 GameObject:
   m_ObjectHideFlags: 0
@@ -2199,6 +2200,11 @@ PrefabInstance:
       propertyPath: _weaponController
       value: 
       objectReference: {fileID: 2575526602863033000}
+    - target: {fileID: 4896964130255782450, guid: a37f12c3a758c7548ad20a70b8995a89,
+        type: 3}
+      propertyPath: ChargedAttackAnimState
+      value: Sword_Charged_Attack
+      objectReference: {fileID: 0}
     - target: {fileID: 8200530917101966514, guid: a37f12c3a758c7548ad20a70b8995a89,
         type: 3}
       propertyPath: m_LocalPosition.x

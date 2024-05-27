@@ -16,15 +16,19 @@ namespace StartledSeal
         [SerializeField] private List<BaseEquipment> _equipmentList;
         [SerializeField] private Shield _shield;
 
-        [SerializeField] private float _chargingTime = 0.1f;
+        [SerializeField] private float _chargedAttackThresholdSec = 0.1f;
+        
+        public BaseEquipment CurrentEquipment => _equipmentList[_currentEquipmentIndex];
+        private int _currentEquipmentIndex;
         
         public bool IsUsingShield { get; private set; }
-        public BaseEquipment CurrentEquipment => _equipmentList[_currentEquipmentIndex];
 
-        public bool IsAttacking => _attackCooldownTimer.IsRunning;
+        public bool IsAttacking { get; private set; }
+
+        private bool _isCharging;
+        private float _startStartChargingCheckpoint;
 
         private CooldownTimer _attackCooldownTimer;
-        private int _currentEquipmentIndex;
         
         private void Awake()
         {
@@ -58,17 +62,35 @@ namespace StartledSeal
             if (_equipmentList.Count == 0) return;
             if (itemIndex < 0 || itemIndex > _equipmentList.Count - 1) return;
             if (!_equipmentList[itemIndex].IsUsable()) return;
-            if (_attackCooldownTimer.IsRunning) return;
+            // if (_attackCooldownTimer.IsRunning) return;
 
             if (active)
             {
-                Attack(itemIndex);
+                CheckChangeEquipment(itemIndex);
+                _startStartChargingCheckpoint = Time.time;
+                IsAttacking = true;
+            }
+            else
+            {
+                if (Time.time < _startStartChargingCheckpoint + _chargedAttackThresholdSec)
+                {
+                    NormalAttack();
+                }
+                else
+                {
+                    ChargedAttack();
+                }
+                
+                _attackCooldownTimer.Start();
+                _attackCooldownTimer.OnTimerStop += () =>
+                {
+                    IsAttacking = false;
+                };
             }
         }
-
-        public void Attack(int itemIndex)
+        
+        private void CheckChangeEquipment(int itemIndex)
         {
-            // Enable new item, disable old
             if (CurrentEquipment != _equipmentList[itemIndex])
             {
                 CurrentEquipment.gameObject.SetActive(false);
@@ -78,9 +100,17 @@ namespace StartledSeal
                 
                 _attackCooldownTimer.Reset(CurrentEquipment.AttackCoolDown);
             }
-            
-            _attackCooldownTimer.Start();
-            CurrentEquipment.NormalAttack(PlayerControllerComp.AnimatorComp);
+        }
+        
+        
+        public void NormalAttack()
+        {
+            CurrentEquipment.NormalAttack(PlayerControllerComp);
+        }
+        
+        private void ChargedAttack()
+        {
+            CurrentEquipment.ChargedAttack(PlayerControllerComp);
         }
         
         private void Update()
@@ -90,18 +120,18 @@ namespace StartledSeal
 
         public void OnToggleShield(bool isUsingShield)
         {
-            MLog.Debug("PlayerWeaponController", $"PlayerWeaponController isUsingShield: {isUsingShield}");
+            // MLog.Debug("PlayerWeaponController", $"PlayerWeaponController isUsingShield: {isUsingShield}");
             PlayerControllerComp.IsRotationLocked = IsUsingShield = isUsingShield;
             
             if (IsUsingShield)
             {
                 _shield.gameObject.SetActive(true);
-                _shield.NormalAttack(PlayerControllerComp.AnimatorComp);
+                _shield.NormalAttack(PlayerControllerComp);
             }
             else
             {
                 _shield.gameObject.SetActive(false);
-                _shield.DisableShield(PlayerControllerComp.AnimatorComp);
+                _shield.DisableShield(PlayerControllerComp);
             }
         }
     }

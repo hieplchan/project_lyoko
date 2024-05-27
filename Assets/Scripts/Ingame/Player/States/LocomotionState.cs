@@ -22,7 +22,7 @@ namespace StartledSeal
 
         public override void OnEnter()
         {
-            MLog.Debug("LocomotionState", $"OnEnter IsUsingShield: {_player.PlayerWeaponControllerComp.IsUsingShield}");
+            // MLog.Debug("LocomotionState", $"OnEnter IsUsingShield: {_player.PlayerWeaponControllerComp.IsUsingShield}");
 
             _animator.CrossFade(LocomotionHash, CrossFadeDuration);
             _player.SetStateHash(LocomotionHash);

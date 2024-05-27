@@ -17,9 +17,9 @@ namespace StartledSeal
 
         public override bool IsUsable() => true;
         
-        public override async UniTask NormalAttack(Animator _animatorComp)
+        public override UniTask NormalAttack(PlayerController playerController)
         {
-            base.NormalAttack(_animatorComp);
+            base.NormalAttack(playerController);
 
             if (_isUseCameraShake && _cameraEffect != null)
             {
@@ -46,6 +46,8 @@ namespace StartledSeal
                         damageableObj.TakeDamage(AttackType.Gun, _attackDamage, _originTransform);
                 }
             }
+
+            return UniTask.CompletedTask;
         }
         
         private void OnDrawGizmos()
