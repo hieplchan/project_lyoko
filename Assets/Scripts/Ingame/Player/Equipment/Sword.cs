@@ -5,10 +5,14 @@ namespace StartledSeal
 {
     public class Sword : BaseEquipment
     {
-        [SerializeField] private float _attackDistance = 1.8f;
-        [SerializeField] private float _attackAngle = 180f;
-        [SerializeField] private int _attackDamage = 10;
+        [SerializeField] private float _normalAttackDistance = 1.8f;
+        [SerializeField] private float _normalAttackAngle = 180f;
+        [SerializeField] private int _normalAttackDamage = 10;
 
+        [SerializeField] private float _chargedAttackDistance = 1.8f;
+        [SerializeField] private float _chargedAttackAngle = 360f;
+        [SerializeField] private int _chargedAttackDamage = 20;
+        
         [SerializeField] private bool _isShowGizmos;
 
         public override bool IsUsable() => true;
@@ -16,11 +20,21 @@ namespace StartledSeal
         public override async UniTask NormalAttack(PlayerController playerController)
         {
             base.NormalAttack(playerController);
-            
+            ConeAttack(_normalAttackDistance, _normalAttackAngle, _normalAttackDamage);
+        }
+        
+        public override async UniTask ChargedAttack(PlayerController playerController)
+        {
+            base.ChargedAttack(playerController);
+            ConeAttack(_chargedAttackDistance, _chargedAttackAngle, _chargedAttackDamage);
+        }
+
+        private void ConeAttack(float attackDistance, float attackAngle, int attackDamage)
+        {
             var _originTransform = _weaponController.gameObject.transform;
             
             var pos = _originTransform.position + Vector3.forward;
-            var hits = Physics.OverlapSphere(pos, _attackDistance);
+            var hits = Physics.OverlapSphere(pos, attackDistance);
             foreach (var hit in hits)
             {
                 var damageableObj = hit.gameObject.GetComponent<IDamageable>();
@@ -32,8 +46,8 @@ namespace StartledSeal
                     
                     // MLog.Debug("PlayerWeaponController", $"angleToPlayer {angleToPlayer}");
                     
-                    if (Mathf.Abs(angleToPlayer) < _attackAngle / 2)
-                        damageableObj.TakeDamage(AttackType.Sword, _attackDamage, _originTransform);
+                    if (Mathf.Abs(angleToPlayer) < attackAngle / 2)
+                        damageableObj.TakeDamage(AttackType.Sword, attackDamage, _originTransform);
                 }
             }
         }
@@ -44,11 +58,19 @@ namespace StartledSeal
             
             var _originTransform = _weaponController.gameObject.transform;
 
-            // Draw attack cone
+            // Draw normal attack cone
             Gizmos.color = Color.red;
-            Gizmos.DrawWireSphere(_originTransform.position, _attackDistance);
-            Vector3 forwardConeDirection = Quaternion.Euler(0, _attackAngle / 2, 0) * _originTransform.forward * _attackDistance;
-            Vector3 backwardConeDirection = Quaternion.Euler(0, -_attackAngle / 2, 0) * _originTransform.forward * _attackDistance;
+            Gizmos.DrawWireSphere(_originTransform.position, _normalAttackDistance);
+            Vector3 forwardConeDirection = Quaternion.Euler(0, _normalAttackAngle / 2, 0) * _originTransform.forward * _normalAttackDistance;
+            Vector3 backwardConeDirection = Quaternion.Euler(0, -_normalAttackAngle / 2, 0) * _originTransform.forward * _normalAttackDistance;
+            Gizmos.DrawLine(_originTransform.position, _originTransform.position + forwardConeDirection);
+            Gizmos.DrawLine(_originTransform.position, _originTransform.position + backwardConeDirection);
+            
+            // Draw charged attack cone
+            Gizmos.color = Color.blue;
+            Gizmos.DrawWireSphere(_originTransform.position, _chargedAttackDistance);
+            forwardConeDirection = Quaternion.Euler(0, _chargedAttackAngle / 2, 0) * _originTransform.forward * _chargedAttackDistance;
+            backwardConeDirection = Quaternion.Euler(0, -_chargedAttackAngle / 2, 0) * _originTransform.forward * _chargedAttackDistance;
             Gizmos.DrawLine(_originTransform.position, _originTransform.position + forwardConeDirection);
             Gizmos.DrawLine(_originTransform.position, _originTransform.position + backwardConeDirection);
         }

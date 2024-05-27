@@ -16,7 +16,6 @@ namespace StartledSeal
         [SerializeField] private List<BaseEquipment> _equipmentList;
         [SerializeField] private Shield _shield;
 
-        [SerializeField] private float _chargedAttackThresholdSec = 0.1f;
         
         public BaseEquipment CurrentEquipment => _equipmentList[_currentEquipmentIndex];
         private int _currentEquipmentIndex;
@@ -28,15 +27,15 @@ namespace StartledSeal
         private bool _isCharging;
         private float _startStartChargingCheckpoint;
 
-        private CooldownTimer _attackCooldownTimer;
+        private CooldownTimer _attackTimer;
         
         private void Awake()
         {
             _currentEquipmentIndex = 0;
-            _attackCooldownTimer = new CooldownTimer(CurrentEquipment.AttackCoolDown);
-            _attackCooldownTimer.Reset(CurrentEquipment.AttackCoolDown);
+            _attackTimer = new CooldownTimer(0f);
+            _attackTimer.OnTimerStop += StopAttack;
         }
-        
+
         public void EnableUsingItem()
         {
             _input.Item1 += OnItem1;
@@ -62,17 +61,17 @@ namespace StartledSeal
             if (_equipmentList.Count == 0) return;
             if (itemIndex < 0 || itemIndex > _equipmentList.Count - 1) return;
             if (!_equipmentList[itemIndex].IsUsable()) return;
-            // if (_attackCooldownTimer.IsRunning) return;
+            if (_attackTimer.IsRunning) return;
 
             if (active)
             {
-                CheckChangeEquipment(itemIndex);
                 _startStartChargingCheckpoint = Time.time;
+                CheckChangeEquipment(itemIndex);
                 IsAttacking = true;
             }
             else
             {
-                if (Time.time < _startStartChargingCheckpoint + _chargedAttackThresholdSec)
+                if (Time.time < _startStartChargingCheckpoint + CurrentEquipment.ChargedAttackThresholdSec)
                 {
                     NormalAttack();
                 }
@@ -80,13 +79,12 @@ namespace StartledSeal
                 {
                     ChargedAttack();
                 }
-                
-                _attackCooldownTimer.Start();
-                _attackCooldownTimer.OnTimerStop += () =>
-                {
-                    IsAttacking = false;
-                };
             }
+        }
+        
+        private void StopAttack()
+        {
+            IsAttacking = false;
         }
         
         private void CheckChangeEquipment(int itemIndex)
@@ -97,25 +95,27 @@ namespace StartledSeal
                 
                 _currentEquipmentIndex = itemIndex;
                 CurrentEquipment.gameObject.SetActive(true);
-                
-                _attackCooldownTimer.Reset(CurrentEquipment.AttackCoolDown);
             }
         }
         
         
         public void NormalAttack()
         {
+            _attackTimer.Reset(CurrentEquipment.NormalAttackTime);
+            _attackTimer.Start();
             CurrentEquipment.NormalAttack(PlayerControllerComp);
         }
         
         private void ChargedAttack()
         {
+            _attackTimer.Reset(CurrentEquipment.ChargedAttackTime);
+            _attackTimer.Start();
             CurrentEquipment.ChargedAttack(PlayerControllerComp);
         }
         
         private void Update()
         {
-            _attackCooldownTimer.Tick(Time.deltaTime);
+            _attackTimer.Tick(Time.deltaTime);
         }
 
         public void OnToggleShield(bool isUsingShield)
