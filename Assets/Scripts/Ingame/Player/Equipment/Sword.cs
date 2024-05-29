@@ -13,10 +13,13 @@ namespace StartledSeal
         [SerializeField] private float _chargedAttackDistance = 1.8f;
         [SerializeField] private float _chargedAttackAngle = 360f;
         [SerializeField] private int _chargedAttackDamage = 20;
+
+        [SerializeField] private float _attackScaleUp = 2f;
         
         public override void NormalAttack()
         {
             base.NormalAttack();
+            transform.localScale = _attackScaleUp * Vector3.one;
             ConeAttack(_normalAttackDistance, _normalAttackAngle, _normalAttackDamage);
         }
         
@@ -24,6 +27,18 @@ namespace StartledSeal
         {
             base.ChargedAttack();
             ConeAttack(_chargedAttackDistance, _chargedAttackAngle, _chargedAttackDamage);
+        }
+
+        public override void StartCharging()
+        {
+            base.StartCharging();
+            transform.localScale = _attackScaleUp * Vector3.one;
+        }
+
+        public override void StopUsing()
+        {
+            base.StopUsing();
+            transform.localScale = Vector3.one;
         }
 
         private void ConeAttack(float attackDistance, float attackAngle, int attackDamage)

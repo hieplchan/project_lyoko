@@ -21,7 +21,8 @@ namespace StartledSeal
         [SerializeField, Anywhere] protected PlayerWeaponController _weaponController;
         [SerializeField] protected bool _isShowGizmos;
 
-        [Header("Normal Attack")]
+        [Header("Normal Attack")] 
+        [SerializeField]private float NormalAttackDuration = 0.15f;
         [SerializeField] private string NormalAttackAnimState;
         [SerializeField] private AnimationSequencerController _normalAttackAnimSeq;
 
@@ -59,8 +60,6 @@ namespace StartledSeal
 
         public virtual void Use(bool active)
         {
-            MLog.Debug("BaseEquipment", $"Use {active}");
-            
             if (!IsUsable()) return;
 
             if (active)
@@ -109,18 +108,22 @@ namespace StartledSeal
         {
             CurrentState = EquipmentState.NormalAttackState;
             MarkLastUsedTime();
-            PlayAnimAndVFX(_animNormalAttackHash, _normalAttackAnimSeq).Forget();
+
+            EnableUpperBodyAnimMask(false);
+            PlayAnimAndVFX(0, _animNormalAttackHash, _normalAttackAnimSeq).Forget();
         }
         
-        public void StartCharging()
+        public virtual void StartCharging()
         {
             CurrentState = EquipmentState.ChargingState;
             _player.IsRotationLocked = true;
             _player.IsForcedWalking = true;
-            PlayAnimAndVFX(_animChargingHash, _chargingAnimSeq).Forget();
+            
+            EnableUpperBodyAnimMask(true);
+            PlayAnimAndVFX(Const.UpperBodyAnimLayer, _animChargingHash, _chargingAnimSeq).Forget();
         }
 
-        public void ChargeDone()
+        public virtual void ChargeDone()
         {
             CurrentState = EquipmentState.ChargeDoneState;
             _chargingDoneAnimSeq?.Play();
@@ -130,23 +133,31 @@ namespace StartledSeal
         {
             CurrentState = EquipmentState.ChargedAttackState;
             MarkLastUsedTime();
-            PlayAnimAndVFX(_animChargedAttackHash, _chargedAttackAnimSeq).Forget();
+            
+            EnableUpperBodyAnimMask(false);
+            PlayAnimAndVFX(0, _animChargedAttackHash, _chargedAttackAnimSeq).Forget();
         }
 
-        private UniTask PlayAnimAndVFX(int animHash, AnimationSequencerController animSeq)
+        private UniTask PlayAnimAndVFX(int animLayer, int animHash, AnimationSequencerController animSeq)
         {
-            _player.AnimatorComp.Play(animHash, Const.UpperBodyAnimLayer, 0f);
+            _player.AnimatorComp.Play(animHash, animLayer, 0f);
             animSeq?.Play();
             return UniTask.CompletedTask;
         }
 
         private void MarkLastUsedTime() => _lastUsedCheckpoint = Time.time;
 
-        public void StopUsing()
+        public virtual void StopUsing()
         {
             CurrentState = EquipmentState.NotBeingUsed;
             _player.IsRotationLocked = false;
             _player.IsForcedWalking = false;
+            EnableUpperBodyAnimMask(false);
+        }
+        
+        private void EnableUpperBodyAnimMask(bool isEnable)
+        {
+            _player.AnimatorComp.SetLayerWeight(Const.UpperBodyAnimLayer, isEnable? 1 : 0);
         }
     }
 }

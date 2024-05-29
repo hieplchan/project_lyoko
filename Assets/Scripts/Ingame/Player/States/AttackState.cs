@@ -13,8 +13,6 @@ namespace StartledSeal
 
         public override void OnEnter()
         {
-            EnableUpperBodyAnimMask(true);
-            
             // MLog.Debug("AttackState", "OnEnter");
 
             // _animator.CrossFade(AttackHash, 0.001f);
@@ -27,7 +25,6 @@ namespace StartledSeal
 
         public override void OnExit()
         {
-            EnableUpperBodyAnimMask(false);
             _player.IsForcedWalking = false;
             _player.IsRotationLocked = false;
         }
@@ -35,11 +32,6 @@ namespace StartledSeal
         public override void FixedUpdate()
         {
             _player.HandleMovement();
-        }
-
-        private void EnableUpperBodyAnimMask(bool isEnable)
-        {
-            _player.AnimatorComp.SetLayerWeight(UpperBodyAnimLayer, isEnable? 1 : 0);
         }
     }
 }
