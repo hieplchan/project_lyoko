@@ -12,7 +12,8 @@ namespace StartledSeal
         NotBeingUsed = 0,
         NormalAttackState = 1,
         ChargingState = 2,
-        ChargedAttackState = 3
+        ChargeDoneState = 3,
+        ChargedAttackState = 4
     }
     
     public abstract class BaseEquipment : ValidatedMonoBehaviour
@@ -25,13 +26,14 @@ namespace StartledSeal
         [SerializeField] private AnimationSequencerController _normalAttackAnimSeq;
 
         [Header("Charging Phase")] 
-        [SerializeField] public float StartChargingTime = 0.5f;
+        [SerializeField] public float StartChargingTime = 0.25f;
+        [field: SerializeField] public float ChargingDuration = 0.5f;
         [SerializeField] public string ChargingAnimState;
         [SerializeField] private AnimationSequencerController _chargingAnimSeq;
+        [SerializeField] private AnimationSequencerController _chargingDoneAnimSeq;
         
         [Header("Charged Attack")]
         [SerializeField] public float ChargedAttackDuration = 0.3f;
-        [field: SerializeField] public float ChargedAttackTime = 0.3f;
         [SerializeField] private string ChargedAttackAnimState;
         [SerializeField] private AnimationSequencerController _chargedAttackAnimSeq;
         
@@ -70,18 +72,15 @@ namespace StartledSeal
             {
                 switch (CurrentState)
                 {
-                    case EquipmentState.NotBeingUsed:
-                        break;
                     case EquipmentState.NormalAttackState:
                         if (Time.time < _lastUsedCheckpoint + StartChargingTime)
-                        {
                             StopUsing();
-                        }
                         break;
                     case EquipmentState.ChargingState:
                         StopUsing();
                         break;
-                    case EquipmentState.ChargedAttackState:
+                    case EquipmentState.ChargeDoneState:
+                        ChargedAttack();
                         break;
                 }
             }
@@ -91,17 +90,17 @@ namespace StartledSeal
         {
             switch (CurrentState)
             {
-                case EquipmentState.NotBeingUsed:
-                    break;
                 case EquipmentState.NormalAttackState:
                     if (Time.time > _lastUsedCheckpoint + StartChargingTime)
-                    {
                         StartCharging();
-                    }
                     break;
                 case EquipmentState.ChargingState:
+                    if (Time.time > _lastUsedCheckpoint + StartChargingTime + ChargingDuration)
+                        ChargeDone();
                     break;
                 case EquipmentState.ChargedAttackState:
+                    if (Time.time > _lastUsedCheckpoint + ChargedAttackDuration)
+                        StopUsing();
                     break;
             }
         }
@@ -109,28 +108,28 @@ namespace StartledSeal
         public virtual void NormalAttack()
         {
             CurrentState = EquipmentState.NormalAttackState;
-
             MarkLastUsedTime();
-
             PlayAnimAndVFX(_animNormalAttackHash, _normalAttackAnimSeq).Forget();
         }
         
         public void StartCharging()
         {
-            MLog.Debug("BaseEquipment", "StartCharging");
             CurrentState = EquipmentState.ChargingState;
             _player.IsRotationLocked = true;
             _player.IsForcedWalking = true;
-            
             PlayAnimAndVFX(_animChargingHash, _chargingAnimSeq).Forget();
+        }
+
+        public void ChargeDone()
+        {
+            CurrentState = EquipmentState.ChargeDoneState;
+            _chargingDoneAnimSeq?.Play();
         }
         
         public virtual void ChargedAttack()
         {
             CurrentState = EquipmentState.ChargedAttackState;
-            
             MarkLastUsedTime();
-            
             PlayAnimAndVFX(_animChargedAttackHash, _chargedAttackAnimSeq).Forget();
         }
 
@@ -148,10 +147,6 @@ namespace StartledSeal
             CurrentState = EquipmentState.NotBeingUsed;
             _player.IsRotationLocked = false;
             _player.IsForcedWalking = false;
-            
-            _normalAttackAnimSeq?.Kill(false);
-            _chargingAnimSeq?.Kill(false);
-            _chargedAttackAnimSeq?.Kill(false);
         }
     }
 }

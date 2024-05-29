@@ -14,6 +14,7 @@ namespace StartledSeal
         public override void OnEnter()
         {
             _player.PlayerWeaponControllerComp.DisableUsingItem();
+            _player.IsRotationLocked = true;
             
             _animator.CrossFade(JumpHash, CrossFadeDuration);
             _player.SetStateHash(JumpHash);
@@ -23,6 +24,7 @@ namespace StartledSeal
         public override void OnExit()
         {
             _player.PlayerWeaponControllerComp.EnableUsingItem();
+            _player.IsRotationLocked = false;
         }
 
         public override void FixedUpdate()

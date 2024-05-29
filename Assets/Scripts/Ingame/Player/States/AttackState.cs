@@ -28,6 +28,8 @@ namespace StartledSeal
         public override void OnExit()
         {
             EnableUpperBodyAnimMask(false);
+            _player.IsForcedWalking = false;
+            _player.IsRotationLocked = false;
         }
 
         public override void FixedUpdate()

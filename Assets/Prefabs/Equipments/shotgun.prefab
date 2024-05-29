@@ -175,7 +175,7 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 74c1bf3ded39dfc4da8a3090a059303f,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -213,19 +213,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _weaponController: {fileID: 0}
-  AttackCoolDown: 0.5
-  _normalAttackAnimSeq: {fileID: 8204999599519028516}
-  _startChargingAnimSeq: {fileID: 0}
-  _chargedAttackAnimSeq: {fileID: 0}
+  _isShowGizmos: 1
   NormalAttackAnimState: Shotgun
+  _normalAttackAnimSeq: {fileID: 8204999599519028516}
+  StartChargingTime: 0.25
+  ChargingDuration: 0.5
   ChargingAnimState: 
+  _chargingAnimSeq: {fileID: 0}
+  _chargingDoneAnimSeq: {fileID: 0}
+  ChargedAttackDuration: 0.3
   ChargedAttackAnimState: 
+  _chargedAttackAnimSeq: {fileID: 0}
   _attackDistance: 4.5
   _attackAngle: 50
   _attackDamage: 10
   _isUseCameraShake: 1
   _cameraEffect: {fileID: 4524086312935883927}
-  _isShowGizmos: 1
 --- !u!4 &7785322868920668658 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 74c1bf3ded39dfc4da8a3090a059303f,
