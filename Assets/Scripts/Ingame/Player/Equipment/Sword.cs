@@ -5,6 +5,7 @@ namespace StartledSeal
 {
     public class Sword : BaseEquipment
     {
+        [Header("Sword Settings")]
         [SerializeField] private float _normalAttackDistance = 1.8f;
         [SerializeField] private float _normalAttackAngle = 180f;
         [SerializeField] private int _normalAttackDamage = 10;
@@ -13,19 +14,15 @@ namespace StartledSeal
         [SerializeField] private float _chargedAttackAngle = 360f;
         [SerializeField] private int _chargedAttackDamage = 20;
         
-        [SerializeField] private bool _isShowGizmos;
-
-        public override bool IsUsable() => true;
-        
-        public override async UniTask NormalAttack(PlayerController playerController)
+        public override void NormalAttack()
         {
-            base.NormalAttack(playerController);
+            base.NormalAttack();
             ConeAttack(_normalAttackDistance, _normalAttackAngle, _normalAttackDamage);
         }
         
-        public override async UniTask ChargedAttack(PlayerController playerController)
+        public override void ChargedAttack()
         {
-            base.ChargedAttack(playerController);
+            base.ChargedAttack();
             ConeAttack(_chargedAttackDistance, _chargedAttackAngle, _chargedAttackDamage);
         }
 

@@ -13,15 +13,15 @@ namespace StartledSeal
 
         public override bool IsUsable() => true;
 
-        public override async UniTask NormalAttack(PlayerController playerController)
+        public override void NormalAttack()
         {
-            playerController.AnimatorComp.CrossFade(_animNormalAttackHash, 0.001f);
-            playerController.AnimatorComp.SetLayerWeight(1, 1);
+            _player.AnimatorComp.CrossFade(_animNormalAttackHash, 0.001f);
+            _player.AnimatorComp.SetLayerWeight(1, 1);
         }
 
-        public async UniTask DisableShield(PlayerController playerController)
+        public void DisableShield()
         {
-            playerController.AnimatorComp.SetLayerWeight(1, 0);
+            _player.AnimatorComp.SetLayerWeight(1, 0);
         }
 
         public UniTask TakeDamage(AttackType attackType, int damageAmount, Transform impactObject)

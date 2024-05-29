@@ -12,14 +12,12 @@ namespace StartledSeal
 
         [SerializeField] private bool _isUseCameraShake;
         [SerializeField] private CFXR_Effect _cameraEffect;
-
-        [SerializeField] private bool _isShowGizmos;
-
+        
         public override bool IsUsable() => true;
         
-        public override UniTask NormalAttack(PlayerController playerController)
+        public override void NormalAttack()
         {
-            base.NormalAttack(playerController);
+            base.NormalAttack();
 
             if (_isUseCameraShake && _cameraEffect != null)
             {
@@ -46,8 +44,6 @@ namespace StartledSeal
                         damageableObj.TakeDamage(AttackType.Gun, _attackDamage, _originTransform);
                 }
             }
-
-            return UniTask.CompletedTask;
         }
         
         private void OnDrawGizmos()
