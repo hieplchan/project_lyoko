@@ -20,7 +20,7 @@ namespace StartledSeal
         public static readonly int FlyHash = Animator.StringToHash("Fly");
         public static readonly int SwimHash = Animator.StringToHash("Swim");
         public static readonly int ShieldHash = Animator.StringToHash("Shield");
-        
         public static readonly int Speed = Animator.StringToHash("Speed");
+        public static readonly int UpperBodyAnimLayer = 1;
     }
 }

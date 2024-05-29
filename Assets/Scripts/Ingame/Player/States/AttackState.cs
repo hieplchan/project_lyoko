@@ -13,8 +13,10 @@ namespace StartledSeal
 
         public override void OnEnter()
         {
-            // MLog.Debug("AttackState", "OnEnter");
+            EnableUpperBodyAnimMask(true);
             
+            // MLog.Debug("AttackState", "OnEnter");
+
             // _animator.CrossFade(AttackHash, 0.001f);
             // _animator.Play(AttackHash, 0, 0f);
             // _player.Attack();
@@ -22,10 +24,20 @@ namespace StartledSeal
 
             // _vfxController.RestartVFX("Attack");
         }
-        
+
+        public override void OnExit()
+        {
+            EnableUpperBodyAnimMask(false);
+        }
+
         public override void FixedUpdate()
         {
             _player.HandleMovement();
+        }
+
+        private void EnableUpperBodyAnimMask(bool isEnable)
+        {
+            _player.AnimatorComp.SetLayerWeight(UpperBodyAnimLayer, isEnable? 1 : 0);
         }
     }
 }

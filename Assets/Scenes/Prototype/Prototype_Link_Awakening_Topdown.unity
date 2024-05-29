@@ -7980,6 +7980,16 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2157371856090161473, guid: cb34ac7a1e6ded84f83aec5923c86fe1,
         type: 3}
+      propertyPath: ChargingAnimState
+      value: Sword_Charging
+      objectReference: {fileID: 0}
+    - target: {fileID: 2157371856090161473, guid: cb34ac7a1e6ded84f83aec5923c86fe1,
+        type: 3}
+      propertyPath: StartChargingTime
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2157371856090161473, guid: cb34ac7a1e6ded84f83aec5923c86fe1,
+        type: 3}
       propertyPath: _chargedAttackDistance
       value: 4
       objectReference: {fileID: 0}
@@ -8044,6 +8054,11 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 6701029129495253267, guid: cb34ac7a1e6ded84f83aec5923c86fe1,
         type: 3}
+    - target: {fileID: 8675114378790124053, guid: cb34ac7a1e6ded84f83aec5923c86fe1,
+        type: 3}
+      propertyPath: _walkSpeed
+      value: 150
+      objectReference: {fileID: 0}
     - target: {fileID: 8675114378790124053, guid: cb34ac7a1e6ded84f83aec5923c86fe1,
         type: 3}
       propertyPath: _freeLookCam

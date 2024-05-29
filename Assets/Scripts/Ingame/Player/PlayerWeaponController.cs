@@ -69,6 +69,7 @@ namespace StartledSeal
         {
             if (CurrentEquipment != _equipmentList[itemIndex])
             {
+                CurrentEquipment.StopUsing();
                 CurrentEquipment.gameObject.SetActive(false);
                 
                 _currentEquipmentIndex = itemIndex;
@@ -85,11 +86,13 @@ namespace StartledSeal
             {
                 _shield.gameObject.SetActive(true);
                 _shield.NormalAttack();
+                PlayerControllerComp.IsForcedWalking = true;
             }
             else
             {
                 _shield.gameObject.SetActive(false);
                 _shield.DisableShield();
+                PlayerControllerComp.IsForcedWalking = false;
             }
         }
     }

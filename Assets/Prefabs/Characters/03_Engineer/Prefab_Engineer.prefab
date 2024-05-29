@@ -131,7 +131,6 @@ MonoBehaviour:
   _freeLookCam: {fileID: 0}
   _runSpeed: 300
   _walkSpeed: 250
-  _usingShieldSpeed: 130
   _rotationSpeed: 15
   _smoothTime: 0.2
   _runStaminaConsumptionPerSec: 0
@@ -148,6 +147,7 @@ MonoBehaviour:
   IsRunning: 0
   IsFlying: 0
   IsRotationLocked: 0
+  IsForcedWalking: 0
   <PlayerStaminaComp>k__BackingField: {fileID: 7490827989259888145}
   <PlayerHealthComp>k__BackingField: {fileID: 2260378426135068998}
 --- !u!114 &3473077154477050725

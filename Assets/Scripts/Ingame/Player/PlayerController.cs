@@ -29,8 +29,7 @@ namespace StartledSeal
         
         [Header("Movement Settings")]
         [SerializeField] private float _runSpeed = 200f;
-        [SerializeField] private float _walkSpeed = 130f;
-        [SerializeField] private float _usingShieldSpeed = 150f;
+        [SerializeField] private float _walkSpeed = 150f;
         [SerializeField] private float _rotationSpeed = 15f;
         [SerializeField] private float _smoothTime = 0.2f;
         [SerializeField] private float _runStaminaConsumptionPerSec = 10;
@@ -59,6 +58,7 @@ namespace StartledSeal
         public bool IsRunning;
         public bool IsFlying;
         public bool IsRotationLocked;
+        public bool IsForcedWalking;
         
         // private float _currentSpeed;
         // private float _velocity;
@@ -215,8 +215,8 @@ namespace StartledSeal
         private void HandleHorizontalMovement(Vector3 adjustedDirection)
         {
             var moveSpeed = IsRunning ? _runSpeed : _walkSpeed;
-            if (PlayerWeaponControllerComp.IsUsingShield)
-                moveSpeed = _usingShieldSpeed;
+            if (IsForcedWalking)
+                moveSpeed = _walkSpeed;
             moveSpeed = _currentStateHash.Equals(FlyHash) ? _flySpeed : moveSpeed;
             moveSpeed = _currentStateHash.Equals(SwimHash) ? _swimSpeed : moveSpeed;
 

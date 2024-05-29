@@ -1,6 +1,7 @@
 using BrunoMikoski.AnimationSequencer;
 using Cysharp.Threading.Tasks;
 using KBCore.Refs;
+using StartledSeal.Common;
 using UnityEngine;
 using UnityEngine.Serialization;
 
@@ -20,15 +21,13 @@ namespace StartledSeal
         [SerializeField] protected bool _isShowGizmos;
 
         [Header("Normal Attack")]
-        [SerializeField] public float NormalAttackDuration = 0.15f;
         [SerializeField] private string NormalAttackAnimState;
         [SerializeField] private AnimationSequencerController _normalAttackAnimSeq;
 
         [Header("Charging Phase")] 
-        [SerializeField] public float StartChargingTime = 1f;
-        [SerializeField] public float ChargingDuration = 0.15f;
+        [SerializeField] public float StartChargingTime = 0.5f;
         [SerializeField] public string ChargingAnimState;
-        [SerializeField] private AnimationSequencerController _startChargingAnimSeq;
+        [SerializeField] private AnimationSequencerController _chargingAnimSeq;
         
         [Header("Charged Attack")]
         [SerializeField] public float ChargedAttackDuration = 0.3f;
@@ -42,7 +41,7 @@ namespace StartledSeal
         public virtual bool IsUsable() => true;
         
         protected int _animNormalAttackHash;
-        protected int _animStartChargingHash;
+        protected int _animChargingHash;
         protected int _animChargedAttackHash;
         
         private float _lastUsedCheckpoint;
@@ -50,7 +49,7 @@ namespace StartledSeal
         private void Awake()
         {
             _animNormalAttackHash = Animator.StringToHash(NormalAttackAnimState);
-            _animStartChargingHash = Animator.StringToHash(ChargingAnimState);
+            _animChargingHash = Animator.StringToHash(ChargingAnimState);
             _animChargedAttackHash = Animator.StringToHash(ChargedAttackAnimState);
             
             MarkLastUsedTime();
@@ -58,6 +57,8 @@ namespace StartledSeal
 
         public virtual void Use(bool active)
         {
+            MLog.Debug("BaseEquipment", $"Use {active}");
+            
             if (!IsUsable()) return;
 
             if (active)
@@ -67,7 +68,22 @@ namespace StartledSeal
             }
             else
             {
-                
+                switch (CurrentState)
+                {
+                    case EquipmentState.NotBeingUsed:
+                        break;
+                    case EquipmentState.NormalAttackState:
+                        if (Time.time < _lastUsedCheckpoint + StartChargingTime)
+                        {
+                            StopUsing();
+                        }
+                        break;
+                    case EquipmentState.ChargingState:
+                        StopUsing();
+                        break;
+                    case EquipmentState.ChargedAttackState:
+                        break;
+                }
             }
         }
         
@@ -78,9 +94,9 @@ namespace StartledSeal
                 case EquipmentState.NotBeingUsed:
                     break;
                 case EquipmentState.NormalAttackState:
-                    if (Time.time > _lastUsedCheckpoint + NormalAttackDuration)
+                    if (Time.time > _lastUsedCheckpoint + StartChargingTime)
                     {
-                        CurrentState = EquipmentState.NotBeingUsed;
+                        StartCharging();
                     }
                     break;
                 case EquipmentState.ChargingState:
@@ -99,9 +115,14 @@ namespace StartledSeal
             PlayAnimAndVFX(_animNormalAttackHash, _normalAttackAnimSeq).Forget();
         }
         
-        public virtual UniTask StartCharging(PlayerController playerController)
+        public void StartCharging()
         {
-            return UniTask.CompletedTask;
+            MLog.Debug("BaseEquipment", "StartCharging");
+            CurrentState = EquipmentState.ChargingState;
+            _player.IsRotationLocked = true;
+            _player.IsForcedWalking = true;
+            
+            PlayAnimAndVFX(_animChargingHash, _chargingAnimSeq).Forget();
         }
         
         public virtual void ChargedAttack()
@@ -115,14 +136,22 @@ namespace StartledSeal
 
         private UniTask PlayAnimAndVFX(int animHash, AnimationSequencerController animSeq)
         {
-            _player.AnimatorComp.Play(animHash, 0, 0f);
-
-            if (animSeq != null)
-                animSeq.Play();
-
+            _player.AnimatorComp.Play(animHash, Const.UpperBodyAnimLayer, 0f);
+            animSeq?.Play();
             return UniTask.CompletedTask;
         }
 
         private void MarkLastUsedTime() => _lastUsedCheckpoint = Time.time;
+
+        public void StopUsing()
+        {
+            CurrentState = EquipmentState.NotBeingUsed;
+            _player.IsRotationLocked = false;
+            _player.IsForcedWalking = false;
+            
+            _normalAttackAnimSeq?.Kill(false);
+            _chargingAnimSeq?.Kill(false);
+            _chargedAttackAnimSeq?.Kill(false);
+        }
     }
 }
