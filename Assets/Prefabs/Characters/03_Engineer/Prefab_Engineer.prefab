@@ -22,7 +22,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1380367793654023939
 Transform:
   m_ObjectHideFlags: 0
@@ -7016,7 +7016,7 @@ Animator:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2397685789666979313}
   m_Enabled: 1
-  m_Avatar: {fileID: 9000000, guid: f31fe531855993e458caacd01b946f23, type: 3}
+  m_Avatar: {fileID: 9000000, guid: dd0208d438e4cfc41a3e2357fd963902, type: 2}
   m_Controller: {fileID: 9100000, guid: 73583c083d8672b42b79c233cb313b5f, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
@@ -7638,7 +7638,7 @@ PrefabInstance:
     - target: {fileID: 8200530917101966514, guid: a37f12c3a758c7548ad20a70b8995a89,
         type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.73574257
+      value: 0.7357426
       objectReference: {fileID: 0}
     - target: {fileID: 8200530917101966514, guid: a37f12c3a758c7548ad20a70b8995a89,
         type: 3}
@@ -7653,7 +7653,7 @@ PrefabInstance:
     - target: {fileID: 8200530917101966514, guid: a37f12c3a758c7548ad20a70b8995a89,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0.67726135
+      value: 0.6772614
       objectReference: {fileID: 0}
     - target: {fileID: 8200530917101966514, guid: a37f12c3a758c7548ad20a70b8995a89,
         type: 3}
