@@ -25,7 +25,6 @@ namespace StartledSeal.Ingame.Player
 
         private async UniTask CheckPlayRunVFX()
         {
-            MLog.Debug("PlayerVFXController", "_runVFX.Play");
             await UniTask.Delay(TimeSpan.FromSeconds(_delay));
             if (_player.GetStateHash() == Const.LocomotionHash)
                 _runVFX.Play();

@@ -5309,41 +5309,6 @@ MonoBehaviour:
         isRelative: 0
         scale: {x: 3, y: 3, z: 3}
         axisConstraint: 0
---- !u!1 &966528703620297800
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 5825439360723543620}
-  m_Layer: 0
-  m_Name: AnimSeq
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &5825439360723543620
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 966528703620297800}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 2194773806204162537}
-  - {fileID: 7863449107608404382}
-  - {fileID: 4333212967683860676}
-  - {fileID: 9019050759354414227}
-  m_Father: {fileID: 3869370253878715204}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1103250762229956865
 GameObject:
   m_ObjectHideFlags: 0
@@ -20140,124 +20105,6 @@ ParticleSystemRenderer:
   m_MeshWeighting2: 1
   m_MeshWeighting3: 1
   m_MaskInteraction: 0
---- !u!1 &2423577147772235353
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 3869370253878715204}
-  - component: {fileID: 955392958368763394}
-  - component: {fileID: 6014096058669267177}
-  - component: {fileID: 5347675365598433267}
-  m_Layer: 0
-  m_Name: sword_1handed
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &3869370253878715204
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2423577147772235353}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0.00000013273399, y: -0.00000010848823, z: 0.000005483628,
-    w: 1}
-  m_LocalPosition: {x: 0.000014781951, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 5825439360723543620}
-  m_Father: {fileID: 4018293946783615716}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!33 &955392958368763394
-MeshFilter:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2423577147772235353}
-  m_Mesh: {fileID: -6855750626627074973, guid: 2aedb29b3919b454287c2d9d9e0c5b70, type: 3}
---- !u!23 &6014096058669267177
-MeshRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2423577147772235353}
-  m_Enabled: 1
-  m_CastShadows: 1
-  m_ReceiveShadows: 1
-  m_DynamicOccludee: 1
-  m_StaticShadowCaster: 0
-  m_MotionVectors: 1
-  m_LightProbeUsage: 1
-  m_ReflectionProbeUsage: 1
-  m_RayTracingMode: 2
-  m_RayTraceProcedural: 0
-  m_RenderingLayerMask: 1
-  m_RendererPriority: 0
-  m_Materials:
-  - {fileID: -8384745679888196477, guid: 2aedb29b3919b454287c2d9d9e0c5b70, type: 3}
-  m_StaticBatchInfo:
-    firstSubMesh: 0
-    subMeshCount: 0
-  m_StaticBatchRoot: {fileID: 0}
-  m_ProbeAnchor: {fileID: 0}
-  m_LightProbeVolumeOverride: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_ReceiveGI: 1
-  m_PreserveUVs: 0
-  m_IgnoreNormalsForChartDetection: 0
-  m_ImportantGI: 0
-  m_StitchLightmapSeams: 1
-  m_SelectedEditorRenderState: 3
-  m_MinimumChartSize: 4
-  m_AutoUVMaxDistance: 0.5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
-  m_AdditionalVertexStreams: {fileID: 0}
---- !u!114 &5347675365598433267
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2423577147772235353}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f048eab15f674f34b2d598f47cdb4fa1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _weaponController: {fileID: 2304712973009153951}
-  _isShowGizmos: 1
-  NormalAttackDuration: 0.15
-  NormalAttackAnimState: Sword_Normal_Attack
-  _normalAttackAnimSeq: {fileID: 2659624012917141759}
-  StartChargingTime: 0.25
-  ChargingDuration: 0.5
-  ChargingAnimState: Sword_Charging
-  _chargingAnimSeq: {fileID: 1184987671364831444}
-  _chargingDoneAnimSeq: {fileID: 5634107108812131722}
-  ChargedAttackDuration: 0.3
-  ChargedAttackAnimState: Sword_Charged_Attack
-  _chargedAttackAnimSeq: {fileID: 417934624564123071}
-  _normalAttackDistance: 1.8
-  _normalAttackAngle: 180
-  _normalAttackDamage: 10
-  _chargedAttackDistance: 4
-  _chargedAttackAngle: 360
-  _chargedAttackDamage: 20
-  _attackScaleUp: 2
 --- !u!1 &2481457811775434868
 GameObject:
   m_ObjectHideFlags: 0
@@ -25180,111 +25027,6 @@ MonoBehaviour:
     perlinColor: 0
     perlinColorSpeed: 0
   fadeOutReference: {fileID: 0}
---- !u!1 &2745547693645502107
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 9019050759354414227}
-  - component: {fileID: 417934624564123071}
-  m_Layer: 0
-  m_Name: ChargedAttack
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &9019050759354414227
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2745547693645502107}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 5825439360723543620}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &417934624564123071
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2745547693645502107}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c10d422b52559da41aa9676770a8fc65, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  animationSteps:
-  - rid: 2628238073249136645
-  - rid: 2628238073249136646
-  - rid: 2628238034995511296
-  - rid: 2628238034995511297
-  updateType: 0
-  timeScaleIndependent: 0
-  autoplayMode: 2
-  startPaused: 0
-  playbackSpeed: 1
-  playType: 0
-  loops: 0
-  loopType: 0
-  autoKill: 1
-  onStartEvent:
-    m_PersistentCalls:
-      m_Calls: []
-  onFinishedEvent:
-    m_PersistentCalls:
-      m_Calls: []
-  onProgressEvent:
-    m_PersistentCalls:
-      m_Calls: []
-  progress: -1
-  references:
-    version: 2
-    RefIds:
-    - rid: 2628238034995511296
-      type: {class: PlayParticleSystemAnimationStep, ns: BrunoMikoski.AnimationSequencer,
-        asm: BrunoMikoski.AnimationSequencer}
-      data:
-        delay: 0
-        flowType: 1
-        particleSystem: {fileID: 0}
-        duration: 0.15
-        stopEmittingWhenOver: 0
-    - rid: 2628238034995511297
-      type: {class: PlayParticleSystemAnimationStep, ns: BrunoMikoski.AnimationSequencer,
-        asm: BrunoMikoski.AnimationSequencer}
-      data:
-        delay: 0
-        flowType: 1
-        particleSystem: {fileID: 0}
-        duration: 0.15
-        stopEmittingWhenOver: 0
-    - rid: 2628238073249136645
-      type: {class: SetGameObjectActiveStep, ns: BrunoMikoski.AnimationSequencer,
-        asm: BrunoMikoski.AnimationSequencer}
-      data:
-        delay: 0
-        flowType: 0
-        targetGameObject: {fileID: 0}
-        active: 0
-    - rid: 2628238073249136646
-      type: {class: SetGameObjectActiveStep, ns: BrunoMikoski.AnimationSequencer,
-        asm: BrunoMikoski.AnimationSequencer}
-      data:
-        delay: 0
-        flowType: 1
-        targetGameObject: {fileID: 0}
-        active: 0
 --- !u!1 &2785935825871804248
 GameObject:
   m_ObjectHideFlags: 0
@@ -45034,83 +44776,6 @@ ParticleSystemRenderer:
   m_MeshWeighting2: 1
   m_MeshWeighting3: 1
   m_MaskInteraction: 0
---- !u!1 &3444791114996685057
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 2194773806204162537}
-  - component: {fileID: 2659624012917141759}
-  m_Layer: 0
-  m_Name: NormalAttack
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &2194773806204162537
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3444791114996685057}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 5825439360723543620}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2659624012917141759
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3444791114996685057}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c10d422b52559da41aa9676770a8fc65, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  animationSteps:
-  - rid: 2628237959668957186
-  updateType: 0
-  timeScaleIndependent: 0
-  autoplayMode: 0
-  startPaused: 0
-  playbackSpeed: 1
-  playType: 0
-  loops: 0
-  loopType: 0
-  autoKill: 1
-  onStartEvent:
-    m_PersistentCalls:
-      m_Calls: []
-  onFinishedEvent:
-    m_PersistentCalls:
-      m_Calls: []
-  onProgressEvent:
-    m_PersistentCalls:
-      m_Calls: []
-  progress: -1
-  references:
-    version: 2
-    RefIds:
-    - rid: 2628237959668957186
-      type: {class: PlayParticleSystemAnimationStep, ns: BrunoMikoski.AnimationSequencer,
-        asm: BrunoMikoski.AnimationSequencer}
-      data:
-        delay: 0
-        flowType: 1
-        particleSystem: {fileID: 0}
-        duration: 0.15
-        stopEmittingWhenOver: 0
 --- !u!1 &4048737106345704046
 GameObject:
   m_ObjectHideFlags: 0
@@ -99130,111 +98795,6 @@ ParticleSystemRenderer:
   m_MeshWeighting2: 1
   m_MeshWeighting3: 1
   m_MaskInteraction: 0
---- !u!1 &6307424014686765991
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 4333212967683860676}
-  - component: {fileID: 5634107108812131722}
-  m_Layer: 0
-  m_Name: ChargeDone
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &4333212967683860676
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6307424014686765991}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 5825439360723543620}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &5634107108812131722
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6307424014686765991}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c10d422b52559da41aa9676770a8fc65, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  animationSteps:
-  - rid: 2628238073249136643
-  - rid: 2628238073249136644
-  - rid: 2628238073249136641
-  - rid: 2628238073249136642
-  updateType: 0
-  timeScaleIndependent: 0
-  autoplayMode: 2
-  startPaused: 0
-  playbackSpeed: 1
-  playType: 0
-  loops: 0
-  loopType: 0
-  autoKill: 1
-  onStartEvent:
-    m_PersistentCalls:
-      m_Calls: []
-  onFinishedEvent:
-    m_PersistentCalls:
-      m_Calls: []
-  onProgressEvent:
-    m_PersistentCalls:
-      m_Calls: []
-  progress: -1
-  references:
-    version: 2
-    RefIds:
-    - rid: 2628238073249136641
-      type: {class: PlayParticleSystemAnimationStep, ns: BrunoMikoski.AnimationSequencer,
-        asm: BrunoMikoski.AnimationSequencer}
-      data:
-        delay: 0
-        flowType: 0
-        particleSystem: {fileID: 0}
-        duration: 0.1
-        stopEmittingWhenOver: 0
-    - rid: 2628238073249136642
-      type: {class: PlayParticleSystemAnimationStep, ns: BrunoMikoski.AnimationSequencer,
-        asm: BrunoMikoski.AnimationSequencer}
-      data:
-        delay: 0
-        flowType: 1
-        particleSystem: {fileID: 0}
-        duration: 0.1
-        stopEmittingWhenOver: 0
-    - rid: 2628238073249136643
-      type: {class: SetGameObjectActiveStep, ns: BrunoMikoski.AnimationSequencer,
-        asm: BrunoMikoski.AnimationSequencer}
-      data:
-        delay: 0
-        flowType: 0
-        targetGameObject: {fileID: 0}
-        active: 1
-    - rid: 2628238073249136644
-      type: {class: SetGameObjectActiveStep, ns: BrunoMikoski.AnimationSequencer,
-        asm: BrunoMikoski.AnimationSequencer}
-      data:
-        delay: 0
-        flowType: 1
-        targetGameObject: {fileID: 0}
-        active: 1
 --- !u!1 &6408581044193438833
 GameObject:
   m_ObjectHideFlags: 0
@@ -109458,7 +109018,7 @@ MonoBehaviour:
   _input: {fileID: 11400000, guid: 3ad9c55985255ad42b508b4163f62a85, type: 2}
   _equipmentSpawnPoint: {fileID: 0}
   _equipmentList:
-  - {fileID: 5347675365598433267}
+  - {fileID: 4393325573058504206}
   - {fileID: 4471215961606392531}
   _shield: {fileID: 5925521133013162737}
 --- !u!1 &7629904933931409246
@@ -153621,73 +153181,6 @@ ParticleSystemRenderer:
   m_MeshWeighting2: 1
   m_MeshWeighting3: 1
   m_MaskInteraction: 0
---- !u!1 &8934977101424235034
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 7863449107608404382}
-  - component: {fileID: 1184987671364831444}
-  m_Layer: 0
-  m_Name: Charging
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &7863449107608404382
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8934977101424235034}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 5825439360723543620}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1184987671364831444
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8934977101424235034}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c10d422b52559da41aa9676770a8fc65, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  animationSteps: []
-  updateType: 0
-  timeScaleIndependent: 0
-  autoplayMode: 2
-  startPaused: 0
-  playbackSpeed: 1
-  playType: 0
-  loops: 0
-  loopType: 0
-  autoKill: 1
-  onStartEvent:
-    m_PersistentCalls:
-      m_Calls: []
-  onFinishedEvent:
-    m_PersistentCalls:
-      m_Calls: []
-  onProgressEvent:
-    m_PersistentCalls:
-      m_Calls: []
-  progress: -1
-  references:
-    version: 2
-    RefIds: []
 --- !u!1 &8938098009374219242
 GameObject:
   m_ObjectHideFlags: 0
@@ -163408,6 +162901,97 @@ ParticleSystemRenderer:
   m_MeshWeighting2: 1
   m_MeshWeighting3: 1
   m_MaskInteraction: 0
+--- !u!1001 &150512879288092264
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 4018293946783615716}
+    m_Modifications:
+    - target: {fileID: 4534703704910864486, guid: 60120eead8cf0c64dabb973b32e41d2f,
+        type: 3}
+      propertyPath: _weaponController
+      value: 
+      objectReference: {fileID: 2304712973009153951}
+    - target: {fileID: 4713721976154311889, guid: 60120eead8cf0c64dabb973b32e41d2f,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.000014781951
+      objectReference: {fileID: 0}
+    - target: {fileID: 4713721976154311889, guid: 60120eead8cf0c64dabb973b32e41d2f,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4713721976154311889, guid: 60120eead8cf0c64dabb973b32e41d2f,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4713721976154311889, guid: 60120eead8cf0c64dabb973b32e41d2f,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4713721976154311889, guid: 60120eead8cf0c64dabb973b32e41d2f,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0.00000013273399
+      objectReference: {fileID: 0}
+    - target: {fileID: 4713721976154311889, guid: 60120eead8cf0c64dabb973b32e41d2f,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0.00000010848823
+      objectReference: {fileID: 0}
+    - target: {fileID: 4713721976154311889, guid: 60120eead8cf0c64dabb973b32e41d2f,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0.000005483628
+      objectReference: {fileID: 0}
+    - target: {fileID: 4713721976154311889, guid: 60120eead8cf0c64dabb973b32e41d2f,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4713721976154311889, guid: 60120eead8cf0c64dabb973b32e41d2f,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4713721976154311889, guid: 60120eead8cf0c64dabb973b32e41d2f,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6159239856866312652, guid: 60120eead8cf0c64dabb973b32e41d2f,
+        type: 3}
+      propertyPath: m_Name
+      value: sword
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 60120eead8cf0c64dabb973b32e41d2f, type: 3}
+--- !u!114 &4393325573058504206 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4534703704910864486, guid: 60120eead8cf0c64dabb973b32e41d2f,
+    type: 3}
+  m_PrefabInstance: {fileID: 150512879288092264}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f048eab15f674f34b2d598f47cdb4fa1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!4 &4862827132129626809 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4713721976154311889, guid: 60120eead8cf0c64dabb973b32e41d2f,
+    type: 3}
+  m_PrefabInstance: {fileID: 150512879288092264}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &6430493463092430282
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -163571,7 +163155,7 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 7997947301047521070, guid: bffa7da04129606499b770db998f5ab8,
         type: 3}
       insertIndex: -1
-      addedObject: {fileID: 3869370253878715204}
+      addedObject: {fileID: 4862827132129626809}
     - targetCorrespondingSourceObject: {fileID: 7997947301047521070, guid: bffa7da04129606499b770db998f5ab8,
         type: 3}
       insertIndex: -1
@@ -163616,7 +163200,13 @@ Animator:
   m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
   m_StabilizeFeet: 0
-  m_WarningMessage: 
+  m_WarningMessage: "\nBinding warning: Some generic clip(s) animate transforms that
+    are already bound by a Humanoid avatar. These transforms can only be changed
+    by Humanoid clips.\n\tTransform 'upperleg.l'\n\tTransform 'hips'\n\tTransform
+    'upperarm.l'\n\tTransform 'upperarm.r'\n\tTransform 'root'\n\tTransform 'upperleg.l'\n\tTransform
+    'lowerarm.l'\n\tTransform 'hips'\n\tTransform 'lowerarm.r'\n\tTransform 'upperarm.l'\n\tand
+    more ...\n\tFrom animation clip 'Melee_Slice_Horizontal'\n\tFrom animation clip
+    'Melee_Attack_Charging'\n\tFrom animation clip 'Melee_Attack_Spinning'"
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0

@@ -22,7 +22,7 @@ namespace StartledSeal
         [SerializeField] protected bool _isShowGizmos;
 
         [Header("Normal Attack")] 
-        [SerializeField]private float NormalAttackDuration = 0.15f;
+        [SerializeField] private float NormalAttackDuration = 0.15f;
         [SerializeField] private string NormalAttackAnimState;
         [SerializeField] private AnimationSequencerController _normalAttackAnimSeq;
 
