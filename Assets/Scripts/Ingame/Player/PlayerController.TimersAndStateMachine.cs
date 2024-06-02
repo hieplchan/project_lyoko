@@ -99,5 +99,10 @@ namespace StartledSeal
         {
             _currentStateHash = stateHash;
         }
+
+        public int GetStateHash()
+        {
+            return _currentStateHash;
+        }
     }
 }

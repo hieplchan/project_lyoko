@@ -2572,10 +2572,6 @@ MonoBehaviour:
     collectionIds:
     - _serializedGuid: 5f3a166b0e3a0742ab3ed6269ce51274
   - item:
-      _guid: cb34ac7a1e6ded84f83aec5923c86fe1
-    collectionIds:
-    - _serializedGuid: 5f3a166b0e3a0742ab3ed6269ce51274
-  - item:
       _guid: 8493905ed6569704fa1777688b89b6ee
     collectionIds:
     - _serializedGuid: 5f3a166b0e3a0742ab3ed6269ce51274

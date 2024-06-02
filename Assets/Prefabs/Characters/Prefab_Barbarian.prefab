@@ -99,7 +99,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1ac19c5101b44cabb6cd93b35227ad30, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _weaponController: {fileID: 0}
+  _weaponController: {fileID: 2304712973009153951}
   _isShowGizmos: 1
   NormalAttackDuration: 0.15
   NormalAttackAnimState: Shotgun
@@ -20238,7 +20238,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f048eab15f674f34b2d598f47cdb4fa1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _weaponController: {fileID: 0}
+  _weaponController: {fileID: 2304712973009153951}
   _isShowGizmos: 1
   NormalAttackDuration: 0.15
   NormalAttackAnimState: Sword_Normal_Attack
@@ -30312,7 +30312,7 @@ GameObject:
   - component: {fileID: 731305980828658522}
   - component: {fileID: 5749305302987513088}
   m_Layer: 0
-  m_Name: CFXR2 Blood (Spherical)
+  m_Name: HitBlood
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -50033,7 +50033,7 @@ GameObject:
   - component: {fileID: 4372123646141301958}
   - component: {fileID: 8906648891046969947}
   m_Layer: 0
-  m_Name: Water Ripples Trail
+  m_Name: Swim
   m_TagString: Untagged
   m_Icon: {fileID: 2800000, guid: d9853b2780ac1bc49a300a188b57db58, type: 3}
   m_NavMeshLayer: 0
@@ -69746,7 +69746,7 @@ GameObject:
   - component: {fileID: 4875698948113504064}
   - component: {fileID: 3135118351850301885}
   m_Layer: 0
-  m_Name: CFXR3 Broken Machine Smoke (White)
+  m_Name: Jump
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -74476,7 +74476,7 @@ GameObject:
   - component: {fileID: 8835370360034341795}
   - component: {fileID: 7457080725918331597}
   m_Layer: 0
-  m_Name: CFXR3 Broken Machine Smoke (White) (1)
+  m_Name: Run
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -99323,6 +99323,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2234883596735673008}
   - component: {fileID: 4741440449343116934}
+  - component: {fileID: 1461808449978920263}
   m_Layer: 8
   m_Name: VFX
   m_TagString: Untagged
@@ -99417,6 +99418,54 @@ MonoBehaviour:
     - Name: 
       Entry: 8
       Data: 
+  _player: {fileID: 4927462788917349986}
+  _runVFX: {fileID: 1461808449978920263}
+  _delay: 0.5
+--- !u!114 &1461808449978920263
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6420198374571540616}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c10d422b52559da41aa9676770a8fc65, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animationSteps:
+  - rid: 3115876822142418945
+  updateType: 0
+  timeScaleIndependent: 0
+  autoplayMode: 2
+  startPaused: 0
+  playbackSpeed: 1
+  playType: 0
+  loops: 0
+  loopType: 0
+  autoKill: 1
+  onStartEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  onFinishedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  onProgressEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  progress: -1
+  references:
+    version: 2
+    RefIds:
+    - rid: 3115876822142418945
+      type: {class: PlayParticleSystemAnimationStep, ns: BrunoMikoski.AnimationSequencer,
+        asm: BrunoMikoski.AnimationSequencer}
+      data:
+        delay: 0
+        flowType: 1
+        particleSystem: {fileID: 8835370360034341795}
+        duration: 0.1
+        stopEmittingWhenOver: 0
 --- !u!1 &6944501132955828034
 GameObject:
   m_ObjectHideFlags: 0
@@ -104425,7 +104474,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2ddbba1b744d490f893ff102e084461f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _weaponController: {fileID: 0}
+  _weaponController: {fileID: 2304712973009153951}
   _isShowGizmos: 0
   NormalAttackDuration: 0.15
   NormalAttackAnimState: Shield
@@ -109409,8 +109458,8 @@ MonoBehaviour:
   _input: {fileID: 11400000, guid: 3ad9c55985255ad42b508b4163f62a85, type: 2}
   _equipmentSpawnPoint: {fileID: 0}
   _equipmentList:
-  - {fileID: 4471215961606392531}
   - {fileID: 5347675365598433267}
+  - {fileID: 4471215961606392531}
   _shield: {fileID: 5925521133013162737}
 --- !u!1 &7629904933931409246
 GameObject:
