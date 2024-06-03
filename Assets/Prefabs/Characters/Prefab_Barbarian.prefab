@@ -112,6 +112,7 @@ MonoBehaviour:
   ChargedAttackDuration: 0.3
   ChargedAttackAnimState: 
   _chargedAttackAnimSeq: {fileID: 0}
+  _stopAttackAnimSeq: {fileID: 0}
   _attackDistance: 4.5
   _attackAngle: 50
   _attackDamage: 10
@@ -146,7 +147,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0.8, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1.5, y: 1.5, z: 1.5}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 3700958861456889278}
@@ -104047,6 +104048,7 @@ MonoBehaviour:
   ChargedAttackDuration: 0.3
   ChargedAttackAnimState: 
   _chargedAttackAnimSeq: {fileID: 0}
+  _stopAttackAnimSeq: {fileID: 0}
   _fallbackForce: 50000
   _getHitAnimSeq: {fileID: 2381610786902621957}
 --- !u!65 &3922927792572785556
@@ -138421,7 +138423,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 1, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.7, y: 0.7, z: 0.7}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 8442982772889536851}
@@ -162909,25 +162911,265 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 4018293946783615716}
     m_Modifications:
+    - target: {fileID: 2095150302677267451, guid: 60120eead8cf0c64dabb973b32e41d2f,
+        type: 3}
+      propertyPath: animationSteps.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2095150302677267451, guid: 60120eead8cf0c64dabb973b32e41d2f,
+        type: 3}
+      propertyPath: animationSteps.Array.data[0]
+      value: 6874732804857659399
+      objectReference: {fileID: 0}
+    - target: {fileID: 2095150302677267451, guid: 60120eead8cf0c64dabb973b32e41d2f,
+        type: 3}
+      propertyPath: animationSteps.Array.data[1]
+      value: 6874732804857659400
+      objectReference: {fileID: 0}
+    - target: {fileID: 2095150302677267451, guid: 60120eead8cf0c64dabb973b32e41d2f,
+        type: 3}
+      propertyPath: managedReferences[6874732804857659399]
+      value: BrunoMikoski.AnimationSequencer BrunoMikoski.AnimationSequencer.SetGameObjectActiveStep
+      objectReference: {fileID: 0}
+    - target: {fileID: 2095150302677267451, guid: 60120eead8cf0c64dabb973b32e41d2f,
+        type: 3}
+      propertyPath: managedReferences[6874732804857659400]
+      value: BrunoMikoski.AnimationSequencer BrunoMikoski.AnimationSequencer.SetGameObjectActiveStep
+      objectReference: {fileID: 0}
+    - target: {fileID: 2095150302677267451, guid: 60120eead8cf0c64dabb973b32e41d2f,
+        type: 3}
+      propertyPath: managedReferences[6874732804857659399].delay
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2095150302677267451, guid: 60120eead8cf0c64dabb973b32e41d2f,
+        type: 3}
+      propertyPath: managedReferences[6874732804857659400].delay
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2095150302677267451, guid: 60120eead8cf0c64dabb973b32e41d2f,
+        type: 3}
+      propertyPath: managedReferences[6874732804857659399].active
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2095150302677267451, guid: 60120eead8cf0c64dabb973b32e41d2f,
+        type: 3}
+      propertyPath: managedReferences[6874732804857659400].active
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2095150302677267451, guid: 60120eead8cf0c64dabb973b32e41d2f,
+        type: 3}
+      propertyPath: managedReferences[6874732804857659399].flowType
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2095150302677267451, guid: 60120eead8cf0c64dabb973b32e41d2f,
+        type: 3}
+      propertyPath: managedReferences[6874732804857659400].flowType
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2095150302677267451, guid: 60120eead8cf0c64dabb973b32e41d2f,
+        type: 3}
+      propertyPath: managedReferences[6874732804857659399].targetGameObject
+      value: 
+      objectReference: {fileID: 784556104756854647}
+    - target: {fileID: 2095150302677267451, guid: 60120eead8cf0c64dabb973b32e41d2f,
+        type: 3}
+      propertyPath: managedReferences[6874732804857659400].targetGameObject
+      value: 
+      objectReference: {fileID: 5547026991285177349}
+    - target: {fileID: 4244673467452367391, guid: 60120eead8cf0c64dabb973b32e41d2f,
+        type: 3}
+      propertyPath: animationSteps.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 4244673467452367391, guid: 60120eead8cf0c64dabb973b32e41d2f,
+        type: 3}
+      propertyPath: animationSteps.Array.data[0]
+      value: 6874732804857659393
+      objectReference: {fileID: 0}
+    - target: {fileID: 4244673467452367391, guid: 60120eead8cf0c64dabb973b32e41d2f,
+        type: 3}
+      propertyPath: animationSteps.Array.data[1]
+      value: 6874732804857659394
+      objectReference: {fileID: 0}
+    - target: {fileID: 4244673467452367391, guid: 60120eead8cf0c64dabb973b32e41d2f,
+        type: 3}
+      propertyPath: animationSteps.Array.data[2]
+      value: 6874732804857659395
+      objectReference: {fileID: 0}
+    - target: {fileID: 4244673467452367391, guid: 60120eead8cf0c64dabb973b32e41d2f,
+        type: 3}
+      propertyPath: animationSteps.Array.data[3]
+      value: 6874732804857659396
+      objectReference: {fileID: 0}
+    - target: {fileID: 4244673467452367391, guid: 60120eead8cf0c64dabb973b32e41d2f,
+        type: 3}
+      propertyPath: managedReferences[6874732804857659393]
+      value: BrunoMikoski.AnimationSequencer BrunoMikoski.AnimationSequencer.SetGameObjectActiveStep
+      objectReference: {fileID: 0}
+    - target: {fileID: 4244673467452367391, guid: 60120eead8cf0c64dabb973b32e41d2f,
+        type: 3}
+      propertyPath: managedReferences[6874732804857659394]
+      value: BrunoMikoski.AnimationSequencer BrunoMikoski.AnimationSequencer.SetGameObjectActiveStep
+      objectReference: {fileID: 0}
+    - target: {fileID: 4244673467452367391, guid: 60120eead8cf0c64dabb973b32e41d2f,
+        type: 3}
+      propertyPath: managedReferences[6874732804857659395]
+      value: BrunoMikoski.AnimationSequencer BrunoMikoski.AnimationSequencer.PlayParticleSystemAnimationStep
+      objectReference: {fileID: 0}
+    - target: {fileID: 4244673467452367391, guid: 60120eead8cf0c64dabb973b32e41d2f,
+        type: 3}
+      propertyPath: managedReferences[6874732804857659396]
+      value: BrunoMikoski.AnimationSequencer BrunoMikoski.AnimationSequencer.PlayParticleSystemAnimationStep
+      objectReference: {fileID: 0}
+    - target: {fileID: 4244673467452367391, guid: 60120eead8cf0c64dabb973b32e41d2f,
+        type: 3}
+      propertyPath: managedReferences[6874732804857659393].delay
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4244673467452367391, guid: 60120eead8cf0c64dabb973b32e41d2f,
+        type: 3}
+      propertyPath: managedReferences[6874732804857659394].delay
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4244673467452367391, guid: 60120eead8cf0c64dabb973b32e41d2f,
+        type: 3}
+      propertyPath: managedReferences[6874732804857659395].delay
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4244673467452367391, guid: 60120eead8cf0c64dabb973b32e41d2f,
+        type: 3}
+      propertyPath: managedReferences[6874732804857659396].delay
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4244673467452367391, guid: 60120eead8cf0c64dabb973b32e41d2f,
+        type: 3}
+      propertyPath: managedReferences[6874732804857659393].active
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4244673467452367391, guid: 60120eead8cf0c64dabb973b32e41d2f,
+        type: 3}
+      propertyPath: managedReferences[6874732804857659394].active
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4244673467452367391, guid: 60120eead8cf0c64dabb973b32e41d2f,
+        type: 3}
+      propertyPath: managedReferences[6874732804857659393].flowType
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4244673467452367391, guid: 60120eead8cf0c64dabb973b32e41d2f,
+        type: 3}
+      propertyPath: managedReferences[6874732804857659394].flowType
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4244673467452367391, guid: 60120eead8cf0c64dabb973b32e41d2f,
+        type: 3}
+      propertyPath: managedReferences[6874732804857659395].duration
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4244673467452367391, guid: 60120eead8cf0c64dabb973b32e41d2f,
+        type: 3}
+      propertyPath: managedReferences[6874732804857659395].flowType
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4244673467452367391, guid: 60120eead8cf0c64dabb973b32e41d2f,
+        type: 3}
+      propertyPath: managedReferences[6874732804857659396].duration
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4244673467452367391, guid: 60120eead8cf0c64dabb973b32e41d2f,
+        type: 3}
+      propertyPath: managedReferences[6874732804857659396].flowType
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4244673467452367391, guid: 60120eead8cf0c64dabb973b32e41d2f,
+        type: 3}
+      propertyPath: managedReferences[6874732804857659395].particleSystem
+      value: 
+      objectReference: {fileID: 6691582623010129114}
+    - target: {fileID: 4244673467452367391, guid: 60120eead8cf0c64dabb973b32e41d2f,
+        type: 3}
+      propertyPath: managedReferences[6874732804857659396].particleSystem
+      value: 
+      objectReference: {fileID: 2893405336249933538}
+    - target: {fileID: 4244673467452367391, guid: 60120eead8cf0c64dabb973b32e41d2f,
+        type: 3}
+      propertyPath: managedReferences[6874732804857659393].targetGameObject
+      value: 
+      objectReference: {fileID: 784556104756854647}
+    - target: {fileID: 4244673467452367391, guid: 60120eead8cf0c64dabb973b32e41d2f,
+        type: 3}
+      propertyPath: managedReferences[6874732804857659394].targetGameObject
+      value: 
+      objectReference: {fileID: 5547026991285177349}
+    - target: {fileID: 4244673467452367391, guid: 60120eead8cf0c64dabb973b32e41d2f,
+        type: 3}
+      propertyPath: managedReferences[6874732804857659395].stopEmittingWhenOver
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4244673467452367391, guid: 60120eead8cf0c64dabb973b32e41d2f,
+        type: 3}
+      propertyPath: managedReferences[6874732804857659396].stopEmittingWhenOver
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4534703704910864486, guid: 60120eead8cf0c64dabb973b32e41d2f,
+        type: 3}
+      propertyPath: ChargingDuration
+      value: 0.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4534703704910864486, guid: 60120eead8cf0c64dabb973b32e41d2f,
+        type: 3}
+      propertyPath: StartChargingTime
+      value: 0.25
+      objectReference: {fileID: 0}
     - target: {fileID: 4534703704910864486, guid: 60120eead8cf0c64dabb973b32e41d2f,
         type: 3}
       propertyPath: _weaponController
       value: 
       objectReference: {fileID: 2304712973009153951}
+    - target: {fileID: 4534703704910864486, guid: 60120eead8cf0c64dabb973b32e41d2f,
+        type: 3}
+      propertyPath: _stopAttackAnimSeq
+      value: 
+      objectReference: {fileID: 2235406864487019923}
+    - target: {fileID: 4534703704910864486, guid: 60120eead8cf0c64dabb973b32e41d2f,
+        type: 3}
+      propertyPath: NormalAttackDuration
+      value: 0.05
+      objectReference: {fileID: 0}
+    - target: {fileID: 4534703704910864486, guid: 60120eead8cf0c64dabb973b32e41d2f,
+        type: 3}
+      propertyPath: _chargedAttackDistance
+      value: 2.91
+      objectReference: {fileID: 0}
+    - target: {fileID: 4713721976154311889, guid: 60120eead8cf0c64dabb973b32e41d2f,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1.0000005
+      objectReference: {fileID: 0}
+    - target: {fileID: 4713721976154311889, guid: 60120eead8cf0c64dabb973b32e41d2f,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1.0000005
+      objectReference: {fileID: 0}
+    - target: {fileID: 4713721976154311889, guid: 60120eead8cf0c64dabb973b32e41d2f,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1.0000001
+      objectReference: {fileID: 0}
     - target: {fileID: 4713721976154311889, guid: 60120eead8cf0c64dabb973b32e41d2f,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.000014781951
+      value: 0.000000059604645
       objectReference: {fileID: 0}
     - target: {fileID: 4713721976154311889, guid: 60120eead8cf0c64dabb973b32e41d2f,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 0.03330931
       objectReference: {fileID: 0}
     - target: {fileID: 4713721976154311889, guid: 60120eead8cf0c64dabb973b32e41d2f,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: -0.00000023864456
       objectReference: {fileID: 0}
     - target: {fileID: 4713721976154311889, guid: 60120eead8cf0c64dabb973b32e41d2f,
         type: 3}
@@ -162937,17 +163179,17 @@ PrefabInstance:
     - target: {fileID: 4713721976154311889, guid: 60120eead8cf0c64dabb973b32e41d2f,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0.00000013273399
+      value: 0.000000056966357
       objectReference: {fileID: 0}
     - target: {fileID: 4713721976154311889, guid: 60120eead8cf0c64dabb973b32e41d2f,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.00000010848823
+      value: -0.000000002276496
       objectReference: {fileID: 0}
     - target: {fileID: 4713721976154311889, guid: 60120eead8cf0c64dabb973b32e41d2f,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0.000005483628
+      value: -0.000000030214018
       objectReference: {fileID: 0}
     - target: {fileID: 4713721976154311889, guid: 60120eead8cf0c64dabb973b32e41d2f,
         type: 3}
@@ -162964,16 +163206,143 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5778297979429478250, guid: 60120eead8cf0c64dabb973b32e41d2f,
+        type: 3}
+      propertyPath: animationSteps.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5778297979429478250, guid: 60120eead8cf0c64dabb973b32e41d2f,
+        type: 3}
+      propertyPath: animationSteps.Array.data[0]
+      value: 6874732804857659392
+      objectReference: {fileID: 0}
+    - target: {fileID: 5778297979429478250, guid: 60120eead8cf0c64dabb973b32e41d2f,
+        type: 3}
+      propertyPath: managedReferences[6874732804857659392]
+      value: BrunoMikoski.AnimationSequencer BrunoMikoski.AnimationSequencer.PlayParticleSystemAnimationStep
+      objectReference: {fileID: 0}
+    - target: {fileID: 5778297979429478250, guid: 60120eead8cf0c64dabb973b32e41d2f,
+        type: 3}
+      propertyPath: managedReferences[6874732804857659392].delay
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5778297979429478250, guid: 60120eead8cf0c64dabb973b32e41d2f,
+        type: 3}
+      propertyPath: managedReferences[6874732804857659392].duration
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5778297979429478250, guid: 60120eead8cf0c64dabb973b32e41d2f,
+        type: 3}
+      propertyPath: managedReferences[6874732804857659392].flowType
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5778297979429478250, guid: 60120eead8cf0c64dabb973b32e41d2f,
+        type: 3}
+      propertyPath: managedReferences[6874732804857659392].particleSystem
+      value: 
+      objectReference: {fileID: 5520269697678326056}
+    - target: {fileID: 5778297979429478250, guid: 60120eead8cf0c64dabb973b32e41d2f,
+        type: 3}
+      propertyPath: managedReferences[6874732804857659392].stopEmittingWhenOver
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6159239856866312652, guid: 60120eead8cf0c64dabb973b32e41d2f,
         type: 3}
       propertyPath: m_Name
       value: sword
+      objectReference: {fileID: 0}
+    - target: {fileID: 8148295700686125610, guid: 60120eead8cf0c64dabb973b32e41d2f,
+        type: 3}
+      propertyPath: animationSteps.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8148295700686125610, guid: 60120eead8cf0c64dabb973b32e41d2f,
+        type: 3}
+      propertyPath: animationSteps.Array.data[0]
+      value: 6874732804857659397
+      objectReference: {fileID: 0}
+    - target: {fileID: 8148295700686125610, guid: 60120eead8cf0c64dabb973b32e41d2f,
+        type: 3}
+      propertyPath: animationSteps.Array.data[1]
+      value: 6874732804857659398
+      objectReference: {fileID: 0}
+    - target: {fileID: 8148295700686125610, guid: 60120eead8cf0c64dabb973b32e41d2f,
+        type: 3}
+      propertyPath: managedReferences[6874732804857659397]
+      value: BrunoMikoski.AnimationSequencer BrunoMikoski.AnimationSequencer.PlayParticleSystemAnimationStep
+      objectReference: {fileID: 0}
+    - target: {fileID: 8148295700686125610, guid: 60120eead8cf0c64dabb973b32e41d2f,
+        type: 3}
+      propertyPath: managedReferences[6874732804857659398]
+      value: BrunoMikoski.AnimationSequencer BrunoMikoski.AnimationSequencer.PlayParticleSystemAnimationStep
+      objectReference: {fileID: 0}
+    - target: {fileID: 8148295700686125610, guid: 60120eead8cf0c64dabb973b32e41d2f,
+        type: 3}
+      propertyPath: managedReferences[6874732804857659397].delay
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8148295700686125610, guid: 60120eead8cf0c64dabb973b32e41d2f,
+        type: 3}
+      propertyPath: managedReferences[6874732804857659398].delay
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8148295700686125610, guid: 60120eead8cf0c64dabb973b32e41d2f,
+        type: 3}
+      propertyPath: managedReferences[6874732804857659397].duration
+      value: 0.15
+      objectReference: {fileID: 0}
+    - target: {fileID: 8148295700686125610, guid: 60120eead8cf0c64dabb973b32e41d2f,
+        type: 3}
+      propertyPath: managedReferences[6874732804857659397].flowType
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8148295700686125610, guid: 60120eead8cf0c64dabb973b32e41d2f,
+        type: 3}
+      propertyPath: managedReferences[6874732804857659398].duration
+      value: 0.15
+      objectReference: {fileID: 0}
+    - target: {fileID: 8148295700686125610, guid: 60120eead8cf0c64dabb973b32e41d2f,
+        type: 3}
+      propertyPath: managedReferences[6874732804857659398].flowType
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8148295700686125610, guid: 60120eead8cf0c64dabb973b32e41d2f,
+        type: 3}
+      propertyPath: managedReferences[6874732804857659397].particleSystem
+      value: 
+      objectReference: {fileID: 3854182126070758450}
+    - target: {fileID: 8148295700686125610, guid: 60120eead8cf0c64dabb973b32e41d2f,
+        type: 3}
+      propertyPath: managedReferences[6874732804857659398].particleSystem
+      value: 
+      objectReference: {fileID: 6750679365727243195}
+    - target: {fileID: 8148295700686125610, guid: 60120eead8cf0c64dabb973b32e41d2f,
+        type: 3}
+      propertyPath: managedReferences[6874732804857659397].stopEmittingWhenOver
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8148295700686125610, guid: 60120eead8cf0c64dabb973b32e41d2f,
+        type: 3}
+      propertyPath: managedReferences[6874732804857659398].stopEmittingWhenOver
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 60120eead8cf0c64dabb973b32e41d2f, type: 3}
+--- !u!114 &2235406864487019923 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2095150302677267451, guid: 60120eead8cf0c64dabb973b32e41d2f,
+    type: 3}
+  m_PrefabInstance: {fileID: 150512879288092264}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c10d422b52559da41aa9676770a8fc65, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &4393325573058504206 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 4534703704910864486, guid: 60120eead8cf0c64dabb973b32e41d2f,
@@ -163200,13 +163569,7 @@ Animator:
   m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
   m_StabilizeFeet: 0
-  m_WarningMessage: "\nBinding warning: Some generic clip(s) animate transforms that
-    are already bound by a Humanoid avatar. These transforms can only be changed
-    by Humanoid clips.\n\tTransform 'upperleg.l'\n\tTransform 'hips'\n\tTransform
-    'upperarm.l'\n\tTransform 'upperarm.r'\n\tTransform 'root'\n\tTransform 'upperleg.l'\n\tTransform
-    'lowerarm.l'\n\tTransform 'hips'\n\tTransform 'lowerarm.r'\n\tTransform 'upperarm.l'\n\tand
-    more ...\n\tFrom animation clip 'Melee_Slice_Horizontal'\n\tFrom animation clip
-    'Melee_Attack_Charging'\n\tFrom animation clip 'Melee_Attack_Spinning'"
+  m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0

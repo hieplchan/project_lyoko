@@ -117,7 +117,7 @@ AnimatorState:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: Melee_Attack_Slice
-  m_Speed: 4
+  m_Speed: 10
   m_CycleOffset: 0
   m_Transitions:
   - {fileID: 733409304768333837}

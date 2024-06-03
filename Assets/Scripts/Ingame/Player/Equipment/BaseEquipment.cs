@@ -38,6 +38,9 @@ namespace StartledSeal
         [SerializeField] private string ChargedAttackAnimState;
         [SerializeField] private AnimationSequencerController _chargedAttackAnimSeq;
         
+        [Header("Stop Attack")]
+        [SerializeField] private AnimationSequencerController _stopAttackAnimSeq;
+
         protected PlayerController _player => _weaponController.PlayerControllerComp;
 
         public EquipmentState CurrentState { get; private set; }
@@ -48,6 +51,7 @@ namespace StartledSeal
         protected int _animChargedAttackHash;
         
         private float _lastUsedCheckpoint;
+        private bool _isButtonPressed;
 
         private void Awake()
         {
@@ -60,6 +64,8 @@ namespace StartledSeal
 
         public virtual void Use(bool active)
         {
+            _isButtonPressed = active;
+            
             if (!IsUsable()) return;
 
             if (active)
@@ -72,8 +78,12 @@ namespace StartledSeal
                 switch (CurrentState)
                 {
                     case EquipmentState.NormalAttackState:
-                        if (Time.time < _lastUsedCheckpoint + StartChargingTime)
+                        if (_lastUsedCheckpoint + NormalAttackDuration < Time.time
+                            && Time.time < _lastUsedCheckpoint + StartChargingTime
+                            && !_isButtonPressed)
+                        {
                             StopUsing();
+                        }
                         break;
                     case EquipmentState.ChargingState:
                         StopUsing();
@@ -153,6 +163,7 @@ namespace StartledSeal
             _player.IsRotationLocked = false;
             _player.IsForcedWalking = false;
             EnableUpperBodyAnimMask(false);
+            _stopAttackAnimSeq?.Play();
         }
         
         private void EnableUpperBodyAnimMask(bool isEnable)
