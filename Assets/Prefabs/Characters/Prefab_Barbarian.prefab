@@ -69305,15 +69305,15 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  _freeLookCam: {fileID: 0}
+  <Input>k__BackingField: {fileID: 11400000, guid: 3ad9c55985255ad42b508b4163f62a85,
+    type: 2}
   <RigidBodyComp>k__BackingField: {fileID: 7430362557072633497}
   <AnimatorComp>k__BackingField: {fileID: 9111027667859575265}
   <PlayerWeaponControllerComp>k__BackingField: {fileID: 2304712973009153951}
   <PlayerVFXControllerComp>k__BackingField: {fileID: 4741440449343116934}
   <GroundCheckerComp>k__BackingField: {fileID: 3553811637106234831}
   <WaterCheckerComp>k__BackingField: {fileID: 3358840578890995930}
-  <Input>k__BackingField: {fileID: 11400000, guid: 3ad9c55985255ad42b508b4163f62a85,
-    type: 2}
-  _freeLookCam: {fileID: 0}
   _runSpeed: 300
   _walkSpeed: 150
   _rotationSpeed: 15
