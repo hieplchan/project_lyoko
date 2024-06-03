@@ -79,13 +79,14 @@ namespace StartledSeal
 
         public void OnToggleShield(bool isUsingShield)
         {
-            // MLog.Debug("PlayerWeaponController", $"PlayerWeaponController isUsingShield: {isUsingShield}");
+            if (!_shield.IsUsable()) return;
+            
             PlayerControllerComp.IsRotationLocked = IsUsingShield = isUsingShield;
             
             if (IsUsingShield)
             {
                 _shield.gameObject.SetActive(true);
-                _shield.NormalAttack();
+                _shield.EnableShield();
                 PlayerControllerComp.IsForcedWalking = true;
             }
             else

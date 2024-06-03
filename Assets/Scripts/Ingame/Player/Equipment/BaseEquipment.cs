@@ -43,7 +43,7 @@ namespace StartledSeal
 
         protected PlayerController _player => _weaponController.PlayerControllerComp;
 
-        public EquipmentState CurrentState { get; private set; }
+        public EquipmentState CurrentState { get; protected set; }
         public virtual bool IsUsable() => true;
         
         protected int _animNormalAttackHash;
