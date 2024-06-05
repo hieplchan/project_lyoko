@@ -7,6 +7,7 @@ TagManager:
   - MovingPlatform
   - Enemy
   - Pet
+  - FxTemporaire
   layers:
   - Default
   - TransparentFX
@@ -18,8 +19,8 @@ TagManager:
   - Enemy
   - Player
   - Weapon
-  - 
-  - 
+  - Grid
+  - PlacementGrid
   - 
   - 
   - 

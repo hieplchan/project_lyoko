@@ -1,0 +1,129 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &1
+MonoBehaviour:
+  m_ObjectHideFlags: 52
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 60cfc8d3abbb89545a156b421a79d41b, type: 3}
+  m_Name: Kaykit Building
+  m_EditorClassIdentifier: 
+  _root: {fileID: 0}
+  _parent: {fileID: 0}
+  _parentID:
+    _serializedGuid: c522e045e0e5fb45b295d129d2452484
+  _subcollections: []
+  _subcollectionIDs: []
+  _collectionName: Kaykit Building
+  _id:
+    _serializedGuid: 79c3e51a1a95664fa02383f132ceabac
+  _icon: {fileID: 0}
+  _rules:
+    _rules: []
+  _items:
+    _hashSetList:
+    - 3f75e991e1e2f774ba51335f94589f60
+    - 7039a9721eaa4a04eb582a49126379e7
+    - cbe8d2039dc2d3543867ef7241ce074b
+    - 4fc9e826d4fe17e40a1cd9fc05700a92
+    - a38d701d122a15a4d9023aa2c77f6120
+    - 56d4d3d4f9571b443a12419d1ec3ba71
+    - 98e9ebd330588434384fb814e35d9e80
+    - e648460e7fb245947b8a7ff1f413c39a
+    - 6887054ad10415a4682c46b9c2791a99
+    - 97af1be27d43c7b41a75e153e6746597
+    - bd62e44aad7ab724a9ec02656bad96c5
+    - 719dc157963330f4faf050aa56f45d88
+    - fc40e13f1e325914f8921f3df1f0fef6
+    - 0d8736ff41d63ba4fa8e8b8c77751960
+    - 9560b7df16f5fe94bb995bbb0be94714
+    - e8a12717d7be28540b57974ba97ec39e
+    - ebb64eb20bdcac54884d1d30929fcdc4
+    - a5c6174334fec744da01e95d5be3a48c
+    - 93fa1a39c2794774ca9e0a9cfdf5e4ee
+    - 94731dbd4113ca9448fe6bc1e87dfc76
+    - 907e31aa5957e9742ae0a79090ff3de6
+    - c036ff384e040514fb2117fb2af57f5f
+    - 57757a8bfcac5da4db186ed4a742b346
+    - bb0a2858e56894841b1eddd550ba2cf1
+    - 1ebdf2769c5118f42b8acd71a2587de4
+    - 15a7ba4e7a10cf74688426b22c71d39b
+    - 214c82b33d2f1e2439de4d3e5c0ccfc9
+    - bcd609e57bb584c4da6a846ac8584407
+    - bcb2a02684e5d7043a7d9fc191234e24
+    - d8991a9006bf7de48b4128990b729524
+    - a6165a22f7f12a04f9fafd5550d560dc
+    - 9750f3b50f6cf8048943184e5535ec9b
+    - b5c5b8d7e30c4de4a9fb6eef370c2400
+    - 4dbe6add80f2f30468388bbb16bef68c
+    - 878692e62692ffb4c8e44b781af8da28
+    - 7cf87efce6d07bb41b18ec8053571989
+    - 704b00c708838644d8268e3528e4c23a
+    - 531e3a2eac2699a47927220c2da9c27a
+    - 2faab1971431df844b6812ac86cae342
+    - 7097590702a2a314d944d945a750c8c8
+    - 40007553b04ace445a946003f75b2df4
+    - 08d3bf3c6709d6044bea8bfc9dc5be16
+    - 5dca83ce7a8e0234c889d1ff55ad7ebd
+    - 600b9b88cfb007643b7c55ed716c3773
+    - b35b10fb1d057cb44b3e79dcb24e67b5
+    - 102a00ff6e0a1f84599bcf10469d9747
+    - c27884cbef6815a42961c4f54a7671de
+    - f514498c8230f7c4e90515acf3c5a596
+    - 7e587b2cfd74cc344a72494047bbbb8b
+    - d69a6a5295751134eb3207463915626a
+    - 3b95477dc3482bb458ef2b8c14f1fb15
+    - 8d6e751ddaaac5d4a8c7374145f47e85
+    - 68cd96b8b16fad04b91b4df060e6455d
+    - e9d33549da239b849913df5adeaab087
+    - f2088302c78c8f346926a250c19c3833
+    - 12289b4e3d8b2fa40983bd6d90b7314b
+    - 02dd0edd2b1e8fc40bfc98277eb50c97
+    - 00e106b5e022f70478be72d457761021
+    - f01d426b36eb8ff4e8afeb46b8bf82ea
+    - 0386364485a5e794fa5dd72d892a06da
+    - 9f4d48893e0299f489e0a7470b71eec3
+    - 445b32773056c4142851b6d7527b4278
+    - 908059608784d1a4a80ab7aa9761cdc6
+    - 4d6912f54c616464197970be77927433
+    - 5080a14e49cc41143a44cf96c86b1430
+    - 03689c385f95d3746b8652ff2e9f88c1
+    - c795c0097345f864c802e4ed2e5f3e92
+    - 8fc4c2aae5afcb843b66e38e28d253aa
+    - 033ebb7a1179d4f42b14962f96be9129
+    - 7d47d0ca838bcda4fa3874c1d79bedd5
+    - 94188407791cb7b4fbb644908482bcd6
+    - a3add68e0f166f048b71bc3c29e75295
+    - 836fef3deecf5d443a1b51b3e6af5628
+    - bf40d5597965b014eaaa19c1e3cb1b76
+    - b78f5382be734b1499c74c07dbe857bd
+    - 68dc0a6cef1d553489f8fb0d24cca111
+    - 9cd7e6b0b5c660a48a1e8b0a974b0e2c
+    - 2302ff059e5628447920335b434c7d31
+    - 09ac47725f126bd41be7b19c89b21cdc
+    - 28316f8365a40d6488d4422dcb4deb9a
+    - 7f69ec88bccadf24fbd20d8886cad260
+    - e3dbf1413cbc14c45845da6d149dd913
+    - ce075286ebd38df4ca2fd8f93aedf57d
+    - 9fed2bf93b682124dbf71decc03b1fa0
+    - ad74685206630644b9ef0405eac007c2
+    - 3f1258cb74077a14384efc7bf14130fc
+    - 457ecf211156663479dffdd73f69ec33
+    - 2f7b82662e0a402468c727e7c51b58b4
+    - a3182ce7715662547a0ef141d0ad91c8
+    - 7b9d1d0928ed5cd42b5a53e60a112ff1
+    - 581a0d97ac3b6f4458511b8503f82e04
+    - ac0458946ecbdee42b59aa02a763ba49
+    - 0ff6fdaaa1b5c4b419bd069737c14db4
+    - 48f4739e2e3550a4c964b7a58d889bb9
+    - 5c8d27082aa095c47a4a0f4075c0ceed
+  _itemDisplaySize: 100
+  _viewStyle: 0
+  _useCollectionViewSettings: 0
+  references:
+    version: 2
+    RefIds: []
