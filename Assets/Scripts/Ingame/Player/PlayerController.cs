@@ -14,18 +14,19 @@ namespace StartledSeal
 {
     public partial class PlayerController : ValidatedMonoBehaviour, IDamageable
     {
+        
         [Header("Event")] 
         public UnityEvent GetHitEvent;
         
+        [Header("Component")] 
+        [SerializeField, Anywhere] private CinemachineFreeLook _freeLookCam;
+        [field: SerializeField, Anywhere] public InputReader Input { get; private set; }
         [field: SerializeField, Child] public Rigidbody RigidBodyComp { get; private set; }
         [field: SerializeField, Child] public Animator AnimatorComp { get; private set; }
         [field: SerializeField, Child] public PlayerWeaponController PlayerWeaponControllerComp { get; private set; }
         [field: SerializeField, Child] public PlayerVFXController PlayerVFXControllerComp { get; private set; }
         [field: SerializeField, Child] public GroundChecker GroundCheckerComp { get; private set; }
         [field: SerializeField, Child] public WaterChecker WaterCheckerComp { get; private set; }
-        
-        [field: SerializeField, Anywhere] public InputReader Input { get; private set; }
-        [SerializeField, Anywhere] private CinemachineFreeLook _freeLookCam;
         
         [Header("Movement Settings")]
         [SerializeField] private float _runSpeed = 200f;
@@ -60,11 +61,9 @@ namespace StartledSeal
         public bool IsRotationLocked;
         public bool IsForcedWalking;
         
-        // private float _currentSpeed;
-        // private float _velocity;
         private float _jumpVelocity;
         private float _dashVelocity = 1f;
-
+        
         public Vector3 Movement { get; private set; }
 
         private void Awake()
@@ -214,14 +213,14 @@ namespace StartledSeal
         
         private void HandleHorizontalMovement(Vector3 adjustedDirection)
         {
-            var moveSpeed = IsRunning ? _runSpeed : _walkSpeed;
+            var speed = IsRunning ? _runSpeed : _walkSpeed;
             if (IsForcedWalking)
-                moveSpeed = _walkSpeed;
-            moveSpeed = _currentStateHash.Equals(FlyHash) ? _flySpeed : moveSpeed;
-            moveSpeed = _currentStateHash.Equals(SwimHash) ? _swimSpeed : moveSpeed;
+                speed = _walkSpeed;
+            speed = _currentStateHash.Equals(FlyHash) ? _flySpeed : speed;
+            speed = _currentStateHash.Equals(SwimHash) ? _swimSpeed : speed;
 
             // Move the player
-            Vector3 velocity = adjustedDirection * (moveSpeed * _dashVelocity * Time.fixedDeltaTime);
+            Vector3 velocity = adjustedDirection * (speed * _dashVelocity * Time.fixedDeltaTime);
             RigidBodyComp.velocity = new Vector3(velocity.x, RigidBodyComp.velocity.y, velocity.z);
         }
         
@@ -233,7 +232,7 @@ namespace StartledSeal
         private void UpdateAnimator()
         {
             // _animator.SetFloat(Speed, _currentSpeed);
-            AnimatorComp.SetFloat(Speed, RigidBodyComp.velocity.magnitude);
+            AnimatorComp.SetFloat(Const.Speed, RigidBodyComp.velocity.magnitude);
         }
     }
 }

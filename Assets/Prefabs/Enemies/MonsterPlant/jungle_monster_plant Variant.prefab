@@ -359,7 +359,7 @@ PrefabInstance:
     - target: {fileID: 1069207771847234435, guid: 1b3543cccdd524a72a823324f6f3fab2,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -7.3700256
+      value: 19.379974
       objectReference: {fileID: 0}
     - target: {fileID: 1069207771847234435, guid: 1b3543cccdd524a72a823324f6f3fab2,
         type: 3}
@@ -369,7 +369,7 @@ PrefabInstance:
     - target: {fileID: 1069207771847234435, guid: 1b3543cccdd524a72a823324f6f3fab2,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -10.75
+      value: -7.5
       objectReference: {fileID: 0}
     - target: {fileID: 1069207771847234435, guid: 1b3543cccdd524a72a823324f6f3fab2,
         type: 3}
@@ -409,7 +409,17 @@ PrefabInstance:
     - target: {fileID: 2049886199575371217, guid: 1b3543cccdd524a72a823324f6f3fab2,
         type: 3}
       propertyPath: _maxHealth
-      value: 40
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 2732970584421346483, guid: 1b3543cccdd524a72a823324f6f3fab2,
+        type: 3}
+      propertyPath: _attackRange
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 2732970584421346483, guid: 1b3543cccdd524a72a823324f6f3fab2,
+        type: 3}
+      propertyPath: _detectionRadius
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 6209259322873662316, guid: 1b3543cccdd524a72a823324f6f3fab2,
         type: 3}
