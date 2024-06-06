@@ -208,6 +208,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: CuttableGrass_2 Variant
       objectReference: {fileID: 0}
+    - target: {fileID: 7961699224794053608, guid: f1f908d3a725f470bb4dc20c6c68d0ed,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 4b9e8d9fd20ea4d4a93de486a7148a28, type: 2}
     - target: {fileID: 8556921401233055081, guid: f1f908d3a725f470bb4dc20c6c68d0ed,
         type: 3}
       propertyPath: m_IsActive
