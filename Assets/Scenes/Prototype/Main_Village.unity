@@ -1689,10 +1689,15 @@ PrefabInstance:
       propertyPath: _freeLookCam
       value: 
       objectReference: {fileID: 8343752438854617588}
+    - target: {fileID: 7215900772720924686, guid: 2df2db44622d4c44a8a1a5b52589b428,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8601219196290787554, guid: 2df2db44622d4c44a8a1a5b52589b428,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 19.75
+      value: 20.75
       objectReference: {fileID: 0}
     - target: {fileID: 8601219196290787554, guid: 2df2db44622d4c44a8a1a5b52589b428,
         type: 3}
@@ -1702,7 +1707,7 @@ PrefabInstance:
     - target: {fileID: 8601219196290787554, guid: 2df2db44622d4c44a8a1a5b52589b428,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.25
+      value: -1
       objectReference: {fileID: 0}
     - target: {fileID: 8601219196290787554, guid: 2df2db44622d4c44a8a1a5b52589b428,
         type: 3}
