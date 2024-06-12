@@ -35,7 +35,7 @@ MonoBehaviour:
   active: 1
   amount:
     m_OverrideState: 1
-    m_Value: 0.672
+    m_Value: 0.296
   mode:
     m_OverrideState: 1
     m_Value: 0
@@ -44,7 +44,7 @@ MonoBehaviour:
     m_Value: 1
   areaSize:
     m_OverrideState: 1
-    m_Value: 0.56
+    m_Value: 0.381
   areaFalloff:
     m_OverrideState: 1
     m_Value: 0.539
