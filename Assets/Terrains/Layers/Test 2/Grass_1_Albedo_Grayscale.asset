@@ -22,6 +22,8 @@ MonoBehaviour:
       rid: 6874733124796547074
     filters:
     - rid: 6874733124796547075
+    - rid: 6874733131516608512
+    - rid: 6874733131516608515
   references:
     version: 2
     RefIds:
@@ -37,3 +39,16 @@ MonoBehaviour:
       data:
         strength: 1
         outputTo: 0
+    - rid: 6874733131516608512
+      type: {class: LeanFilterInvert, ns: Lean.Texture, asm: LeanTexturePlus}
+      data:
+        channel: 0
+        strength: 1
+        strengthR: 1
+        strengthG: 1
+        strengthB: 1
+        strengthA: 1
+    - rid: 6874733131516608515
+      type: {class: LeanFilterBlur, ns: Lean.Texture, asm: LeanTexturePlus}
+      data:
+        radius: 30
