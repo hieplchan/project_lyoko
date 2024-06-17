@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f62c9c65cf3354c93be831c8bc075510, type: 3}
   m_Name: SSAO
   m_EditorClassIdentifier: 
-  m_Active: 0
+  m_Active: 1
   m_Settings:
     AOMethod: 1
     Downsample: 1
@@ -20,7 +20,7 @@ MonoBehaviour:
     Source: 0
     NormalSamples: 0
     Intensity: 0.5
-    DirectLightingStrength: 0.25
+    DirectLightingStrength: 0.312
     Radius: 0.25
     Samples: 2
     BlurQuality: 0
@@ -122,4 +122,5 @@ MonoBehaviour:
     normalMipmaps: 1
     ignoreSceneView: 0
     enableVFXGraphHooks: 1
-  displacementNormalShader: {fileID: 0}
+  displacementNormalShader: {fileID: 4800000, guid: e88bd17fc45d45adaa4fe5e4dc1e381e,
+    type: 3}

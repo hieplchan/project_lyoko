@@ -36,12 +36,12 @@ MonoBehaviour:
     AfterOpaque: 0
     Source: 1
     NormalSamples: 1
-    Intensity: 0.5
-    DirectLightingStrength: 0.25
-    Radius: 0.25
+    Intensity: 6.6
+    DirectLightingStrength: 0.661
+    Radius: 0.67
     Samples: 0
     BlurQuality: 0
-    Falloff: 100
+    Falloff: 82.1
     SampleCount: -1
   m_BlueNoise256Textures:
   - {fileID: 2800000, guid: 36f118343fc974119bee3d09e2111500, type: 3}
@@ -77,7 +77,8 @@ MonoBehaviour:
     normalMipmaps: 1
     ignoreSceneView: 0
     enableVFXGraphHooks: 1
-  displacementNormalShader: {fileID: 0}
+  displacementNormalShader: {fileID: 4800000, guid: e88bd17fc45d45adaa4fe5e4dc1e381e,
+    type: 3}
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
