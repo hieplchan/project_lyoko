@@ -1,0 +1,44 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0b02745bbaa67384f96b839662346fba, type: 3}
+  m_Name: Splat-seamless
+  m_EditorClassIdentifier: 
+  data:
+    preset: 10
+    settingsFrom: {fileID: 2800000, guid: b7f57992d3199a7459b7d15436781173, type: 3}
+    wrapModeU: 0
+    wrapModeV: 0
+    mipmapEnabled: 0
+    create:
+      rid: 6874733282279555076
+    filters:
+    - rid: 6874733282279555077
+  references:
+    version: 2
+    RefIds:
+    - rid: 6874733282279555076
+      type: {class: LeanCreateTexture, ns: Lean.Texture, asm: LeanTexture}
+      data:
+        texture: {fileID: 2800000, guid: b7f57992d3199a7459b7d15436781173, type: 3}
+        overrideSize:
+          x: -1
+          y: -1
+    - rid: 6874733282279555077
+      type: {class: LeanFilterSeamless, ns: Lean.Texture, asm: LeanTexturePlus}
+      data:
+        thickness: 0.01
+        offsetX: 0.5
+        offsetY: 0.5
+        heightSource: 1
+        heightInfluence: 0.713
+        noiseTiling: 5
+        noiseInfluence: 0.5

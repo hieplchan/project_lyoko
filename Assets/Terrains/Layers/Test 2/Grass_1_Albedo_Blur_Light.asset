@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0b02745bbaa67384f96b839662346fba, type: 3}
-  m_Name: Grass_1_Albedo_Blur
+  m_Name: Grass_1_Albedo_Blur_Light
   m_EditorClassIdentifier: 
   data:
     preset: 11
@@ -22,6 +22,9 @@ MonoBehaviour:
       rid: 6874733124796547074
     filters:
     - rid: 6874733131516608516
+    - rid: 6874733282279555072
+    - rid: 6874733282279555073
+    - rid: 6874733282279555074
   references:
     version: 2
     RefIds:
@@ -35,4 +38,26 @@ MonoBehaviour:
     - rid: 6874733131516608516
       type: {class: LeanFilterBlur, ns: Lean.Texture, asm: LeanTexturePlus}
       data:
-        radius: 40
+        radius: 20
+    - rid: 6874733282279555072
+      type: {class: LeanFilterReplace, ns: Lean.Texture, asm: LeanTexturePlus}
+      data:
+        oldColor: {r: 0.3372549, g: 0.43137255, b: 0.2901961, a: 1}
+        newColor: {r: 0.43529412, g: 0.6784314, b: 0.07450981, a: 1}
+        distance: 0
+        threshold: 0.01
+        edge: 0.1
+        opacity: 1
+    - rid: 6874733282279555073
+      type: {class: LeanFilterReplace, ns: Lean.Texture, asm: LeanTexturePlus}
+      data:
+        oldColor: {r: 0.41960785, g: 0.5921569, b: 0.2784314, a: 1}
+        newColor: {r: 0.3372549, g: 0.43137255, b: 0.2901961, a: 1}
+        distance: 0
+        threshold: 0.01
+        edge: 0.1
+        opacity: 1
+    - rid: 6874733282279555074
+      type: {class: LeanFilterSaturation, ns: Lean.Texture, asm: LeanTexture}
+      data:
+        multiplier: 1
