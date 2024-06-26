@@ -43,7 +43,7 @@ MonoBehaviour:
       type: {class: LeanFilterReplace, ns: Lean.Texture, asm: LeanTexturePlus}
       data:
         oldColor: {r: 0.3372549, g: 0.43137255, b: 0.2901961, a: 1}
-        newColor: {r: 0.1967782, g: 0.6226415, b: 0.29772353, a: 1}
+        newColor: {r: 0.19607843, g: 0.62352943, b: 0.29803923, a: 1}
         distance: 0
         threshold: 0.01
         edge: 0.1
@@ -52,7 +52,7 @@ MonoBehaviour:
       type: {class: LeanFilterReplace, ns: Lean.Texture, asm: LeanTexturePlus}
       data:
         oldColor: {r: 0.41960785, g: 0.5921569, b: 0.2784314, a: 1}
-        newColor: {r: 0.19607843, g: 0.62352943, b: 0.29803923, a: 1}
+        newColor: {r: 0.5882353, g: 0.62352943, b: 0.08627451, a: 1}
         distance: 0
         threshold: 0.01
         edge: 0.1
@@ -61,7 +61,7 @@ MonoBehaviour:
       type: {class: LeanFilterReplace, ns: Lean.Texture, asm: LeanTexturePlus}
       data:
         oldColor: {r: 0.29803923, g: 0.54901963, b: 0.29803923, a: 1}
-        newColor: {r: 0.5338088, g: 0.62352943, b: 0.29803923, a: 1}
+        newColor: {r: 0.5686275, g: 0.62352943, b: 0.16470589, a: 1}
         distance: 0
         threshold: 0.01
         edge: 0.1
