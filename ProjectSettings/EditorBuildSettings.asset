@@ -12,6 +12,6 @@ EditorBuildSettings:
     path: Assets/Scenes/Mechanic Test Bed.unity
     guid: 7741da4bdea9a0d4187bdb8307f499ec
   - enabled: 1
-    path: Assets/Scenes/Prototype/Prototype_Level.unity
+    path: Assets/Scenes/Prototype/Lake.unity
     guid: 53e9c4bcf42dbc54ea4e57a16aeac1d5
   m_configObjects: {}
