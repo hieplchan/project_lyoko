@@ -23,6 +23,30 @@ Material:
   m_SavedProperties:
     serializedVersion: 3
     m_TexEnvs:
+    - _ClusterDiffuse2:
+        m_Texture: {fileID: 18700000, guid: 751f9e66e3a03164494c8d440129e0a4, type: 2}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _ClusterDiffuse3:
+        m_Texture: {fileID: 18700000, guid: 0b10c66d33933174298765d7907bb5ab, type: 2}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _ClusterNoise:
+        m_Texture: {fileID: 2800000, guid: 275f7334b25c94ff299627ea720661b4, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _ClusterNoise2:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _ClusterNormal2:
+        m_Texture: {fileID: 18700000, guid: ad51f12484989074599aaa301c162b6c, type: 2}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _ClusterNormal3:
+        m_Texture: {fileID: 18700000, guid: a7c635a4e218e644bb77785734d67154, type: 2}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - _Control0:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
@@ -86,12 +110,17 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - _Contrast: 0.4
-    - _HybridHeightBlendDistance: 300
+    - _ClusterBoost: 0.74
+    - _ClusterContrast: 0.877
+    - _ClusterScaleVar: 0
+    - _Contrast: 0.307
+    - _HybridHeightBlendDistance: 570
     - _SSSDistance: 1
     - _SSSPower: 4
     - _SSSScale: 4
     m_Colors:
+    - _ClusterParams: {r: 25, g: 25, b: 1.14, a: 0}
+    - _ClusterParams2: {r: 3, g: 3, b: 0, a: 0}
     - _TriplanarUVScale: {r: 1, g: 1, b: 0, a: 0}
     - _UVScale: {r: 45, g: 45, b: 0, a: 0}
   m_BuildTextureStacks: []
