@@ -63,12 +63,32 @@ Material:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
+    - _DetailNoise:
+        m_Texture: {fileID: 2800000, guid: c3e57cb2426d34f64af1fc986aa89fcf, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - _Diffuse:
         m_Texture: {fileID: 18700000, guid: ade671e0654deed4ea72602500730c2e, type: 2}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
+    - _DistanceNoise:
+        m_Texture: {fileID: 2800000, guid: c3e57cb2426d34f64af1fc986aa89fcf, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - _MainTex:
         m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _NormalNoise:
+        m_Texture: {fileID: 2800000, guid: cfa942d94204a4aeb970870316799af2, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _NormalNoise2:
+        m_Texture: {fileID: 2800000, guid: 0dfc76f6aeb2a4b4ab78b17faf5a32ea, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _NormalNoise3:
+        m_Texture: {fileID: 2800000, guid: 993678365290144589d31930a617b969, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _NormalSAO:
@@ -121,6 +141,11 @@ Material:
     m_Colors:
     - _ClusterParams: {r: 25, g: 25, b: 1.14, a: 0}
     - _ClusterParams2: {r: 3, g: 3, b: 0, a: 0}
+    - _DetailNoiseScaleStrengthFade: {r: 4, g: 0.5, b: 1.66, a: 0}
+    - _DistanceNoiseScaleStrengthFade: {r: -1.64, g: 0.51, b: 72.5, a: 232.9}
+    - _NormalNoiseScaleStrength: {r: 2.7, g: 0, b: 0, a: 0}
+    - _NormalNoiseScaleStrength2: {r: 2.4, g: 0, b: 0, a: 0}
+    - _NormalNoiseScaleStrength3: {r: 8.34, g: 0.49, b: 0, a: 0}
     - _TriplanarUVScale: {r: 1, g: 1, b: 0, a: 0}
     - _UVScale: {r: 45, g: 45, b: 0, a: 0}
   m_BuildTextureStacks: []
