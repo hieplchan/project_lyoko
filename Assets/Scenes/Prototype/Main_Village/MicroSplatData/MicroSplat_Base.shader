@@ -11,7 +11,7 @@
 ////////////////////////////////////////
 
 
-Shader "Hidden/Terrain_Base1681689135"
+Shader "Hidden/Terrain_Base1981406432"
 {
    Properties
    {
@@ -151,6 +151,7 @@ Shader "Hidden/Terrain_Base1681689135"
       #define _PERTEXBRIGHTNESS 1
       #define _PERTEXCOLORINTENSITY 1
       #define _PERTEXCONTRAST 1
+      #define _PERTEXAOSTR 1
       #define _PERTEXNORMSTR 1
       #define _PERTEXSMOOTHSTR 1
       #define _BRANCHSAMPLES 1
@@ -6087,6 +6088,7 @@ float3 GetTessFactors ()
       #define _PERTEXBRIGHTNESS 1
       #define _PERTEXCOLORINTENSITY 1
       #define _PERTEXCONTRAST 1
+      #define _PERTEXAOSTR 1
       #define _PERTEXNORMSTR 1
       #define _PERTEXSMOOTHSTR 1
       #define _BRANCHSAMPLES 1
@@ -11960,6 +11962,7 @@ float3 GetTessFactors ()
       #define _PERTEXBRIGHTNESS 1
       #define _PERTEXCOLORINTENSITY 1
       #define _PERTEXCONTRAST 1
+      #define _PERTEXAOSTR 1
       #define _PERTEXNORMSTR 1
       #define _PERTEXSMOOTHSTR 1
       #define _BRANCHSAMPLES 1
@@ -17748,6 +17751,7 @@ float3 GetTessFactors ()
       #define _PERTEXBRIGHTNESS 1
       #define _PERTEXCOLORINTENSITY 1
       #define _PERTEXCONTRAST 1
+      #define _PERTEXAOSTR 1
       #define _PERTEXNORMSTR 1
       #define _PERTEXSMOOTHSTR 1
       #define _BRANCHSAMPLES 1
@@ -23532,6 +23536,7 @@ float3 GetTessFactors ()
       #define _PERTEXBRIGHTNESS 1
       #define _PERTEXCOLORINTENSITY 1
       #define _PERTEXCONTRAST 1
+      #define _PERTEXAOSTR 1
       #define _PERTEXNORMSTR 1
       #define _PERTEXSMOOTHSTR 1
       #define _BRANCHSAMPLES 1
@@ -29320,6 +29325,7 @@ float3 GetTessFactors ()
       #define _PERTEXBRIGHTNESS 1
       #define _PERTEXCOLORINTENSITY 1
       #define _PERTEXCONTRAST 1
+      #define _PERTEXAOSTR 1
       #define _PERTEXNORMSTR 1
       #define _PERTEXSMOOTHSTR 1
       #define _BRANCHSAMPLES 1
