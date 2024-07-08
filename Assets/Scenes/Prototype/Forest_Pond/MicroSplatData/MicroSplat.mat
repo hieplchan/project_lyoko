@@ -14,7 +14,7 @@ Material:
   m_ValidKeywords: []
   m_InvalidKeywords: []
   m_LightmapFlags: 4
-  m_EnableInstancingVariants: 0
+  m_EnableInstancingVariants: 1
   m_DoubleSidedGI: 0
   m_CustomRenderQueue: -1
   stringTagMap: {}
@@ -23,6 +23,18 @@ Material:
   m_SavedProperties:
     serializedVersion: 3
     m_TexEnvs:
+    - _ClusterDiffuse2:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _ClusterNoise:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _ClusterNormal2:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - _Control0:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
@@ -39,11 +51,35 @@ Material:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
+    - _DetailNoise:
+        m_Texture: {fileID: 2800000, guid: c3e57cb2426d34f64af1fc986aa89fcf, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - _Diffuse:
         m_Texture: {fileID: 18700000, guid: d7aa8d9b9997ff248a33d23d7f37a6c7, type: 2}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
+    - _DistanceNoise:
+        m_Texture: {fileID: 2800000, guid: c3e57cb2426d34f64af1fc986aa89fcf, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - _MainTex:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _NoiseHeight:
+        m_Texture: {fileID: 2800000, guid: b4b1fb33271e45948b28840014c2f44d, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _NormalNoise:
+        m_Texture: {fileID: 2800000, guid: ab54f02dec0613f4dba552e313a336da, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _NormalNoise2:
+        m_Texture: {fileID: 2800000, guid: 812dfc548da1e2b4d9e5d78e61b2e4e6, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _NormalNoise3:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
@@ -86,9 +122,22 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
+    - _ClusterBoost: 1
+    - _ClusterContrast: 0.8
+    - _ClusterScaleVar: 0.05
     - _Contrast: 0.4
+    - _DistanceResampleAlbedoStrength: 1
+    - _DistanceResampleNormalStrength: 0.777
     - _HybridHeightBlendDistance: 300
     m_Colors:
+    - _ClusterParams: {r: 6, g: 6, b: 0, a: 0}
+    - _DetailNoiseScaleStrengthFade: {r: 4, g: 0.5, b: 5, a: 0}
+    - _DistanceNoiseScaleStrengthFade: {r: 0.32, g: -1.84, b: 100, a: 250}
+    - _NoiseHeightData: {r: 30.8, g: 0.28, b: 0, a: 0}
+    - _NormalNoiseScaleStrength: {r: 0.6, g: -5.26, b: 0, a: 0}
+    - _NormalNoiseScaleStrength2: {r: 1, g: 5.13, b: 0, a: 0}
+    - _NormalNoiseScaleStrength3: {r: 8, g: 0.5, b: 0, a: 0}
+    - _ResampleDistanceParams: {r: 0.25, g: 180, b: 500, a: 0}
     - _TriplanarUVScale: {r: 1, g: 1, b: 0, a: 0}
     - _UVScale: {r: 45, g: 45, b: 0, a: 0}
   m_BuildTextureStacks: []
