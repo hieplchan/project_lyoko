@@ -450,6 +450,7 @@ GameObject:
   - component: {fileID: 581124615}
   - component: {fileID: 581124614}
   - component: {fileID: 581124617}
+  - component: {fileID: 581124618}
   m_Layer: 6
   m_Name: Terrain
   m_TagString: Untagged
@@ -570,6 +571,20 @@ MonoBehaviour:
   patchBoundsMultiplier: {x: 1, y: 1, z: 1}
   reenabled: 1
   importSplatMaps: []
+--- !u!114 &581124618
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 581124613}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 36cc16b6ed6bada43b148277902339d8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  myTerrain: {fileID: 581124615}
+  raiseHeightInUnits: 20
 --- !u!1 &706409606
 GameObject:
   m_ObjectHideFlags: 0
