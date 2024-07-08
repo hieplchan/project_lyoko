@@ -268,17 +268,17 @@ PrefabInstance:
     - target: {fileID: 8601219196290787554, guid: 2df2db44622d4c44a8a1a5b52589b428,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 8.5
+      value: 17.93075
       objectReference: {fileID: 0}
     - target: {fileID: 8601219196290787554, guid: 2df2db44622d4c44a8a1a5b52589b428,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 20
+      value: 19.996338
       objectReference: {fileID: 0}
     - target: {fileID: 8601219196290787554, guid: 2df2db44622d4c44a8a1a5b52589b428,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -3.75
+      value: -1.8740759
       objectReference: {fileID: 0}
     - target: {fileID: 8601219196290787554, guid: 2df2db44622d4c44a8a1a5b52589b428,
         type: 3}
@@ -391,17 +391,17 @@ PrefabInstance:
     - target: {fileID: 8253160277026723721, guid: 36fd9a2732363f644a9a63b5b635b8a9,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 54.402763
+      value: 63.83352
       objectReference: {fileID: 0}
     - target: {fileID: 8253160277026723721, guid: 36fd9a2732363f644a9a63b5b635b8a9,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 56.862244
+      value: 56.86224
       objectReference: {fileID: 0}
     - target: {fileID: 8253160277026723721, guid: 36fd9a2732363f644a9a63b5b635b8a9,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -14.368277
+      value: -12.492361
       objectReference: {fileID: 0}
     - target: {fileID: 8253160277026723721, guid: 36fd9a2732363f644a9a63b5b635b8a9,
         type: 3}
@@ -416,12 +416,12 @@ PrefabInstance:
     - target: {fileID: 8253160277026723721, guid: 36fd9a2732363f644a9a63b5b635b8a9,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.00000019067419
+      value: 0.0000001844661
       objectReference: {fileID: 0}
     - target: {fileID: 8253160277026723721, guid: 36fd9a2732363f644a9a63b5b635b8a9,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.00000007238642
+      value: -0.00000007002962
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

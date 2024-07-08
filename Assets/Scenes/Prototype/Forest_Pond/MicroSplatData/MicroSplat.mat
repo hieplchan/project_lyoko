@@ -134,8 +134,8 @@ Material:
     - _DetailNoiseScaleStrengthFade: {r: 4, g: 0.5, b: 5, a: 0}
     - _DistanceNoiseScaleStrengthFade: {r: 0.32, g: -1.84, b: 100, a: 250}
     - _NoiseHeightData: {r: 30.8, g: 0.28, b: 0, a: 0}
-    - _NormalNoiseScaleStrength: {r: 0.6, g: -5.26, b: 0, a: 0}
-    - _NormalNoiseScaleStrength2: {r: 1, g: 5.13, b: 0, a: 0}
+    - _NormalNoiseScaleStrength: {r: 0.5, g: -0.7, b: 0, a: 0}
+    - _NormalNoiseScaleStrength2: {r: 2.14, g: 0.16, b: 0, a: 0}
     - _NormalNoiseScaleStrength3: {r: 8, g: 0.5, b: 0, a: 0}
     - _ResampleDistanceParams: {r: 0.25, g: 180, b: 500, a: 0}
     - _TriplanarUVScale: {r: 1, g: 1, b: 0, a: 0}
