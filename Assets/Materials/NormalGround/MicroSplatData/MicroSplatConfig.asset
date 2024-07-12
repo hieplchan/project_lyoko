@@ -99,11 +99,11 @@ MonoBehaviour:
   allTextureChannelAO: 1
   sourceTextures:
   - terrainLayer: {fileID: 0}
-    diffuse: {fileID: 0}
+    diffuse: {fileID: 2800000, guid: 2185e174a99b4ce4f9818b42004e5c3a, type: 3}
     height: {fileID: 0}
     heightChannel: 1
-    normal: {fileID: 0}
-    smoothness: {fileID: 0}
+    normal: {fileID: 2800000, guid: 3381b71cc4eb5b0449b1bac3577a7995, type: 3}
+    smoothness: {fileID: 2800000, guid: 2087ac8b592eced41bac9068a7a5890f, type: 3}
     smoothnessChannel: 1
     isRoughness: 0
     ao: {fileID: 0}
