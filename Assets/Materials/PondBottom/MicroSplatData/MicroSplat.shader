@@ -126,6 +126,7 @@ Shader "PondBottom"
       #define _MICROMESH 1
       #define _USEGRADMIP 1
       #define _MAX4TEXTURES 1
+      #define _PERTEXTINT 1
       #define _PERTEXNORMSTR 1
       #define _BRANCHSAMPLES 1
       #define _MSRENDERLOOP_UNITYURP2022 1
@@ -4393,6 +4394,7 @@ float3 GetTessFactors ()
       #define _MICROMESH 1
       #define _USEGRADMIP 1
       #define _MAX4TEXTURES 1
+      #define _PERTEXTINT 1
       #define _PERTEXNORMSTR 1
       #define _BRANCHSAMPLES 1
       #define _MSRENDERLOOP_UNITYURP2022 1
@@ -8597,6 +8599,7 @@ float3 GetTessFactors ()
       #define _MICROMESH 1
       #define _USEGRADMIP 1
       #define _MAX4TEXTURES 1
+      #define _PERTEXTINT 1
       #define _PERTEXNORMSTR 1
       #define _BRANCHSAMPLES 1
       #define _MSRENDERLOOP_UNITYURP2022 1
@@ -12716,6 +12719,7 @@ float3 GetTessFactors ()
       #define _MICROMESH 1
       #define _USEGRADMIP 1
       #define _MAX4TEXTURES 1
+      #define _PERTEXTINT 1
       #define _PERTEXNORMSTR 1
       #define _BRANCHSAMPLES 1
       #define _MSRENDERLOOP_UNITYURP2022 1
@@ -16831,6 +16835,7 @@ float3 GetTessFactors ()
       #define _MICROMESH 1
       #define _USEGRADMIP 1
       #define _MAX4TEXTURES 1
+      #define _PERTEXTINT 1
       #define _PERTEXNORMSTR 1
       #define _BRANCHSAMPLES 1
       #define _MSRENDERLOOP_UNITYURP2022 1
@@ -20950,6 +20955,7 @@ float3 GetTessFactors ()
       #define _MICROMESH 1
       #define _USEGRADMIP 1
       #define _MAX4TEXTURES 1
+      #define _PERTEXTINT 1
       #define _PERTEXNORMSTR 1
       #define _BRANCHSAMPLES 1
       #define _MSRENDERLOOP_UNITYURP2022 1
@@ -25070,7 +25076,7 @@ float3 GetTessFactors ()
       
       
    }
-   Dependency "BaseMapShader" =  "Hidden/PondBottom_Base1546312455"
-   Fallback "Hidden/PondBottom_Base1546312455"
+   Dependency "BaseMapShader" =  "Hidden/PondBottom_Base-451987508"
+   Fallback "Hidden/PondBottom_Base-451987508"
    CustomEditor "MicroSplatShaderGUI"
 }
