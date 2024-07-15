@@ -128,6 +128,7 @@ Shader "PondBottom"
       #define _MAX4TEXTURES 1
       #define _PERTEXTINT 1
       #define _PERTEXNORMSTR 1
+      #define _PERTEXSMOOTHSTR 1
       #define _BRANCHSAMPLES 1
       #define _MSRENDERLOOP_UNITYURP2022 1
       #define _MSRENDERLOOP_UNITYLD 1
@@ -4396,6 +4397,7 @@ float3 GetTessFactors ()
       #define _MAX4TEXTURES 1
       #define _PERTEXTINT 1
       #define _PERTEXNORMSTR 1
+      #define _PERTEXSMOOTHSTR 1
       #define _BRANCHSAMPLES 1
       #define _MSRENDERLOOP_UNITYURP2022 1
       #define _MSRENDERLOOP_UNITYLD 1
@@ -8601,6 +8603,7 @@ float3 GetTessFactors ()
       #define _MAX4TEXTURES 1
       #define _PERTEXTINT 1
       #define _PERTEXNORMSTR 1
+      #define _PERTEXSMOOTHSTR 1
       #define _BRANCHSAMPLES 1
       #define _MSRENDERLOOP_UNITYURP2022 1
       #define _MSRENDERLOOP_UNITYLD 1
@@ -12721,6 +12724,7 @@ float3 GetTessFactors ()
       #define _MAX4TEXTURES 1
       #define _PERTEXTINT 1
       #define _PERTEXNORMSTR 1
+      #define _PERTEXSMOOTHSTR 1
       #define _BRANCHSAMPLES 1
       #define _MSRENDERLOOP_UNITYURP2022 1
       #define _MSRENDERLOOP_UNITYLD 1
@@ -16837,6 +16841,7 @@ float3 GetTessFactors ()
       #define _MAX4TEXTURES 1
       #define _PERTEXTINT 1
       #define _PERTEXNORMSTR 1
+      #define _PERTEXSMOOTHSTR 1
       #define _BRANCHSAMPLES 1
       #define _MSRENDERLOOP_UNITYURP2022 1
       #define _MSRENDERLOOP_UNITYLD 1
@@ -20957,6 +20962,7 @@ float3 GetTessFactors ()
       #define _MAX4TEXTURES 1
       #define _PERTEXTINT 1
       #define _PERTEXNORMSTR 1
+      #define _PERTEXSMOOTHSTR 1
       #define _BRANCHSAMPLES 1
       #define _MSRENDERLOOP_UNITYURP2022 1
       #define _MSRENDERLOOP_UNITYLD 1
@@ -25076,7 +25082,7 @@ float3 GetTessFactors ()
       
       
    }
-   Dependency "BaseMapShader" =  "Hidden/PondBottom_Base-451987508"
-   Fallback "Hidden/PondBottom_Base-451987508"
+   Dependency "BaseMapShader" =  "Hidden/PondBottom_Base-496986001"
+   Fallback "Hidden/PondBottom_Base-496986001"
    CustomEditor "MicroSplatShaderGUI"
 }
