@@ -141,11 +141,11 @@ Material:
     - _Blend: 0
     - _BumpScale: 1
     - _CROSSPAN_INTERSECTIONOn: 1
-    - _CausticsBrightness: 2.05
-    - _CausticsDistortion: 0
+    - _CausticsBrightness: 1.05
+    - _CausticsDistortion: 1
     - _CausticsOn: 1
-    - _CausticsSpeed: 0.030000014
-    - _CausticsTiling: -0.029999984
+    - _CausticsSpeed: 0.020000014
+    - _CausticsTiling: 0.020000014
     - _ColorAbsorption: 0.072
     - _CrossPan_IntersectionOn: 0
     - _Cull: 2
@@ -228,13 +228,13 @@ Material:
     - _RefractionAmount: 0.05
     - _RefractionChromaticAberration: 1
     - _RefractionOn: 1
-    - _RefractionStrength: 0
+    - _RefractionStrength: 0.249
     - _RimRize: 1
     - _RimTiling: 0.025
     - _RiverModeOn: 0
     - _SHARP_INERSECTIONOn: 1
     - _ShadingMode: 1
-    - _ShadowStrength: 0.826
+    - _ShadowStrength: 1
     - _ShoreLineLength: 0
     - _ShoreLineWaveDistance: 23
     - _ShoreLineWaveStr: 1
@@ -276,7 +276,7 @@ Material:
     - _WaveCount: 2
     - _WaveDistance: 0.833
     - _WaveHeight: 0
-    - _WaveNormalStr: 3.5
+    - _WaveNormalStr: 2.2
     - _WaveSpeed: 2.3999996
     - _WaveSteepness: 0
     - _WaveTint: 0
@@ -286,7 +286,7 @@ Material:
     - _ZClip: 1
     - _ZWrite: 0
     m_Colors:
-    - _BaseColor: {r: 0.016657919, g: 0.38916296, b: 0.7062958, a: 0.5254902}
+    - _BaseColor: {r: 0.016657919, g: 0.38916296, b: 1, a: 0.2901961}
     - _Color: {r: 0.5, g: 0.5, b: 0.5, a: 1}
     - _DepthMapBounds: {r: -402.3, g: -459.43, b: 0.0012693577, a: 0}
     - _Direction: {r: 1, g: 1, b: 0, a: 0}
@@ -298,7 +298,7 @@ Material:
     - _IntersectionColor: {r: 1, g: 1, b: 1, a: 1}
     - _NormalTiling: {r: 0.5, g: 0.5, b: 0, a: 0}
     - _RimColor: {r: 1, g: 1, b: 1, a: 1}
-    - _ShallowColor: {r: 0, g: 0.70762044, b: 1.4980392, a: 1}
+    - _ShallowColor: {r: 0.03137252, g: 0.83137256, b: 1.4980392, a: 1}
     - _SpecColor: {r: 0.2, g: 0.2, b: 0.2, a: 1}
     - _WaterColor: {r: 0.21176466, g: 0.6745098, b: 1, a: 1}
     - _WaterShallowColor: {r: 0, g: 0.9394503, b: 1, a: 1}
