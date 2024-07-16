@@ -438,138 +438,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 467443564}
   m_CullTransparentMesh: 1
---- !u!1 &581124613
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 581124616}
-  - component: {fileID: 581124615}
-  - component: {fileID: 581124614}
-  - component: {fileID: 581124617}
-  m_Layer: 6
-  m_Name: Terrain
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 2147483647
-  m_IsActive: 0
---- !u!154 &581124614
-TerrainCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 581124613}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_TerrainData: {fileID: 15600000, guid: e48fcdb97787e8b41adfaba439a9c8d2, type: 2}
-  m_EnableTreeColliders: 1
---- !u!218 &581124615
-Terrain:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 581124613}
-  m_Enabled: 1
-  serializedVersion: 6
-  m_TerrainData: {fileID: 15600000, guid: e48fcdb97787e8b41adfaba439a9c8d2, type: 2}
-  m_TreeDistance: 5000
-  m_TreeBillboardDistance: 50
-  m_TreeCrossFadeLength: 5
-  m_TreeMaximumFullLODCount: 50
-  m_DetailObjectDistance: 80
-  m_DetailObjectDensity: 1
-  m_HeightmapPixelError: 5
-  m_SplatMapDistance: 512
-  m_HeightmapMaximumLOD: 0
-  m_ShadowCastingMode: 2
-  m_DrawHeightmap: 1
-  m_DrawInstanced: 0
-  m_DrawTreesAndFoliage: 1
-  m_StaticShadowCaster: 0
-  m_IgnoreQualitySettings: 0
-  m_ReflectionProbeUsage: 1
-  m_MaterialTemplate: {fileID: 0}
-  m_BakeLightProbesForTrees: 1
-  m_PreserveTreePrototypeLayers: 0
-  m_DeringLightProbesForTrees: 1
-  m_ReceiveGI: 1
-  m_ScaleInLightmap: 0.0256
-  m_LightmapParameters: {fileID: 15203, guid: 0000000000000000f000000000000000, type: 0}
-  m_GroupingID: 0
-  m_RenderingLayerMask: 1
-  m_AllowAutoConnect: 1
-  m_EnableHeightmapRayTracing: 1
-  m_EnableTreesAndDetailsRayTracing: 0
-  m_TreeMotionVectorModeOverride: 3
---- !u!4 &581124616
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 581124613}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -100, y: 0, z: -100}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &581124617
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 581124613}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6525fd4a9fb974b7f878dee70144de99, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  templateMaterial: {fileID: 2100000, guid: 949221f6f3c455c40bd71139e36fcad3, type: 2}
-  blendMat: {fileID: 0}
-  blendMatInstance: {fileID: 0}
-  keywordSO: {fileID: 11400000, guid: 3242fc2c011450f4ba270ee8a2ff7122, type: 2}
-  perPixelNormal: {fileID: 0}
-  streamTexture: {fileID: 0}
-  snowMaskOverride: {fileID: 0}
-  tintMapOverride: {fileID: 0}
-  globalNormalOverride: {fileID: 0}
-  globalSAOMOverride: {fileID: 0}
-  globalEmisOverride: {fileID: 0}
-  geoTextureOverride: {fileID: 0}
-  clipMap: {fileID: 0}
-  propData: {fileID: 11400000, guid: 84e2b449af562854e9ff1232331fae9a, type: 2}
-  terrain: {fileID: 581124615}
-  baseMapShader: {fileID: 4800000, guid: ae122ffbc0bfe0c4a9b3452d74716480, type: 3}
-  customControl0: {fileID: 0}
-  customControl1: {fileID: 0}
-  customControl2: {fileID: 0}
-  customControl3: {fileID: 0}
-  customControl4: {fileID: 0}
-  customControl5: {fileID: 0}
-  customControl6: {fileID: 0}
-  customControl7: {fileID: 0}
-  patchBoundsMultiplier: {x: 1, y: 1, z: 1}
-  reenabled: 1
-  importSplatMaps: []
 --- !u!1 &653075457
 GameObject:
   m_ObjectHideFlags: 0
@@ -585,7 +453,7 @@ GameObject:
   - component: {fileID: 653075460}
   - component: {fileID: 653075459}
   m_Layer: 6
-  m_Name: Ground (1)
+  m_Name: Ground_StandardMat
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3375,7 +3243,7 @@ GameObject:
   - component: {fileID: 740771446}
   - component: {fileID: 740771452}
   m_Layer: 6
-  m_Name: Ground
+  m_Name: Ground_MeshMat
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6724,7 +6592,7 @@ GameObject:
   - component: {fileID: 1531240825}
   - component: {fileID: 1531240824}
   m_Layer: 0
-  m_Name: ------------------- (1)
+  m_Name: -------------------
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7024,7 +6892,7 @@ MonoBehaviour:
       bUVRangeOverride: 0
       uvRange: {x: 1, y: 1, z: 0.5, w: 0.5}
     matInstance: {fileID: 0}
-    oldKey: -952785292373134760
+    oldKey: 503825649113575372
 --- !u!1 &1721759317
 GameObject:
   m_ObjectHideFlags: 0
@@ -8443,7 +8311,6 @@ SceneRoots:
   - {fileID: 740771451}
   - {fileID: 653075464}
   - {fileID: 1677377316}
-  - {fileID: 581124616}
   - {fileID: 1888017370}
   - {fileID: 706409608}
   - {fileID: 1531240825}
