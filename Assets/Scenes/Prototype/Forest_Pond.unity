@@ -7024,7 +7024,7 @@ MonoBehaviour:
       bUVRangeOverride: 0
       uvRange: {x: 1, y: 1, z: 0.5, w: 0.5}
     matInstance: {fileID: 0}
-    oldKey: 5370576015024017740
+    oldKey: -952785292373134760
 --- !u!1 &1721759317
 GameObject:
   m_ObjectHideFlags: 0
@@ -7666,7 +7666,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!64 &1919644844
 MeshCollider:
   m_ObjectHideFlags: 0
