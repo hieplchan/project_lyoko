@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18378867, g: 0.22912334, b: 0.3042606, a: 1}
+  m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -663,21 +663,6 @@ PrefabInstance:
       propertyPath: _weaponController
       value: 
       objectReference: {fileID: 513227258}
-    - target: {fileID: 8828119141089289290, guid: 439a7476a3325c24ea9dfa10b12f0bac,
-        type: 3}
-      propertyPath: m_LocalScale.x
-      value: 1.1414
-      objectReference: {fileID: 0}
-    - target: {fileID: 8828119141089289290, guid: 439a7476a3325c24ea9dfa10b12f0bac,
-        type: 3}
-      propertyPath: m_LocalScale.y
-      value: 1.1414
-      objectReference: {fileID: 0}
-    - target: {fileID: 8828119141089289290, guid: 439a7476a3325c24ea9dfa10b12f0bac,
-        type: 3}
-      propertyPath: m_LocalScale.z
-      value: 1.1414
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
