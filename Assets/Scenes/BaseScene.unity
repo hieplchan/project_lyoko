@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 1}
+  m_IndirectSpecularColor: {r: 0.17790219, g: 0.22273904, b: 0.3048734, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -253,6 +253,12 @@ ParticleSystem:
     type: 3}
   m_PrefabInstance: {fileID: 1849604014}
   m_PrefabAsset: {fileID: 0}
+--- !u!4 &468177358 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8601219196290787554, guid: 2df2db44622d4c44a8a1a5b52589b428,
+    type: 3}
+  m_PrefabInstance: {fileID: 1849604014}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &513227258 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 2304712973009153951, guid: 2df2db44622d4c44a8a1a5b52589b428,
@@ -311,7 +317,7 @@ PrefabInstance:
     - target: {fileID: 4715452437847462414, guid: 2df2db44622d4c44a8a1a5b52589b428,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4741440449343116934, guid: 2df2db44622d4c44a8a1a5b52589b428,
         type: 3}
@@ -461,7 +467,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LookAt
       value: 
-      objectReference: {fileID: 8601219196699376936}
+      objectReference: {fileID: 468177358}
     - target: {fileID: 7992303268821627590, guid: 36fd9a2732363f644a9a63b5b635b8a9,
         type: 3}
       propertyPath: m_LocalRotation.w
@@ -557,6 +563,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Prefab_TanukiBoy
+      objectReference: {fileID: 0}
+    - target: {fileID: 2250040174776289191, guid: 439a7476a3325c24ea9dfa10b12f0bac,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2841351083555873579, guid: 439a7476a3325c24ea9dfa10b12f0bac,
         type: 3}
@@ -668,12 +679,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 439a7476a3325c24ea9dfa10b12f0bac, type: 3}
---- !u!4 &8601219196699376936 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 5371816581860039973, guid: 439a7476a3325c24ea9dfa10b12f0bac,
-    type: 3}
-  m_PrefabInstance: {fileID: 7561594787640172034}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
